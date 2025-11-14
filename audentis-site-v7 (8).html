@@ -29,7 +29,7 @@
         }
         
         body.welcome-mode {
-            background: #1f1f1f;
+            background: #2a1810;
         }
         
         body.welcome-mode::before {
@@ -1012,8 +1012,8 @@
             width: 100%;
             min-height: 120px;
             border-radius: 16px;
-            background: rgba(20, 20, 20, 0.5);
-            border: 1px solid rgba(150, 150, 150, 0.2);
+            background: rgba(75, 62, 51, 0.25);
+            border: 1px solid rgba(255, 127, 92, 0.15);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1030,7 +1030,7 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             border-color: rgba(255, 127, 92, 0.4);
-            background: rgba(20, 20, 20, 0.7);
+            background: rgba(75, 62, 51, 0.4);
         }
 
         .bubble-content {
@@ -1918,8 +1918,8 @@
             display: none;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 70px;
+            width: calc(100% - 70px);
             height: 100%;
             background: #1a0f0a;
             z-index: 10001;
@@ -1932,10 +1932,10 @@
             content: '';
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 70px;
+            width: calc(100% - 70px);
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 20%, rgba(255, 127, 92, 0.20) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 127, 92, 0.12) 0%, transparent 50%),
                 radial-gradient(circle at 40% 70%, rgba(245, 245, 247, 0.10) 0%, transparent 50%),
@@ -1947,10 +1947,10 @@
             content: '';
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 70px;
+            width: calc(100% - 70px);
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(90deg, rgba(245, 245, 247, 0.02) 1px, transparent 1px),
                 linear-gradient(rgba(245, 245, 247, 0.02) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -3304,6 +3304,17 @@
             }
 
             /* Full-screen modal/chat on mobile */
+            .expertise-modal {
+                left: 50px;
+                width: calc(100% - 50px);
+            }
+
+            .expertise-modal::before,
+            .expertise-modal::after {
+                left: 50px;
+                width: calc(100% - 50px);
+            }
+
             .expertise-modal-content {
                 margin: 0 !important;
                 padding: 70px 16px 20px !important;
