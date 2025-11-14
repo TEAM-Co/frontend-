@@ -1093,13 +1093,14 @@
         }
 
         .brand-title {
-            font-size: clamp(3rem, 10vw, 7rem);
+            font-size: clamp(2.2rem, 10vw, 7rem);
             font-weight: 900;
             margin-bottom: 30px;
             margin-top: 0;
             letter-spacing: -0.03em;
             text-shadow: 0 4px 20px rgba(255, 127, 92, 0.3);
             text-align: center;
+            white-space: nowrap;
         }
 
         body.theme-it .brand-title {
@@ -3594,7 +3595,7 @@
     <div class="main-container" id="landingIT">
         <!-- Hero section - Contenu principal centré -->
         <div class="landing-hero">
-            <h1 class="brand-title">Le Lab Technique</h1>
+            <h1 class="brand-title">Lab Technique</h1>
             <p class="intro-text">
                 Experts techniques pour vos projets<br>
                 Posez votre question, nos équipes évaluent votre besoin et vous répondent sous 24h
@@ -3774,7 +3775,7 @@
     <div class="main-container" id="landingGov">
         <!-- Hero section - Contenu principal centré -->
         <div class="landing-hero">
-            <h1 class="brand-title">Le Hub Stratégique</h1>
+            <h1 class="brand-title">Hub Stratégique</h1>
             <p class="intro-text">
                 Experts stratégiques pour vos projets<br>
                 Posez votre question, nos équipes évaluent votre besoin et vous répondent sous 24h
@@ -6157,10 +6158,10 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             chatState.initialQuestion = initialQuestion;
             
             if (siteType === 'it') {
-                chatTitle.textContent = 'Le Lab Technique';
+                chatTitle.textContent = 'Lab Technique';
                 chatSubtitle.textContent = 'Expert IT en ligne';
             } else {
-                chatTitle.textContent = 'Le Hub Stratégique';
+                chatTitle.textContent = 'Hub Stratégique';
                 chatSubtitle.textContent = 'Expert Gouvernance en ligne';
             }
             
