@@ -378,7 +378,7 @@
             z-index: 998;
             min-width: 140px;
             height: 40px;
-            display: none;
+            display: none !important;
             align-items: center;
             justify-content: center;
             overflow: hidden;
@@ -613,23 +613,28 @@
         }
 
         .sidebar-switcher-text {
-            font-size: 0.65rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            color: rgba(245, 245, 247, 0.85);
+            color: #f5f5f7;
             text-align: center;
             line-height: 1.2;
             z-index: 1;
             letter-spacing: 0.5px;
         }
 
-        body.theme-gov .sidebar-switcher-text {
-            color: rgba(26, 26, 26, 0.85);
+        /* Sur thème IT: afficher "Gouv" en ivoire */
+        body.theme-it .sidebar-switcher-text {
+            color: #f5f5f7;
         }
 
+        /* Sur thème GOV: afficher "IT" en terracotta foncé */
+        body.theme-gov .sidebar-switcher-text {
+            color: #c44d33;
+        }
+
+        /* Cacher l'icône (plus d'emoji) */
         .sidebar-switcher-icon {
-            font-size: 1.2rem;
-            z-index: 1;
-            margin-bottom: 2px;
+            display: none;
         }
 
         /* ==================== HAMBURGER MENU MOBILE (DÉSACTIVÉ - Remplacé par sidebar permanente) ==================== */
@@ -979,14 +984,14 @@
             border: 1px solid rgba(150, 150, 150, 0.2);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             padding: 30px 35px;
-            text-align: left;
+            text-align: center;
         }
 
         .choice-bubble:hover {
@@ -3438,7 +3443,7 @@
         <!-- Bouton switcher IT/GOUV -->
         <div class="sidebar-switcher" id="sidebarSwitcher" onclick="toggleTheme()">
             <div class="sidebar-switcher-icon">💻</div>
-            <div class="sidebar-switcher-text">IT &<br>Gouv</div>
+            <div class="sidebar-switcher-text">Gouv</div>
         </div>
     </div>
 
@@ -4025,12 +4030,12 @@
             const body = document.body;
             const landingIT = document.getElementById('landingIT');
             const landingGov = document.getElementById('landingGov');
-            const switcherIcon = document.querySelector('.sidebar-switcher-icon');
+            const switcherText = document.querySelector('.sidebar-switcher-text');
             const miniSidebar = document.getElementById('miniSidebar');
 
             // Basculer entre les thèmes
             if (body.classList.contains('theme-gov')) {
-                // Passer à IT
+                // Passer de GOV à IT
                 body.classList.remove('theme-gov');
                 body.classList.add('theme-it');
                 currentSite = 'it';
@@ -4039,13 +4044,13 @@
                 if (landingIT) landingIT.classList.add('active');
                 if (landingGov) landingGov.classList.remove('active');
 
-                // Changer l'icône
-                if (switcherIcon) switcherIcon.textContent = '💻';
+                // Changer le texte du bouton: afficher "Gouv" (car on est maintenant sur IT)
+                if (switcherText) switcherText.textContent = 'Gouv';
 
                 // Mettre à jour la sidebar
                 if (miniSidebar) miniSidebar.classList.add('visible');
             } else {
-                // Passer à GOV
+                // Passer de IT à GOV
                 body.classList.remove('theme-it');
                 body.classList.add('theme-gov');
                 currentSite = 'gov';
@@ -4054,8 +4059,8 @@
                 if (landingGov) landingGov.classList.add('active');
                 if (landingIT) landingIT.classList.remove('active');
 
-                // Changer l'icône
-                if (switcherIcon) switcherIcon.textContent = '📋';
+                // Changer le texte du bouton: afficher "IT" (car on est maintenant sur GOV)
+                if (switcherText) switcherText.textContent = 'IT';
 
                 // Mettre à jour la sidebar
                 if (miniSidebar) miniSidebar.classList.add('visible');
