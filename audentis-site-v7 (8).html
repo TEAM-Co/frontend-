@@ -568,13 +568,13 @@
             margin: 10px 0;
         }
 
-        /* Bouton switcher IT/GOUV circulaire en bas de sidebar */
+        /* Bouton switcher IT/GOUV circulaire en bas de sidebar - Style premium */
         .sidebar-switcher {
             width: 55px;
             height: 55px;
             border-radius: 50%;
-            background: rgba(255, 127, 92, 0.15);
-            border: 2px solid rgba(255, 127, 92, 0.4);
+            background: transparent;
+            border: 3px solid rgba(245, 245, 247, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -583,7 +583,18 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             margin-top: auto;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+        }
+
+        /* Style différent selon le thème */
+        body.theme-it .sidebar-switcher {
+            border-color: rgba(245, 245, 247, 0.35);
+            background: rgba(245, 245, 247, 0.05);
+        }
+
+        body.theme-gov .sidebar-switcher {
+            border-color: rgba(139, 111, 71, 0.4);
+            background: rgba(166, 124, 82, 0.08);
         }
 
         .sidebar-switcher::before {
@@ -591,25 +602,41 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255, 127, 92, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(245, 245, 247, 0.2) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.4s ease;
+            border-radius: 50%;
+        }
+
+        body.theme-gov .sidebar-switcher::before {
+            background: radial-gradient(circle, rgba(166, 124, 82, 0.3) 0%, transparent 70%);
         }
 
         .sidebar-switcher:hover::before {
             opacity: 1;
-            animation: pulse-glow 1.5s ease-in-out infinite;
+            animation: pulse-glow-premium 1.5s ease-in-out infinite;
         }
 
-        @keyframes pulse-glow {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
+        @keyframes pulse-glow-premium {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.15); opacity: 0.6; }
         }
 
         .sidebar-switcher:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 127, 92, 0.5);
-            border-color: rgba(255, 127, 92, 0.7);
+            transform: scale(1.08);
+            border-width: 3px;
+        }
+
+        body.theme-it .sidebar-switcher:hover {
+            box-shadow: 0 0 20px rgba(245, 245, 247, 0.3);
+            border-color: rgba(245, 245, 247, 0.6);
+            background: rgba(245, 245, 247, 0.1);
+        }
+
+        body.theme-gov .sidebar-switcher:hover {
+            box-shadow: 0 0 20px rgba(166, 124, 82, 0.4);
+            border-color: rgba(166, 124, 82, 0.6);
+            background: rgba(166, 124, 82, 0.15);
         }
 
         .sidebar-switcher-text {
@@ -635,6 +662,11 @@
         /* Cacher l'icône (plus d'emoji) */
         .sidebar-switcher-icon {
             display: none;
+        }
+
+        /* Cacher le bouton switcher sur welcome screen */
+        body.welcome-mode .sidebar-switcher {
+            display: none !important;
         }
 
         /* ==================== HAMBURGER MENU MOBILE (DÉSACTIVÉ - Remplacé par sidebar permanente) ==================== */
@@ -1038,18 +1070,25 @@
 
         /* Landing pages - EXACTE V15 */
         .main-container {
-            min-height: 100vh;
             display: none;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 140px 40px 180px 40px;
             position: relative;
         }
 
         .main-container.active {
             display: flex;
+        }
+
+        /* Hero section - Contenu principal centré verticalement */
+        .landing-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 40px 60px 40px;
+            position: relative;
         }
 
         .brand-title {
@@ -1251,11 +1290,11 @@
             transition: all 0.3s ease;
             z-index: 999;
             border: 2px solid;
-            display: none;
+            display: none !important;
         }
 
         .site-switcher.visible {
-            display: block;
+            display: none !important;
         }
 
         body.theme-it .site-switcher {
@@ -3264,6 +3303,17 @@
             .chat-messages {
                 max-height: calc(100vh - 200px) !important;
             }
+
+            /* Hero centrage mobile */
+            .landing-hero {
+                min-height: 100vh;
+                padding: 80px 20px 40px 20px;
+                justify-content: center;
+            }
+
+            .landing-sections {
+                padding: 40px 20px;
+            }
         }
 
         /* Mobiles standards (481px - 768px) */
@@ -3299,6 +3349,11 @@
             .chat-input-container {
                 width: calc(100% - 32px) !important;
                 box-sizing: border-box;
+            }
+
+            /* Hero centrage tablette */
+            .landing-hero {
+                padding: 100px 30px 50px 30px;
             }
 
             .dynamic-island {
@@ -3534,22 +3589,25 @@
 
     <!-- Landing IT -->
     <div class="main-container" id="landingIT">
-        <h1 class="brand-title">Le Lab Technique</h1>
-        <p class="intro-text">
-            Experts techniques pour vos projets<br>
-            Posez votre question, nos équipes évaluent votre besoin et vous répondent sous 24h
-        </p>
-        <div class="search-bar">
-            <input type="text" class="search-input" id="questionInput" placeholder="Comment notre équipe peut vous aider ?" onfocus="toggleDropdown('dropdownIT')">            <button class="search-submit-btn" onclick="submitQuestion('questionInput')">→</button>
-            <div class="questions-dropdown" id="dropdownIT">
-                <div class="dropdown-title">Exemples de questions :</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Comment sécuriser notre infrastructure cloud ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Besoin d'un audit cybersécurité ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Comment structurer notre transformation digitale ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Organiser un workshop sur l'IA ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Accompagnement sur un projet Data ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Conseil stratégique IT ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Formation agile pour nos équipes ?</div>
+        <!-- Hero section - Contenu principal centré -->
+        <div class="landing-hero">
+            <h1 class="brand-title">Le Lab Technique</h1>
+            <p class="intro-text">
+                Experts techniques pour vos projets<br>
+                Posez votre question, nos équipes évaluent votre besoin et vous répondent sous 24h
+            </p>
+            <div class="search-bar">
+                <input type="text" class="search-input" id="questionInput" placeholder="Comment notre équipe peut vous aider ?" onfocus="toggleDropdown('dropdownIT')">            <button class="search-submit-btn" onclick="submitQuestion('questionInput')">→</button>
+                <div class="questions-dropdown" id="dropdownIT">
+                    <div class="dropdown-title">Exemples de questions :</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Comment sécuriser notre infrastructure cloud ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Besoin d'un audit cybersécurité ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Comment structurer notre transformation digitale ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Organiser un workshop sur l'IA ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Accompagnement sur un projet Data ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Conseil stratégique IT ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Formation agile pour nos équipes ?</div>
+                </div>
             </div>
         </div>
 
@@ -3711,23 +3769,26 @@
 
     <!-- Landing Gouvernance -->
     <div class="main-container" id="landingGov">
-        <h1 class="brand-title">Le Hub Stratégique</h1>
-        <p class="intro-text">
-            Experts stratégiques pour vos projets<br>
-            Posez votre question, nos équipes évaluent votre besoin et vous répondent sous 24h
-        </p>
-        <div class="search-bar">
-            <input type="text" class="search-input" id="questionInputGov" placeholder="Comment notre équipe peut vous aider ?" onfocus="toggleDropdown('dropdownGov')">
-            <button class="search-submit-btn" onclick="submitQuestion('questionInputGov')">→</button>
-            <div class="questions-dropdown" id="dropdownGov">
-                <div class="dropdown-title">Exemples de questions :</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Comment structurer notre roadmap produit ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Besoin d'un Product Owner expérimenté ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Déployer l'agilité à l'échelle dans l'entreprise ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Accompagnement sur une transformation organisationnelle ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Coaching pour nos Scrum Masters ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Définir notre stratégie data & gouvernance ?</div>
-                <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Aide au recrutement de profils tech ?</div>
+        <!-- Hero section - Contenu principal centré -->
+        <div class="landing-hero">
+            <h1 class="brand-title">Le Hub Stratégique</h1>
+            <p class="intro-text">
+                Experts stratégiques pour vos projets<br>
+                Posez votre question, nos équipes évaluent votre besoin et vous répondent sous 24h
+            </p>
+            <div class="search-bar">
+                <input type="text" class="search-input" id="questionInputGov" placeholder="Comment notre équipe peut vous aider ?" onfocus="toggleDropdown('dropdownGov')">
+                <button class="search-submit-btn" onclick="submitQuestion('questionInputGov')">→</button>
+                <div class="questions-dropdown" id="dropdownGov">
+                    <div class="dropdown-title">Exemples de questions :</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Comment structurer notre roadmap produit ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Besoin d'un Product Owner expérimenté ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Déployer l'agilité à l'échelle dans l'entreprise ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Accompagnement sur une transformation organisationnelle ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Coaching pour nos Scrum Masters ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Définir notre stratégie data & gouvernance ?</div>
+                    <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Aide au recrutement de profils tech ?</div>
+                </div>
             </div>
         </div>
 
@@ -4310,16 +4371,22 @@
             document.getElementById('dynamicIsland').classList.add('visible');
             document.body.classList.add('has-mini-sidebar');
 
+            const switcherText = document.querySelector('.sidebar-switcher-text');
+
             if (site === 'it') {
                 document.body.classList.add('theme-it');
                 document.body.classList.remove('theme-gov');
                 document.getElementById('landingIT').classList.add('active');
                 document.getElementById('siteSwitcher').textContent = 'Stratégie Gouvernance';
+                // Mettre à jour le bouton sidebar: sur IT, afficher "Gouv"
+                if (switcherText) switcherText.textContent = 'Gouv';
             } else {
                 document.body.classList.add('theme-gov');
                 document.body.classList.remove('theme-it');
                 document.getElementById('landingGov').classList.add('active');
                 document.getElementById('siteSwitcher').textContent = 'Expertise IT';
+                // Mettre à jour le bouton sidebar: sur GOV, afficher "IT"
+                if (switcherText) switcherText.textContent = 'IT';
             }
 
             document.getElementById('siteSwitcher').classList.add('visible');
