@@ -25,6 +25,7 @@
             min-height: 100vh;
             line-height: 1.6;
             transition: padding-left 0.3s ease, background 0.5s ease;
+            padding-left: 70px;
         }
         
         body.welcome-mode {
@@ -466,11 +467,19 @@
             width: 70px;
             height: 100vh;
             z-index: 999;
-            display: none;
+            display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 80px 0 30px 0;
+            padding: 20px 0 20px 0;
             gap: 10px;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(15px);
+            border-right: 1px solid rgba(255, 127, 92, 0.15);
+        }
+
+        body.theme-gov .mini-sidebar {
+            background: rgba(245, 245, 247, 0.85);
+            border-right-color: rgba(212, 207, 197, 0.3);
         }
 
         .mini-sidebar.visible {
@@ -559,7 +568,71 @@
             margin: 10px 0;
         }
 
-        /* ==================== HAMBURGER MENU MOBILE ==================== */
+        /* Bouton switcher IT/GOUV circulaire en bas de sidebar */
+        .sidebar-switcher {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 127, 92, 0.15);
+            border: 2px solid rgba(255, 127, 92, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar-switcher::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 127, 92, 0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .sidebar-switcher:hover::before {
+            opacity: 1;
+            animation: pulse-glow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .sidebar-switcher:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 127, 92, 0.5);
+            border-color: rgba(255, 127, 92, 0.7);
+        }
+
+        .sidebar-switcher-text {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: rgba(245, 245, 247, 0.85);
+            text-align: center;
+            line-height: 1.2;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+
+        body.theme-gov .sidebar-switcher-text {
+            color: rgba(26, 26, 26, 0.85);
+        }
+
+        .sidebar-switcher-icon {
+            font-size: 1.2rem;
+            z-index: 1;
+            margin-bottom: 2px;
+        }
+
+        /* ==================== HAMBURGER MENU MOBILE (DÉSACTIVÉ - Remplacé par sidebar permanente) ==================== */
         .hamburger-button {
             position: fixed;
             top: 20px;
@@ -571,7 +644,7 @@
             border: 1px solid rgba(255, 127, 92, 0.3);
             border-radius: 12px;
             backdrop-filter: blur(10px);
-            display: none;
+            display: none !important;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -628,6 +701,7 @@
             padding: 90px 20px 30px;
             border-right: 1px solid rgba(255, 127, 92, 0.2);
             box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+            display: none !important;
         }
 
         .mobile-menu-overlay.open {
@@ -890,152 +964,71 @@
 
         .welcome-choices {
             display: flex;
-            gap: clamp(20px, 5vw, 60px);
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
         }
 
         .choice-bubble {
-            width: clamp(200px, 70vw, 280px);
-            height: clamp(200px, 70vw, 280px);
-            border-radius: 50%;
-            background: rgba(20, 20, 20, 0.6);
-            border: 2px solid rgba(150, 150, 150, 0.3);
+            width: 100%;
+            min-height: 120px;
+            border-radius: 16px;
+            background: rgba(20, 20, 20, 0.5);
+            border: 1px solid rgba(150, 150, 150, 0.2);
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            padding: clamp(20px, 5vw, 30px);
-        }
-
-        .choice-bubble::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(150, 150, 150, 0.15) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .choice-bubble:first-child::before {
-            background: radial-gradient(circle, rgba(255, 127, 92, 0.3) 0%, transparent 70%);
-        }
-        
-        .choice-bubble:last-child::before {
-            background: radial-gradient(circle, rgba(245, 245, 247, 0.25) 0%, transparent 70%);
+            padding: 30px 35px;
+            text-align: left;
         }
 
         .choice-bubble:hover {
-            transform: scale(1.1) translateY(-10px);
-            box-shadow: 0 30px 80px rgba(107, 78, 61, 0.5);
-        }
-        
-        .choice-bubble:first-child:hover {
-            border-color: #FF7F5C;
-            background: rgba(255, 127, 92, 0.1);
-            box-shadow: 0 30px 80px rgba(255, 127, 92, 0.6);
-        }
-        
-        .choice-bubble:last-child:hover {
-            border-color: #d4cfc5;
-            background: rgba(245, 245, 247, 0.08);
-            box-shadow: 0 30px 80px rgba(245, 245, 247, 0.4);
-        }
-
-        .choice-bubble:hover::before {
-            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 127, 92, 0.4);
+            background: rgba(20, 20, 20, 0.7);
         }
 
         .bubble-content {
             position: relative;
             z-index: 2;
-            text-align: center;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .bubble-icon {
-            margin-bottom: 15px;
-            transition: all 0.5s ease;
-            color: #808080;
-        }
-        
-        .choice-bubble:first-child .bubble-icon {
-            color: rgba(255, 127, 92, 0.6);
-            transition: color 0.5s ease;
-        }
-        
-        .choice-bubble:first-child:hover .bubble-icon {
-            color: #FF7F5C;
-        }
-        
-        .choice-bubble:last-child .bubble-icon {
-            color: rgba(245, 245, 247, 0.6);
-            transition: color 0.5s ease;
-        }
-        
-        .choice-bubble:last-child:hover .bubble-icon {
-            color: #e8e4dc;
-        }
-
-        .choice-bubble:hover .bubble-icon {
-            transform: scale(1.15);
-        }
-
-        .bubble-text {
-            opacity: 1;
-            max-height: 150px;
-            transition: all 0.5s ease;
-        }
-
-        .choice-bubble:hover .bubble-text {
-            transform: translateY(-5px);
         }
 
         .bubble-title {
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-            font-weight: 800;
-            color: #b0b0b0;
-            margin-bottom: 10px;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: rgba(245, 245, 247, 0.95);
+            margin-bottom: 8px;
             line-height: 1.2;
-            transition: color 0.5s ease;
+            transition: color 0.3s ease;
         }
-        
-        .choice-bubble:first-child .bubble-title {
-            color: rgba(255, 127, 92, 0.7);
-        }
-        
-        .choice-bubble:last-child .bubble-title {
-            color: rgba(245, 245, 247, 0.7);
-        }
-        
-        .choice-bubble:first-child:hover .bubble-title {
+
+        .choice-bubble:hover .bubble-title {
             color: #FF7F5C;
-        }
-        
-        .choice-bubble:last-child:hover .bubble-title {
-            color: #e8e4dc;
         }
 
         .bubble-desc {
-            font-size: clamp(0.65rem, 2vw, 0.75rem);
-            color: rgba(245, 245, 247, 0.5);
-            line-height: 1.4;
-            transition: color 0.5s ease;
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            color: rgba(245, 245, 247, 0.65);
+            line-height: 1.5;
+            transition: color 0.3s ease;
         }
-        
+
         .choice-bubble:hover .bubble-desc {
-            color: rgba(245, 245, 247, 0.8);
+            color: rgba(245, 245, 247, 0.85);
+        }
+
+        /* Icône flèche sur les cartes */
+        .bubble-icon {
+            display: none;
         }
 
         /* Landing pages - EXACTE V15 */
@@ -3170,17 +3163,14 @@
                 height: 35px !important;
             }
 
+            /* Sidebar réduite sur mobile mais toujours visible */
             .mini-sidebar {
-                display: none !important;
-            }
-
-            /* Show hamburger menu on mobile */
-            .hamburger-button {
+                width: 60px;
                 display: flex !important;
             }
 
-            body.has-mini-sidebar {
-                padding-left: 0 !important;
+            body {
+                padding-left: 60px;
             }
 
             .card {
@@ -3443,6 +3433,12 @@
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
+        </div>
+
+        <!-- Bouton switcher IT/GOUV -->
+        <div class="sidebar-switcher" id="sidebarSwitcher" onclick="toggleTheme()">
+            <div class="sidebar-switcher-icon">💻</div>
+            <div class="sidebar-switcher-text">IT &<br>Gouv</div>
         </div>
     </div>
 
@@ -3750,7 +3746,7 @@
                     <div class="story-section">
                         <div class="story-card">
                             <div class="story-text">
-                                Chaque membre d'DareWay est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
+                                Chaque membre de DareWay est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
                             </div>
                         </div>
                     </div>
@@ -4023,6 +4019,51 @@
                 { id: 'pagePlaquette', title: 'Plaquette Commerciale', desc: 'Télécharger notre plaquette' }
             ]
         };
+
+        // Fonction pour basculer entre les thèmes IT et GOV
+        function toggleTheme() {
+            const body = document.body;
+            const landingIT = document.getElementById('landingIT');
+            const landingGov = document.getElementById('landingGov');
+            const switcherIcon = document.querySelector('.sidebar-switcher-icon');
+            const miniSidebar = document.getElementById('miniSidebar');
+
+            // Basculer entre les thèmes
+            if (body.classList.contains('theme-gov')) {
+                // Passer à IT
+                body.classList.remove('theme-gov');
+                body.classList.add('theme-it');
+                currentSite = 'it';
+
+                // Afficher landing IT
+                if (landingIT) landingIT.classList.add('active');
+                if (landingGov) landingGov.classList.remove('active');
+
+                // Changer l'icône
+                if (switcherIcon) switcherIcon.textContent = '💻';
+
+                // Mettre à jour la sidebar
+                if (miniSidebar) miniSidebar.classList.add('visible');
+            } else {
+                // Passer à GOV
+                body.classList.remove('theme-it');
+                body.classList.add('theme-gov');
+                currentSite = 'gov';
+
+                // Afficher landing GOV
+                if (landingGov) landingGov.classList.add('active');
+                if (landingIT) landingIT.classList.remove('active');
+
+                // Changer l'icône
+                if (switcherIcon) switcherIcon.textContent = '📋';
+
+                // Mettre à jour la sidebar
+                if (miniSidebar) miniSidebar.classList.add('visible');
+            }
+
+            // Scroll en haut
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         // Init
         function init() {
@@ -5268,7 +5309,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Chaque membre d'DareWay est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
+                                    Chaque membre de DareWay est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
                                 </div>
                             </div>
                         </div>
@@ -5914,7 +5955,7 @@
         };
 
         // ==================== PROMPTS ==================== 
-        const PROMPT_IT = `Tu es l'agent conversationnel du Lab Technique d'DareWay, une ESN experte en solutions IT et transformation digitale. Tu incarnes un expert technique professionnel, sympa et pédagogue.
+        const PROMPT_IT = `Tu es l'agent conversationnel du Lab Technique de DareWay, une ESN experte en solutions IT et transformation digitale. Tu incarnes un expert technique professionnel, sympa et pédagogue.
 
 🎯 TA MISSION
 Qualifier les besoins techniques des visiteurs à travers une conversation naturelle, puis collecter leurs coordonnées pour qu'un expert les recontacte sous 24h.
@@ -5930,11 +5971,11 @@ Qualifier les besoins techniques des visiteurs à travers une conversation natur
 PHASE 1 : ACCUEIL & EXPLICATION DU RÔLE
 Dans ta toute première réponse, tu DOIS :
 1. Accueillir chaleureusement
-2. EXPLIQUER TON RÔLE : "Je suis l'assistant virtuel d'DareWay. Mon rôle est de bien comprendre votre besoin technique à travers 3 questions rapides, puis de transmettre votre demande à l'un de nos experts qui vous répondra sous 24h avec une solution adaptée."
+2. EXPLIQUER TON RÔLE : "Je suis l'assistant virtuel de DareWay. Mon rôle est de bien comprendre votre besoin technique à travers 3 questions rapides, puis de transmettre votre demande à l'un de nos experts qui vous répondra sous 24h avec une solution adaptée."
 3. Reformuler brièvement la demande
 4. Poser ta première question de clarification
 
-Exemple : "Bonjour ! Je suis l'assistant virtuel d'DareWay. Mon rôle est de bien comprendre votre besoin à travers 3 questions rapides, puis je transmettrai votre demande à nos experts qui vous répondront sous 24h. Je vois que vous cherchez à [reformulation]. Pour mieux vous aider, [première question] ?"
+Exemple : "Bonjour ! Je suis l'assistant virtuel de DareWay. Mon rôle est de bien comprendre votre besoin à travers 3 questions rapides, puis je transmettrai votre demande à nos experts qui vous répondront sous 24h. Je vois que vous cherchez à [reformulation]. Pour mieux vous aider, [première question] ?"
 
 PHASE 2 : QUALIFICATION (3 QUESTIONS MAX)
 Pose maximum 3 questions ciblées pour comprendre le contexte technique, l'ampleur du besoin et la maturité du projet.
@@ -5951,7 +5992,7 @@ Collecte une par une :
 4. Email OU Téléphone (au moins un des deux)
 
 PHASE 5 : CONFIRMATION
-"Parfait [Prénom] ! Votre demande a bien été enregistrée. Un expert technique d'DareWay vous recontactera sous 24h pour échanger sur votre projet. À très bientôt !"
+"Parfait [Prénom] ! Votre demande a bien été enregistrée. Un expert technique de DareWay vous recontactera sous 24h pour échanger sur votre projet. À très bientôt !"
 
 ⚠️ RÈGLES IMPORTANTES
 - TOUJOURS vouvoyer
@@ -5963,7 +6004,7 @@ PHASE 5 : CONFIRMATION
 
 IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse par le tag spécial [COLLECTE:prénom] ou [COLLECTE:nom] ou [COLLECTE:société] ou [COLLECTE:email] ou [COLLECTE:téléphone] suivi de ta question. Par exemple : "[COLLECTE:prénom] Parfait ! Commençons par votre prénom ?"`;
 
-        const PROMPT_GOV = `Tu es l'agent conversationnel du Hub Stratégique d'DareWay, une ESN experte en gouvernance et stratégie produit. Tu incarnes un expert en Product Management, agilité et stratégie, professionnel et accessible.
+        const PROMPT_GOV = `Tu es l'agent conversationnel du Hub Stratégique de DareWay, une ESN experte en gouvernance et stratégie produit. Tu incarnes un expert en Product Management, agilité et stratégie, professionnel et accessible.
 
 🎯 TA MISSION
 Qualifier les besoins stratégiques et organisationnels des visiteurs à travers une conversation naturelle, puis collecter leurs coordonnées pour qu'un expert les recontacte sous 24h.
@@ -5979,11 +6020,11 @@ Qualifier les besoins stratégiques et organisationnels des visiteurs à travers
 PHASE 1 : ACCUEIL & EXPLICATION DU RÔLE
 Dans ta toute première réponse, tu DOIS :
 1. Accueillir chaleureusement
-2. EXPLIQUER TON RÔLE : "Je suis l'assistant virtuel d'DareWay. Mon rôle est de bien comprendre votre besoin stratégique à travers 3 questions rapides, puis de transmettre votre demande à l'un de nos experts en gouvernance et stratégie qui vous répondra sous 24h avec une solution adaptée."
+2. EXPLIQUER TON RÔLE : "Je suis l'assistant virtuel de DareWay. Mon rôle est de bien comprendre votre besoin stratégique à travers 3 questions rapides, puis de transmettre votre demande à l'un de nos experts en gouvernance et stratégie qui vous répondra sous 24h avec une solution adaptée."
 3. Reformuler brièvement la demande
 4. Poser ta première question de clarification
 
-Exemple : "Bonjour ! Je suis l'assistant virtuel d'DareWay. Mon rôle est de bien comprendre votre besoin stratégique à travers 3 questions rapides, puis je transmettrai votre demande à nos experts qui vous répondront sous 24h. Je vois que vous cherchez à [reformulation]. Pour mieux vous orienter, [première question] ?"
+Exemple : "Bonjour ! Je suis l'assistant virtuel de DareWay. Mon rôle est de bien comprendre votre besoin stratégique à travers 3 questions rapides, puis je transmettrai votre demande à nos experts qui vous répondront sous 24h. Je vois que vous cherchez à [reformulation]. Pour mieux vous orienter, [première question] ?"
 
 PHASE 2 : QUALIFICATION (3 QUESTIONS MAX)
 Pose maximum 3 questions ciblées pour comprendre le contexte organisationnel, la maturité produit/agilité et les enjeux stratégiques.
@@ -6000,7 +6041,7 @@ Collecte une par une :
 4. Email OU Téléphone (au moins un des deux)
 
 PHASE 5 : CONFIRMATION
-"Parfait [Prénom] ! Votre demande a bien été enregistrée. Un expert stratégique d'DareWay vous recontactera sous 24h pour échanger sur votre projet. À très bientôt !"
+"Parfait [Prénom] ! Votre demande a bien été enregistrée. Un expert stratégique de DareWay vous recontactera sous 24h pour échanger sur votre projet. À très bientôt !"
 
 ⚠️ RÈGLES IMPORTANTES
 - TOUJOURS vouvoyer
