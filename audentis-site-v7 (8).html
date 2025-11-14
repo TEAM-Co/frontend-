@@ -1079,15 +1079,15 @@
             display: flex;
         }
 
-        /* Hero section - Contenu principal centré verticalement */
+        /* Hero section - Contenu positionné dans le tiers supérieur (zone jaune) */
         .landing-hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
-            padding: 140px 40px 60px 40px;
+            padding: 100px 40px 60px 40px;
             position: relative;
         }
 
@@ -3324,11 +3324,11 @@
                 max-height: calc(100vh - 200px) !important;
             }
 
-            /* Hero centrage mobile - barre de recherche au centre optique */
+            /* Hero mobile - même positionnement que desktop (tiers supérieur) */
             .landing-hero {
                 min-height: 100vh;
                 padding: 80px 20px 40px 20px;
-                justify-content: center;
+                justify-content: flex-start;
             }
 
             .landing-sections {
