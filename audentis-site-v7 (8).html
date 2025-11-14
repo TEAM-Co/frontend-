@@ -1085,9 +1085,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
             padding: 140px 40px 60px 40px;
+            padding-top: clamp(100px, 20vh, 180px);
             position: relative;
         }
 
@@ -1095,6 +1096,7 @@
             font-size: clamp(3rem, 10vw, 7rem);
             font-weight: 900;
             margin-bottom: 30px;
+            margin-top: 0;
             letter-spacing: -0.03em;
             text-shadow: 0 4px 20px rgba(255, 127, 92, 0.3);
             text-align: center;
@@ -3304,11 +3306,12 @@
                 max-height: calc(100vh - 200px) !important;
             }
 
-            /* Hero centrage mobile */
+            /* Hero centrage mobile - barre de recherche au centre optique */
             .landing-hero {
                 min-height: 100vh;
                 padding: 80px 20px 40px 20px;
-                justify-content: center;
+                padding-top: clamp(80px, 15vh, 120px);
+                justify-content: flex-start;
             }
 
             .landing-sections {
