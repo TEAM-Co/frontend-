@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSP désactivée pour développement local -->
-    <title>DareWay - Experts IT & Stratégiques</title>
+    <title>Codentis - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -29,16 +29,29 @@
         }
         
         body.welcome-mode {
-            background: radial-gradient(ellipse 60% 50% at 10% 15%,
-                rgba(255, 127, 92, 0.20) 0%,
-                rgba(255, 127, 92, 0.08) 25%,
-                rgba(255, 127, 92, 0.02) 40%,
-                transparent 60%),
-                #000000;
+            background: #000000;
         }
 
         body.welcome-mode::before {
-            display: none;
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse 50% 120% at 30% 0%,
+                    rgba(255, 127, 92, 0.35) 0%,
+                    rgba(255, 127, 92, 0.15) 30%,
+                    rgba(255, 127, 92, 0.05) 50%,
+                    transparent 70%),
+                radial-gradient(ellipse 50% 120% at 70% 0%,
+                    rgba(245, 245, 247, 0.3) 0%,
+                    rgba(245, 245, 247, 0.12) 30%,
+                    rgba(245, 245, 247, 0.04) 50%,
+                    transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         body.welcome-mode::after {
@@ -3544,7 +3557,7 @@
     <!-- Animation intro -->
     <div class="intro-animation active" id="introAnimation">
         <div class="intro-logo" style="display: flex; align-items: center; justify-content: center;">
-            <img src="LOGOOFFremovebg.png" alt="DareWay" style="height: 300px; width: auto;">
+            <img src="LOGOOFFremovebg.png" alt="Codentis" style="height: 480px; width: auto;">
         </div>
     </div>
 
@@ -3610,7 +3623,7 @@
 
     <!-- Logo -->
     <button class="logo-btn" id="logoBtn" onclick="goHome()" style="background: transparent; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;">
-        <img src="LOGOOFFremovebg.png" alt="DareWay" style="height: 90px; width: auto;">
+        <img src="LOGOOFFremovebg.png" alt="Codentis" style="height: 110px; width: auto;">
     </button>
 
     <!-- Dynamic Island V15 -->
@@ -3624,7 +3637,7 @@
             <button class="sidebar-close" onclick="toggleSidebar()">×</button>
             
             <div class="sidebar-brand">
-                <h2>DareWay</h2>
+                <h2>Codentis</h2>
                 <p>Services. Solutions. Sans limites.</p>
             </div>
 
@@ -3643,9 +3656,9 @@
     <!-- Page d'accueil -->
     <div class="welcome-screen" id="welcomeScreen">
         <div class="welcome-content">
-            <!-- Logo DareWay en texte bicolore: Dare (terracotta) + Way (ivoire) -->
+            <!-- Logo Codentis -->
             <div style="font-family: 'Inter', sans-serif; font-size: 140px; font-weight: 900; color: #f5f5f7; margin-bottom: 30px; letter-spacing: -2px; text-shadow: 0 4px 12px rgba(26, 15, 10, 0.15);">
-                <span style="color: #D9643E;">Dare</span><span>Way</span>
+                Codentis
             </div>
             <p class="welcome-text">
                 Missions courtes ou longues, nous apportons l'expertise dont vous avez besoin,<br>
@@ -3724,11 +3737,11 @@
                 <p class="landing-section-subtitle">L'ALLIANCE DE L'EXPERTISE TECHNIQUE, PRODUIT & STRATÉGIQUE</p>
                 <div class="landing-section-content">
                     <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.12) 0%, rgba(255, 127, 92, 0.05) 100%); padding: 30px; border-radius: 16px; border-left: 4px solid #FF7F5C; margin-bottom: 30px; box-shadow: 0 8px 30px rgba(255, 127, 92, 0.15);">
-                        <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">Chez DareWay's, nous combinons <strong>expertise technique et vision stratégique</strong> pour accompagner ceux qui font face à des <strong>enjeux IT et business complexes</strong>. Nos clients nous sollicitent aussi bien pour des <strong>missions techniques pointues</strong> (audits cybersécurité, architectures cloud, projets data/IA) que pour des <strong>transformations organisationnelles</strong> (gouvernance IT, coaching agile, product ownership, conduite du changement). Qu'il s'agisse d'interventions longues ou de missions courtes à fort impact, nous combinons <strong>excellence technique, sens du produit et accompagnement humain</strong>.</p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">Chez Codentis's, nous combinons <strong>expertise technique et vision stratégique</strong> pour accompagner ceux qui font face à des <strong>enjeux IT et business complexes</strong>. Nos clients nous sollicitent aussi bien pour des <strong>missions techniques pointues</strong> (audits cybersécurité, architectures cloud, projets data/IA) que pour des <strong>transformations organisationnelles</strong> (gouvernance IT, coaching agile, product ownership, conduite du changement). Qu'il s'agisse d'interventions longues ou de missions courtes à fort impact, nous combinons <strong>excellence technique, sens du produit et accompagnement humain</strong>.</p>
                     </div>
                     
                     <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.12) 0%, rgba(255, 127, 92, 0.05) 100%); padding: 30px; border-radius: 16px; border-left: 4px solid #FF7F5C; margin-bottom: 30px; box-shadow: 0 8px 30px rgba(255, 127, 92, 0.15);">
-                        <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">Chaque membre de DareWay's est un <strong>chercheur de solutions</strong>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <strong>transformer leurs ambitions en résultats concrets</strong>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <strong>approche personnalisée</strong> et notre <strong>suivi continu</strong> garantissent que chaque intervention crée un impact réel et durable.</p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">Chaque membre de Codentis's est un <strong>chercheur de solutions</strong>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <strong>transformer leurs ambitions en résultats concrets</strong>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <strong>approche personnalisée</strong> et notre <strong>suivi continu</strong> garantissent que chaque intervention crée un impact réel et durable.</p>
                     </div>
                     
                     <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.12) 0%, rgba(255, 127, 92, 0.05) 100%); padding: 30px; border-radius: 16px; border-left: 4px solid #FF7F5C; margin-bottom: 30px; box-shadow: 0 8px 30px rgba(255, 127, 92, 0.15);">
@@ -3736,7 +3749,7 @@
                     </div>
                     
                     <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.12) 0%, rgba(255, 127, 92, 0.05) 100%); padding: 30px; border-radius: 16px; border-left: 4px solid #FF7F5C; margin-bottom: 40px; box-shadow: 0 8px 30px rgba(255, 127, 92, 0.15);">
-                        <p style="font-size: 1.05rem; line-height: 1.8;"><strong>DareWay's</strong>, c'est l'alliance de l'<strong>expertise technique pointue</strong>, de la <strong>vision produit et stratégique</strong>, et du <strong>service sur-mesure</strong>. Nous intervenons aussi bien sur des sujets d'architecture et de développement que sur la définition de roadmaps produit, la transformation organisationnelle ou le pilotage de projets complexes. Cette <strong>double compétence technique et business</strong> fait notre singularité.</p>
+                        <p style="font-size: 1.05rem; line-height: 1.8;"><strong>Codentis's</strong>, c'est l'alliance de l'<strong>expertise technique pointue</strong>, de la <strong>vision produit et stratégique</strong>, et du <strong>service sur-mesure</strong>. Nous intervenons aussi bien sur des sujets d'architecture et de développement que sur la définition de roadmaps produit, la transformation organisationnelle ou le pilotage de projets complexes. Cette <strong>double compétence technique et business</strong> fait notre singularité.</p>
                     </div>
                     
                     <h3 style="font-size: 1.6rem; color: #f5f5f7; margin-bottom: 25px; font-weight: 800;">Nos Domaines d'Excellence</h3>
@@ -3848,8 +3861,8 @@
                     </div>
                     
                     <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(255, 127, 92, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #FF7F5C; margin-bottom: 30px;">
-                        <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – DareWay</div>
-                        <div style="font-size: 1.05rem; line-height: 1.8;">Ce ralentissement brutal cache une réalité : <strong>le marché se réorganise</strong>. Les entreprises qui gèlent leurs projets IT aujourd'hui créent une dette technique qui explosera demain. Chez DareWay, nous voyons une opportunité : <strong>les missions courtes à fort impact</strong> (audits, diagnostics, quick-wins) explosent. Les DSI veulent de la valeur immédiate, pas des roadmaps à 18 mois.</div>
+                        <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
+                        <div style="font-size: 1.05rem; line-height: 1.8;">Ce ralentissement brutal cache une réalité : <strong>le marché se réorganise</strong>. Les entreprises qui gèlent leurs projets IT aujourd'hui créent une dette technique qui explosera demain. Chez Codentis, nous voyons une opportunité : <strong>les missions courtes à fort impact</strong> (audits, diagnostics, quick-wins) explosent. Les DSI veulent de la valeur immédiate, pas des roadmaps à 18 mois.</div>
                     </div>
                     
                     <h4 style="font-size: 1.3rem; color: #f5f5f7; margin: 30px 0 20px 0; font-weight: 700;">Emploi : 7 000 postes disparus en 2024</h4>
@@ -3858,8 +3871,8 @@
                     </div>
                     
                     <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(255, 127, 92, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #FF7F5C;">
-                        <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – DareWay</div>
-                        <div style="font-size: 1.05rem; line-height: 1.8;">Le marché se contracte mais <strong>les talents pointus restent en tension</strong>. Les profils IA, Data Engineer, Architectes Cloud et experts cybersécurité sont toujours ultra-demandés. Chez DareWay, nos consultants sont sur-sollicités : <strong>l'expertise bat le volume</strong>.</div>
+                        <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
+                        <div style="font-size: 1.05rem; line-height: 1.8;">Le marché se contracte mais <strong>les talents pointus restent en tension</strong>. Les profils IA, Data Engineer, Architectes Cloud et experts cybersécurité sont toujours ultra-demandés. Chez Codentis, nos consultants sont sur-sollicités : <strong>l'expertise bat le volume</strong>.</div>
                     </div>
                 </div>
             </div>
@@ -3910,7 +3923,7 @@
                     <div class="story-section">
                         <div class="story-card">
                             <div class="story-text">
-                                Chez DareWay, nous combinons <span class="highlight">expertise technique et vision stratégique</span> pour accompagner ceux qui font face à des <span class="highlight">enjeux IT et business complexes</span>. Nos clients nous sollicitent aussi bien pour des <span class="highlight">missions techniques pointues</span> (audits cybersécurité, architectures cloud, projets data/IA) que pour des <span class="highlight">transformations organisationnelles</span> (gouvernance IT, coaching agile, product ownership, conduite du changement). Qu'il s'agisse d'interventions longues ou de missions courtes à fort impact, nous combinons <span class="highlight">excellence technique, sens du produit et accompagnement humain</span>.
+                                Chez Codentis, nous combinons <span class="highlight">expertise technique et vision stratégique</span> pour accompagner ceux qui font face à des <span class="highlight">enjeux IT et business complexes</span>. Nos clients nous sollicitent aussi bien pour des <span class="highlight">missions techniques pointues</span> (audits cybersécurité, architectures cloud, projets data/IA) que pour des <span class="highlight">transformations organisationnelles</span> (gouvernance IT, coaching agile, product ownership, conduite du changement). Qu'il s'agisse d'interventions longues ou de missions courtes à fort impact, nous combinons <span class="highlight">excellence technique, sens du produit et accompagnement humain</span>.
                             </div>
                         </div>
                     </div>
@@ -3918,7 +3931,7 @@
                     <div class="story-section">
                         <div class="story-card">
                             <div class="story-text">
-                                Chaque membre de DareWay est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
+                                Chaque membre de Codentis est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
                             </div>
                         </div>
                     </div>
@@ -3934,7 +3947,7 @@
                     <div class="story-section">
                         <div class="story-card">
                             <div class="story-text">
-                                <span class="highlight">DareWay</span>, c'est l'alliance de l'<span class="highlight">expertise technique pointue</span>, de la <span class="highlight">vision produit et stratégique</span>, et du <span class="highlight">service sur-mesure</span>. Nous intervenons aussi bien sur des sujets d'architecture et de développement que sur la définition de roadmaps produit, la transformation organisationnelle ou le pilotage de projets complexes. Cette <span class="highlight">double compétence technique et business</span> fait notre singularité.
+                                <span class="highlight">Codentis</span>, c'est l'alliance de l'<span class="highlight">expertise technique pointue</span>, de la <span class="highlight">vision produit et stratégique</span>, et du <span class="highlight">service sur-mesure</span>. Nous intervenons aussi bien sur des sujets d'architecture et de développement que sur la définition de roadmaps produit, la transformation organisationnelle ou le pilotage de projets complexes. Cette <span class="highlight">double compétence technique et business</span> fait notre singularité.
                             </div>
                         </div>
                     </div>
@@ -4059,9 +4072,9 @@
                             </div>
 
                             <div style="background: linear-gradient(135deg, rgba(245, 245, 247, 0.08) 0%, rgba(245, 245, 247, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #5a5550; margin-top: 30px;">
-                                <div style="font-weight: 700; color: #2a1810; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – DareWay</div>
+                                <div style="font-weight: 700; color: #2a1810; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
                                 <div class="story-text" style="margin: 0;">
-                                    Le marché évolue vers <span class="highlight">plus de qualité et moins de volume</span>. Les entreprises cherchent des experts capables de livrer de la valeur immédiate : audits, diagnostics, POC, quick-wins. Chez DareWay, nous constatons une <span class="highlight">explosion des missions courtes à fort impact</span>. Les DSI veulent des résultats tangibles, pas des roadmaps à 18 mois.
+                                    Le marché évolue vers <span class="highlight">plus de qualité et moins de volume</span>. Les entreprises cherchent des experts capables de livrer de la valeur immédiate : audits, diagnostics, POC, quick-wins. Chez Codentis, nous constatons une <span class="highlight">explosion des missions courtes à fort impact</span>. Les DSI veulent des résultats tangibles, pas des roadmaps à 18 mois.
                                 </div>
                             </div>
                         </div>
@@ -4074,9 +4087,9 @@
                                 Le marché de l'emploi IT se concentre sur l'expertise de pointe. Les profils spécialisés en <span class="highlight">IA/ML</span>, <span class="highlight">architecture cloud</span>, <span class="highlight">cybersécurité</span>, <span class="highlight">data engineering</span> et <span class="highlight">product ownership</span> sont sur-sollicités et créent un impact immédiat sur les projets stratégiques.
                             </div>
                             <div style="background: linear-gradient(135deg, rgba(245, 245, 247, 0.08) 0%, rgba(245, 245, 247, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #5a5550; margin-top: 20px;">
-                                <div style="font-weight: 700; color: #2a1810; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – DareWay</div>
+                                <div style="font-weight: 700; color: #2a1810; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
                                 <div class="story-text" style="margin: 0;">
-                                    Le marché se contracte mais <span class="highlight">les talents pointus restent en tension</span>. Les profils IA, Data Engineer, Architectes Cloud et experts cybersécurité sont toujours ultra-demandés. Chez DareWay, nos consultants sont sur-sollicités : <span class="highlight">l'expertise bat le volume</span>.
+                                    Le marché se contracte mais <span class="highlight">les talents pointus restent en tension</span>. Les profils IA, Data Engineer, Architectes Cloud et experts cybersécurité sont toujours ultra-demandés. Chez Codentis, nos consultants sont sur-sollicités : <span class="highlight">l'expertise bat le volume</span>.
                                 </div>
                             </div>
                         </div>
@@ -4772,7 +4785,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    DareWay's excelle dans la <span class="highlight">transformation de vos données brutes en leviers stratégiques</span>. Nous concevons et mettons en œuvre des <span class="highlight">pipelines ETL robustes</span>, des <span class="highlight">entrepôts de données optimisés</span>, et développons des <span class="highlight">modèles de Machine Learning et NLP</span> pour des prévisions précises. Notre expertise s'étend à la mise en place de <span class="highlight">catalogues de données</span> pour un référentiel centralisé, ainsi qu'au développement de modèles IA performants pour <span class="highlight">automatiser vos processus (AIOps, SRE)</span> et optimiser vos opérations (Predictive AI, Causal AI, Generative AI).
+                                    Codentis's excelle dans la <span class="highlight">transformation de vos données brutes en leviers stratégiques</span>. Nous concevons et mettons en œuvre des <span class="highlight">pipelines ETL robustes</span>, des <span class="highlight">entrepôts de données optimisés</span>, et développons des <span class="highlight">modèles de Machine Learning et NLP</span> pour des prévisions précises. Notre expertise s'étend à la mise en place de <span class="highlight">catalogues de données</span> pour un référentiel centralisé, ainsi qu'au développement de modèles IA performants pour <span class="highlight">automatiser vos processus (AIOps, SRE)</span> et optimiser vos opérations (Predictive AI, Causal AI, Generative AI).
                                 </div>
                             </div>
                         </div>
@@ -5351,7 +5364,7 @@
                     <div class="story-container">
                         <div class="story-hero">
                             <h1 class="story-title">Nos Réseaux</h1>
-                            <p class="story-subtitle">RESTEZ CONNECTÉS AVEC DareWay</p>
+                            <p class="story-subtitle">RESTEZ CONNECTÉS AVEC Codentis</p>
                         </div>
 
                         <div class="story-section">
@@ -5463,7 +5476,7 @@
                         <div class="cta-section">
                             <h3 class="cta-title">Télécharger notre <span class="cta-highlight">plaquette</span></h3>
                             <p class="cta-subtitle">Format PDF - Découvrez toutes nos expertises</p>
-                            <a href="computer:///mnt/user-data/outputs/DareWay-Plaquette.pdf" download="DareWay-Plaquette.pdf" class="cta-button" style="text-decoration: none; display: inline-block;">📥 Télécharger la plaquette</a>
+                            <a href="computer:///mnt/user-data/outputs/Codentis-Plaquette.pdf" download="Codentis-Plaquette.pdf" class="cta-button" style="text-decoration: none; display: inline-block;">📥 Télécharger la plaquette</a>
                         </div>
                     </div>
                 </div>
@@ -5479,7 +5492,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Chez DareWay, nous combinons <span class="highlight">expertise technique et vision stratégique</span> pour accompagner ceux qui font face à des <span class="highlight">enjeux IT et business complexes</span>. Nos clients nous sollicitent aussi bien pour des <span class="highlight">missions techniques pointues</span> (audits cybersécurité, architectures cloud, projets data/IA) que pour des <span class="highlight">transformations organisationnelles</span> (gouvernance IT, coaching agile, product ownership, conduite du changement). Qu'il s'agisse d'interventions longues ou de missions courtes à fort impact, nous combinons <span class="highlight">excellence technique, sens du produit et accompagnement humain</span>.
+                                    Chez Codentis, nous combinons <span class="highlight">expertise technique et vision stratégique</span> pour accompagner ceux qui font face à des <span class="highlight">enjeux IT et business complexes</span>. Nos clients nous sollicitent aussi bien pour des <span class="highlight">missions techniques pointues</span> (audits cybersécurité, architectures cloud, projets data/IA) que pour des <span class="highlight">transformations organisationnelles</span> (gouvernance IT, coaching agile, product ownership, conduite du changement). Qu'il s'agisse d'interventions longues ou de missions courtes à fort impact, nous combinons <span class="highlight">excellence technique, sens du produit et accompagnement humain</span>.
                                 </div>
                             </div>
                         </div>
@@ -5487,7 +5500,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Chaque membre de DareWay est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
+                                    Chaque membre de Codentis est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
                                 </div>
                             </div>
                         </div>
@@ -5503,7 +5516,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    <span class="highlight">DareWay</span>, c'est l'alliance de l'<span class="highlight">expertise technique pointue</span>, de la <span class="highlight">vision produit et stratégique</span>, et du <span class="highlight">service sur-mesure</span>. Nous intervenons aussi bien sur des sujets d'architecture et de développement que sur la définition de roadmaps produit, la transformation organisationnelle ou le pilotage de projets complexes. Cette <span class="highlight">double compétence technique et business</span> fait notre singularité.
+                                    <span class="highlight">Codentis</span>, c'est l'alliance de l'<span class="highlight">expertise technique pointue</span>, de la <span class="highlight">vision produit et stratégique</span>, et du <span class="highlight">service sur-mesure</span>. Nous intervenons aussi bien sur des sujets d'architecture et de développement que sur la définition de roadmaps produit, la transformation organisationnelle ou le pilotage de projets complexes. Cette <span class="highlight">double compétence technique et business</span> fait notre singularité.
                                 </div>
                             </div>
                         </div>
@@ -5585,7 +5598,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    DareWay recrute en continu des <span class="highlight">profils d'exception</span> qui partagent notre passion pour l'excellence technique et stratégique. Que vous soyez <span class="highlight">développeur senior</span>, <span class="highlight">architecte cloud</span>, <span class="highlight">expert cybersécurité</span>, <span class="highlight">product owner</span>, <span class="highlight">data scientist</span> ou <span class="highlight">consultant en transformation</span>, nous cherchons des talents qui veulent faire la différence sur des missions à fort impact.
+                                    Codentis recrute en continu des <span class="highlight">profils d'exception</span> qui partagent notre passion pour l'excellence technique et stratégique. Que vous soyez <span class="highlight">développeur senior</span>, <span class="highlight">architecte cloud</span>, <span class="highlight">expert cybersécurité</span>, <span class="highlight">product owner</span>, <span class="highlight">data scientist</span> ou <span class="highlight">consultant en transformation</span>, nous cherchons des talents qui veulent faire la différence sur des missions à fort impact.
                                 </div>
                             </div>
                         </div>
@@ -5627,7 +5640,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Chez DareWay, nous valorisons la <span class="highlight">curiosité intellectuelle</span>, l'<span class="highlight">excellence opérationnelle</span> et l'<span class="highlight">esprit entrepreneurial</span>. Que vous soyez en recherche d'un CDI, d'une mission freelance longue durée, ou d'un partenariat structuré, nous construisons ensemble un modèle qui vous correspond.
+                                    Chez Codentis, nous valorisons la <span class="highlight">curiosité intellectuelle</span>, l'<span class="highlight">excellence opérationnelle</span> et l'<span class="highlight">esprit entrepreneurial</span>. Que vous soyez en recherche d'un CDI, d'une mission freelance longue durée, ou d'un partenariat structuré, nous construisons ensemble un modèle qui vous correspond.
                                 </div>
                             </div>
                         </div>
@@ -5651,7 +5664,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    DareWay développe des <span class="highlight">partenariats stratégiques</span> avec des entreprises, des ESN, des cabinets de conseil et des organismes publics qui partagent notre vision de l'excellence. Nous croyons en la <span class="highlight">co-construction</span> et en la création de valeur mutuelle pour nos clients communs.
+                                    Codentis développe des <span class="highlight">partenariats stratégiques</span> avec des entreprises, des ESN, des cabinets de conseil et des organismes publics qui partagent notre vision de l'excellence. Nous croyons en la <span class="highlight">co-construction</span> et en la création de valeur mutuelle pour nos clients communs.
                                 </div>
                             </div>
                         </div>
@@ -5830,9 +5843,9 @@
                                 </div>
 
                                 <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(255, 127, 92, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #FF7F5C; margin-top: 30px;">
-                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – DareWay</div>
+                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
                                     <div class="story-text" style="margin: 0;">
-                                        Le marché évolue vers <span class="highlight">plus de qualité et moins de volume</span>. Les entreprises cherchent des experts capables de livrer de la valeur immédiate : audits, diagnostics, proof of concepts, quick-wins. Chez DareWay, nous constatons une <span class="highlight">explosion des missions courtes à fort impact</span>. Les DSI veulent des résultats tangibles, pas des roadmaps à 18 mois.
+                                        Le marché évolue vers <span class="highlight">plus de qualité et moins de volume</span>. Les entreprises cherchent des experts capables de livrer de la valeur immédiate : audits, diagnostics, proof of concepts, quick-wins. Chez Codentis, nous constatons une <span class="highlight">explosion des missions courtes à fort impact</span>. Les DSI veulent des résultats tangibles, pas des roadmaps à 18 mois.
                                     </div>
                                 </div>
                             </div>
@@ -5845,9 +5858,9 @@
                                     Le marché de l'emploi IT se concentre sur <span class="highlight">l'expertise de pointe</span>. Les profils généralistes cèdent la place aux spécialistes capables d'intervenir sur des problématiques complexes et de créer un impact immédiat.
                                 </div>
                                 <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(255, 127, 92, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #FF7F5C; margin-top: 20px;">
-                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – DareWay</div>
+                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
                                     <div class="story-text" style="margin: 0;">
-                                        Les talents pointus sont <span class="highlight">sur-sollicités</span> : experts IA/ML, architectes cloud natifs, spécialistes cybersécurité, data engineers seniors, product owners expérimentés. Chez DareWay, nos consultants reçoivent plusieurs propositions par semaine. <span class="highlight">L'expertise bat le volume</span> : un expert senior vaut 10 juniors sur des sujets critiques.
+                                        Les talents pointus sont <span class="highlight">sur-sollicités</span> : experts IA/ML, architectes cloud natifs, spécialistes cybersécurité, data engineers seniors, product owners expérimentés. Chez Codentis, nos consultants reçoivent plusieurs propositions par semaine. <span class="highlight">L'expertise bat le volume</span> : un expert senior vaut 10 juniors sur des sujets critiques.
                                     </div>
                                 </div>
                             </div>
@@ -5879,9 +5892,9 @@
                                 </div>
 
                                 <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(255, 127, 92, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #FF7F5C; margin-top: 30px;">
-                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – DareWay</div>
+                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
                                     <div class="story-text" style="margin: 0;">
-                                        Les entreprises qui investissent maintenant dans <span class="highlight">l'IA, le cloud et l'automatisation</span> prennent une longueur d'avance décisive. Chez DareWay, nous accompagnons nos clients sur ces sujets stratégiques avec une approche pragmatique : <span class="highlight">POC rapides, quick-wins mesurables, scalabilité pensée dès le départ</span>. Pas de bullshit, que de la valeur.
+                                        Les entreprises qui investissent maintenant dans <span class="highlight">l'IA, le cloud et l'automatisation</span> prennent une longueur d'avance décisive. Chez Codentis, nous accompagnons nos clients sur ces sujets stratégiques avec une approche pragmatique : <span class="highlight">POC rapides, quick-wins mesurables, scalabilité pensée dès le départ</span>. Pas de bullshit, que de la valeur.
                                     </div>
                                 </div>
                             </div>
@@ -5952,7 +5965,7 @@
                 question: formData.get('question')
             };
             
-            const subject = encodeURIComponent(`Contact depuis le site DareWay - ${data.firstName} ${data.lastName}`);
+            const subject = encodeURIComponent(`Contact depuis le site Codentis - ${data.firstName} ${data.lastName}`);
             const body = encodeURIComponent(
                 `Prénom: ${data.firstName}\n` +
                 `Nom: ${data.lastName}\n` +
@@ -6092,7 +6105,7 @@
         <div class="chat-container">
             <div class="chat-header">
                 <div class="chat-header-content">
-                    <h3 id="chatTitle">Assistant DareWay</h3>
+                    <h3 id="chatTitle">Assistant Codentis</h3>
                     <p id="chatSubtitle">Qualification intelligente • Réponse expert sous 24h</p>
                 </div>
                 <button class="chat-close" onclick="closeChatModal()">×</button>
@@ -6133,7 +6146,7 @@
         };
 
         // ==================== PROMPTS ==================== 
-        const PROMPT_IT = `Tu es l'agent conversationnel du Lab Technique de DareWay, une ESN experte en solutions IT et transformation digitale. Tu incarnes un expert technique professionnel, sympa et pédagogue.
+        const PROMPT_IT = `Tu es l'agent conversationnel du Lab Technique de Codentis, une ESN experte en solutions IT et transformation digitale. Tu incarnes un expert technique professionnel, sympa et pédagogue.
 
 🎯 TA MISSION
 Qualifier les besoins techniques des visiteurs à travers une conversation naturelle, puis collecter leurs coordonnées pour qu'un expert les recontacte sous 24h.
@@ -6149,11 +6162,11 @@ Qualifier les besoins techniques des visiteurs à travers une conversation natur
 PHASE 1 : ACCUEIL & EXPLICATION DU RÔLE
 Dans ta toute première réponse, tu DOIS :
 1. Accueillir chaleureusement
-2. EXPLIQUER TON RÔLE : "Je suis l'assistant virtuel de DareWay. Mon rôle est de bien comprendre votre besoin technique à travers 3 questions rapides, puis de transmettre votre demande à l'un de nos experts qui vous répondra sous 24h avec une solution adaptée."
+2. EXPLIQUER TON RÔLE : "Je suis l'assistant virtuel de Codentis. Mon rôle est de bien comprendre votre besoin technique à travers 3 questions rapides, puis de transmettre votre demande à l'un de nos experts qui vous répondra sous 24h avec une solution adaptée."
 3. Reformuler brièvement la demande
 4. Poser ta première question de clarification
 
-Exemple : "Bonjour ! Je suis l'assistant virtuel de DareWay. Mon rôle est de bien comprendre votre besoin à travers 3 questions rapides, puis je transmettrai votre demande à nos experts qui vous répondront sous 24h. Je vois que vous cherchez à [reformulation]. Pour mieux vous aider, [première question] ?"
+Exemple : "Bonjour ! Je suis l'assistant virtuel de Codentis. Mon rôle est de bien comprendre votre besoin à travers 3 questions rapides, puis je transmettrai votre demande à nos experts qui vous répondront sous 24h. Je vois que vous cherchez à [reformulation]. Pour mieux vous aider, [première question] ?"
 
 PHASE 2 : QUALIFICATION (3 QUESTIONS MAX)
 Pose maximum 3 questions ciblées pour comprendre le contexte technique, l'ampleur du besoin et la maturité du projet.
@@ -6170,7 +6183,7 @@ Collecte une par une :
 4. Email OU Téléphone (au moins un des deux)
 
 PHASE 5 : CONFIRMATION
-"Parfait [Prénom] ! Votre demande a bien été enregistrée. Un expert technique de DareWay vous recontactera sous 24h pour échanger sur votre projet. À très bientôt !"
+"Parfait [Prénom] ! Votre demande a bien été enregistrée. Un expert technique de Codentis vous recontactera sous 24h pour échanger sur votre projet. À très bientôt !"
 
 ⚠️ RÈGLES IMPORTANTES
 - TOUJOURS vouvoyer
@@ -6182,7 +6195,7 @@ PHASE 5 : CONFIRMATION
 
 IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse par le tag spécial [COLLECTE:prénom] ou [COLLECTE:nom] ou [COLLECTE:société] ou [COLLECTE:email] ou [COLLECTE:téléphone] suivi de ta question. Par exemple : "[COLLECTE:prénom] Parfait ! Commençons par votre prénom ?"`;
 
-        const PROMPT_GOV = `Tu es l'agent conversationnel du Hub Stratégique de DareWay, une ESN experte en gouvernance et stratégie produit. Tu incarnes un expert en Product Management, agilité et stratégie, professionnel et accessible.
+        const PROMPT_GOV = `Tu es l'agent conversationnel du Hub Stratégique de Codentis, une ESN experte en gouvernance et stratégie produit. Tu incarnes un expert en Product Management, agilité et stratégie, professionnel et accessible.
 
 🎯 TA MISSION
 Qualifier les besoins stratégiques et organisationnels des visiteurs à travers une conversation naturelle, puis collecter leurs coordonnées pour qu'un expert les recontacte sous 24h.
@@ -6198,11 +6211,11 @@ Qualifier les besoins stratégiques et organisationnels des visiteurs à travers
 PHASE 1 : ACCUEIL & EXPLICATION DU RÔLE
 Dans ta toute première réponse, tu DOIS :
 1. Accueillir chaleureusement
-2. EXPLIQUER TON RÔLE : "Je suis l'assistant virtuel de DareWay. Mon rôle est de bien comprendre votre besoin stratégique à travers 3 questions rapides, puis de transmettre votre demande à l'un de nos experts en gouvernance et stratégie qui vous répondra sous 24h avec une solution adaptée."
+2. EXPLIQUER TON RÔLE : "Je suis l'assistant virtuel de Codentis. Mon rôle est de bien comprendre votre besoin stratégique à travers 3 questions rapides, puis de transmettre votre demande à l'un de nos experts en gouvernance et stratégie qui vous répondra sous 24h avec une solution adaptée."
 3. Reformuler brièvement la demande
 4. Poser ta première question de clarification
 
-Exemple : "Bonjour ! Je suis l'assistant virtuel de DareWay. Mon rôle est de bien comprendre votre besoin stratégique à travers 3 questions rapides, puis je transmettrai votre demande à nos experts qui vous répondront sous 24h. Je vois que vous cherchez à [reformulation]. Pour mieux vous orienter, [première question] ?"
+Exemple : "Bonjour ! Je suis l'assistant virtuel de Codentis. Mon rôle est de bien comprendre votre besoin stratégique à travers 3 questions rapides, puis je transmettrai votre demande à nos experts qui vous répondront sous 24h. Je vois que vous cherchez à [reformulation]. Pour mieux vous orienter, [première question] ?"
 
 PHASE 2 : QUALIFICATION (3 QUESTIONS MAX)
 Pose maximum 3 questions ciblées pour comprendre le contexte organisationnel, la maturité produit/agilité et les enjeux stratégiques.
@@ -6219,7 +6232,7 @@ Collecte une par une :
 4. Email OU Téléphone (au moins un des deux)
 
 PHASE 5 : CONFIRMATION
-"Parfait [Prénom] ! Votre demande a bien été enregistrée. Un expert stratégique de DareWay vous recontactera sous 24h pour échanger sur votre projet. À très bientôt !"
+"Parfait [Prénom] ! Votre demande a bien été enregistrée. Un expert stratégique de Codentis vous recontactera sous 24h pour échanger sur votre projet. À très bientôt !"
 
 ⚠️ RÈGLES IMPORTANTES
 - TOUJOURS vouvoyer
