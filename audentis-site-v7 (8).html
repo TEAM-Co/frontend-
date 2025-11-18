@@ -29,24 +29,23 @@
         }
         
         body.welcome-mode {
-            background: #1a1410;
+            background: #0a0a0a;
         }
 
         body.welcome-mode::before {
             background:
-                radial-gradient(circle at 20% 25%, rgba(255, 127, 92, 0.25) 0%, rgba(255, 127, 92, 0.08) 30%, transparent 60%),
-                radial-gradient(circle at 80% 75%, rgba(245, 245, 247, 0.2) 0%, rgba(245, 245, 247, 0.06) 30%, transparent 60%),
-                radial-gradient(circle at 65% 20%, rgba(245, 245, 247, 0.15) 0%, rgba(245, 245, 247, 0.05) 30%, transparent 55%),
-                radial-gradient(circle at 35% 80%, rgba(255, 127, 92, 0.2) 0%, rgba(255, 127, 92, 0.06) 30%, transparent 55%),
-                radial-gradient(circle at 50% 50%, rgba(255, 127, 92, 0.12) 0%, rgba(255, 127, 92, 0.03) 35%, transparent 65%),
-                radial-gradient(circle at 15% 65%, rgba(245, 245, 247, 0.12) 0%, rgba(245, 245, 247, 0.04) 30%, transparent 58%),
-                radial-gradient(circle at 85% 35%, rgba(255, 127, 92, 0.15) 0%, rgba(255, 127, 92, 0.04) 30%, transparent 58%);
+                linear-gradient(135deg, transparent 0%, transparent 30%, rgba(255, 127, 92, 0.15) 50%, transparent 70%, transparent 100%),
+                linear-gradient(-45deg, transparent 0%, transparent 25%, rgba(245, 245, 247, 0.12) 50%, transparent 75%, transparent 100%),
+                linear-gradient(60deg, transparent 0%, transparent 35%, rgba(255, 127, 92, 0.1) 50%, transparent 65%, transparent 100%),
+                linear-gradient(-120deg, transparent 0%, transparent 30%, rgba(245, 245, 247, 0.08) 50%, transparent 70%, transparent 100%),
+                linear-gradient(20deg, transparent 0%, transparent 40%, rgba(255, 127, 92, 0.12) 50%, transparent 60%, transparent 100%),
+                linear-gradient(-80deg, transparent 0%, transparent 35%, rgba(245, 245, 247, 0.1) 50%, transparent 65%, transparent 100%);
         }
-        
+
         body.welcome-mode::after {
-            background-image: 
-                linear-gradient(90deg, rgba(107, 78, 61, 0.04) 1px, transparent 1px),
-                linear-gradient(rgba(107, 78, 61, 0.04) 1px, transparent 1px);
+            background-image:
+                linear-gradient(90deg, rgba(245, 245, 247, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(245, 245, 247, 0.02) 1px, transparent 1px);
         }
 
         body.has-mini-sidebar {
