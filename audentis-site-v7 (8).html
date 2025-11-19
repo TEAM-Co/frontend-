@@ -441,6 +441,7 @@
             border: 1px solid rgba(255, 127, 92, 0.25);
             z-index: 998;
             min-width: 140px;
+            max-width: 500px;
             height: 40px;
             display: flex;
             align-items: center;
@@ -473,7 +474,7 @@
 
         .experts-scroll-island {
             display: flex;
-            animation: scroll-island 20s linear infinite;
+            animation: scroll-island 50s linear infinite;
         }
 
         .expert-item-island {
@@ -4765,16 +4766,18 @@
         // Show experts in Dynamic Island - EXACTE V15
         function showExperts() {
             const content = document.getElementById('islandContent');
-            
+
+            // Si on est en train d'afficher les experts, on ferme
             if (islandAnimating) {
                 if (islandTimeout) clearTimeout(islandTimeout);
                 content.innerHTML = 'LES EXPERTS ET STRATÈGES';
                 islandAnimating = false;
                 return;
             }
-            
+
+            // Sinon on ouvre
             islandAnimating = true;
-            
+
             // Sur la page d'accueil, afficher tous les experts (IT + Gov)
             let experts;
             if (!currentSite || currentPage === 'welcome') {
@@ -4782,19 +4785,20 @@
             } else {
                 experts = currentSite === 'it' ? expertsIT : expertsGov;
             }
-            
+
             let html = '<div class="experts-scroll-island">';
             experts.forEach(expert => {
                 html += `<div class="expert-item-island"><span class="expert-name-island">${expert.name}</span>${expert.role}</div>`;
             });
             html += '</div>';
-            
+
             content.innerHTML = html;
-            
-            islandTimeout = setTimeout(() => { 
+
+            // Fermer automatiquement après 60 secondes (temps pour voir défiler tous les experts)
+            islandTimeout = setTimeout(() => {
                 content.innerHTML = 'LES EXPERTS ET STRATÈGES';
                 islandAnimating = false;
-            }, 21000);
+            }, 60000);
         }
 
         // Créer les pages de contenu
