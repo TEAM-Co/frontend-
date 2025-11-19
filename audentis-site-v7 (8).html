@@ -474,7 +474,7 @@
 
         .experts-scroll-island {
             display: flex;
-            animation: scroll-island 50s linear infinite;
+            animation: scroll-island 30s linear infinite;
         }
 
         .expert-item-island {
@@ -4794,11 +4794,11 @@
 
             content.innerHTML = html;
 
-            // Fermer automatiquement après 60 secondes (temps pour voir défiler tous les experts)
+            // Fermer automatiquement après 35 secondes (temps pour voir défiler tous les experts)
             islandTimeout = setTimeout(() => {
                 content.innerHTML = 'LES EXPERTS ET STRATÈGES';
                 islandAnimating = false;
-            }, 60000);
+            }, 35000);
         }
 
         // Créer les pages de contenu
