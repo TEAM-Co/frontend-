@@ -3408,20 +3408,82 @@
             }
 
             .chat-input-container {
-                width: calc(100% - 32px) !important;
+                width: calc(100% - 24px) !important;
                 max-width: 100%;
                 box-sizing: border-box;
+                padding: 8px 12px !important;
+                font-size: 14px !important;
             }
 
             .chat-header {
-                padding: 20px 16px !important;
+                padding: 16px 12px !important;
+            }
+
+            .chat-header h2 {
+                font-size: 1.1rem !important;
+            }
+
+            /* Chat input field */
+            #chatInput {
+                font-size: 14px !important;
+                padding: 10px 12px !important;
+                max-width: 100% !important;
+            }
+
+            /* Landing titles */
+            .landing-hero h1 {
+                font-size: 1.8rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .landing-hero p {
+                font-size: 0.95rem !important;
+                padding: 0 12px !important;
+            }
+
+            /* Cards adaptées */
+            .card {
+                padding: 16px 12px !important;
+                font-size: 0.85rem !important;
+            }
+
+            .card h3 {
+                font-size: 1rem !important;
+            }
+
+            /* Bubbles */
+            .choice-bubble {
+                padding: 12px !important;
+                min-height: 100px !important;
+            }
+
+            .choice-bubble-title {
+                font-size: 0.95rem !important;
+            }
+
+            .choice-bubble-desc {
+                font-size: 0.8rem !important;
+            }
+
+            /* S'assurer qu'aucun élément ne déborde */
+            * {
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Chat messages */
+            .user-message, .assistant-message {
+                max-width: 85% !important;
+                font-size: 0.9rem !important;
+                padding: 10px 12px !important;
             }
 
             .dynamic-island {
-                font-size: 10px;
-                padding: 4px 10px;
-                min-width: 90px;
-                max-width: calc(100vw - 100px);
+                font-size: 9px;
+                padding: 3px 8px;
+                min-width: 80px;
+                max-width: calc(100vw - 140px) !important;
+                height: 32px;
             }
 
             /* Disable gradient backgrounds completely on mobile to prevent color patches */
@@ -3439,6 +3501,64 @@
             /* Also disable modal gradients */
             .expertise-modal::before {
                 background: transparent !important;
+            }
+
+            /* DÉSACTIVER BACKDROP-FILTER SUR iOS - Remplacer par backgrounds solides */
+            .dynamic-island,
+            .mini-sidebar,
+            .hamburger-button,
+            .mobile-menu-overlay,
+            .sidebar,
+            .sidebar-backdrop,
+            .choice-bubble,
+            .questions-dropdown,
+            .expertise-modal-content,
+            .chat-header,
+            .chat-input-area {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+
+            /* Backgrounds solides pour remplacer glassmorphism */
+            .dynamic-island {
+                background: rgba(20, 20, 20, 0.96) !important;
+            }
+
+            .hamburger-button {
+                background: rgba(20, 20, 20, 0.95) !important;
+            }
+
+            .mobile-menu-overlay {
+                background: rgba(20, 20, 20, 0.98) !important;
+            }
+
+            .chat-header {
+                background: rgba(255, 255, 255, 0.98) !important;
+            }
+
+            body.theme-it .chat-header {
+                background: rgba(20, 20, 20, 0.98) !important;
+            }
+
+            .chat-input-area {
+                background: rgba(255, 255, 255, 0.98) !important;
+            }
+
+            body.theme-it .chat-input-area {
+                background: rgba(20, 20, 20, 0.98) !important;
+            }
+
+            /* Gov theme overrides */
+            body.theme-gov .dynamic-island {
+                background: rgba(245, 245, 247, 0.96) !important;
+            }
+
+            body.theme-gov .hamburger-button {
+                background: rgba(245, 245, 247, 0.95) !important;
+            }
+
+            body.theme-gov .mobile-menu-overlay {
+                background: rgba(245, 245, 247, 0.98) !important;
             }
 
             /* Landing sections spacing */
@@ -3639,21 +3759,40 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenu">
+        <!-- Expertises - Star Icon (même que mini-sidebar) -->
         <div class="mobile-menu-item" data-action="expertises">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <svg viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
             <span>Expertises</span>
         </div>
+
+        <!-- Découvrir - Compass Icon (même que mini-sidebar) -->
         <div class="mobile-menu-item" data-action="decouvrir">
-            <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
             <span>Découvrir</span>
         </div>
+
         <div class="mobile-menu-separator"></div>
+
+        <!-- Nous rejoindre - People Icon (même que mini-sidebar) -->
         <div class="mobile-menu-item" data-action="rejoindre">
-            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
             <span>Nous rejoindre</span>
         </div>
+
+        <!-- Contact - Envelope Icon (même que mini-sidebar) -->
         <div class="mobile-menu-item" data-action="contact">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
             <span>Contact</span>
         </div>
     </div>
@@ -4299,10 +4438,10 @@
 
         const menuGov = {
             expertises: [
-                { id: 'pageDataIAGov', title: 'Data - Vision Produit', desc: 'Stratégie data' },
-                { id: 'pageDigitalGov', title: 'Product Management', desc: 'Vision produit & UX' },
-                { id: 'pageInfrastructureGov', title: 'Cloud - Stratégie', desc: 'Transformation' },
-                { id: 'pageCybersecurityGov', title: 'Cybersécurité - Gouvernance', desc: 'SMSI, Conformité' },
+                { id: 'pageDataIAGov', title: 'Data & IA', desc: 'Stratégie data' },
+                { id: 'pageDigitalGov', title: 'Développement', desc: 'Vision produit & UX' },
+                { id: 'pageInfrastructureGov', title: 'Infrastructure Cloud & DevOps', desc: 'Transformation' },
+                { id: 'pageCybersecurityGov', title: 'Cybersécurité', desc: 'SMSI, Conformité' },
                 { id: 'pageGouvernance', title: 'Gouvernance Opérationnelle', desc: 'Agilité, PMO' },
                 { id: 'pageRHTech', title: 'Transformation RH Tech', desc: 'Recrutement IT' },
                 { id: 'pageWorkshopsGov', title: 'Workshops & Conférences', desc: 'Formations stratégiques' }
@@ -4506,26 +4645,16 @@
                         hamburgerButton.classList.remove('active');
                         mobileMenu.classList.remove('open');
 
-                        // Navigate to section (reuse existing navigation logic)
+                        // Navigate using openSidebarSection (fonctionne sur toutes les pages)
                         switch(action) {
                             case 'expertises':
-                                // Scroll to expertises section or open expertise selector
-                                const expertisesSection = document.querySelector('[data-section="expertises"]');
-                                if (expertisesSection) {
-                                    expertisesSection.scrollIntoView({ behavior: 'smooth' });
-                                }
+                                openSidebarSection('expertises');
                                 break;
                             case 'decouvrir':
-                                const decouvrirSection = document.querySelector('[data-section="decouvrir"]');
-                                if (decouvrirSection) {
-                                    decouvrirSection.scrollIntoView({ behavior: 'smooth' });
-                                }
+                                openSidebarSection('decouvrir');
                                 break;
                             case 'rejoindre':
-                                const rejoindreSection = document.querySelector('[data-section="rejoindre"]');
-                                if (rejoindreSection) {
-                                    rejoindreSection.scrollIntoView({ behavior: 'smooth' });
-                                }
+                                openSidebarSection('rejoindre');
                                 break;
                             case 'contact':
                                 openChatInterface();
@@ -4737,6 +4866,39 @@
             const sidebar = document.getElementById('sidebar');
             const backdrop = document.getElementById('sidebarBackdrop');
 
+            // Sur welcome page, gérer différemment les sections non-expertises
+            if (currentPage === 'welcome' && section !== 'expertises') {
+                if (section === 'contact') {
+                    // Ouvrir directement le chat
+                    openChatInterface();
+                    return;
+                } else {
+                    // Pour Découvrir et Rejoindre, afficher un message de sélection de track
+                    const content = document.getElementById('sidebarMenu');
+                    let sectionTitle = section === 'decouvrir' ? 'Découvrir' : 'Nous Rejoindre';
+
+                    content.innerHTML = `
+                        <div class="sidebar-section">
+                            <h3>${sectionTitle}</h3>
+                            <p style="color: rgba(245, 245, 247, 0.7); margin-bottom: 20px; font-size: 0.9rem;">
+                                Sélectionnez d'abord votre parcours :
+                            </p>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div class="expertise-track-button" onclick="selectTrackAndNavigate('it', '${section}')">
+                                    <span>Expertise Technique IT</span>
+                                </div>
+                                <div class="expertise-track-button" onclick="selectTrackAndNavigate('gov', '${section}')">
+                                    <span>Gouvernance & Stratégie</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    sidebar.classList.add('open');
+                    backdrop.classList.add('active');
+                    return;
+                }
+            }
+
             // Si siteType n'est pas fourni, utiliser currentSite
             const site = siteType || currentSite;
 
@@ -4934,6 +5096,28 @@
             document.getElementById('siteSwitcher').classList.add('visible');
 
             currentPage = pageId;
+        }
+
+        // Sélectionner un track et naviguer vers une section (welcome page)
+        function selectTrackAndNavigate(track, section) {
+            // Définir le site actuel
+            currentSite = track;
+
+            // Appliquer le thème
+            document.body.classList.remove('theme-it', 'theme-gov', 'welcome-mode');
+            document.body.classList.add(`theme-${track}`, 'has-mini-sidebar');
+
+            // Afficher les éléments du site
+            document.getElementById('welcomeScreen').classList.add('hidden');
+            document.getElementById('logoBtn').classList.add('visible');
+            document.getElementById('miniSidebar').classList.add('visible');
+            document.getElementById('dynamicIsland').classList.add('visible');
+            document.getElementById('siteSwitcher').classList.add('visible');
+
+            currentPage = 'landing';
+
+            // Ouvrir la sidebar avec la section demandée
+            openSidebarSection(section);
         }
 
         // Show page
@@ -5864,20 +6048,12 @@
                     </div>
                 </div>
 
-                <!-- PARTENARIAT -->
+                <!-- PARTENARIAT (Simplifié) -->
                 <div class="work-in-progress" id="pagePartenariat">
                     <div class="story-container">
                         <div class="story-hero">
                             <h1 class="story-title">Partenariat</h1>
-                            <p class="story-subtitle">CONSTRUISONS ENSEMBLE L'AVENIR DE VOS PROJETS</p>
-                        </div>
-
-                        <div class="story-section">
-                            <div class="story-card">
-                                <div class="story-text">
-                                    Codentis développe des <span class="highlight">partenariats stratégiques</span> avec des entreprises, des ESN, des cabinets de conseil et des organismes publics qui partagent notre vision de l'excellence. Nous croyons en la <span class="highlight">co-construction</span> et en la création de valeur mutuelle pour nos clients communs.
-                                </div>
-                            </div>
+                            <p class="story-subtitle">NOS MODÈLES DE COLLABORATION</p>
                         </div>
 
                         <div class="story-section">
@@ -5893,53 +6069,10 @@
                             </div>
                         </div>
 
-                        <div class="story-section">
-                            <div class="story-card">
-                                <h3 class="section-header">Pourquoi devenir partenaire ?</h3>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
-                                    <div style="padding: 25px; background: rgba(255, 127, 92, 0.05); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 12px;">
-                                        <div style="font-size: 1.2rem; font-weight: 700; color: #FF7F5C; margin-bottom: 12px;">Expertise Complémentaire</div>
-                                        <div style="font-size: 0.95rem; line-height: 1.7; color: rgba(245, 245, 247, 0.8);">Accédez à notre double compétence technique et stratégique pour enrichir votre offre</div>
-                                    </div>
-                                    <div style="padding: 25px; background: rgba(255, 127, 92, 0.05); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 12px;">
-                                        <div style="font-size: 1.2rem; font-weight: 700; color: #FF7F5C; margin-bottom: 12px;">Réactivité & Agilité</div>
-                                        <div style="font-size: 0.95rem; line-height: 1.7; color: rgba(245, 245, 247, 0.8);">Interventions rapides, équipes mobilisables sur des projets à fort enjeu</div>
-                                    </div>
-                                    <div style="padding: 25px; background: rgba(255, 127, 92, 0.05); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 12px;">
-                                        <div style="font-size: 1.2rem; font-weight: 700; color: #FF7F5C; margin-bottom: 12px;">Relation de Confiance</div>
-                                        <div style="font-size: 0.95rem; line-height: 1.7; color: rgba(245, 245, 247, 0.8);">Transparence, engagement et alignement sur la réussite de vos clients</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="story-section">
-                            <div class="story-card">
-                                <div class="story-text">
-                                    Nous travaillons déjà avec plusieurs <span class="highlight">grands comptes</span>, <span class="highlight">cabinets de conseil</span> et <span class="highlight">acteurs publics</span> sur des missions stratégiques. Notre approche flexible nous permet de nous adapter à vos process et à votre culture d'entreprise tout en apportant notre expertise unique.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="story-section">
-                            <div class="story-card">
-                                <h3 class="section-header">Secteurs d'intervention</h3>
-                                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 25px; justify-content: center;">
-                                    <span style="padding: 12px 24px; background: rgba(255, 127, 92, 0.1); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 25px; font-size: 0.95rem; color: rgba(245, 245, 247, 0.9);">Finance & Assurance</span>
-                                    <span style="padding: 12px 24px; background: rgba(255, 127, 92, 0.1); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 25px; font-size: 0.95rem; color: rgba(245, 245, 247, 0.9);">E-commerce & Retail</span>
-                                    <span style="padding: 12px 24px; background: rgba(255, 127, 92, 0.1); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 25px; font-size: 0.95rem; color: rgba(245, 245, 247, 0.9);">Santé & Médical</span>
-                                    <span style="padding: 12px 24px; background: rgba(255, 127, 92, 0.1); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 25px; font-size: 0.95rem; color: rgba(245, 245, 247, 0.9);">Secteur Public</span>
-                                    <span style="padding: 12px 24px; background: rgba(255, 127, 92, 0.1); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 25px; font-size: 0.95rem; color: rgba(245, 245, 247, 0.9);">Industrie & Manufacturing</span>
-                                    <span style="padding: 12px 24px; background: rgba(255, 127, 92, 0.1); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 25px; font-size: 0.95rem; color: rgba(245, 245, 247, 0.9);">Tech & SaaS</span>
-                                    <span style="padding: 12px 24px; background: rgba(255, 127, 92, 0.1); border: 1px solid rgba(255, 127, 92, 0.2); border-radius: 25px; font-size: 0.95rem; color: rgba(245, 245, 247, 0.9);">Énergie & Utilities</span>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="cta-section">
                             <h3 class="cta-title">Intéressé par un <span class="cta-highlight">partenariat</span> ?</h3>
                             <p class="cta-subtitle">Discutons de nos synergies et opportunités de collaboration</p>
-                            <button class="cta-button" onclick="openContactModal()">Nous contacter →</button>
+                            <button class="cta-button" onclick="openChatInterface()">Contactez notre agent IA →</button>
                         </div>
                     </div>
                 </div>
