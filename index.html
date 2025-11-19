@@ -3360,6 +3360,9 @@
 
             .logo-btn img {
                 height: 60px !important;
+                width: auto !important;
+                object-fit: contain !important;
+                max-width: none !important;
             }
 
             /* Sidebar réduite sur mobile mais toujours visible */
@@ -3481,26 +3484,36 @@
             .dynamic-island {
                 font-size: 9px;
                 padding: 3px 8px;
-                min-width: 80px;
-                max-width: calc(100vw - 140px) !important;
+                width: 140px !important; /* TAILLE FIXE - ne change jamais */
+                min-width: 140px !important;
+                max-width: 140px !important;
                 height: 32px;
+                overflow: hidden; /* Scroll interne pour le texte */
             }
 
-            /* Disable gradient backgrounds completely on mobile to prevent color patches */
-            body::before,
-            body.welcome-mode::before {
-                background: transparent !important;
+            /* Scroll horizontal pour le contenu qui dépasse */
+            .island-content {
+                white-space: nowrap;
+                overflow: hidden;
             }
 
-            /* Keep subtle grid only */
-            body::after,
-            body.welcome-mode::after {
-                opacity: 0.3;
+            /* FONDS UNIS MOBILES - iOS & Android (Terracota IT + Ivoire Gov) */
+            body {
+                background: #C44D33 !important; /* Terracota IT premium */
             }
 
-            /* Also disable modal gradients */
+            body.theme-gov {
+                background: #F5F3ED !important; /* Ivoire Gov premium */
+            }
+
+            /* Désactiver TOUS gradients, projecteurs et grilles sur mobile */
+            body::before, body::after,
+            body.theme-gov::before, body.theme-gov::after,
+            body.welcome-mode::before, body.welcome-mode::after,
             .expertise-modal::before {
+                display: none !important;
                 background: transparent !important;
+                opacity: 0 !important;
             }
 
             /* DÉSACTIVER BACKDROP-FILTER SUR iOS - Remplacer par backgrounds solides */
@@ -3613,6 +3626,12 @@
                 min-height: 100vh;
                 padding: 28vh 20px 40px 20px;
                 justify-content: flex-start;
+                text-align: center !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
             }
 
             .landing-sections {
@@ -3794,6 +3813,18 @@
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
             <span>Contact</span>
+        </div>
+
+        <div class="mobile-menu-separator"></div>
+
+        <!-- Switcher IT/Gov - Computer Emoji -->
+        <div class="mobile-menu-item" data-action="switch" id="mobileSwitcher">
+            <svg viewBox="0 0 24 24" style="stroke-width: 2.5;">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span id="mobileSwitcherText">Passer à Gouvernance</span>
         </div>
     </div>
 
@@ -4659,6 +4690,10 @@
                             case 'contact':
                                 openChatInterface();
                                 break;
+                            case 'switch':
+                                switchSite(); // Utilise la fonction existante
+                                updateMobileSwitcherText(); // Met à jour le texte
+                                break;
                         }
                     });
                 });
@@ -4776,19 +4811,25 @@
                 document.body.classList.add('theme-gov');
                 document.getElementById('landingGov').classList.add('active');
                 document.getElementById('siteSwitcher').textContent = 'Expertise IT';
+                // Update mobile switcher text
+                const mobileSwitcher = document.getElementById('mobileSwitcherText');
+                if (mobileSwitcher) mobileSwitcher.textContent = 'Passer à IT';
             } else {
                 currentSite = 'it';
                 document.body.classList.remove('theme-gov');
                 document.body.classList.add('theme-it');
                 document.getElementById('landingIT').classList.add('active');
                 document.getElementById('siteSwitcher').textContent = 'Stratégie Gouvernance';
+                // Update mobile switcher text
+                const mobileSwitcher = document.getElementById('mobileSwitcherText');
+                if (mobileSwitcher) mobileSwitcher.textContent = 'Passer à Gouvernance';
             }
 
             updateMenu();
             updateScrollIndicator();
             currentPage = 'landing';
             window.scrollTo(0, 0);
-            
+
             // Ouvrir le Dynamic Island automatiquement après 5 sec
             setTimeout(() => {
                 if (currentPage === 'landing') {
