@@ -356,21 +356,21 @@
         }
 
         @keyframes yToPosition {
-            0% { 
-                transform: scale(0) rotate(-180deg); 
-                opacity: 0; 
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
             }
-            30% { 
-                transform: scale(1.2) rotate(0deg); 
-                opacity: 1; 
+            30% {
+                transform: scale(1.2) rotate(0deg);
+                opacity: 1;
             }
-            70% { 
-                transform: scale(1.2) rotate(0deg); 
-                opacity: 1; 
+            70% {
+                transform: scale(1.2) rotate(0deg);
+                opacity: 1;
             }
-            100% { 
-                transform: scale(1.5) translateX(80px) translateY(-80px); 
-                opacity: 0; 
+            100% {
+                transform: scale(0.27) translate(42vw, -43vh);
+                opacity: 1;
             }
         }
         
@@ -409,9 +409,9 @@
             display: block;
         }
         
-        /* Cacher le logo tant que welcome screen est visible */
+        /* Afficher le logo sur le welcome screen */
         body.welcome-mode .logo-btn {
-            display: none !important;
+            display: block !important;
         }
 
         .logo-btn:hover {
@@ -3294,7 +3294,7 @@
             }
 
             .logo-btn img {
-                height: 50px !important;
+                height: 60px !important;
             }
 
             /* Sidebar réduite sur mobile mais toujours visible */
@@ -3447,7 +3447,7 @@
             }
 
             .logo-btn img {
-                height: 70px !important;
+                height: 84px !important;
             }
 
             .mini-sidebar {
@@ -3520,7 +3520,7 @@
             }
 
             .logo-btn img {
-                height: 100px !important;
+                height: 120px !important;
             }
         }
 
@@ -3531,7 +3531,7 @@
             }
 
             .logo-btn img {
-                height: 85px !important;
+                height: 102px !important;
             }
         }
     </style>
