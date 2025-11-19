@@ -359,18 +359,22 @@
             0% {
                 transform: scale(0) rotate(-180deg);
                 opacity: 0;
+                filter: blur(0px);
             }
             30% {
                 transform: scale(1.2) rotate(0deg);
                 opacity: 1;
+                filter: blur(0px);
             }
             70% {
                 transform: scale(1.2) rotate(0deg);
                 opacity: 1;
+                filter: blur(0px);
             }
             100% {
-                transform: scale(0.27) translate(42vw, -43vh);
-                opacity: 1;
+                transform: scale(1.2) rotate(0deg);
+                opacity: 0;
+                filter: blur(20px);
             }
         }
         
@@ -409,9 +413,9 @@
             display: block;
         }
         
-        /* Afficher le logo sur le welcome screen */
+        /* Cacher le logo tant que welcome screen est visible */
         body.welcome-mode .logo-btn {
-            display: block !important;
+            display: none !important;
         }
 
         .logo-btn:hover {
