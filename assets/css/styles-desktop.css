@@ -1,0 +1,30 @@
+/* Styles Desktop - Codentis */
+/* Pour écrans ≥ 769px */
+
+        @media (min-width: 1440px) {
+            .card {
+                width: 320px;
+                height: 320px;
+            }
+
+            .chat-container {
+                max-width: 900px;
+            }
+
+            .intro-logo img {
+                height: 300px !important;
+            }
+
+            .logo-btn img {
+                height: 120px !important;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1439px) {
+            .intro-logo img {
+                height: 280px !important;
+            }
+
+            .logo-btn img {
+                height: 102px !important;
+            }
+        }
