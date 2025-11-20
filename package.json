@@ -1,0 +1,15 @@
+{
+  "name": "undefined-frontend",
+  "version": "1.0.0",
+  "description": "Frontend pour le site Undefined (Codentis)",
+  "scripts": {
+    "start": "./start.sh"
+  },
+  "keywords": [
+    "frontend",
+    "undefined",
+    "codentis"
+  ],
+  "author": "Undefined Team",
+  "license": "ISC"
+}

@@ -10,7 +10,26 @@ Marketing/landing page for Codentis (formerly Dareway's/Audentis), an IT service
 
 ## Development Commands
 
-### Backend Setup (REQUIRED)
+### 🚀 Démarrage Automatique (RECOMMANDÉ)
+
+Un script automatise le démarrage complet (backend + frontend) :
+
+```bash
+# Depuis le dossier frontend
+./start.sh
+# OU
+npm start
+```
+
+Le script:
+- ✅ Lance le backend automatiquement
+- ✅ Attend que le serveur soit prêt
+- ✅ Ouvre le frontend dans le navigateur
+- ✅ Gère l'arrêt propre avec Ctrl+C
+
+### 🔧 Démarrage Manuel (Alternative)
+
+#### Backend Setup (REQUIRED)
 
 Le backend doit être démarré **EN PREMIER** :
 
@@ -20,7 +39,7 @@ npm install          # Première fois seulement
 npm start            # Démarre le serveur sur http://localhost:3000
 ```
 
-### Frontend Setup
+#### Frontend Setup
 
 Le frontend est un simple fichier HTML :
 - Ouvrir `index.html` avec **VS Code Live Server**, OU
