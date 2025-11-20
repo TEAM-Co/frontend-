@@ -4,7 +4,7 @@
 # Lance le backend + ouvre le frontend dans le navigateur
 
 BACKEND_DIR="../Undefined backend"
-FRONTEND_FILE="index.html"
+FRONTEND_FILE="pages/welcome/index.html"
 PORT=3000
 
 echo "🚀 Démarrage Undefined Site..."

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue - Codentis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Styles de base -->
+    <link rel="stylesheet" href="../assets/css/styles-base.css">
+    <!-- Styles responsives par device -->
+    <link rel="stylesheet" href="../assets/css/styles-mobile.css">
+    <link rel="stylesheet" href="../assets/css/styles-tablet.css">
+    <link rel="stylesheet" href="../assets/css/styles-desktop.css">
+</head>
+<body>
+<!-- Hamburger Menu Button (Mobile only) -->
+    <div class="hamburger-button" id="hamburgerButton">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Mobile Menu Full-Screen -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="fullscreen-menu-content" id="fullscreenMenuContent">
+            <!-- Menu sera peuplé dynamiquement par JavaScript -->
+        </div>
+    </div>
+
+    <!-- Animation intro -->
+    <div class="intro-animation active" id="introAnimation">
+        <div class="intro-logo" style="display: flex; align-items: center; justify-content: center;">
+            <img src="assets/images/LOGOOFFremovebg.png" alt="Codentis" style="height: 300px; width: auto;">
+        </div>
+    </div>
+
+    <!-- Circuits électriques -->
+    <div class="tech-overlay">
+        <div class="circuit-lines">
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+        </div>
+    </div>
+
+    <!-- Mini Sidebar Permanente -->
+    <div class="mini-sidebar" id="miniSidebar">
+        <!-- Expertises -->
+        <div class="mini-sidebar-item" data-tooltip="Expertises" onclick="openSidebarSection('expertises')">
+            <svg viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+        </div>
+
+        <!-- Découvrir -->
+        <div class="mini-sidebar-item" data-tooltip="Découvrir" onclick="openSidebarSection('decouvrir')">
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+        </div>
+
+        <!-- Nous rejoindre -->
+        <div class="mini-sidebar-item" data-tooltip="Nous rejoindre & Partenariat" onclick="openSidebarSection('rejoindre')">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+
+        <div class="mini-sidebar-separator"></div>
+
+        <!-- Contact -->
+        <div class="mini-sidebar-item" data-tooltip="Informations & Contacts" onclick="openSidebarSection('contact')">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+        </div>
+
+        <!-- Bouton switcher IT/GOUV -->
+        <div class="sidebar-switcher" id="sidebarSwitcher" onclick="toggleTheme()">
+            <div class="sidebar-switcher-icon">💻</div>
+            <div class="sidebar-switcher-text">Gouv</div>
+        </div>
+    </div>
+
+    <!-- Logo -->
+    <button class="logo-btn" id="logoBtn" onclick="goHome()" style="background: transparent; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;">
+        <img src="assets/images/LOGOOFFremovebg.png" alt="Codentis" style="height: 880px; width: auto;">
+    </button>
+
+    <!-- Dynamic Island V15 -->
+    <div class="dynamic-island" id="dynamicIsland" onclick="showExperts()">
+        <div class="island-content" id="islandContent">EXPERTS & STRATÈGES</div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+            
+            <div class="sidebar-brand">
+                <h2>Codentis</h2>
+                <p>Services. Solutions. Sans limites.</p>
+            </div>
+
+            <div id="sidebarMenu">
+                <!-- Sera rempli dynamiquement -->
+            </div>
+        </div>
+    </aside>
+
+    <!-- Backdrop pour flouter le fond quand la sidebar est ouverte -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+    <!-- Bouton Switch -->
+    <button class="site-switcher" id="siteSwitcher" onclick="switchSite()"></button>
+
+    
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <!-- Logo Codentis -->
+            <div style="font-family: 'Inter', sans-serif; font-size: 140px; font-weight: 900; color: #f5f5f7; margin-bottom: 20px; letter-spacing: -2px; text-shadow: 0 4px 12px rgba(26, 15, 10, 0.15);">
+                Codentis
+            </div>
+            <p class="welcome-text">
+                Missions courtes ou longues, nous apportons l'expertise dont vous avez besoin,<br>
+                quand vous en avez besoin.<br>
+                Sur quel domaine souhaitez-vous être accompagné ?
+            </p>
+            <div class="welcome-choices">
+                <div class="choice-bubble" onclick="selectSite('it')">
+                    <div class="bubble-content">
+                        <div class="bubble-icon">
+                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                                <path d="M8 12h48v36H8z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <rect x="12" y="16" width="40" height="24" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M22 26l6 6-6 6M34 38h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                <rect x="24" y="48" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M32 48V44M8 44h48" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="bubble-text">
+                            <div class="bubble-title">Expertise Technique IT</div>
+                            <div class="bubble-desc">Data & IA • Développement • Cybersécurité • Cloud</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice-bubble" onclick="selectSite('gov')">
+                    <div class="bubble-content">
+                        <div class="bubble-icon">
+                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
+                                <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="32" cy="32" r="3" fill="currentColor"/>
+                                <path d="M32 32L45 19M32 32L19 45M32 32L45 45M32 32L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="45" cy="19" r="3" fill="currentColor"/>
+                                <circle cx="19" cy="45" r="3" fill="currentColor"/>
+                                <circle cx="45" cy="45" r="3" fill="currentColor"/>
+                                <circle cx="19" cy="19" r="3" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="bubble-text">
+                            <div class="bubble-title">Gouvernance & Stratégie</div>
+                            <div class="bubble-desc">Product • Agilité • Transformation • Pilotage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/chat.js"></script>
+</body>
+</html>
