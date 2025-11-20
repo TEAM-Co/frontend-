@@ -27,7 +27,7 @@
             transition: padding-left 0.3s ease, background 0.5s ease;
             padding-left: 70px;
         }
-        
+
         body.welcome-mode {
             background: #000000;
         }
@@ -61,14 +61,14 @@
         body.has-mini-sidebar {
             padding-left: 70px;
         }
-        
+
         /* Compenser le décalage de la mini-sidebar pour centrer les contenus */
         body.has-mini-sidebar .main-container,
         body.has-mini-sidebar .work-in-progress {
             margin-left: -35px;
         }
 
-        /* Backgrounds */
+        /* Backgrounds WEB - RESTAURÉS */
         body::before {
             content: '';
             position: fixed;
@@ -91,7 +91,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(90deg, rgba(245, 245, 247, 0.02) 1px, transparent 1px),
                 linear-gradient(rgba(245, 245, 247, 0.02) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -112,9 +112,9 @@
         body.theme-gov::before {
             background: transparent;
         }
-        
+
         body.theme-gov::after {
-            background-image: 
+            background-image:
                 linear-gradient(90deg, rgba(100, 80, 70, 0.05) 1px, transparent 1px),
                 linear-gradient(rgba(100, 80, 70, 0.05) 1px, transparent 1px);
         }
@@ -721,9 +721,9 @@
             color: #f5f5f7;
         }
 
-        /* Sur thème GOV: afficher "IT" en terracotta foncé */
+        /* Sur thème GOV: afficher "IT" en terracotta premium */
         body.theme-gov .sidebar-switcher-text {
-            color: #c44d33;
+            color: #A0522D; /* Match landing IT */
         }
 
         /* Cacher l'icône (plus d'emoji) */
@@ -792,92 +792,140 @@
             background: rgba(26, 26, 26, 0.8);
         }
 
+        /* MENU FULL-SCREEN */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
-            left: -100%;
-            width: 280px;
+            left: 0;
+            width: 100vw;
             height: 100vh;
             background: rgba(20, 20, 20, 0.98);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 1000;
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow-y: auto;
-            padding: 90px 20px 30px;
-            border-right: 1px solid rgba(255, 127, 92, 0.2);
-            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 10000; /* Passe devant TOUT */
             display: none;
+            overflow-y: auto;
+            transition: opacity 0.3s ease;
+            opacity: 0;
         }
 
         .mobile-menu-overlay.open {
-            left: 0;
+            display: flex;
+            opacity: 1;
         }
 
         body.theme-gov .mobile-menu-overlay {
             background: rgba(245, 245, 247, 0.98);
-            border-right-color: rgba(212, 207, 197, 0.5);
         }
 
-        .mobile-menu-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            margin-bottom: 10px;
+        .fullscreen-menu-content {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 100px 30px 50px;
+            text-align: center;
+        }
+
+        /* Titres de sections dans menu */
+        .menu-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: rgba(245, 245, 247, 0.95);
+            margin: 30px 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        body.theme-gov .menu-section-title {
+            color: rgba(26, 26, 26, 0.9);
+        }
+
+        /* Items de menu */
+        .menu-item {
+            padding: 14px 20px;
+            margin: 8px 0;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 127, 92, 0.2);
+            transform: scale(1.02);
+        }
+
+        body.theme-gov .menu-item {
+            background: rgba(26, 26, 26, 0.05);
+        }
+
+        body.theme-gov .menu-item:hover {
+            background: rgba(160, 82, 45, 0.15); /* Terracota premium */
+        }
+
+        .menu-item-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: rgba(245, 245, 247, 0.9);
+            text-align: center;
+        }
+
+        body.theme-gov .menu-item-title {
+            color: rgba(26, 26, 26, 0.9);
+        }
+
+        .menu-item-desc {
+            font-size: 0.8rem;
+            color: rgba(245, 245, 247, 0.6);
+            margin-top: 4px;
+            text-align: center;
+        }
+
+        body.theme-gov .menu-item-desc {
+            color: rgba(26, 26, 26, 0.6);
+        }
+
+        /* Actions directes (Contact, Switcher) */
+        .menu-action {
+            padding: 16px;
+            margin: 15px 0;
             border-radius: 12px;
-            background: rgba(245, 245, 247, 0.03);
-            border: 1px solid rgba(255, 127, 92, 0.1);
+            background: rgba(255, 127, 92, 0.15);
             cursor: pointer;
             transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FF7F5C;
+            border: 2px solid rgba(255, 127, 92, 0.3);
         }
 
-        .mobile-menu-item:hover {
-            background: rgba(255, 127, 92, 0.15);
-            border-color: rgba(255, 127, 92, 0.3);
-            transform: translateX(5px);
+        .menu-action:hover {
+            background: rgba(255, 127, 92, 0.25);
+            border-color: #FF7F5C;
+            transform: scale(1.05);
         }
 
-        body.theme-gov .mobile-menu-item {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(212, 207, 197, 0.3);
+        body.theme-gov .menu-action {
+            background: rgba(160, 82, 45, 0.15);
+            border-color: rgba(160, 82, 45, 0.3);
+            color: #A0522D;
         }
 
-        body.theme-gov .mobile-menu-item:hover {
-            background: rgba(255, 127, 92, 0.1);
+        body.theme-gov .menu-action:hover {
+            background: rgba(160, 82, 45, 0.25);
+            border-color: #A0522D;
         }
 
-        .mobile-menu-item svg {
-            width: 24px;
-            height: 24px;
-            stroke: rgba(245, 245, 247, 0.7);
-            fill: none;
-            stroke-width: 2;
-            flex-shrink: 0;
-        }
-
-        body.theme-gov .mobile-menu-item svg {
-            stroke: rgba(26, 26, 26, 0.7);
-        }
-
-        .mobile-menu-item:hover svg {
-            stroke: #FF7F5C;
-        }
-
-        .mobile-menu-item span {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: rgba(245, 245, 247, 0.85);
-        }
-
-        body.theme-gov .mobile-menu-item span {
-            color: rgba(26, 26, 26, 0.85);
-        }
-
-        .mobile-menu-separator {
-            height: 1px;
+        .menu-separator {
+            height: 2px;
             background: rgba(255, 127, 92, 0.2);
-            margin: 15px 0;
+            margin: 25px auto;
+            max-width: 200px;
+        }
+
+        body.theme-gov .menu-separator {
+            background: rgba(160, 82, 45, 0.2);
         }
 
         /* Sidebar étendue (l'ancienne) */
@@ -901,16 +949,16 @@
             left: 70px;
         }
 
-        /* Overlay de flou quand sidebar ouverte */
+        /* Overlay quand sidebar ouverte - SANS BLUR pour stage manager */
         .sidebar-backdrop {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 70px; /* Commence après la mini-sidebar */
+            width: calc(100% - 70px); /* N'affecte pas la mini-sidebar */
             height: 100%;
-            background: rgba(26, 15, 10, 0.55);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(26, 15, 10, 0.65); /* Opacité augmentée pour compenser */
+            backdrop-filter: none; /* Pas de blur - stage manager reste net */
+            -webkit-backdrop-filter: none;
             z-index: 999;
             opacity: 0;
             visibility: hidden;
@@ -3365,33 +3413,7 @@
                 max-width: none !important;
             }
 
-            /* Sidebar réduite sur mobile mais toujours visible */
-            .mini-sidebar {
-                width: 50px;
-                display: flex !important;
-                padding: 15px 0;
-                gap: 8px;
-            }
-
-            body {
-                padding-left: 50px;
-            }
-
-            .mini-sidebar-item {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .sidebar-switcher {
-                width: 42px;
-                height: 42px;
-                border-width: 2px;
-            }
-
-            .sidebar-switcher-text {
-                font-size: 10px;
-            }
+            /* Sidebar rules removed - burger menu handles navigation on mobile */
 
             .card {
                 width: calc(100% - 40px) !important;
@@ -3484,11 +3506,11 @@
             .dynamic-island {
                 font-size: 9px;
                 padding: 3px 8px;
-                width: 140px !important; /* TAILLE FIXE - ne change jamais */
-                min-width: 140px !important;
-                max-width: 140px !important;
+                width: 170px !important; /* TAILLE FIXE - ajustée pour "EXPERTS & STRATÈGES" */
+                min-width: 170px !important;
+                max-width: 170px !important;
                 height: 32px;
-                overflow: hidden; /* Scroll interne pour le texte */
+                overflow: hidden;
             }
 
             /* Scroll horizontal pour le contenu qui dépasse */
@@ -3497,13 +3519,13 @@
                 overflow: hidden;
             }
 
-            /* FONDS UNIS MOBILES - iOS & Android (Terracota IT + Ivoire Gov) */
+            /* FONDS UNIS MOBILES - iOS & Android (identiques au web) */
             body {
-                background: #C44D33 !important; /* Terracota IT premium */
+                background: #A0522D !important; /* IT Sienna Terracota Premium */
             }
 
             body.theme-gov {
-                background: #F5F3ED !important; /* Ivoire Gov premium */
+                background: #F5F3ED !important; /* Gov Ivoire */
             }
 
             /* Désactiver TOUS gradients, projecteurs et grilles sur mobile */
@@ -3591,14 +3613,14 @@
 
             /* Full-screen modal/chat on mobile */
             .expertise-modal {
-                left: 50px;
-                width: calc(100% - 50px);
+                left: 0 !important; /* Fix: no sidebar on mobile */
+                width: 100% !important;
             }
 
             .expertise-modal::before,
             .expertise-modal::after {
-                left: 50px;
-                width: calc(100% - 50px);
+                left: 0 !important;
+                width: 100% !important;
             }
 
             .expertise-modal-content {
@@ -3765,6 +3787,23 @@
             .dynamic-island {
                 max-width: calc(100vw - 40px) !important;
             }
+
+            /* Cacher scroll indicator sur mobile (scroll naturel) */
+            .scroll-indicator {
+                display: none !important;
+            }
+
+            /* Centrer TOUS les éléments au milieu */
+            .landing-hero,
+            .landing-sections,
+            .landing-section,
+            .main-container {
+                text-align: center !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
         }
     </style>
 </head>
@@ -3776,55 +3815,10 @@
         <span></span>
     </div>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Full-Screen -->
     <div class="mobile-menu-overlay" id="mobileMenu">
-        <!-- Expertises - Star Icon (même que mini-sidebar) -->
-        <div class="mobile-menu-item" data-action="expertises">
-            <svg viewBox="0 0 24 24">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-            <span>Expertises</span>
-        </div>
-
-        <!-- Découvrir - Compass Icon (même que mini-sidebar) -->
-        <div class="mobile-menu-item" data-action="decouvrir">
-            <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-            </svg>
-            <span>Découvrir</span>
-        </div>
-
-        <div class="mobile-menu-separator"></div>
-
-        <!-- Nous rejoindre - People Icon (même que mini-sidebar) -->
-        <div class="mobile-menu-item" data-action="rejoindre">
-            <svg viewBox="0 0 24 24">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            <span>Nous rejoindre</span>
-        </div>
-
-        <!-- Contact - Envelope Icon (même que mini-sidebar) -->
-        <div class="mobile-menu-item" data-action="contact">
-            <svg viewBox="0 0 24 24">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span>Contact</span>
-        </div>
-
-        <div class="mobile-menu-separator"></div>
-
-        <!-- Switcher IT/Gov - Computer Emoji -->
-        <div class="mobile-menu-item" data-action="switch" id="mobileSwitcher">
-            <svg viewBox="0 0 24 24" style="stroke-width: 2.5;">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
-            <span id="mobileSwitcherText">Passer à Gouvernance</span>
+        <div class="fullscreen-menu-content" id="fullscreenMenuContent">
+            <!-- Menu sera peuplé dynamiquement par JavaScript -->
         </div>
     </div>
 
@@ -3902,7 +3896,7 @@
 
     <!-- Dynamic Island V15 -->
     <div class="dynamic-island" id="dynamicIsland" onclick="showExperts()">
-        <div class="island-content" id="islandContent">LES EXPERTS ET STRATÈGES</div>
+        <div class="island-content" id="islandContent">EXPERTS & STRATÈGES</div>
     </div>
 
     <!-- Sidebar -->
@@ -4656,53 +4650,122 @@
                 });
             }
 
-            // ==================== MOBILE MENU HANDLERS ====================
+            // ==================== MOBILE MENU FULL-SCREEN ====================
             const hamburgerButton = document.getElementById('hamburgerButton');
             const mobileMenu = document.getElementById('mobileMenu');
+            const fullscreenMenuContent = document.getElementById('fullscreenMenuContent');
 
-            // Toggle mobile menu
+            // Build full menu with all sections
+            function buildFullscreenMenu() {
+                const site = currentSite || 'it';
+                const menuData = site === 'it' ? menuIT : menuGov;
+
+                let html = '';
+
+                // EXPERTISES
+                html += '<div class="menu-section-title">Expertises</div>';
+                menuData.expertises.forEach(item => {
+                    html += `
+                        <div class="menu-item" data-page="${item.id}">
+                            <div class="menu-item-title">${item.title}</div>
+                            <div class="menu-item-desc">${item.desc}</div>
+                        </div>
+                    `;
+                });
+
+                html += '<div class="menu-separator"></div>';
+
+                // DÉCOUVRIR
+                html += '<div class="menu-section-title">Découvrir</div>';
+                menuData.decouvrir.forEach(item => {
+                    html += `
+                        <div class="menu-item" data-page="${item.id}">
+                            <div class="menu-item-title">${item.title}</div>
+                            <div class="menu-item-desc">${item.desc}</div>
+                        </div>
+                    `;
+                });
+
+                html += '<div class="menu-separator"></div>';
+
+                // NOUS REJOINDRE
+                html += '<div class="menu-section-title">Nous Rejoindre</div>';
+                menuData.rejoindre.forEach(item => {
+                    html += `
+                        <div class="menu-item" data-page="${item.id}">
+                            <div class="menu-item-title">${item.title}</div>
+                            <div class="menu-item-desc">${item.desc}</div>
+                        </div>
+                    `;
+                });
+
+                html += '<div class="menu-separator"></div>';
+
+                // CONTACT
+                html += '<div class="menu-action" data-action="contact">CONTACT</div>';
+
+                // SWITCHER
+                const switchText = site === 'it' ? 'Passer à Gouvernance' : 'Passer à IT';
+                html += `<div class="menu-action" data-action="switch">${switchText}</div>`;
+
+                fullscreenMenuContent.innerHTML = html;
+
+                // Add click handlers
+                fullscreenMenuContent.querySelectorAll('.menu-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const pageId = this.getAttribute('data-page');
+                        hamburgerButton.classList.remove('active');
+                        mobileMenu.classList.remove('open');
+
+                        setTimeout(() => {
+                            if (typeof showPage === 'function') {
+                                showPage(pageId);
+                            }
+                        }, 100);
+                    });
+                });
+
+                fullscreenMenuContent.querySelectorAll('.menu-action').forEach(action => {
+                    action.addEventListener('click', function() {
+                        const actionType = this.getAttribute('data-action');
+                        hamburgerButton.classList.remove('active');
+                        mobileMenu.classList.remove('open');
+
+                        setTimeout(() => {
+                            if (actionType === 'contact') {
+                                if (typeof openChatInterface === 'function') {
+                                    openChatInterface();
+                                }
+                            } else if (actionType === 'switch') {
+                                if (typeof switchSite === 'function') {
+                                    switchSite();
+                                }
+                                // Rebuild menu with new site data
+                                setTimeout(() => {
+                                    if (mobileMenu.classList.contains('open')) {
+                                        buildFullscreenMenu();
+                                    }
+                                }, 300);
+                            }
+                        }, 100);
+                    });
+                });
+            }
+
+            // Toggle menu
             if (hamburgerButton && mobileMenu) {
                 hamburgerButton.addEventListener('click', function() {
                     this.classList.toggle('active');
                     mobileMenu.classList.toggle('open');
+
+                    if (mobileMenu.classList.contains('open')) {
+                        buildFullscreenMenu();
+                    }
                 });
 
-                // Close menu when clicking menu items
-                document.querySelectorAll('.mobile-menu-item').forEach(item => {
-                    item.addEventListener('click', function() {
-                        const action = this.getAttribute('data-action');
-
-                        // Close menu
-                        hamburgerButton.classList.remove('active');
-                        mobileMenu.classList.remove('open');
-
-                        // Navigate using openSidebarSection (fonctionne sur toutes les pages)
-                        switch(action) {
-                            case 'expertises':
-                                openSidebarSection('expertises');
-                                break;
-                            case 'decouvrir':
-                                openSidebarSection('decouvrir');
-                                break;
-                            case 'rejoindre':
-                                openSidebarSection('rejoindre');
-                                break;
-                            case 'contact':
-                                openChatInterface();
-                                break;
-                            case 'switch':
-                                switchSite(); // Utilise la fonction existante
-                                updateMobileSwitcherText(); // Met à jour le texte
-                                break;
-                        }
-                    });
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!hamburgerButton.contains(e.target) &&
-                        !mobileMenu.contains(e.target) &&
-                        mobileMenu.classList.contains('open')) {
+                // Close when clicking outside content
+                mobileMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileMenu) {
                         hamburgerButton.classList.remove('active');
                         mobileMenu.classList.remove('open');
                     }
@@ -4813,7 +4876,7 @@
                 document.getElementById('siteSwitcher').textContent = 'Expertise IT';
                 // Update mobile switcher text
                 const mobileSwitcher = document.getElementById('mobileSwitcherText');
-                if (mobileSwitcher) mobileSwitcher.textContent = 'Passer à IT';
+                if (mobileSwitcher) mobileSwitcher.textContent = 'Expertise IT';
             } else {
                 currentSite = 'it';
                 document.body.classList.remove('theme-gov');
@@ -4822,7 +4885,7 @@
                 document.getElementById('siteSwitcher').textContent = 'Stratégie Gouvernance';
                 // Update mobile switcher text
                 const mobileSwitcher = document.getElementById('mobileSwitcherText');
-                if (mobileSwitcher) mobileSwitcher.textContent = 'Passer à Gouvernance';
+                if (mobileSwitcher) mobileSwitcher.textContent = 'Gouvernance';
             }
 
             updateMenu();
@@ -4836,6 +4899,18 @@
                     showExperts();
                 }
             }, 5000);
+        }
+
+        // Update mobile switcher text based on current site
+        function updateMobileSwitcherText() {
+            const mobileSwitcher = document.getElementById('mobileSwitcherText');
+            if (mobileSwitcher) {
+                if (currentSite === 'it') {
+                    mobileSwitcher.textContent = 'Gouvernance';
+                } else {
+                    mobileSwitcher.textContent = 'Expertise IT';
+                }
+            }
         }
 
         // Retour home avec animation
@@ -5185,7 +5260,7 @@
             // Si on est en train d'afficher les experts, on ferme
             if (islandAnimating) {
                 if (islandTimeout) clearTimeout(islandTimeout);
-                content.innerHTML = 'LES EXPERTS ET STRATÈGES';
+                content.innerHTML = 'EXPERTS & STRATÈGES';
                 islandAnimating = false;
                 return;
             }
@@ -5211,7 +5286,7 @@
 
             // Fermer automatiquement après 24 secondes (temps pour voir défiler tous les experts)
             islandTimeout = setTimeout(() => {
-                content.innerHTML = 'LES EXPERTS ET STRATÈGES';
+                content.innerHTML = 'EXPERTS & STRATÈGES';
                 islandAnimating = false;
             }, 24000);
         }
@@ -5827,7 +5902,7 @@
                                 <div style="display: flex; flex-direction: column; gap: 20px;">
                                     <div class="network-card" onclick="window.open('https://open.spotify.com/playlist/45ngfo71ETCssYI9G30ycT?si=40853b23e0bb4a19', '_blank')">
                                         <div style="display: flex; align-items: center; gap: 20px;">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b7355" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF7F5C" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
                                                 <circle cx="12" cy="12" r="10"/>
                                                 <path d="M8 14.5c2.5-1 5-1 7.5 0"/>
                                                 <path d="M7.5 11c3-1.5 7-1.5 10 0"/>
@@ -5842,7 +5917,7 @@
 
                                     <div class="network-card" onclick="window.open('https://wa.me/33603062710', '_blank')">
                                         <div style="display: flex; align-items: center; gap: 20px;">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b7355" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF7F5C" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                                             </svg>
                                             <div>
@@ -5854,7 +5929,7 @@
 
                                     <div class="network-card" onclick="window.location.href='mailto:contact@audentis.fr'">
                                         <div style="display: flex; align-items: center; gap: 20px;">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b7355" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF7F5C" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                                 <polyline points="22,6 12,13 2,6"/>
                                             </svg>
@@ -5867,7 +5942,7 @@
 
                                     <div class="network-card" onclick="window.open('https://www.linkedin.com/company/audentis/', '_blank')">
                                         <div style="display: flex; align-items: center; gap: 20px;">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b7355" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF7F5C" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                                                 <rect x="2" y="9" width="4" height="12"/>
                                                 <circle cx="4" cy="4" r="2"/>
@@ -6118,11 +6193,11 @@
                     </div>
                 </div>
 
-                <!-- LES EXPERTS ET STRATÈGES -->
+                <!-- EXPERTS & STRATÈGES -->
                 <div class="work-in-progress" id="pageExperts">
                     <div class="story-container">
                         <div class="story-hero">
-                            <h1 class="story-title">Les Experts et Stratèges</h1>
+                            <h1 class="story-title">Experts & Stratèges</h1>
                             <p class="story-subtitle">DES PROFILS D'EXCEPTION AU SERVICE DE VOS AMBITIONS</p>
                         </div>
 
