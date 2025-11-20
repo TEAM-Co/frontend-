@@ -1167,7 +1167,7 @@
                 currentSite = null;
                 currentPage = 'welcome';
                 window.scrollTo(0, 0);
-            }, 3000);
+            }, 500);
         }
 
         // Toggle sidebar
@@ -3051,7 +3051,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             document.getElementById('chatMessages').innerHTML = '';
             
             // ⚡ ENVOYER L'EMAIL INITIAL DÈS LE DÉMARRAGE
-            // sendInitialEmail(); // DÉSACTIVÉ TEMPORAIREMENT
+            sendInitialEmail();
             
             // Envoyer la question initiale
             setTimeout(() => {
@@ -3319,7 +3319,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             
             // Données simplifiées pour éviter les erreurs
             const emailData = {
-                to_email: 'lucasstvd@gmail.com',
+                to_email: 'contact@audentis.fr',
                 site: siteLabel,
                 question_initiale: chatState.initialQuestion,
                 timestamp: new Date().toLocaleString('fr-FR'),
