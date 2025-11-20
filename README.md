@@ -6,12 +6,10 @@ Site marketing/landing page pour Codentis avec deux parcours distincts :
 
 ## 🚀 Démarrage Rapide
 
-### Option 1 : Automatique (Recommandé)
+### Démarrage Automatique
 
 ```bash
 ./start.sh
-# OU
-npm start
 ```
 
 Le script lance automatiquement :
@@ -19,7 +17,7 @@ Le script lance automatiquement :
 - ✅ Frontend dans le navigateur
 - ✅ Arrêt propre avec Ctrl+C
 
-### Option 2 : Manuel
+### Démarrage Manuel (Alternative)
 
 1. Démarrer le backend :
 ```bash

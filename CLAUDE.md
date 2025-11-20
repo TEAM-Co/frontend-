@@ -17,8 +17,6 @@ Un script automatise le démarrage complet (backend + frontend) :
 ```bash
 # Depuis le dossier frontend
 ./start.sh
-# OU
-npm start
 ```
 
 Le script:
