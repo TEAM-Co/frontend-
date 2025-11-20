@@ -6595,9 +6595,9 @@
     <script>
         // ==================== CONFIGURATION ====================
         const CHAT_CONFIG = {
-            // 🔒 SÉCURITÉ: Utilisation du proxy server (la clé API est côté serveur uniquement)
-            USE_DIRECT_API: false,
-            PROXY_URL: 'http://localhost:3000/api/chat',
+            // 🔒 SÉCURITÉ: Le backend sécurisé gère l'API Claude (clé protégée dans .env)
+            // USE_DIRECT_API: false, // DEPRECATED
+            BACKEND_URL: 'http://localhost:3000/api/chat',
 
             // EmailJS configuration - Fonctionne correctement ✅
             EMAILJS_PUBLIC_KEY: 'pebJgpQP_xvUZim-M',
@@ -7005,8 +7005,8 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             try {
                 console.log('📡 Envoi au proxy local...');
 
-                // Appel au proxy local (pas directement à l'API Claude)
-                const response = await fetch(CHAT_CONFIG.PROXY_URL, {
+                // Appel au backend sécurisé (pas directement à l'API Claude)
+                const response = await fetch(CHAT_CONFIG.BACKEND_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
