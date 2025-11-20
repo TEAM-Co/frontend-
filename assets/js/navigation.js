@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.remove('theme-gov', 'welcome-mode');
 
         // Mettre à jour les textes des switchers
-        const siteSwit cher = document.getElementById('siteSwitcher');
+        const siteSwitcher = document.getElementById('siteSwitcher');
         if (siteSwitcher) {
             siteSwitcher.textContent = 'Stratégie Gouvernance';
             siteSwitcher.classList.add('visible');
