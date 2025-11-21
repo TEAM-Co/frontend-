@@ -1145,7 +1145,14 @@
             text-align: center;
         }
 
-        /* Phrase du bas peut aller sur plusieurs lignes */
+        /* Desktop/Web : phrases sur 1 ligne */
+        @media (min-width: 769px) {
+            .welcome-text {
+                white-space: nowrap; /* 1 ligne sur desktop */
+            }
+        }
+
+        /* Phrase du bas peut aller sur plusieurs lignes (mobile) */
         .welcome-text-bottom {
             font-size: clamp(0.9rem, 1.8vw, 1.1rem);
             line-height: 1.5;
