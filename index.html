@@ -659,7 +659,7 @@
             ],
             rejoindre: [
                 { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
-                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Abonnements' }
+                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Coopération' }
             ],
             contact: [
                 { id: 'pageReseaux', title: 'Nos Réseaux', desc: 'Spotify, WhatsApp, LinkedIn...' },
@@ -683,7 +683,7 @@
             ],
             rejoindre: [
                 { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
-                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Abonnements' }
+                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Coopération' }
             ],
             contact: [
                 { id: 'pageReseaux', title: 'Nos Réseaux', desc: 'Spotify, WhatsApp, LinkedIn...' },
@@ -868,6 +868,11 @@
 
                 let html = '';
 
+                // SWITCHER EN HAUT (priorité)
+                const switchText = site === 'it' ? 'Passer à Gouvernance' : 'Passer à IT';
+                html += `<div class="menu-action menu-action-primary" data-action="switch">${switchText}</div>`;
+                html += '<div class="menu-separator"></div>';
+
                 // EXPERTISES
                 html += '<div class="menu-section-title">Expertises</div>';
                 menuData.expertises.forEach(item => {
@@ -909,10 +914,6 @@
 
                 // CONTACT
                 html += '<div class="menu-action" data-action="contact">CONTACT</div>';
-
-                // SWITCHER
-                const switchText = site === 'it' ? 'Passer à Gouvernance' : 'Passer à IT';
-                html += `<div class="menu-action" data-action="switch">${switchText}</div>`;
 
                 fullscreenMenuContent.innerHTML = html;
 

@@ -888,6 +888,39 @@
             border-color: #A0522D;
         }
 
+        /* Action primaire (Switcher en haut) - Style prominent */
+        .menu-action-primary {
+            padding: 18px 20px;
+            margin: 0 0 20px 0;
+            background: rgba(255, 127, 92, 0.25);
+            border: 2px solid rgba(255, 127, 92, 0.5);
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(255, 127, 92, 0.2);
+        }
+
+        .menu-action-primary:hover {
+            background: rgba(255, 127, 92, 0.35);
+            border-color: #FF7F5C;
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(255, 127, 92, 0.3);
+        }
+
+        body.theme-gov .menu-action-primary {
+            background: rgba(160, 82, 45, 0.25);
+            border-color: rgba(160, 82, 45, 0.5);
+            color: #A0522D;
+            box-shadow: 0 4px 12px rgba(160, 82, 45, 0.2);
+        }
+
+        body.theme-gov .menu-action-primary:hover {
+            background: rgba(160, 82, 45, 0.35);
+            border-color: #A0522D;
+            box-shadow: 0 6px 20px rgba(160, 82, 45, 0.3);
+        }
+
         .menu-separator {
             height: 2px;
             background: rgba(255, 127, 92, 0.2);
