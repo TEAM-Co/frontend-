@@ -227,27 +227,46 @@
         object-fit: contain !important;
     }
 
-    /* Dynamic Island - CENTRÉ comme sur web */
+    /* Dynamic Island - CENTRÉ + PAS D'EXPANSION MOBILE */
     .dynamic-island {
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
         min-width: 140px;
-        max-width: calc(100vw - 90px); /* Plus d'espace */
+        max-width: 200px !important; /* FIXE sur mobile - pas d'expansion */
         height: 40px;
         padding: 8px 16px;
-        font-size: 13px; /* Augmenté de 12px */
+        font-size: 13px;
         border-radius: 20px;
+        /* FIX CENTRAGE TEXTE */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: none !important; /* Pas de transition */
+        overflow: hidden;
     }
 
     .island-content {
-        font-size: 12px; /* Augmenté de 11px */
+        font-size: 12px;
         font-weight: 600;
+        /* FIX CENTRAGE CONTENU */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
     }
 
     .expert-item-island {
-        font-size: 11px; /* Augmenté de 10px */
+        font-size: 11px;
         margin-right: 25px;
+    }
+
+    /* Défilement sans élargissement sur mobile */
+    .experts-scroll-island {
+        animation: scroll-island 20s linear infinite;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     /* Site Switcher (IT ↔ Gov) */
@@ -321,18 +340,104 @@
     }
 
     /* ========================================
-       SIDEBAR (Menu complet)
+       MENU HAMBURGER FULLSCREEN - REMPLACE SIDEBAR
        ======================================== */
 
+    /* CACHER l'ancienne sidebar sur mobile */
     .sidebar {
-        width: 70%; /* Réduit de 80% à 70% - Moins écrasant */
-        max-width: 250px; /* Réduit de 280px à 250px */
-        left: -100%;
-        padding: 80px 25px 30px;
+        display: none !important;
     }
 
-    .sidebar.open {
+    .mini-sidebar {
+        display: none !important;
+    }
+
+    /* AFFICHER le hamburger button */
+    .hamburger-button {
+        display: flex !important;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        z-index: 1001;
+        background: rgba(20, 20, 20, 0.9);
+        border: 1px solid rgba(255, 127, 92, 0.3);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    body.theme-gov .hamburger-button {
+        background: rgba(245, 245, 247, 0.9);
+        border-color: rgba(139, 111, 71, 0.3);
+    }
+
+    .hamburger-button:active {
+        background: rgba(255, 127, 92, 0.2);
+        border-color: rgba(255, 127, 92, 0.6);
+        transform: scale(0.95);
+    }
+
+    .hamburger-button span {
+        width: 24px;
+        height: 2px;
+        background: #FF7F5C;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    body.theme-gov .hamburger-button span {
+        background: #8B6F47;
+    }
+
+    /* Animation X quand ouvert */
+    .hamburger-button.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-button.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-button.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Overlay fullscreen moderne */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
         left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(20, 20, 20, 0.98);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu-overlay.open {
+        display: flex;
+        opacity: 1;
+    }
+
+    body.theme-gov .mobile-menu-overlay {
+        background: rgba(203, 199, 190, 0.98);
+    }
+
+    .fullscreen-menu-content {
+        width: 100%;
+        padding: 100px 30px 50px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .sidebar-section {

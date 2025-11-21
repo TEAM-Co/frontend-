@@ -3054,8 +3054,8 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             chatState.questionCount = 0;
             document.getElementById('chatMessages').innerHTML = '';
             
-            // ⚡ ENVOYER L'EMAIL INITIAL DÈS LE DÉMARRAGE
-            sendInitialEmail();
+            // ⚡ EMAIL DÉSACTIVÉ ICI - Envoi uniquement à la fin avec données collectées
+            // sendInitialEmail();
             
             // Envoyer la question initiale
             setTimeout(() => {
@@ -3182,7 +3182,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                 chatState.collectedFields.includes('nom') && 
                 chatState.collectedFields.includes('societe') && 
                 (chatState.collectedFields.includes('email') || chatState.collectedFields.includes('telephone'))) {
-                // setTimeout(() => sendLeadEmail(), 2000); // DÉSACTIVÉ TEMPORAIREMENT
+                setTimeout(() => sendLeadEmail(), 2000); // RÉACTIVÉ - Envoi avec données collectées
             }
         }
 
