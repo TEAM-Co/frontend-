@@ -203,11 +203,11 @@
        NAVIGATION HEADER
        ======================================== */
 
-    /* Logo en haut à droite - AGRANDI MOBILE */
+    /* Logo en haut à droite - AGRANDI MOBILE + REMONTÉ */
     .logo-btn {
         position: fixed;
-        top: 18px; /* Légèrement plus haut */
-        right: 18px; /* Légèrement plus près du bord */
+        top: 12px; /* REMONTÉ pour alignement avec menu + island */
+        right: 18px;
         font-size: 24px;
         font-weight: 900;
         z-index: 1000;
@@ -907,8 +907,8 @@
     }
 
     .logo-btn {
-        top: calc(20px + env(safe-area-inset-top));
-        right: calc(20px + env(safe-area-inset-right));
+        top: calc(12px + env(safe-area-inset-top)); /* REMONTÉ avec safe area */
+        right: calc(18px + env(safe-area-inset-right));
     }
 
     .hamburger-button {
@@ -1094,10 +1094,10 @@
         gap: 15px;
     }
 
-    /* Navigation - Logo iPhone SE - AGRANDI */
+    /* Navigation - Logo iPhone SE - AGRANDI + REMONTÉ */
     .logo-btn {
         font-size: 20px;
-        top: 15px;
+        top: 10px; /* REMONTÉ */
         right: 15px;
         min-width: 55px;
         min-height: 55px;
@@ -1336,9 +1336,11 @@
         font-size: 1.15rem;
     }
 
-    /* Navigation - Logo Pro Max - AGRANDI */
+    /* Navigation - Logo Pro Max - AGRANDI + REMONTÉ */
     .logo-btn {
         font-size: 26px;
+        top: 12px; /* REMONTÉ */
+        right: 20px;
         min-width: 65px;
         min-height: 65px;
     }
@@ -1446,10 +1448,10 @@
         gap: 25px;
     }
 
-    /* Navigation - Logo Android/Tablette - AGRANDI */
+    /* Navigation - Logo Android/Tablette - AGRANDI + REMONTÉ */
     .logo-btn {
         font-size: 28px;
-        top: 25px;
+        top: 18px; /* REMONTÉ pour alignement */
         right: 25px;
         min-width: 70px;
         min-height: 70px;
