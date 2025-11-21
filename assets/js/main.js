@@ -10,13 +10,13 @@
             { name: 'Quentin', role: 'Expert Cybersécurité' },
             { name: 'Sophie', role: 'Data Scientist' },
             { name: 'Marc', role: 'Architecte Cloud' },
-            { name: 'Julien', role: 'Lead Developer' },
+            { name: 'Julien', role: 'Lead Dev' },
             { name: 'Nadia', role: 'DevOps Engineer' },
-            { name: 'Alexandre', role: 'Expert IA & Machine Learning' },
+            { name: 'Alexandre', role: 'Expert IA & ML' },
             { name: 'Émilie', role: 'Ingénieur Data' },
-            { name: 'Romain', role: 'Architecte Microservices' },
+            { name: 'Romain', role: 'Archi Microservices' },
             { name: 'Anaïs', role: 'Tech Lead React' },
-            { name: 'Benjamin', role: 'Expert Kubernetes' }
+            { name: 'Benjamin', role: 'Expert K8s' }
         ];
 
         const expertsGov = [
