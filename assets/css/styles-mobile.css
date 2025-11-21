@@ -52,6 +52,16 @@
         -webkit-backdrop-filter: none !important;
     }
 
+    /* IMAGES RESPONSIVE GLOBAL - Fix débordements */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .intro-animation img {
+        max-height: 200px !important; /* Limite intro logo */
+    }
+
     /* Compenser l'absence de sidebar */
     body.has-mini-sidebar {
         padding-left: 0;
@@ -76,15 +86,15 @@
     }
 
     .welcome-title {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 7vw, 3.5rem); /* Fluidité comme web */
         font-weight: 900;
-        letter-spacing: -1.5px;
+        letter-spacing: clamp(-1.5px, -0.3vw, -1px);
         margin-bottom: 15px;
         text-align: center;
     }
 
     .welcome-subtitle {
-        font-size: 1.1rem;
+        font-size: clamp(0.95rem, 2.5vw, 1.2rem); /* Fluidité */
         margin-bottom: 40px;
         text-align: center;
         opacity: 0.8;
@@ -99,10 +109,10 @@
         margin: 0 auto;
     }
 
-    /* Bulles IT/Gov - CLIQUABLES et belles sur mobile */
+    /* Bulles IT/Gov - CLIQUABLES avec padding fluide */
     .choice-bubble {
-        padding: 30px 25px;
-        min-height: 140px;
+        padding: clamp(22px, 5vw, 30px) clamp(18px, 4vw, 25px); /* Fluide */
+        min-height: clamp(110px, 25vw, 140px); /* Fluide */
         /* Garder le glassmorphism mais sans backdrop-filter */
         background: rgba(26, 20, 16, 0.7);
         border: 1px solid rgba(255, 127, 92, 0.3);
@@ -154,13 +164,13 @@
     }
 
     .bubble-title {
-        font-size: 1.5rem;
+        font-size: clamp(1.25rem, 3.5vw, 1.6rem); /* Fluidité */
         font-weight: 800;
         margin-bottom: 8px;
     }
 
     .bubble-subtitle {
-        font-size: 0.95rem;
+        font-size: clamp(0.85rem, 2vw, 1rem); /* Fluidité */
         opacity: 0.75;
         line-height: 1.4;
     }
@@ -187,25 +197,34 @@
         -webkit-tap-highlight-color: rgba(255, 127, 92, 0.2);
     }
 
-    /* Dynamic Island */
+    /* OVERRIDE CRITIQUE : Logo inline 880px → responsive */
+    .logo-btn img {
+        height: 32px !important;
+        width: auto !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+    }
+
+    /* Dynamic Island - CENTRÉ comme sur web */
     .dynamic-island {
         top: 20px;
-        left: 20px;
+        left: 50%;
+        transform: translateX(-50%);
         min-width: 140px;
-        max-width: calc(100vw - 100px); /* Espace pour le logo */
+        max-width: calc(100vw - 90px); /* Plus d'espace */
         height: 40px;
         padding: 8px 16px;
-        font-size: 12px;
+        font-size: 13px; /* Augmenté de 12px */
         border-radius: 20px;
     }
 
     .island-content {
-        font-size: 11px;
+        font-size: 12px; /* Augmenté de 11px */
         font-weight: 600;
     }
 
     .expert-item-island {
-        font-size: 10px;
+        font-size: 11px; /* Augmenté de 10px */
         margin-right: 25px;
     }
 
@@ -337,19 +356,20 @@
     }
 
     .landing-title {
-        font-size: 2.5rem;
+        font-size: clamp(1.9rem, 8vw, 3rem); /* Brand title fluide */
         margin-bottom: 20px;
         line-height: 1.1;
+        letter-spacing: clamp(-1.5px, -0.5vw, -0.5px);
     }
 
     .landing-subtitle {
-        font-size: 1.1rem;
+        font-size: clamp(1rem, 2.5vw, 1.2rem); /* Fluidité */
         margin-bottom: 30px;
         padding: 0 10px;
     }
 
     .landing-description {
-        font-size: 1rem;
+        font-size: clamp(0.9rem, 2vw, 1.1rem); /* Fluidité */
         line-height: 1.6;
         max-width: 100%;
         margin-bottom: 30px;
@@ -373,13 +393,13 @@
     }
 
     .landing-section-title {
-        font-size: 1.8rem;
+        font-size: clamp(1.6rem, 4vw, 2rem); /* Fluidité */
         margin-bottom: 20px;
     }
 
     .landing-section-content {
-        padding: 25px 15px;
-        font-size: 0.95rem;
+        padding: clamp(20px, 5vw, 30px) clamp(15px, 3vw, 25px); /* Fluide */
+        font-size: clamp(0.9rem, 2vw, 1.05rem); /* Fluidité */
         line-height: 1.7;
     }
 
@@ -401,6 +421,33 @@
     .landing-card p {
         font-size: 0.95rem;
         line-height: 1.6;
+    }
+
+    /* ========================================
+       SEARCH BAR (Barre de recherche mobile)
+       ======================================== */
+
+    .search-bar {
+        max-width: 100%;
+        width: calc(100% - 40px);
+        margin: 0 auto 30px;
+    }
+
+    .search-input {
+        padding: 16px 55px 16px 20px;
+        font-size: 0.95rem;
+        border-width: 1.5px;
+        min-height: 44px;
+        width: 100%;
+        border-radius: 25px;
+    }
+
+    .search-submit-btn {
+        width: 38px;
+        height: 38px;
+        right: 8px;
+        min-width: 38px;
+        min-height: 38px;
     }
 
     /* ========================================
@@ -556,10 +603,10 @@
     }
 
     .chat-send-btn {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
+        width: 38px; /* Cohérence avec web */
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
     }
 
     /* ========================================
@@ -674,6 +721,52 @@
         -webkit-text-size-adjust: 100%;
         text-size-adjust: 100%;
     }
+
+    /* ========================================
+       OPTIMISATIONS PERFORMANCE MOBILE
+       ======================================== */
+
+    /* Désactiver grille animée (coûteux CPU) */
+    @keyframes grid-move {
+        0%, 100% { transform: translate(0, 0); }
+    }
+
+    body::after {
+        animation: none !important; /* Grille statique */
+    }
+
+    /* Cacher circuits pairs (garder 6/12) */
+    .circuit-line:nth-child(even) {
+        display: none !important;
+    }
+
+    /* Touch zones minimales partout */
+    .dynamic-island,
+    #siteSwitcher {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Scroll indicator safety */
+    .scroll-indicator {
+        bottom: 90px; /* Au lieu de 80px - éviter overlap */
+    }
+
+    /* Social buttons safety */
+    .social-buttons {
+        bottom: 25px; /* Au lieu de 20px */
+    }
+
+    /* Expertise modal confort */
+    .expertise-modal-content {
+        max-height: calc(100vh - 100px); /* Au lieu de 80px */
+        padding: 35px 22px; /* Plus confortable */
+    }
+
+    /* Landing cards spacing */
+    .landing-card {
+        margin-bottom: 15px;
+    }
 }
 
 /* ========================================
@@ -683,9 +776,9 @@
 
 @media (max-width: 375px) {
 
-    /* Welcome page */
+    /* Welcome page - Optimisé pour SE */
     .welcome-title {
-        font-size: 1.8rem;
+        font-size: clamp(2rem, 7vw, 2.5rem); /* Override pour SE */
         letter-spacing: -1px;
         line-height: 1.1;
     }
@@ -699,47 +792,42 @@
         gap: 15px;
     }
 
-    .choice-bubble {
-        padding: 22px 18px;
-        min-height: 110px;
-    }
-
-    .bubble-title {
-        font-size: 1.25rem;
-        margin-bottom: 6px;
-    }
-
-    .bubble-subtitle {
-        font-size: 0.85rem;
-        line-height: 1.3;
-    }
-
-    /* Navigation */
+    /* Navigation - Logo plus petit SE */
     .logo-btn {
         font-size: 20px;
         top: 15px;
         right: 15px;
     }
 
+    .logo-btn img {
+        height: 28px !important; /* Plus petit pour SE */
+    }
+
+    .intro-animation img {
+        max-height: 150px !important; /* Intro plus compact */
+    }
+
     .dynamic-island {
         top: 15px;
-        left: 15px;
+        left: 50%; /* Centré comme base */
+        transform: translateX(-50%);
         min-width: 100px;
-        max-width: calc(100vw - 80px);
+        max-width: calc(100vw - 70px); /* Plus d'espace */
         height: 36px;
         padding: 6px 12px;
-        font-size: 10px;
+        font-size: 11px; /* Augmenté de 10px */
     }
 
     .island-content {
-        font-size: 9px;
+        font-size: 10px; /* Augmenté de 9px */
     }
 
     #siteSwitcher {
-        top: 65px;
+        top: 62px;
         right: 15px;
         font-size: 11px;
-        padding: 6px 12px;
+        padding: 8px 14px;
+        min-width: 60px;
     }
 
     /* Landing pages */
@@ -813,9 +901,13 @@
         font-size: 0.9rem;
     }
 
-    /* Chat */
+    /* Chat - Compact SE */
+    .chat-header {
+        padding: 20px 16px;
+    }
+
     .chat-title {
-        font-size: 1.2rem;
+        font-size: 1.25rem; /* Augmenté de 1.2rem */
     }
 
     .message-text {
@@ -827,6 +919,28 @@
         padding: 10px 14px;
         font-size: 0.9rem;
     }
+
+    .chat-send-btn {
+        width: 36px; /* Plus compact pour SE */
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+
+    /* Search bar SE */
+    .search-bar {
+        width: calc(100% - 30px); /* Plus compact */
+    }
+
+    .search-input {
+        padding: 14px 50px 14px 18px;
+        font-size: 0.9rem;
+    }
+
+    .search-submit-btn {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 /* ========================================
@@ -836,9 +950,9 @@
 
 @media (min-width: 376px) and (max-width: 428px) {
 
-    /* Welcome page - Tailles parfaites */
+    /* Welcome page - iPhone Standard équilibré */
     .welcome-title {
-        font-size: 2.2rem;
+        font-size: clamp(2.2rem, 7.5vw, 2.8rem); /* Fluidité */
         letter-spacing: -1.2px;
     }
 
@@ -846,20 +960,11 @@
         font-size: 1.05rem;
     }
 
-    .choice-bubble {
-        padding: 28px 22px;
-        min-height: 130px;
+    /* Navigation - Logo standard */
+    .logo-btn img {
+        height: 30px !important; /* Standard */
     }
 
-    .bubble-title {
-        font-size: 1.4rem;
-    }
-
-    .bubble-subtitle {
-        font-size: 0.95rem;
-    }
-
-    /* Navigation */
     .dynamic-island {
         min-width: 130px;
         max-width: calc(100vw - 95px);
@@ -872,6 +977,14 @@
 
     #siteSwitcher {
         font-size: 12px;
+    }
+
+    /* Chat - Équilibré */
+    .chat-send-btn {
+        width: 38px; /* Standard */
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
     }
 
     /* Landing pages */
@@ -904,9 +1017,9 @@
 
 @media (min-width: 429px) and (max-width: 480px) {
 
-    /* Welcome page - Plus d'espace */
+    /* Welcome page - Pro Max luxe */
     .welcome-title {
-        font-size: 2.5rem;
+        font-size: clamp(2.5rem, 8vw, 3.2rem); /* Fluidité */
         letter-spacing: -1.5px;
     }
 
@@ -914,29 +1027,20 @@
         font-size: 1.15rem;
     }
 
-    .choice-bubble {
-        padding: 32px 25px;
-        min-height: 145px;
-    }
-
-    .bubble-title {
-        font-size: 1.55rem;
-    }
-
-    .bubble-subtitle {
-        font-size: 1rem;
-    }
-
-    /* Navigation - Plus visible */
+    /* Navigation - Taille web Pro Max */
     .logo-btn {
         font-size: 26px;
+    }
+
+    .logo-btn img {
+        height: 32px !important; /* Taille web */
     }
 
     .dynamic-island {
         min-width: 145px;
         max-width: calc(100vw - 100px);
         height: 42px;
-        font-size: 13px;
+        font-size: 13px; /* Taille web */
     }
 
     .island-content {
@@ -945,7 +1049,7 @@
 
     #siteSwitcher {
         font-size: 13px;
-        padding: 9px 18px;
+        padding: 10px 18px;
     }
 
     /* Landing pages */
@@ -1013,9 +1117,9 @@
 
 @media (min-width: 481px) and (max-width: 768px) {
 
-    /* Welcome page - Grand mobile */
+    /* Welcome page - Android / Tablette compacte */
     .welcome-title {
-        font-size: 2.8rem;
+        font-size: clamp(2.8rem, 9vw, 3.8rem); /* Grande fluidité */
         letter-spacing: -1.8px;
     }
 
@@ -1028,37 +1132,29 @@
         gap: 25px;
     }
 
-    .choice-bubble {
-        padding: 35px 30px;
-        min-height: 155px;
-    }
-
-    .bubble-title {
-        font-size: 1.7rem;
-    }
-
-    .bubble-subtitle {
-        font-size: 1.05rem;
-    }
-
-    /* Navigation */
+    /* Navigation - Approche tablette */
     .logo-btn {
         font-size: 28px;
         top: 25px;
         right: 25px;
     }
 
+    .logo-btn img {
+        height: 34px !important; /* Plus grand Android */
+    }
+
     .dynamic-island {
         top: 25px;
-        left: 25px;
+        left: 50%; /* Centré */
+        transform: translateX(-50%);
         min-width: 160px;
-        max-width: 250px;
+        max-width: 280px; /* Plus large */
         height: 44px;
-        font-size: 13px;
+        font-size: 14px; /* Plus lisible */
     }
 
     .island-content {
-        font-size: 12px;
+        font-size: 13px; /* Plus lisible */
     }
 
     #siteSwitcher {
@@ -1192,6 +1288,15 @@
         height: 48px;
     }
 
+    /* Chat Android - Possibilité semi-plein écran */
+    .chat-container {
+        width: 90%;
+        max-width: 500px;
+        height: 85vh;
+        border-radius: 20px; /* Pas plein écran */
+        margin: auto;
+    }
+
     /* Sidebar plus large */
     .sidebar {
         max-width: 380px;
@@ -1210,5 +1315,27 @@
     .expertise-tag {
         padding: 12px 16px;
         font-size: 0.95rem;
+    }
+
+    /* Grilles 2 colonnes possibles sur Android */
+    .landing-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    /* Search bar plus confortable */
+    .search-bar {
+        width: calc(100% - 50px);
+        max-width: 500px;
+    }
+
+    .search-input {
+        padding: 18px 60px 18px 24px;
+        font-size: 1.05rem;
+    }
+
+    .search-submit-btn {
+        width: 42px;
+        height: 42px;
     }
 }
