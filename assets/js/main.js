@@ -5,33 +5,29 @@
 
         // Experts pour la Dynamic Island
         const expertsIT = [
-            { name: 'Adrien', role: 'Architecte Logiciel & IoT' },
-            { name: 'Karim', role: 'Architecte Fullstack .NET' },
-            { name: 'Quentin', role: 'Expert Cybersécurité' },
-            { name: 'Sophie', role: 'Data Scientist' },
-            { name: 'Marc', role: 'Architecte Cloud' },
-            { name: 'Julien', role: 'Lead Dev' },
-            { name: 'Nadia', role: 'DevOps Engineer' },
-            { name: 'Alexandre', role: 'Expert IA & ML' },
-            { name: 'Émilie', role: 'Ingénieur Data' },
-            { name: 'Romain', role: 'Archi Microservices' },
-            { name: 'Anaïs', role: 'Tech Lead React' },
-            { name: 'Benjamin', role: 'Expert K8s' }
+            { name: 'Lucas', role: 'Dev Backend' },
+            { name: 'Emma', role: 'Data Engineer' },
+            { name: 'Maxime', role: 'Expert Cloud' },
+            { name: 'Léa', role: 'DevSecOps' },
+            { name: 'Thomas', role: 'Architecte IA' },
+            { name: 'Chloé', role: 'Dev Frontend' },
+            { name: 'Hugo', role: 'SRE Engineer' },
+            { name: 'Sarah', role: 'Data Scientist' },
+            { name: 'Antoine', role: 'Tech Lead' },
+            { name: 'Camille', role: 'Expert Cyber' }
         ];
 
         const expertsGov = [
-            { name: 'Caroline', role: 'Coach Agile & Transformation' },
-            { name: 'Céline', role: 'Directrice Projet IT' },
-            { name: 'Thomas', role: 'Product Owner' },
-            { name: 'Laura', role: 'UX Designer' },
-            { name: 'David', role: 'Scrum Master' },
-            { name: 'Marion', role: 'Product Manager' },
-            { name: 'Julien', role: 'Chief Product Officer' },
-            { name: 'Isabelle', role: 'Consultante Transformation' },
-            { name: 'Nicolas', role: 'Responsable Gouvernance IT' },
-            { name: 'Camille', role: 'UX Researcher' },
-            { name: 'Mathieu', role: 'Release Train Engineer' },
-            { name: 'Sophie', role: 'Business Analyst' }
+            { name: 'Julie', role: 'Product Owner' },
+            { name: 'Mathieu', role: 'Scrum Master' },
+            { name: 'Clara', role: 'UX Designer' },
+            { name: 'Pierre', role: 'Coach Agile' },
+            { name: 'Sophie', role: 'Product Manager' },
+            { name: 'Alexandre', role: 'Business Analyst' },
+            { name: 'Marion', role: 'Chief Product' },
+            { name: 'Nicolas', role: 'Program Manager' },
+            { name: 'Laura', role: 'UX Researcher' },
+            { name: 'David', role: 'Transformation Lead' }
         ];
 
         // Menus

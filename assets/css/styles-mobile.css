@@ -285,7 +285,7 @@
 
     /* Défilement sans élargissement sur mobile */
     .experts-scroll-island {
-        animation: scroll-island 25s linear infinite; /* 25s au lieu de 20s - plus lisible */
+        animation: scroll-island 15s linear infinite; /* 15s - vitesse metro/tram (accéléré) */
         white-space: nowrap;
         overflow: hidden;
     }
