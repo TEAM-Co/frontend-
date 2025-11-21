@@ -1524,7 +1524,8 @@
         }
 
         body.theme-gov .story-card {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.75); /* Augmenté de 0.5 à 0.75 pour meilleur contraste */
+            border: 1px solid rgba(203, 199, 190, 0.4); /* Bordure visible */
         }
         
         /* Styles pour les textes des carrés de statistiques */
@@ -1567,7 +1568,7 @@
         }
 
         body.theme-gov .story-text {
-            color: rgba(26, 26, 26, 0.85);
+            color: rgba(26, 26, 26, 0.95); /* Augmenté de 0.85 à 0.95 - Texte plus foncé */
         }
 
         .highlight {
