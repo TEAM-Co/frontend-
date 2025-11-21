@@ -219,9 +219,9 @@
         -webkit-tap-highlight-color: rgba(255, 127, 92, 0.2);
     }
 
-    /* OVERRIDE CRITIQUE : Logo inline 880px → responsive ET AGRANDI */
+    /* OVERRIDE CRITIQUE : Logo inline 880px → responsive ET DOUBLÉ */
     .logo-btn img {
-        height: 40px !important; /* Augmenté de 32px à 40px */
+        height: 80px !important; /* DOUBLÉ : 40px → 80px */
         width: auto !important;
         max-width: 100% !important;
         object-fit: contain !important;
@@ -325,8 +325,8 @@
        ======================================== */
 
     .sidebar {
-        width: 80%; /* Réduit de 85% à 80% */
-        max-width: 280px; /* Réduit de 320px à 280px */
+        width: 70%; /* Réduit de 80% à 70% - Moins écrasant */
+        max-width: 250px; /* Réduit de 280px à 250px */
         left: -100%;
         padding: 80px 25px 30px;
     }
@@ -379,6 +379,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center; /* Centre search bar verticalement */
+        text-align: center; /* Centre TOUS les textes comme sur web */
     }
 
     .landing-title {
@@ -386,12 +387,14 @@
         margin-bottom: 20px;
         line-height: 1.1;
         letter-spacing: clamp(-1.5px, -0.5vw, -0.5px);
+        text-align: center; /* Centré comme sur web */
     }
 
     .landing-subtitle {
         font-size: clamp(1rem, 2.5vw, 1.2rem); /* Fluidité */
         margin-bottom: 30px;
         padding: 0 10px;
+        text-align: center; /* Centré */
     }
 
     .landing-description {
@@ -421,6 +424,7 @@
     .landing-section-title {
         font-size: clamp(1.6rem, 4vw, 2rem); /* Fluidité */
         margin-bottom: 20px;
+        text-align: center; /* Centré */
     }
 
     .landing-section-content {
@@ -493,11 +497,13 @@
         font-size: 2rem;
         margin-bottom: 15px;
         line-height: 1.2;
+        text-align: center; /* Centré */
     }
 
     .story-subtitle {
         font-size: 1rem;
         margin-bottom: 30px;
+        text-align: center; /* Centré */
     }
 
     .story-section {
@@ -826,7 +832,7 @@
     }
 
     .logo-btn img {
-        height: 36px !important; /* Augmenté de 28px à 36px pour visibilité SE */
+        height: 72px !important; /* DOUBLÉ : 36px → 72px pour iPhone SE */
     }
 
     .intro-animation img {
@@ -986,9 +992,9 @@
         font-size: 1.05rem;
     }
 
-    /* Navigation - Logo standard */
+    /* Navigation - Logo standard DOUBLÉ */
     .logo-btn img {
-        height: 30px !important; /* Standard */
+        height: 76px !important; /* DOUBLÉ environ : ~38px × 2 */
     }
 
     .dynamic-island {
@@ -1053,13 +1059,13 @@
         font-size: 1.15rem;
     }
 
-    /* Navigation - Taille web Pro Max */
+    /* Navigation - Logo Pro Max DOUBLÉ */
     .logo-btn {
         font-size: 26px;
     }
 
     .logo-btn img {
-        height: 32px !important; /* Taille web */
+        height: 80px !important; /* DOUBLÉ : taille web × 2 */
     }
 
     .dynamic-island {
@@ -1158,7 +1164,7 @@
         gap: 25px;
     }
 
-    /* Navigation - Approche tablette */
+    /* Navigation - Logo Android DOUBLÉ */
     .logo-btn {
         font-size: 28px;
         top: 25px;
@@ -1166,7 +1172,7 @@
     }
 
     .logo-btn img {
-        height: 34px !important; /* Plus grand Android */
+        height: 84px !important; /* DOUBLÉ : ~42px × 2 pour grands écrans */
     }
 
     .dynamic-island {
