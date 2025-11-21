@@ -203,10 +203,10 @@
        NAVIGATION HEADER
        ======================================== */
 
-    /* Logo en haut à droite - AGRANDI MOBILE + ALIGNÉ */
+    /* Logo en haut à droite - AGRANDI MOBILE + CENTRÉ VISUELLEMENT */
     .logo-btn {
         position: fixed;
-        top: 20px; /* ALIGNÉ PARFAIT avec hamburger + island */
+        top: 0px; /* DESCENDU pour centrer visuellement avec hamburger (50px) + island (40px) */
         right: 20px;
         font-size: 24px;
         font-weight: 900;
@@ -907,7 +907,7 @@
     }
 
     .logo-btn {
-        top: calc(20px + env(safe-area-inset-top)); /* ALIGNÉ avec hamburger + island */
+        top: calc(0px + env(safe-area-inset-top)); /* DESCENDU pour centrage visuel */
         right: calc(20px + env(safe-area-inset-right));
     }
 
@@ -1094,10 +1094,10 @@
         gap: 15px;
     }
 
-    /* Navigation - Logo iPhone SE - AGRANDI + ALIGNÉ */
+    /* Navigation - Logo iPhone SE - AGRANDI + CENTRÉ VISUELLEMENT */
     .logo-btn {
         font-size: 20px;
-        top: 15px; /* ALIGNÉ avec island SE (15px) */
+        top: 0px; /* DESCENDU pour centrage visuel (logo 90px vs island 36px) */
         right: 15px;
         min-width: 55px;
         min-height: 55px;
@@ -1336,10 +1336,10 @@
         font-size: 1.15rem;
     }
 
-    /* Navigation - Logo Pro Max - AGRANDI + ALIGNÉ */
+    /* Navigation - Logo Pro Max - AGRANDI + CENTRÉ VISUELLEMENT */
     .logo-btn {
         font-size: 26px;
-        top: 20px; /* ALIGNÉ avec hamburger + island */
+        top: 0px; /* DESCENDU pour centrage visuel (logo 105px vs island 42px) */
         right: 20px;
         min-width: 65px;
         min-height: 65px;
@@ -1448,10 +1448,10 @@
         gap: 25px;
     }
 
-    /* Navigation - Logo Android/Tablette - AGRANDI + ALIGNÉ */
+    /* Navigation - Logo Android/Tablette - AGRANDI + CENTRÉ VISUELLEMENT */
     .logo-btn {
         font-size: 28px;
-        top: 25px; /* ALIGNÉ avec island tablette (25px) */
+        top: 5px; /* DESCENDU pour centrage visuel (logo 110px vs island 44px) */
         right: 25px;
         min-width: 70px;
         min-height: 70px;
