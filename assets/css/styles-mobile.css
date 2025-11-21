@@ -191,12 +191,14 @@
         margin-bottom: 6px;
     }
 
-    .bubble-subtitle {
-        font-size: clamp(0.75rem, 1.8vw, 0.9rem); /* RÉDUIT pour tout tenir */
+    .bubble-desc {
+        font-size: clamp(0.65rem, 1.5vw, 0.8rem); /* RÉDUIT pour "Cloud" sur 1 ligne */
         opacity: 0.75;
-        line-height: 1.3;
+        line-height: 1.2;
         max-width: 100%;
-        word-wrap: break-word;
+        white-space: nowrap; /* Force 1 ligne - pas de retour */
+        overflow: hidden;
+        text-overflow: ellipsis; /* "..." si trop long */
     }
 
     /* ========================================
