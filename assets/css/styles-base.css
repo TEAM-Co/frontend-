@@ -406,10 +406,10 @@
         .logo-btn.visible {
             display: block;
         }
-        
-        /* Cacher le logo tant que welcome screen est visible */
+
+        /* Logo VISIBLE partout, y compris sur welcome page */
         body.welcome-mode .logo-btn {
-            display: none !important;
+            display: flex !important; /* AFFICHER le logo sur welcome */
         }
 
         .logo-btn:hover {

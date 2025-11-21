@@ -10,7 +10,7 @@
             { name: 'Quentin', role: 'Expert Cybersécurité' },
             { name: 'Sophie', role: 'Data Scientist' },
             { name: 'Marc', role: 'Architecte Cloud' },
-            { name: 'Julien', role: 'Lead Python' },
+            { name: 'Julien', role: 'Lead Developer' },
             { name: 'Nadia', role: 'DevOps Engineer' },
             { name: 'Alexandre', role: 'Expert IA & Machine Learning' },
             { name: 'Émilie', role: 'Ingénieur Data' },

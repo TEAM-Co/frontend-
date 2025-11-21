@@ -535,10 +535,10 @@
         border-radius: 25px;
     }
 
-    /* Sections de contenu - "Notre histoire" hors écran initial */
+    /* Sections de contenu - "Notre histoire" apparaît plus vite */
     .landing-sections {
         padding: 40px 20px;
-        margin-top: 50vh; /* Décale hors écran */
+        margin-top: 30vh; /* RÉDUIT: 50vh → 30vh (apparaît plus vite au scroll) */
     }
 
     .landing-section {
@@ -595,6 +595,12 @@
         width: 100%;
         border-radius: 25px;
         transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Placeholder adaptatif plus petit pour tenir sur 1 ligne */
+    .search-input::placeholder {
+        font-size: clamp(0.75rem, 2vw, 0.9rem); /* Adaptatif selon device */
+        opacity: 0.7;
     }
 
     .search-input:focus {
@@ -1162,7 +1168,7 @@
 
     .landing-sections {
         padding: 35px 15px;
-        margin-top: 80px;
+        margin-top: 40px; /* RÉDUIT: 80px → 40px (iPhone SE) */
     }
 
     .landing-section-title {
@@ -1513,7 +1519,7 @@
 
     .landing-sections {
         padding: 50px 30px;
-        margin-top: 120px;
+        margin-top: 60px; /* RÉDUIT: 120px → 60px (Android/Tablette) */
     }
 
     .landing-section-title {
