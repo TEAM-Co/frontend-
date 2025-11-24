@@ -900,7 +900,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Codentis excelle dans la <span class="highlight">transformation de vos données brutes en leviers stratégiques</span>. Nous concevons et mettons en œuvre des <span class="highlight">pipelines ETL robustes</span>, des <span class="highlight">entrepôts de données optimisés</span>, et développons des <span class="highlight">modèles de Machine Learning et NLP</span> pour des prévisions précises. Notre expertise s'étend à la mise en place de <span class="highlight">catalogues de données</span> pour un référentiel centralisé, ainsi qu'au développement de modèles IA performants pour <span class="highlight">automatiser vos processus (AIOps, SRE)</span> et optimiser vos opérations (Predictive AI, Causal AI, Generative AI).
+                                    LIWE excelle dans la <span class="highlight">transformation de vos données brutes en leviers stratégiques</span>. Nous concevons et mettons en œuvre des <span class="highlight">pipelines ETL robustes</span>, des <span class="highlight">entrepôts de données optimisés</span>, et développons des <span class="highlight">modèles de Machine Learning et NLP</span> pour des prévisions précises. Notre expertise s'étend à la mise en place de <span class="highlight">catalogues de données</span> pour un référentiel centralisé, ainsi qu'au développement de modèles IA performants pour <span class="highlight">automatiser vos processus (AIOps, SRE)</span> et optimiser vos opérations (Predictive AI, Causal AI, Generative AI).
                                 </div>
                             </div>
                         </div>
@@ -1479,7 +1479,7 @@
                     <div class="story-container">
                         <div class="story-hero">
                             <h1 class="story-title">Nos Réseaux</h1>
-                            <p class="story-subtitle">RESTEZ CONNECTÉS AVEC Codentis</p>
+                            <p class="story-subtitle">RESTEZ CONNECTÉS AVEC LIWE</p>
                         </div>
 
                         <div class="story-section">
@@ -1591,7 +1591,7 @@
                         <div class="cta-section">
                             <h3 class="cta-title">Télécharger notre <span class="cta-highlight">plaquette</span></h3>
                             <p class="cta-subtitle">Format PDF - Découvrez toutes nos expertises</p>
-                            <a href="computer:///mnt/user-data/outputs/Codentis-Plaquette.pdf" download="Codentis-Plaquette.pdf" class="cta-button" style="text-decoration: none; display: inline-block;">📥 Télécharger la plaquette</a>
+                            <a href="computer:///mnt/user-data/outputs/LIWE-Plaquette.pdf" download="LIWE-Plaquette.pdf" class="cta-button" style="text-decoration: none; display: inline-block;">📥 Télécharger la plaquette</a>
                         </div>
                     </div>
                 </div>
@@ -1607,7 +1607,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Chez Codentis, nous combinons <span class="highlight">expertise technique et vision stratégique</span> pour accompagner ceux qui font face à des <span class="highlight">enjeux IT et business complexes</span>. Nos clients nous sollicitent aussi bien pour des <span class="highlight">missions techniques pointues</span> (audits cybersécurité, architectures cloud, projets data/IA) que pour des <span class="highlight">transformations organisationnelles</span> (gouvernance IT, coaching agile, product ownership, conduite du changement). Qu'il s'agisse d'interventions longues ou de missions courtes à fort impact, nous combinons <span class="highlight">excellence technique, sens du produit et accompagnement humain</span>.
+                                    Chez LIWE, nous combinons <span class="highlight">expertise technique et vision stratégique</span> pour accompagner ceux qui font face à des <span class="highlight">enjeux IT et business complexes</span>. Nos clients nous sollicitent aussi bien pour des <span class="highlight">missions techniques pointues</span> (audits cybersécurité, architectures cloud, projets data/IA) que pour des <span class="highlight">transformations organisationnelles</span> (gouvernance IT, coaching agile, product ownership, conduite du changement). Qu'il s'agisse d'interventions longues ou de missions courtes à fort impact, nous combinons <span class="highlight">excellence technique, sens du produit et accompagnement humain</span>.
                                 </div>
                             </div>
                         </div>
@@ -1615,7 +1615,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Chaque membre de Codentis est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
+                                    Chaque membre de LIWE est un <span class="highlight">chercheur de solutions</span>, qu'elles soient techniques ou organisationnelles. Nous ne nous contentons pas de résoudre des problèmes IT : nous aidons nos clients à <span class="highlight">transformer leurs ambitions en résultats concrets</span>. Cela passe par la définition de stratégies produit, l'optimisation de la gouvernance IT, le coaching d'équipes, la refonte d'architectures ou encore l'accélération de projets critiques. Notre <span class="highlight">approche personnalisée</span> et notre <span class="highlight">suivi continu</span> garantissent que chaque intervention crée un impact réel et durable.
                                 </div>
                             </div>
                         </div>
@@ -1631,7 +1631,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    <span class="highlight">Codentis</span>, c'est l'alliance de l'<span class="highlight">expertise technique pointue</span>, de la <span class="highlight">vision produit et stratégique</span>, et du <span class="highlight">service sur-mesure</span>. Nous intervenons aussi bien sur des sujets d'architecture et de développement que sur la définition de roadmaps produit, la transformation organisationnelle ou le pilotage de projets complexes. Cette <span class="highlight">double compétence technique et business</span> fait notre singularité.
+                                    <span class="highlight">LIWE</span>, c'est l'alliance de l'<span class="highlight">expertise technique pointue</span>, de la <span class="highlight">vision produit et stratégique</span>, et du <span class="highlight">service sur-mesure</span>. Nous intervenons aussi bien sur des sujets d'architecture et de développement que sur la définition de roadmaps produit, la transformation organisationnelle ou le pilotage de projets complexes. Cette <span class="highlight">double compétence technique et business</span> fait notre singularité.
                                 </div>
                             </div>
                         </div>
@@ -1713,7 +1713,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Codentis recrute en continu des <span class="highlight">profils d'exception</span> qui partagent notre passion pour l'excellence technique et stratégique. Que vous soyez <span class="highlight">développeur senior</span>, <span class="highlight">architecte cloud</span>, <span class="highlight">expert cybersécurité</span>, <span class="highlight">product owner</span>, <span class="highlight">data scientist</span> ou <span class="highlight">consultant en transformation</span>, nous cherchons des talents qui veulent faire la différence sur des missions à fort impact.
+                                    LIWE recrute en continu des <span class="highlight">profils d'exception</span> qui partagent notre passion pour l'excellence technique et stratégique. Que vous soyez <span class="highlight">développeur senior</span>, <span class="highlight">architecte cloud</span>, <span class="highlight">expert cybersécurité</span>, <span class="highlight">product owner</span>, <span class="highlight">data scientist</span> ou <span class="highlight">consultant en transformation</span>, nous cherchons des talents qui veulent faire la différence sur des missions à fort impact.
                                 </div>
                             </div>
                         </div>
@@ -1745,7 +1745,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div class="story-text">
-                                    Chez Codentis, nous valorisons la <span class="highlight">curiosité intellectuelle</span>, l'<span class="highlight">excellence opérationnelle</span> et l'<span class="highlight">esprit entrepreneurial</span>. Que vous soyez en recherche d'un CDI, d'une mission freelance longue durée, ou d'un partenariat structuré, nous construisons ensemble un modèle qui vous correspond.
+                                    Chez LIWE, nous valorisons la <span class="highlight">curiosité intellectuelle</span>, l'<span class="highlight">excellence opérationnelle</span> et l'<span class="highlight">esprit entrepreneurial</span>. Que vous soyez en recherche d'un CDI, d'une mission freelance longue durée, ou d'un partenariat structuré, nous construisons ensemble un modèle qui vous correspond.
                                 </div>
                             </div>
                         </div>
@@ -1753,7 +1753,7 @@
                         <div class="cta-section">
                             <h3 class="cta-title">Prêt à <span class="cta-highlight">nous rejoindre</span> ?</h3>
                             <p class="cta-subtitle">Envoyez-nous votre CV et parlons de votre projet professionnel</p>
-                            <button class="cta-button" onclick="openChatModal('Je souhaite rejoindre Codentis', 'recruitment')">Postuler →</button>
+                            <button class="cta-button" onclick="openChatModal('Je souhaite rejoindre LIWE', 'recruitment')">Postuler →</button>
                         </div>
                     </div>
                 </div>
@@ -1897,9 +1897,9 @@
                                 </div>
 
                                 <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(255, 127, 92, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #FF7F5C; margin-top: 30px;">
-                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
+                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – LIWE</div>
                                     <div class="story-text" style="margin: 0;">
-                                        Le marché évolue vers <span class="highlight">plus de qualité et moins de volume</span>. Les entreprises cherchent des experts capables de livrer de la valeur immédiate : audits, diagnostics, proof of concepts, quick-wins. Chez Codentis, nous constatons une <span class="highlight">explosion des missions courtes à fort impact</span>. Les DSI veulent des résultats tangibles, pas des roadmaps à 18 mois.
+                                        Le marché évolue vers <span class="highlight">plus de qualité et moins de volume</span>. Les entreprises cherchent des experts capables de livrer de la valeur immédiate : audits, diagnostics, proof of concepts, quick-wins. Chez LIWE, nous constatons une <span class="highlight">explosion des missions courtes à fort impact</span>. Les DSI veulent des résultats tangibles, pas des roadmaps à 18 mois.
                                     </div>
                                 </div>
                             </div>
@@ -1912,9 +1912,9 @@
                                     Le marché de l'emploi IT se concentre sur <span class="highlight">l'expertise de pointe</span>. Les profils généralistes cèdent la place aux spécialistes capables d'intervenir sur des problématiques complexes et de créer un impact immédiat.
                                 </div>
                                 <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(255, 127, 92, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #FF7F5C; margin-top: 20px;">
-                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
+                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – LIWE</div>
                                     <div class="story-text" style="margin: 0;">
-                                        Les talents pointus sont <span class="highlight">sur-sollicités</span> : experts IA/ML, architectes cloud natifs, spécialistes cybersécurité, data engineers seniors, product owners expérimentés. Chez Codentis, nos consultants reçoivent plusieurs propositions par semaine. <span class="highlight">L'expertise bat le volume</span> : un expert senior vaut 10 juniors sur des sujets critiques.
+                                        Les talents pointus sont <span class="highlight">sur-sollicités</span> : experts IA/ML, architectes cloud natifs, spécialistes cybersécurité, data engineers seniors, product owners expérimentés. Chez LIWE, nos consultants reçoivent plusieurs propositions par semaine. <span class="highlight">L'expertise bat le volume</span> : un expert senior vaut 10 juniors sur des sujets critiques.
                                     </div>
                                 </div>
                             </div>
@@ -1946,9 +1946,9 @@
                                 </div>
 
                                 <div style="background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(255, 127, 92, 0.03) 100%); padding: 25px; border-radius: 12px; border-left: 3px solid #FF7F5C; margin-top: 30px;">
-                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – Codentis</div>
+                                    <div style="font-weight: 700; color: #FF7F5C; margin-bottom: 15px; font-size: 1.1rem;">Notre analyse – LIWE</div>
                                     <div class="story-text" style="margin: 0;">
-                                        Les entreprises qui investissent maintenant dans <span class="highlight">l'IA, le cloud et l'automatisation</span> prennent une longueur d'avance décisive. Chez Codentis, nous accompagnons nos clients sur ces sujets stratégiques avec une approche pragmatique : <span class="highlight">POC rapides, quick-wins mesurables, scalabilité pensée dès le départ</span>. Pas de bullshit, que de la valeur.
+                                        Les entreprises qui investissent maintenant dans <span class="highlight">l'IA, le cloud et l'automatisation</span> prennent une longueur d'avance décisive. Chez LIWE, nous accompagnons nos clients sur ces sujets stratégiques avec une approche pragmatique : <span class="highlight">POC rapides, quick-wins mesurables, scalabilité pensée dès le départ</span>. Pas de bullshit, que de la valeur.
                                     </div>
                                 </div>
                             </div>
@@ -2019,7 +2019,7 @@
                 question: formData.get('question')
             };
             
-            const subject = encodeURIComponent(`Contact depuis le site Codentis - ${data.firstName} ${data.lastName}`);
+            const subject = encodeURIComponent(`Contact depuis le site LIWE - ${data.firstName} ${data.lastName}`);
             const body = encodeURIComponent(
                 `Prénom: ${data.firstName}\n` +
                 `Nom: ${data.lastName}\n` +

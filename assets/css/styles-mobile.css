@@ -1,5 +1,5 @@
 /* ========================================
-   STYLES MOBILE - Codentis (RÉÉCRITURE COMPLÈTE)
+   STYLES MOBILE - LIWE (RÉÉCRITURE COMPLÈTE)
    Pour écrans ≤ 768px
    ======================================== */
 
@@ -105,7 +105,7 @@
         text-align: center;
     }
 
-    /* FORCE override du style inline "Codentis" (140px) */
+    /* FORCE override du style inline "LIWE" (140px) */
     .welcome-screen div[style*="font-size: 140px"],
     .welcome-screen div[style*="font-size:140px"] {
         font-size: clamp(2rem, 8vw, 3.2rem) !important;

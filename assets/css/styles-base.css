@@ -1,4 +1,4 @@
-/* Styles de base - Codentis */
+/* Styles de base - LIWE */
 /* Styles communs à toutes les résolutions */
 
         * {
@@ -1647,13 +1647,22 @@
         .network-card-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #2a1810;
+            color: rgba(245, 245, 247, 0.95); /* Blanc pour thème IT par défaut */
             margin-bottom: 5px;
         }
 
         .network-card-desc {
             font-size: 1rem;
             line-height: 1.6;
+            color: rgba(245, 245, 247, 0.7); /* Blanc pour thème IT par défaut */
+        }
+
+        /* Thème Gov: textes sombres */
+        body.theme-gov .network-card-title {
+            color: #2a1810;
+        }
+
+        body.theme-gov .network-card-desc {
             color: rgba(26, 26, 26, 0.7);
         }
 
