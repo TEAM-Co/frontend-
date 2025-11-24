@@ -894,7 +894,7 @@
     }
 
     .dynamic-island {
-        top: calc(20px + env(safe-area-inset-top));
+        display: none !important; /* Caché sur mobile */
     }
 
     .logo-btn {
@@ -1103,16 +1103,7 @@
     }
 
     .dynamic-island {
-        top: 15px;
-        left: 50%; /* Centré */
-        transform: translateX(-50%) translateZ(0); /* COMBINÉ */
-        -webkit-transform: translateX(-50%) translateZ(0);
-        width: 260px !important; /* ÉLARGI: 200px → 260px pour scroll fluide */
-        min-width: 260px !important;
-        max-width: 260px !important;
-        height: 36px;
-        padding: 6px 12px;
-        font-size: 9px; /* RÉDUIT: 11px → 9px pour intitulés longs */
+        display: none !important; /* Caché sur mobile */
     }
 
     .island-content {
@@ -1257,18 +1248,13 @@
         font-size: 1.05rem;
     }
 
-    /* Navigation - Logo iPhone Standard - AGRANDI */
+    /* Navigation - Logo iPhone Standard */
     .logo-btn img {
-        height: 95px !important; /* AGRANDI pour bonne visibilité */
+        height: 45px !important; /* Taille optimale */
     }
 
     .dynamic-island {
-        transform: translateX(-50%) translateZ(0); /* COMBINÉ */
-        -webkit-transform: translateX(-50%) translateZ(0);
-        width: 270px !important; /* ÉLARGI: 205px → 270px pour scroll fluide */
-        min-width: 270px !important;
-        max-width: 270px !important;
-        height: 38px;
+        display: none !important; /* Caché sur mobile */
     }
 
     .island-content {
@@ -1337,17 +1323,11 @@
     }
 
     .logo-btn img {
-        height: 105px !important; /* AGRANDI : optimal pour grand écran */
+        height: 50px !important; /* Taille optimale pour grand écran */
     }
 
     .dynamic-island {
-        transform: translateX(-50%) translateZ(0); /* COMBINÉ */
-        -webkit-transform: translateX(-50%) translateZ(0);
-        width: 290px !important; /* ÉLARGI: 215px → 290px pour scroll fluide */
-        min-width: 290px !important;
-        max-width: 290px !important;
-        height: 42px;
-        font-size: 11px; /* RÉDUIT: 13px → 11px pour intitulés longs */
+        display: none !important; /* Caché sur mobile */
     }
 
     .island-content {
@@ -1449,19 +1429,11 @@
     }
 
     .logo-btn img {
-        height: 110px !important; /* AGRANDI : très visible sur tablette */
+        height: 55px !important; /* Taille optimale pour tablette */
     }
 
     .dynamic-island {
-        top: 25px;
-        left: 50%; /* Centré */
-        transform: translateX(-50%) translateZ(0); /* COMBINÉ */
-        -webkit-transform: translateX(-50%) translateZ(0);
-        width: 300px !important; /* ÉLARGI: 220px → 300px pour scroll fluide */
-        min-width: 300px !important;
-        max-width: 300px !important;
-        height: 44px;
-        font-size: 12px; /* RÉDUIT: 14px → 12px pour intitulés longs */
+        display: none !important; /* Caché sur mobile */
     }
 
     .island-content {
