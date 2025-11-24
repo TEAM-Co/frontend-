@@ -5,7 +5,7 @@
 
         // Experts pour la Dynamic Island
         const expertsIT = [
-            { name: 'Lucas', role: 'Dev Back' },
+            { name: 'Julien', role: 'Dev Back' },
             { name: 'Emma', role: 'Data' },
             { name: 'Maxime', role: 'Cloud' },
             { name: 'Léa', role: 'DevSecOps' },
@@ -14,7 +14,9 @@
             { name: 'Hugo', role: 'SRE' },
             { name: 'Sarah', role: 'Data Science' },
             { name: 'Antoine', role: 'Tech Lead' },
-            { name: 'Camille', role: 'Cyber' }
+            { name: 'Camille', role: 'Cyber' },
+            { name: 'Nathan', role: 'Mobile' },
+            { name: 'Rémi', role: 'MLOps' }
         ];
 
         const expertsGov = [
