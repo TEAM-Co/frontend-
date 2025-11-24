@@ -1487,9 +1487,15 @@
                 experts = currentSite === 'it' ? expertsIT : expertsGov;
             }
 
+            // DUPLIQUER le contenu pour scroll infini fluide
             let html = '<div class="experts-scroll-island">';
+            // Première boucle
             experts.forEach(expert => {
-                html += `<div class="expert-item-island"><span class="expert-name-island">${expert.name}</span>${expert.role}</div>`;
+                html += `<div class="expert-item-island"><span class="expert-name-island">${expert.name}</span> ${expert.role}</div>`;
+            });
+            // DUPLICATION pour scroll continu
+            experts.forEach(expert => {
+                html += `<div class="expert-item-island"><span class="expert-name-island">${expert.name}</span> ${expert.role}</div>`;
             });
             html += '</div>';
 
@@ -2055,7 +2061,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                                    <img src="assets/images/rh-tech/Design sans titre.png" alt="RH Tech Transformation" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+                                    <img src="assets/images/rh-tech/Design sans titre.png" alt="RH Tech Transformation" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
                                     <div class="story-text">
                                         Les profils tech sont difficiles à recruter et à retenir. Nous accompagnons les <span class="highlight">services RH</span> pour comprendre les métiers IT, structurer les processus de recrutement, définir les parcours de carrière et créer une <span class="highlight">marque employeur attractive</span> pour les talents tech.
                                     </div>
@@ -2075,7 +2081,7 @@
                                             <div class="case-item"><div class="case-text">Créer une <span class="highlight">marque employeur tech</span> : communication, événements, employee advocacy.</div></div>
                                         </div>
                                     </div>
-                                    <img src="assets/images/rh-tech/Design sans titre copie.png" alt="Cas Typiques RH Tech" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+                                    <img src="assets/images/rh-tech/Design sans titre copie.png" alt="Cas Typiques RH Tech" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
                                 </div>
                             </div>
                         </div>
@@ -2083,7 +2089,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                                    <img src="assets/images/rh-tech/Design sans titre copie 2.png" alt="Cas Atypiques RH Tech" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+                                    <img src="assets/images/rh-tech/Design sans titre copie 2.png" alt="Cas Atypiques RH Tech" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
                                     <div>
                                         <h3 class="section-header">Cas Atypiques</h3>
                                         <div class="expertise-cases">
@@ -2343,7 +2349,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                                    <img src="assets/images/rejoindre/Design sans titre.png" alt="Rejoindre Codentis" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+                                    <img src="assets/images/rejoindre/Design sans titre.png" alt="Rejoindre Codentis" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
                                     <div class="story-text">
                                         Codentis recrute en continu des <span class="highlight">profils d'exception</span> qui partagent notre passion pour l'excellence technique et stratégique. Que vous soyez <span class="highlight">développeur senior</span>, <span class="highlight">architecte cloud</span>, <span class="highlight">expert cybersécurité</span>, <span class="highlight">product owner</span>, <span class="highlight">data scientist</span> ou <span class="highlight">consultant en transformation</span>, nous cherchons des talents qui veulent faire la différence sur des missions à fort impact.
                                     </div>
@@ -2381,7 +2387,7 @@
                                     <div class="story-text">
                                         Chez Codentis, nous valorisons la <span class="highlight">curiosité intellectuelle</span>, l'<span class="highlight">excellence opérationnelle</span> et l'<span class="highlight">esprit entrepreneurial</span>. Que vous soyez en recherche d'un CDI, d'une mission freelance longue durée, ou d'un partenariat structuré, nous construisons ensemble un modèle qui vous correspond.
                                     </div>
-                                    <img src="assets/images/rejoindre/Design sans titre copie.png" alt="Valeurs Codentis" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+                                    <img src="assets/images/rejoindre/Design sans titre copie.png" alt="Valeurs Codentis" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
                                 </div>
                             </div>
                         </div>
@@ -2510,7 +2516,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                                    <img src="assets/images/veille/Design sans titre.png" alt="Marché Tech France 2025" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+                                    <img src="assets/images/veille/Design sans titre.png" alt="Marché Tech France 2025" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
                                     <div>
                                         <h3 class="section-header">Marché Tech France 2025 : Opportunités en vue</h3>
                                         <div class="story-text">
@@ -2561,7 +2567,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="assets/images/veille/Design sans titre copie.png" alt="Compétences IT 2025" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+                                    <img src="assets/images/veille/Design sans titre copie.png" alt="Compétences IT 2025" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
                                 </div>
                             </div>
                         </div>
@@ -2569,7 +2575,7 @@
                         <div class="story-section">
                             <div class="story-card">
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                                    <img src="assets/images/veille/Design sans titre copie 2.png" alt="Transformation digitale" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+                                    <img src="assets/images/veille/Design sans titre copie 2.png" alt="Transformation digitale" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s ease, filter 0.3s ease; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
                                     <div>
                                         <h3 class="section-header">Transformation digitale : les entreprises accélèrent</h3>
                                         <div class="story-text">
