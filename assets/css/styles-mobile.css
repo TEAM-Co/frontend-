@@ -247,7 +247,7 @@
         max-width: 210px !important;
         height: 40px;
         padding: 8px 16px;
-        font-size: 13px;
+        font-size: 11px; /* RÉDUIT: 13px → 11px pour intitulés longs */
         border-radius: 20px;
         /* FIX CENTRAGE TEXTE */
         display: flex;
@@ -258,7 +258,7 @@
     }
 
     .island-content {
-        font-size: 12px;
+        font-size: 10px; /* RÉDUIT: 12px → 10px pour intitulés longs */
         font-weight: 600;
         /* FIX CENTRAGE CONTENU - RENFORCÉ */
         display: flex !important;
@@ -279,7 +279,7 @@
     }
 
     .expert-item-island {
-        font-size: 11px;
+        font-size: 9px; /* RÉDUIT: 11px → 9px pour intitulés longs */
         margin-right: 25px;
     }
 
@@ -1134,11 +1134,11 @@
         max-width: 200px !important;
         height: 36px;
         padding: 6px 12px;
-        font-size: 11px;
+        font-size: 9px; /* RÉDUIT: 11px → 9px pour intitulés longs */
     }
 
     .island-content {
-        font-size: 10px; /* Augmenté de 9px */
+        font-size: 8px; /* RÉDUIT: 10px → 8px pour intitulés longs */
     }
 
     #siteSwitcher {
@@ -1294,7 +1294,7 @@
     }
 
     .island-content {
-        font-size: 11px;
+        font-size: 9px; /* RÉDUIT: 11px → 9px pour intitulés longs */
     }
 
     #siteSwitcher {
@@ -1369,11 +1369,11 @@
         min-width: 215px !important;
         max-width: 215px !important;
         height: 42px;
-        font-size: 13px;
+        font-size: 11px; /* RÉDUIT: 13px → 11px pour intitulés longs */
     }
 
     .island-content {
-        font-size: 12px;
+        font-size: 10px; /* RÉDUIT: 12px → 10px pour intitulés longs */
     }
 
     #siteSwitcher {
@@ -1483,11 +1483,11 @@
         min-width: 220px !important;
         max-width: 220px !important;
         height: 44px;
-        font-size: 14px;
+        font-size: 12px; /* RÉDUIT: 14px → 12px pour intitulés longs */
     }
 
     .island-content {
-        font-size: 13px; /* Plus lisible */
+        font-size: 11px; /* RÉDUIT: 13px → 11px pour intitulés longs */
     }
 
     #siteSwitcher {
