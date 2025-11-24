@@ -1671,4 +1671,21 @@
         width: 42px;
         height: 42px;
     }
+
+    /* ========================================
+       RESPONSIVE IMAGES - Magazine Style
+       Images au-dessus du texte sur mobile
+       ======================================== */
+
+    /* Override inline grid styles for image+text sections */
+    .story-card > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+
+    /* Images responsive mobile */
+    .story-card img {
+        max-width: 100%;
+        height: auto;
+    }
 }
