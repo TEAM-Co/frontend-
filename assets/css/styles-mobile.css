@@ -223,9 +223,9 @@
         -webkit-tap-highlight-color: rgba(255, 127, 92, 0.2);
     }
 
-    /* OVERRIDE CRITIQUE : Logo inline 880px → TRIPLE responsive pour mobile */
+    /* OVERRIDE : Logo taille optimale mobile */
     .logo-btn img {
-        height: 100px !important; /* TRIPLÉ : 40px × 2.5 pour visibilité */
+        height: 45px !important; /* Taille optimale pour mobile */
         width: auto !important;
         max-width: none !important; /* Pas de contrainte max */
         object-fit: contain !important;
@@ -236,25 +236,9 @@
         top: 20px !important; /* MÊME hauteur que Dynamic Island sur welcome */
     }
 
-    /* Dynamic Island - CENTRÉ + TAILLE FIXE MOBILE */
+    /* Dynamic Island - MASQUÉ SUR MOBILE */
     .dynamic-island {
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%) translateZ(0); /* COMBINÉ : centrage + GPU */
-        -webkit-transform: translateX(-50%) translateZ(0);
-        width: 280px !important; /* ÉLARGI: 210px → 280px pour scroll fluide */
-        min-width: 280px !important;
-        max-width: 280px !important;
-        height: 40px;
-        padding: 8px 16px;
-        font-size: 11px; /* RÉDUIT: 13px → 11px pour intitulés longs */
-        border-radius: 20px;
-        /* FIX CENTRAGE TEXTE */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: none !important; /* Pas de transition sur mobile */
-        overflow: hidden;
+        display: none !important; /* Caché sur mobile pour éviter les overlaps */
     }
 
     .island-content {
@@ -1666,20 +1650,4 @@
         height: 42px;
     }
 
-    /* ========================================
-       RESPONSIVE IMAGES - Magazine Style
-       Images au-dessus du texte sur mobile
-       ======================================== */
-
-    /* Override inline grid styles for image+text sections */
-    .story-card > div[style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        gap: 25px !important;
-    }
-
-    /* Images responsive mobile */
-    .story-card img {
-        max-width: 100%;
-        height: auto;
-    }
 }
