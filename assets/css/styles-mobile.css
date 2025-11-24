@@ -242,9 +242,9 @@
         left: 50%;
         transform: translateX(-50%) translateZ(0); /* COMBINÉ : centrage + GPU */
         -webkit-transform: translateX(-50%) translateZ(0);
-        width: 210px !important; /* TAILLE FIXE pour "EXPERTS & STRATÈGES" */
-        min-width: 210px !important;
-        max-width: 210px !important;
+        width: 280px !important; /* ÉLARGI: 210px → 280px pour scroll fluide */
+        min-width: 280px !important;
+        max-width: 280px !important;
         height: 40px;
         padding: 8px 16px;
         font-size: 11px; /* RÉDUIT: 13px → 11px pour intitulés longs */
@@ -270,24 +270,18 @@
         margin: 0 auto;
     }
 
-    /* Texte défilant experts aussi centré */
+    /* Texte défilant experts - IDENTIQUE AU WEB */
     .experts-scroll-island {
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-align: center;
+        /* SUPPRIMÉ: justify-content: center (CASSAIT LE SCROLL) */
+        animation: scroll-island 15s linear infinite;
+        white-space: nowrap;
     }
 
     .expert-item-island {
-        font-size: 9px; /* RÉDUIT: 11px → 9px pour intitulés longs */
-        margin-right: 25px;
-    }
-
-    /* Défilement sans élargissement sur mobile */
-    .experts-scroll-island {
-        animation: scroll-island 15s linear infinite; /* 15s - vitesse metro/tram (accéléré) */
-        white-space: nowrap;
-        overflow: hidden;
+        font-size: 11px; /* Restauré à 11px pour lisibilité */
+        margin-right: 30px; /* 25px → 30px pour meilleur espacement */
     }
 
     /* Site Switcher (IT ↔ Gov) */
@@ -1129,9 +1123,9 @@
         left: 50%; /* Centré */
         transform: translateX(-50%) translateZ(0); /* COMBINÉ */
         -webkit-transform: translateX(-50%) translateZ(0);
-        width: 200px !important; /* FIXE aussi sur SE */
-        min-width: 200px !important;
-        max-width: 200px !important;
+        width: 260px !important; /* ÉLARGI: 200px → 260px pour scroll fluide */
+        min-width: 260px !important;
+        max-width: 260px !important;
         height: 36px;
         padding: 6px 12px;
         font-size: 9px; /* RÉDUIT: 11px → 9px pour intitulés longs */
@@ -1287,9 +1281,9 @@
     .dynamic-island {
         transform: translateX(-50%) translateZ(0); /* COMBINÉ */
         -webkit-transform: translateX(-50%) translateZ(0);
-        width: 205px !important; /* FIXE iPhone Standard */
-        min-width: 205px !important;
-        max-width: 205px !important;
+        width: 270px !important; /* ÉLARGI: 205px → 270px pour scroll fluide */
+        min-width: 270px !important;
+        max-width: 270px !important;
         height: 38px;
     }
 
@@ -1365,9 +1359,9 @@
     .dynamic-island {
         transform: translateX(-50%) translateZ(0); /* COMBINÉ */
         -webkit-transform: translateX(-50%) translateZ(0);
-        width: 215px !important; /* FIXE Pro Max */
-        min-width: 215px !important;
-        max-width: 215px !important;
+        width: 290px !important; /* ÉLARGI: 215px → 290px pour scroll fluide */
+        min-width: 290px !important;
+        max-width: 290px !important;
         height: 42px;
         font-size: 11px; /* RÉDUIT: 13px → 11px pour intitulés longs */
     }
@@ -1479,9 +1473,9 @@
         left: 50%; /* Centré */
         transform: translateX(-50%) translateZ(0); /* COMBINÉ */
         -webkit-transform: translateX(-50%) translateZ(0);
-        width: 220px !important; /* FIXE Android/Tablette */
-        min-width: 220px !important;
-        max-width: 220px !important;
+        width: 300px !important; /* ÉLARGI: 220px → 300px pour scroll fluide */
+        min-width: 300px !important;
+        max-width: 300px !important;
         height: 44px;
         font-size: 12px; /* RÉDUIT: 14px → 12px pour intitulés longs */
     }
