@@ -223,9 +223,9 @@
         -webkit-tap-highlight-color: rgba(255, 127, 92, 0.2);
     }
 
-    /* OVERRIDE : Logo taille optimale mobile */
+    /* OVERRIDE : Logo agrandi mobile */
     .logo-btn img {
-        height: 45px !important; /* Taille optimale pour mobile */
+        height: 100px !important; /* Taille originale qui te plaisait */
         width: auto !important;
         max-width: none !important; /* Pas de contrainte max */
         object-fit: contain !important;
@@ -1250,7 +1250,7 @@
 
     /* Navigation - Logo iPhone Standard */
     .logo-btn img {
-        height: 45px !important; /* Taille optimale */
+        height: 95px !important; /* Taille originale */
     }
 
     .dynamic-island {
@@ -1323,7 +1323,7 @@
     }
 
     .logo-btn img {
-        height: 50px !important; /* Taille optimale pour grand écran */
+        height: 105px !important; /* Taille originale pour grand écran */
     }
 
     .dynamic-island {
@@ -1429,7 +1429,7 @@
     }
 
     .logo-btn img {
-        height: 55px !important; /* Taille optimale pour tablette */
+        height: 110px !important; /* Taille originale pour tablette */
     }
 
     .dynamic-island {
