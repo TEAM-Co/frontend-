@@ -299,7 +299,7 @@
                 html += '<div class="menu-action" data-action="contact">CONTACT</div>';
 
                 // SWITCHER
-                const switchText = site === 'it' ? 'Hub Stratégique' : 'Lab Technique';
+                const switchText = site === 'it' ? 'Passer à Gouvernance' : 'Passer à IT';
                 html += `<div class="menu-action" data-action="switch">${switchText}</div>`;
 
                 fullscreenMenuContent.innerHTML = html;

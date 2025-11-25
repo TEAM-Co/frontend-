@@ -225,9 +225,9 @@
 
     /* OVERRIDE : Logo agrandi mobile */
     .logo-btn img {
-        height: 70px !important; /* Réduit pour éviter débordement iPhone */
+        height: 100px !important; /* Taille originale qui te plaisait */
         width: auto !important;
-        max-width: 85vw !important; /* Limite à 85% largeur écran */
+        max-width: none !important; /* Pas de contrainte max */
         object-fit: contain !important;
     }
 
@@ -411,26 +411,24 @@
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Overlay fullscreen moderne - FIX: ne plus apparaître involontairement */
+    /* Overlay fullscreen moderne */
     .mobile-menu-overlay {
-        display: none !important; /* FORCE: désactivé pour éviter bug voile noir */
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
         background: rgba(20, 20, 20, 0.98);
-        backdrop-filter: none; /* Désactivé mobile */
+        backdrop-filter: blur(20px);
         z-index: 1000;
         opacity: 0;
         transition: opacity 0.3s ease;
-        pointer-events: none; /* Ne bloque pas les clics */
     }
 
     .mobile-menu-overlay.open {
-        display: flex !important; /* Seulement quand explicitement ouvert */
+        display: flex;
         opacity: 1;
-        pointer-events: all;
     }
 
     body.theme-gov .mobile-menu-overlay {
@@ -482,7 +480,7 @@
        ======================================== */
 
     .landing-hero {
-        padding: 50px 20px 30px; /* Réduit pour maximiser espace écran */
+        padding: 80px 20px 40px;
         min-height: 100vh; /* FORCE plein écran */
         display: flex;
         flex-direction: column;
