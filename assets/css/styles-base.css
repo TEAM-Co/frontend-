@@ -606,7 +606,7 @@
             margin: 10px 0;
         }
 
-        /* Bouton switcher IT/GOUV circulaire en bas de sidebar - Style premium */
+        /* Bouton switcher IT/GOUV circulaire en haut de sidebar - Style premium */
         .sidebar-switcher {
             width: 55px;
             height: 55px;
@@ -619,7 +619,6 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: auto;
             position: relative;
             overflow: visible;
         }
