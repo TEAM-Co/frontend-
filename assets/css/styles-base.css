@@ -2429,27 +2429,7 @@
 
         /* Avatar minimaliste */
         .message-avatar {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.7rem;
-            flex-shrink: 0;
-            background: #d1d1d6;
-            color: #fff;
-        }
-
-        .message-avatar.agent {
-            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
-            box-shadow: 0 2px 6px rgba(0, 122, 255, 0.15);
-        }
-
-        body.theme-gov .message-avatar.agent {
-            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
-            box-shadow: 0 2px 6px rgba(0, 122, 255, 0.15);
+            display: none !important;
         }
 
         /* Bulles iMessage */
@@ -2625,15 +2605,7 @@
         /* Forcer les bons styles pour éviter les conflits */
         
         /* Avatar message - taille suffisante pour éviter le débordement */
-        .message-avatar {
-            width: 42px !important;
-            height: 42px !important;
-            border-radius: 50% !important;
-            font-size: 0.85rem !important;
-            font-weight: 700 !important;
-            line-height: 1 !important;
-            padding: 0 !important;
-        }
+        /* Avatar désactivé - voir ligne 2431 */
         
         /* Bouton d'envoi - centrage parfait de la flèche */
         .chat-send-btn {
