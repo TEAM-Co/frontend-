@@ -694,7 +694,7 @@
 
         /* Sur thème GOV: afficher "IT" en terracotta premium */
         body.theme-gov .sidebar-switcher-text {
-            color: #A0522D; /* Match landing IT */
+            color: #FF7F5C; /* Match landing IT */
         }
 
         /* Cacher l'icône (plus d'emoji) */
@@ -880,12 +880,12 @@
         body.theme-gov .menu-action {
             background: rgba(160, 82, 45, 0.15);
             border-color: rgba(160, 82, 45, 0.3);
-            color: #A0522D;
+            color: #FF7F5C;
         }
 
         body.theme-gov .menu-action:hover {
             background: rgba(160, 82, 45, 0.25);
-            border-color: #A0522D;
+            border-color: #FF7F5C;
         }
 
         /* Action primaire (Switcher en haut) - Style prominent */
@@ -911,13 +911,13 @@
         body.theme-gov .menu-action-primary {
             background: rgba(160, 82, 45, 0.25);
             border-color: rgba(160, 82, 45, 0.5);
-            color: #A0522D;
+            color: #FF7F5C;
             box-shadow: 0 4px 12px rgba(160, 82, 45, 0.2);
         }
 
         body.theme-gov .menu-action-primary:hover {
             background: rgba(160, 82, 45, 0.35);
-            border-color: #A0522D;
+            border-color: #FF7F5C;
             box-shadow: 0 6px 20px rgba(160, 82, 45, 0.3);
         }
 
