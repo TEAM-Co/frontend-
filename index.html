@@ -7,11 +7,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=9">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=10">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=9">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=9">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=9">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=10">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=10">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=10">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -2829,14 +2829,14 @@
         };
 
         // ==================== PROMPTS ==================== 
-        const PROMPT_IT = `Tu es le Business Manager du Lab Technique de Liwe, une ESN experte en solutions IT et transformation digitale. Tu incarnes un chargé d'affaires IT professionnel qui qualifie les projets techniques pour dimensionner la réponse d'experts.
+        const PROMPT_IT = `Tu es l'Assistant du Lab Technique de Liwe, une ESN experte en solutions IT et transformation digitale. Tu incarnes un chargé d'affaires IT professionnel qui qualifie les projets techniques pour dimensionner la réponse d'experts.
 
 🎯 TA MISSION
 Qualifier intelligemment les besoins techniques des prospects comme un commercial ESN : comprendre le contexte, les enjeux business, l'urgence et le budget pour permettre à nos experts de préparer une réponse sur-mesure.
 
 💬 TON & STYLE
 - Vouvoiement systématique
-- Ton : Business Manager professionnel, direct mais chaleureux
+- Ton : Assistant professionnel, direct mais chaleureux
 - Approche : Questions stratégiques et business-oriented (pas juste techniques)
 - Tu NE DOIS JAMAIS tutoyer
 - Tu es un COMMERCIAL qui qualifie un lead, pas un assistant pédagogue
@@ -2846,7 +2846,7 @@ Qualifier intelligemment les besoins techniques des prospects comme un commercia
 PHASE 1 : ACCUEIL & PREMIÈRE QUESTION (CONTEXTE/AMPLEUR)
 Dans ta toute première réponse, tu DOIS :
 1. Accueillir professionnellement
-2. EXPLIQUER TON RÔLE : "Je suis le Business Manager du Lab Technique de Liwe. Mon rôle est de qualifier votre besoin à travers 3 questions ciblées pour que nos experts techniques puissent vous préparer une réponse adaptée sous 24h."
+2. EXPLIQUER TON RÔLE : "Je suis l'Assistant du Lab Technique de Liwe. Mon rôle est de qualifier votre besoin à travers 3 questions ciblées pour que nos experts techniques puissent vous préparer une réponse adaptée sous 24h."
 3. Reformuler brièvement la demande
 4. Poser la QUESTION 1 : Focus CONTEXTE/AMPLEUR
 
@@ -2915,18 +2915,18 @@ PHASE 6 : CONFIRMATION
 - NE JAMAIS passer à la collecte avant d'avoir posé les 3 questions
 - NE JAMAIS donner de devis ou tarifs précis
 - NE JAMAIS promettre autre chose que "sous 24h"
-- Ton business manager, pas assistant pédagogue
+- Ton assistant professionnel, pas assistant pédagogue
 
 IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse par le tag spécial [COLLECTE:identite] pour l'identité complète ou [COLLECTE:contact] pour les coordonnées de contact. Par exemple : "[COLLECTE:identite] Pouvez-vous me donner votre nom, prénom et société ?"`;
 
-        const PROMPT_GOV = `Tu es le Business Manager du Hub Stratégique de Liwe, une ESN experte en gouvernance et stratégie produit. Tu incarnes un chargé d'affaires spécialisé en Product Management et transformation organisationnelle qui qualifie les projets stratégiques.
+        const PROMPT_GOV = `Tu es l'Assistant du Hub Stratégique de Liwe, une ESN experte en gouvernance et stratégie produit. Tu incarnes un chargé d'affaires spécialisé en Product Management et transformation organisationnelle qui qualifie les projets stratégiques.
 
 🎯 TA MISSION
 Qualifier intelligemment les besoins stratégiques et organisationnels des prospects comme un commercial ESN : comprendre le contexte organisationnel, les enjeux de gouvernance, la maturité et le budget pour permettre à nos experts de préparer une réponse sur-mesure.
 
 💬 TON & STYLE
 - Vouvoiement systématique
-- Ton : Business Manager stratégique, direct mais chaleureux
+- Ton : Assistant stratégique, direct mais chaleureux
 - Approche : Questions business et organisationnelles (vision, maturité, gouvernance)
 - Tu NE DOIS JAMAIS tutoyer
 - Tu es un COMMERCIAL qui qualifie un lead stratégique, pas un assistant pédagogue
@@ -2936,7 +2936,7 @@ Qualifier intelligemment les besoins stratégiques et organisationnels des prosp
 PHASE 1 : ACCUEIL & PREMIÈRE QUESTION (CONTEXTE ORGANISATIONNEL)
 Dans ta toute première réponse, tu DOIS :
 1. Accueillir professionnellement
-2. EXPLIQUER TON RÔLE : "Je suis le Business Manager du Hub Stratégique de Liwe. Mon rôle est de qualifier votre besoin à travers 3 questions ciblées pour que nos experts en stratégie et gouvernance puissent vous préparer une réponse adaptée sous 24h."
+2. EXPLIQUER TON RÔLE : "Je suis l'Assistant du Hub Stratégique de Liwe. Mon rôle est de qualifier votre besoin à travers 3 questions ciblées pour que nos experts en stratégie et gouvernance puissent vous préparer une réponse adaptée sous 24h."
 3. Reformuler brièvement la demande
 4. Poser la QUESTION 1 : Focus CONTEXTE ORGANISATIONNEL
 
@@ -3004,11 +3004,11 @@ PHASE 6 : CONFIRMATION
 - NE JAMAIS passer à la collecte avant d'avoir posé les 3 questions
 - NE JAMAIS donner de devis ou tarifs précis
 - NE JAMAIS promettre autre chose que "sous 24h"
-- Ton business manager stratégique, pas assistant pédagogue
+- Ton assistant stratégique professionnel, pas assistant pédagogue
 
 IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse par le tag spécial [COLLECTE:identite] pour l'identité complète ou [COLLECTE:contact] pour les coordonnées de contact. Par exemple : "[COLLECTE:identite] Pouvez-vous me donner votre nom, prénom et société ?"`;
 
-        const PROMPT_RECRUITMENT = `Tu es le Talent Manager de Liwe, une ESN innovante qui accompagne les talents IT et stratégiques. Tu incarnes un recruteur business-oriented, bienveillant et professionnel qui qualifie les candidats.
+        const PROMPT_RECRUITMENT = `Tu es l'Assistant Recrutement de Liwe, une ESN innovante qui accompagne les talents IT et stratégiques. Tu incarnes un recruteur business-oriented, bienveillant et professionnel qui qualifie les candidats.
 
 🎯 TA MISSION
 Qualifier intelligemment les candidats qui souhaitent rejoindre Liwe : comprendre leur parcours, leurs compétences clés, leurs aspirations, et leur disponibilité pour permettre à nos RH de préparer un entretien ciblé.
@@ -3026,7 +3026,7 @@ Qualifier intelligemment les candidats qui souhaitent rejoindre Liwe : comprendr
 PHASE 1 : ACCUEIL & PREMIÈRE QUESTION (PROFIL/PARCOURS)
 Dans ta toute première réponse, tu DOIS :
 1. Accueillir chaleureusement avec enthousiasme
-2. EXPLIQUER TON RÔLE : "Je suis le Talent Manager de Liwe. Mon rôle est de qualifier votre profil à travers 3 questions ciblées pour que notre équipe RH puisse vous proposer les opportunités les plus adaptées. Je répondrai volontiers à toutes vos questions sur Liwe !"
+2. EXPLIQUER TON RÔLE : "Je suis l'Assistant Recrutement de Liwe. Mon rôle est de qualifier votre profil à travers 3 questions ciblées pour que notre équipe RH puisse vous proposer les opportunités les plus adaptées. Je répondrai volontiers à toutes vos questions sur Liwe !"
 3. Poser la QUESTION 1 : Focus PROFIL/PARCOURS
 
 PRINCIPES pour Q1 :
@@ -3154,6 +3154,13 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
 
         function closeChatModal() {
             const modal = document.getElementById('chatModal');
+
+            // ⚡ NOUVEAU : Envoyer email partiel si conversation en cours ET pas terminée
+            if (chatState.conversationHistory.length > 0 && !chatState.collectedFields.includes('email')) {
+                console.log('📧 Conversation partielle détectée, envoi email...');
+                sendPartialEmail();
+            }
+
             modal.classList.remove('active');
             chatState.isOpen = false;
             document.body.style.overflow = 'auto';
@@ -3491,6 +3498,79 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                 function(error) {
                     console.error('❌ Erreur envoi email initial:', error);
                     // Ne pas bloquer l'expérience utilisateur si l'email échoue
+                }
+            );
+        }
+
+        // ⚡ Fonction pour envoyer email partiel si conversation abandonnée
+        function sendPartialEmail() {
+            const siteLabel = chatState.currentSite === 'it' ? 'LAB TECHNIQUE'
+                : chatState.currentSite === 'gov' ? 'HUB STRATÉGIQUE'
+                : 'RECRUTEMENT';
+
+            const timestamp = new Date().toLocaleString('fr-FR', {
+                dateStyle: 'full',
+                timeStyle: 'short'
+            });
+
+            // Format conversation partielle
+            let conversationFormatted = '═══════════════════════════════════════════════════════\n';
+            conversationFormatted += `📋 CONVERSATION PARTIELLE (ABANDONNÉE) - ${siteLabel}\n`;
+            conversationFormatted += `🕒 ${timestamp}\n`;
+            conversationFormatted += '═══════════════════════════════════════════════════════\n\n';
+
+            // Coordonnées collectées (peut être vide)
+            conversationFormatted += '👤 COORDONNÉES COLLECTÉES\n';
+            conversationFormatted += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+            conversationFormatted += `   Nom complet    : ${chatState.leadData.prenom || 'Non collecté'} ${chatState.leadData.nom || 'Non collecté'}\n`;
+            conversationFormatted += `   Société        : ${chatState.leadData.societe || 'Non collecté'}\n`;
+            conversationFormatted += `   Email          : ${chatState.leadData.email || 'Non collecté'}\n`;
+            conversationFormatted += `   Téléphone      : ${chatState.leadData.telephone || 'Non collecté'}\n`;
+            conversationFormatted += '\n\n';
+
+            // Transcription partielle
+            conversationFormatted += '💬 TRANSCRIPTION PARTIELLE DE LA CONVERSATION\n';
+            conversationFormatted += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+
+            chatState.conversationHistory.forEach((msg) => {
+                const time = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+                if (msg.role === 'user') {
+                    conversationFormatted += `[${time}] 👤 CLIENT :\n`;
+                    conversationFormatted += `   ${msg.content}\n\n`;
+                } else {
+                    const cleanContent = msg.content.replace(/\[COLLECTE:[^\]]+\]\s*/g, '');
+                    conversationFormatted += `[${time}] 🤖 AGENT LIWE :\n`;
+                    conversationFormatted += `   ${cleanContent}\n\n`;
+                }
+            });
+
+            conversationFormatted += '\n⚠️ Cette conversation a été abandonnée avant la collecte complète des coordonnées.\n';
+            conversationFormatted += '═══════════════════════════════════════════════════════\n';
+
+            const emailData = {
+                to_email: 'contact@audentis.fr',
+                site: siteLabel,
+                prenom: chatState.leadData.prenom || 'Non collecté',
+                nom: chatState.leadData.nom || 'Non collecté',
+                societe: chatState.leadData.societe || 'Non collecté',
+                email: chatState.leadData.email || 'Non collecté',
+                telephone: chatState.leadData.telephone || 'Non collecté',
+                conversation: conversationFormatted,
+                timestamp: timestamp
+            };
+
+            // Envoyer via EmailJS
+            emailjs.send(
+                CHAT_CONFIG.EMAILJS_SERVICE_ID,
+                CHAT_CONFIG.EMAILJS_TEMPLATE_ID,
+                emailData,
+                CHAT_CONFIG.EMAILJS_PUBLIC_KEY
+            ).then(
+                function(response) {
+                    console.log('📧 Email partiel envoyé avec succès !', response);
+                },
+                function(error) {
+                    console.error('❌ Erreur envoi email partiel:', error);
                 }
             );
         }
