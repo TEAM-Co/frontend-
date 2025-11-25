@@ -7,11 +7,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=2">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=3">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=2">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=2">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=2">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=3">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=3">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=3">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -192,7 +192,7 @@
                 Posez votre question, nos équipes évaluent votre besoin et vous répondent sous 24h
             </p>
             <div class="search-bar">
-                <input type="text" class="search-input" id="questionInput" placeholder="Comment notre équipe peut vous aider ?" onfocus="toggleDropdown('dropdownIT')">            <button class="search-submit-btn" onclick="submitQuestion('questionInput')">→</button>
+                <input type="text" class="search-input" id="questionInput" placeholder="Comment notre équipe peut vous aider ?" onfocus="toggleDropdown('dropdownIT')">            <button class="search-submit-btn" onclick="submitQuestion('questionInput')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
                 <div class="questions-dropdown" id="dropdownIT">
                     <div class="dropdown-title">Exemples de questions :</div>
                     <div class="question-item" onclick="selectQuestion(this, 'dropdownIT')">Comment sécuriser notre infrastructure cloud ?</div>
@@ -373,7 +373,7 @@
             </p>
             <div class="search-bar">
                 <input type="text" class="search-input" id="questionInputGov" placeholder="Comment notre équipe peut vous aider ?" onfocus="toggleDropdown('dropdownGov')">
-                <button class="search-submit-btn" onclick="submitQuestion('questionInputGov')">→</button>
+                <button class="search-submit-btn" onclick="submitQuestion('questionInputGov')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
                 <div class="questions-dropdown" id="dropdownGov">
                     <div class="dropdown-title">Exemples de questions :</div>
                     <div class="question-item" onclick="selectQuestion(this, 'dropdownGov')">Comment structurer notre roadmap produit ?</div>
@@ -2804,7 +2804,7 @@
                         placeholder="Tapez votre message..."
                         onkeypress="if(event.key === 'Enter') sendChatMessage()"
                     >
-                    <button class="chat-send-btn" id="chatSendBtn" onclick="sendChatMessage()">→</button>
+                    <button class="chat-send-btn" id="chatSendBtn" onclick="sendChatMessage()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
                 </div>
             </div>
         </div>
