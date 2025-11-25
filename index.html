@@ -55,6 +55,14 @@
 
     <!-- Mini Sidebar Permanente -->
     <div class="mini-sidebar" id="miniSidebar">
+        <!-- Bouton switcher IT/GOUV -->
+        <div class="sidebar-switcher" id="sidebarSwitcher" onclick="toggleTheme()">
+            <div class="sidebar-switcher-icon">💻</div>
+            <div class="sidebar-switcher-text">Gouv</div>
+        </div>
+
+        <div class="mini-sidebar-separator"></div>
+
         <!-- Expertises -->
         <div class="mini-sidebar-item" data-tooltip="Expertises" onclick="openSidebarSection('expertises')">
             <svg viewBox="0 0 24 24">
@@ -78,20 +86,12 @@
             </svg>
         </div>
 
-        <div class="mini-sidebar-separator"></div>
-
         <!-- Contact -->
         <div class="mini-sidebar-item" data-tooltip="Informations & Contacts" onclick="openSidebarSection('contact')">
             <svg viewBox="0 0 24 24">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
-        </div>
-
-        <!-- Bouton switcher IT/GOUV -->
-        <div class="sidebar-switcher" id="sidebarSwitcher" onclick="toggleTheme()">
-            <div class="sidebar-switcher-icon">💻</div>
-            <div class="sidebar-switcher-text">Gouv</div>
         </div>
     </div>
 
