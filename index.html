@@ -7,11 +7,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=11">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=12">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=11">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=11">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=11">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=12">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=12">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=12">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -2828,6 +2828,97 @@
             EMAILJS_TEMPLATE_ID: 'template_so0n68q' // Même template pour conversations démarrées ET terminées
         };
 
+        // ==================== BROWSER FINGERPRINTING ====================
+
+        function generateBrowserFingerprint() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.textBaseline = 'top';
+            ctx.font = '14px Arial';
+            ctx.fillText('fingerprint', 2, 2);
+            const canvasHash = canvas.toDataURL().slice(-50);
+
+            const fingerprint = {
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                platform: navigator.platform,
+                screenResolution: `${screen.width}x${screen.height}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                canvasHash: canvasHash,
+                colorDepth: screen.colorDepth,
+                deviceMemory: navigator.deviceMemory || 'unknown'
+            };
+
+            // Créer un hash simple à partir des données
+            const fingerprintString = JSON.stringify(fingerprint);
+            let hash = 0;
+            for (let i = 0; i < fingerprintString.length; i++) {
+                const char = fingerprintString.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+
+            return 'fp_' + Math.abs(hash).toString(36);
+        }
+
+        function getUserFingerprint() {
+            let fingerprint = localStorage.getItem('liwe_user_fingerprint');
+            if (!fingerprint) {
+                fingerprint = generateBrowserFingerprint();
+                localStorage.setItem('liwe_user_fingerprint', fingerprint);
+            }
+            return fingerprint;
+        }
+
+        // ==================== QUOTA MANAGEMENT ====================
+
+        function checkLocalQuota() {
+            const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+            const quotaKey = 'liwe_daily_quota';
+
+            let quotaData = localStorage.getItem(quotaKey);
+            if (!quotaData) {
+                quotaData = { date: today, count: 0 };
+            } else {
+                quotaData = JSON.parse(quotaData);
+
+                // Reset si nouvelle journée
+                if (quotaData.date !== today) {
+                    quotaData = { date: today, count: 0 };
+                }
+            }
+
+            const allowed = quotaData.count < 10;
+
+            return {
+                allowed: allowed,
+                used: quotaData.count,
+                limit: 10,
+                remaining: Math.max(0, 10 - quotaData.count)
+            };
+        }
+
+        function incrementLocalQuota() {
+            const today = new Date().toISOString().split('T')[0];
+            const quotaKey = 'liwe_daily_quota';
+
+            let quotaData = localStorage.getItem(quotaKey);
+            if (!quotaData) {
+                quotaData = { date: today, count: 1 };
+            } else {
+                quotaData = JSON.parse(quotaData);
+
+                if (quotaData.date !== today) {
+                    quotaData = { date: today, count: 1 };
+                } else {
+                    quotaData.count += 1;
+                }
+            }
+
+            localStorage.setItem(quotaKey, JSON.stringify(quotaData));
+            console.log(`📊 Quota utilisé: ${quotaData.count}/10 aujourd'hui`);
+        }
+
         // ==================== PROMPTS ==================== 
         const PROMPT_IT = `Tu es l'Assistant du Lab Technique de Liwe, une ESN experte en solutions IT et transformation digitale. Tu incarnes un chargé d'affaires IT professionnel qui qualifie les projets techniques pour dimensionner la réponse d'experts.
 
@@ -3298,14 +3389,25 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
 
         async function sendToClaudeAPI(userMessage) {
             console.log('🚀 Envoi du message à Claude API...', userMessage);
-            
+
             const sendBtn = document.getElementById('chatSendBtn');
             const input = document.getElementById('chatInput');
-            
+
             sendBtn.disabled = true;
             input.disabled = true;
             showTypingIndicator();
-            
+
+            // ⚡ NOUVEAU : Vérifier quota local avant envoi
+            const localQuota = checkLocalQuota();
+            if (!localQuota.allowed) {
+                console.warn('⚠️ Quota local dépassé:', localQuota.used, '/', localQuota.limit);
+                removeTypingIndicator();
+                showFallbackForm('QUOTA_EXCEEDED');
+                sendBtn.disabled = false;
+                input.disabled = false;
+                return;
+            }
+
             // Ajouter le message à l'historique
             chatState.conversationHistory.push({
                 role: 'user',
@@ -3342,7 +3444,8 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                     },
                     body: JSON.stringify({
                         system: systemPrompt,
-                        messages: chatState.conversationHistory
+                        messages: chatState.conversationHistory,
+                        fingerprint: getUserFingerprint() // ⚡ NOUVEAU : Envoyer le fingerprint
                     })
                 });
                 
@@ -3372,26 +3475,29 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                 
                 removeTypingIndicator();
                 addAgentMessage(agentResponse);
-                
+
+                // ⚡ NOUVEAU : Incrémenter le quota local après succès
+                incrementLocalQuota();
+
             } catch (error) {
                 console.error('❌ Erreur API Claude:', error);
                 removeTypingIndicator();
-                
-                // Messages d'erreur personnalisés
-                let errorMessage = '';
+
+                // ⚡ NOUVEAU : Afficher formulaire de repli au lieu d'un message d'erreur
+                let fallbackReason = 'API_ERROR';
+
                 if (error.message === 'RATE_LIMIT') {
-                    errorMessage = "⚠️ Limite d'utilisation atteinte. Votre clé API Claude a dépassé son quota. Veuillez attendre ou utiliser une nouvelle clé.";
+                    fallbackReason = 'RATE_LIMIT';
                 } else if (error.message === 'INVALID_KEY') {
-                    errorMessage = "🔑 Clé API invalide. Veuillez vérifier votre clé Claude dans la configuration (CHAT_CONFIG.CLAUDE_API_KEY).";
-                } else {
-                    errorMessage = "❌ Une erreur technique est survenue. Notre équipe a été notifiée et vous contactera rapidement pour finaliser votre demande.";
+                    fallbackReason = 'API_ERROR';
                 }
-                
-                addAgentMessage(errorMessage);
+
+                // Afficher le formulaire de repli
+                showFallbackForm(fallbackReason);
+
             } finally {
                 sendBtn.disabled = false;
                 input.disabled = false;
-                input.focus();
             }
         }
 
@@ -3571,6 +3677,183 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                 },
                 function(error) {
                     console.error('❌ Erreur envoi email partiel:', error);
+                }
+            );
+        }
+
+        // ==================== FORMULAIRE DE REPLI (FALLBACK) ====================
+
+        function showFallbackForm(reason) {
+            console.log('📋 Affichage formulaire de repli, raison:', reason);
+
+            // Fermer le chat modal
+            const chatModal = document.getElementById('chatModal');
+            chatModal.classList.remove('active');
+
+            // Construire le message selon la raison
+            let errorTitle = '';
+            let errorMessage = '';
+
+            if (reason === 'QUOTA_EXCEEDED') {
+                errorTitle = 'Limite quotidienne atteinte';
+                errorMessage = 'Vous avez atteint votre limite de 10 conversations par jour. Pour que nos experts puissent vous répondre rapidement, veuillez remplir ce formulaire. Nous vous contacterons sous 24h.';
+            } else if (reason === 'API_ERROR') {
+                errorTitle = 'Service temporairement indisponible';
+                errorMessage = 'Notre assistant IA est momentanément indisponible. Pour que nos experts puissent vous répondre rapidement, veuillez remplir ce formulaire. Nous vous contacterons sous 24h.';
+            } else if (reason === 'RATE_LIMIT') {
+                errorTitle = 'Trop de requêtes';
+                errorMessage = 'Notre service reçoit actuellement un nombre élevé de demandes. Pour que nos experts puissent vous répondre rapidement, veuillez remplir ce formulaire. Nous vous contacterons sous 24h.';
+            } else {
+                errorTitle = 'Assistant IA indisponible';
+                errorMessage = 'Pour que nos experts puissent vous répondre rapidement, veuillez remplir ce formulaire. Nous vous contacterons sous 24h.';
+            }
+
+            // Créer et afficher le formulaire de repli
+            const fallbackHTML = `
+                <div id="fallbackModal" style="display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10001; justify-content: center; align-items: center; backdrop-filter: blur(10px);">
+                    <div style="background: linear-gradient(135deg, rgba(20, 20, 20, 0.98) 0%, rgba(30, 30, 30, 0.98) 100%); border-radius: 20px; padding: 40px; max-width: 600px; width: 90%; border: 1px solid rgba(255, 127, 92, 0.3); box-shadow: 0 20px 60px rgba(26, 15, 10, 0.55);">
+
+                        <div style="margin-bottom: 30px; text-align: center;">
+                            <h2 style="font-size: 1.8rem; color: #f5f5f7; margin-bottom: 10px; font-weight: 900;">${errorTitle}</h2>
+                            <p style="color: rgba(245, 245, 247, 0.7); font-size: 0.95rem; line-height: 1.6;">${errorMessage}</p>
+                        </div>
+
+                        <form id="fallbackForm" onsubmit="return handleFallbackSubmit(event)">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; color: #f5f5f7; font-weight: 600; font-size: 0.9rem;">Prénom *</label>
+                                    <input type="text" name="prenom" required style="width: 100%; padding: 12px; background: rgba(245, 245, 247, 0.05); border: 1px solid rgba(255, 127, 92, 0.3); border-radius: 8px; color: #f5f5f7; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; color: #f5f5f7; font-weight: 600; font-size: 0.9rem;">Nom *</label>
+                                    <input type="text" name="nom" required style="width: 100%; padding: 12px; background: rgba(245, 245, 247, 0.05); border: 1px solid rgba(255, 127, 92, 0.3); border-radius: 8px; color: #f5f5f7; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; color: #f5f5f7; font-weight: 600; font-size: 0.9rem;">Société</label>
+                                <input type="text" name="societe" style="width: 100%; padding: 12px; background: rgba(245, 245, 247, 0.05); border: 1px solid rgba(255, 127, 92, 0.3); border-radius: 8px; color: #f5f5f7; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                            </div>
+
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; color: #f5f5f7; font-weight: 600; font-size: 0.9rem;">Email *</label>
+                                <input type="email" name="email" required style="width: 100%; padding: 12px; background: rgba(245, 245, 247, 0.05); border: 1px solid rgba(255, 127, 92, 0.3); border-radius: 8px; color: #f5f5f7; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                            </div>
+
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; color: #f5f5f7; font-weight: 600; font-size: 0.9rem;">Téléphone</label>
+                                <input type="tel" name="telephone" style="width: 100%; padding: 12px; background: rgba(245, 245, 247, 0.05); border: 1px solid rgba(255, 127, 92, 0.3); border-radius: 8px; color: #f5f5f7; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                            </div>
+
+                            <div style="margin-bottom: 25px;">
+                                <label style="display: block; margin-bottom: 8px; color: #f5f5f7; font-weight: 600; font-size: 0.9rem;">Votre question *</label>
+                                <textarea name="question" rows="5" required style="width: 100%; padding: 12px; background: rgba(245, 245, 247, 0.05); border: 1px solid rgba(255, 127, 92, 0.3); border-radius: 8px; color: #f5f5f7; font-family: 'Inter', sans-serif; font-size: 1rem; resize: vertical;">${chatState.initialQuestion || ''}</textarea>
+                            </div>
+
+                            <div style="display: flex; gap: 15px; justify-content: flex-end;">
+                                <button type="button" onclick="closeFallbackForm()" style="padding: 12px 24px; background: transparent; border: 1px solid rgba(245, 245, 247, 0.3); color: #f5f5f7; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;">Annuler</button>
+                                <button type="submit" style="padding: 12px 30px; background: linear-gradient(135deg, #FF7F5C 0%, #c43d20 100%); border: none; color: #f5f5f7; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(255, 127, 92, 0.3);">Envoyer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            `;
+
+            // Injecter le formulaire dans le DOM
+            document.body.insertAdjacentHTML('beforeend', fallbackHTML);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFallbackForm() {
+            const modal = document.getElementById('fallbackModal');
+            if (modal) {
+                modal.remove();
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function handleFallbackSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            const data = {
+                prenom: formData.get('prenom'),
+                nom: formData.get('nom'),
+                societe: formData.get('societe') || 'Non communiqué',
+                email: formData.get('email'),
+                telephone: formData.get('telephone') || 'Non fourni',
+                question: formData.get('question')
+            };
+
+            // Envoyer via EmailJS
+            const siteLabel = chatState.currentSite === 'it' ? 'LAB TECHNIQUE'
+                : chatState.currentSite === 'gov' ? 'HUB STRATÉGIQUE'
+                : 'RECRUTEMENT';
+
+            const timestamp = new Date().toLocaleString('fr-FR', {
+                dateStyle: 'full',
+                timeStyle: 'short'
+            });
+
+            const conversationFormatted = `═══════════════════════════════════════════════════════
+📋 DEMANDE VIA FORMULAIRE DE REPLI - ${siteLabel}
+🕒 ${timestamp}
+═══════════════════════════════════════════════════════
+
+👤 COORDONNÉES DU PROSPECT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Nom complet    : ${data.prenom} ${data.nom}
+   Société        : ${data.societe}
+   Email          : ${data.email}
+   Téléphone      : ${data.telephone}
+
+❓ QUESTION INITIALE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ${data.question}
+
+⚠️ Cette demande a été soumise via le formulaire de repli (agent IA indisponible).
+═══════════════════════════════════════════════════════`;
+
+            const emailData = {
+                to_email: 'contact@audentis.fr',
+                site: siteLabel,
+                prenom: data.prenom,
+                nom: data.nom,
+                societe: data.societe,
+                email: data.email,
+                telephone: data.telephone,
+                conversation: conversationFormatted,
+                timestamp: timestamp
+            };
+
+            // Envoyer l'email
+            emailjs.send(
+                CHAT_CONFIG.EMAILJS_SERVICE_ID,
+                CHAT_CONFIG.EMAILJS_TEMPLATE_ID,
+                emailData,
+                CHAT_CONFIG.EMAILJS_PUBLIC_KEY
+            ).then(
+                function(response) {
+                    console.log('📧 Email formulaire repli envoyé !', response);
+
+                    // Afficher confirmation
+                    const modal = document.getElementById('fallbackModal');
+                    modal.innerHTML = `
+                        <div style="background: linear-gradient(135deg, rgba(20, 20, 20, 0.98) 0%, rgba(30, 30, 30, 0.98) 100%); border-radius: 20px; padding: 60px 40px; max-width: 500px; text-align: center; border: 1px solid rgba(255, 127, 92, 0.3);">
+                            <div style="font-size: 4rem; margin-bottom: 20px;">✅</div>
+                            <h2 style="font-size: 1.8rem; color: #f5f5f7; margin-bottom: 15px; font-weight: 900;">Demande envoyée !</h2>
+                            <p style="color: rgba(245, 245, 247, 0.7); font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">Nos experts vont traiter votre demande et vous contacteront sous 24h.</p>
+                            <button onclick="closeFallbackForm()" style="padding: 12px 30px; background: linear-gradient(135deg, #FF7F5C 0%, #c43d20 100%); border: none; color: #f5f5f7; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;">Fermer</button>
+                        </div>
+                    `;
+
+                    setTimeout(() => closeFallbackForm(), 3000);
+                },
+                function(error) {
+                    console.error('❌ Erreur envoi email:', error);
+                    alert('Une erreur est survenue. Veuillez nous contacter directement à contact@audentis.fr');
                 }
             );
         }
