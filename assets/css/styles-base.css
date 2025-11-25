@@ -2493,7 +2493,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #007AFF;
+            background: #FF7F5C;
             animation: typingBounce 1.4s infinite ease-in-out;
         }
 
@@ -2551,12 +2551,12 @@
 
         .chat-input:focus {
             background: #ffffff;
-            border-color: #007AFF;
+            border-color: #FF7F5C;
             box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
         }
 
         body.theme-gov .chat-input:focus {
-            border-color: #007AFF;
+            border-color: #FF7F5C;
             box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
         }
 
@@ -2565,7 +2565,7 @@
             width: 38px;
             height: 38px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            background: linear-gradient(135deg, #FF7F5C 0%, #d44728 100%);
             border: none;
             color: #ffffff;
             font-size: 1.1rem;
@@ -2593,7 +2593,7 @@
         }
 
         body.theme-gov .chat-send-btn {
-            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            background: linear-gradient(135deg, #FF7F5C 0%, #d44728 100%);
             box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
         }
 
