@@ -3045,10 +3045,10 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
 
             if (siteType === 'it') {
                 chatTitle.textContent = 'Lab Technique';
-                chatSubtitle.textContent = 'Expert IT en ligne';
+                chatSubtitle.textContent = 'Qualification intelligente • Réponse sous 24h';
             } else if (siteType === 'gov') {
                 chatTitle.textContent = 'Hub Stratégique';
-                chatSubtitle.textContent = 'Expert Gouvernance en ligne';
+                chatSubtitle.textContent = 'Qualification intelligente • Réponse sous 24h';
             } else if (siteType === 'recruitment') {
                 chatTitle.textContent = 'Recrutement';
                 chatSubtitle.textContent = 'Rejoignez l\'équipe Liwe';
@@ -3110,7 +3110,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             
             const messageHTML = `
                 <div class="chat-message agent-message">
-                    <div class="message-avatar agent">G</div>
+                    <div class="message-avatar agent">L</div>
                     <div class="message-content">
                         <div class="message-text">${escapeHtml(cleanText)}</div>
                         <div class="message-time">${time}</div>
@@ -3165,36 +3165,52 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
         function detectAndStoreData(message) {
             const lastAgentMessage = chatState.conversationHistory[chatState.conversationHistory.length - 1];
             if (!lastAgentMessage || lastAgentMessage.role !== 'assistant') return;
-            
+
             const text = lastAgentMessage.content;
-            
+
             // Détecter quel champ est en cours de collecte
-            if (text.includes('[COLLECTE:prenom]')) {
-                chatState.leadData.prenom = message;
+            if (text.includes('[COLLECTE:prenom]') || text.includes('[COLLECTE:prénom]')) {
+                // Extraire prénom et nom de la réponse (ex: "Jean Dupont")
+                const parts = message.trim().split(/\s+/);
+                if (parts.length >= 2) {
+                    chatState.leadData.prenom = parts[0];
+                    chatState.leadData.nom = parts.slice(1).join(' ');
+                } else {
+                    // Si un seul mot, considérer comme prénom seulement
+                    chatState.leadData.prenom = parts[0];
+                    chatState.leadData.nom = '';
+                }
                 chatState.collectedFields.push('prenom');
+                chatState.collectedFields.push('nom');
+                console.log('✅ Prénom + Nom collectés:', chatState.leadData.prenom, chatState.leadData.nom);
             } else if (text.includes('[COLLECTE:nom]')) {
                 chatState.leadData.nom = message;
                 chatState.collectedFields.push('nom');
             } else if (text.includes('[COLLECTE:société]') || text.includes('[COLLECTE:societe]')) {
                 chatState.leadData.societe = message;
                 chatState.collectedFields.push('societe');
+                console.log('✅ Société collectée:', chatState.leadData.societe);
             } else if (text.includes('[COLLECTE:email]')) {
                 chatState.leadData.email = message;
                 chatState.collectedFields.push('email');
+                console.log('✅ Email collecté:', chatState.leadData.email);
             } else if (text.includes('[COLLECTE:téléphone]') || text.includes('[COLLECTE:telephone]')) {
                 chatState.leadData.telephone = message;
                 chatState.collectedFields.push('telephone');
+                console.log('✅ Téléphone collecté:', chatState.leadData.telephone);
             } else if (text.includes('[COLLECTE:linkedin]')) {
                 chatState.leadData.linkedin = message;
                 chatState.collectedFields.push('linkedin');
+                console.log('✅ LinkedIn collecté:', chatState.leadData.linkedin);
             }
-            
+
             // Si toutes les données essentielles sont collectées, envoyer l'email
-            if (chatState.collectedFields.includes('prenom') && 
-                chatState.collectedFields.includes('nom') && 
-                chatState.collectedFields.includes('societe') && 
+            if (chatState.collectedFields.includes('prenom') &&
+                chatState.collectedFields.includes('nom') &&
+                chatState.collectedFields.includes('societe') &&
                 (chatState.collectedFields.includes('email') || chatState.collectedFields.includes('telephone'))) {
-                setTimeout(() => sendLeadEmail(), 2000); // RÉACTIVÉ - Envoi avec données collectées
+                console.log('🎯 Toutes les données collectées ! Envoi email dans 2s...');
+                setTimeout(() => sendLeadEmail(), 2000);
             }
         }
 

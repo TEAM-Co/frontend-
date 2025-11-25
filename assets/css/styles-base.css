@@ -2369,7 +2369,7 @@
             flex: 1;
             overflow-y: auto;
             padding: 24px 20px;
-            background: #ffffff;
+            background: #f8f9fa;
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -2378,7 +2378,7 @@
         }
 
         body.theme-gov .chat-messages {
-            background: #f5f5f7;
+            background: #f8f9fa;
         }
 
         /* Scrollbar ultra-fine style Apple */
@@ -2439,11 +2439,13 @@
         }
 
         .message-avatar.agent {
-            background: linear-gradient(135deg, #FF7F5C 0%, #d44728 100%);
+            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            box-shadow: 0 2px 6px rgba(0, 122, 255, 0.15);
         }
 
         body.theme-gov .message-avatar.agent {
-            background: linear-gradient(135deg, #8b7355 0%, #75614a 100%);
+            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            box-shadow: 0 2px 6px rgba(0, 122, 255, 0.15);
         }
 
         /* Bulles iMessage */
@@ -2464,18 +2466,25 @@
 
         /* Bulle agent - gris clair avec texte noir */
         .chat-message.agent-message .message-text {
-            background: #e9e9eb;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e9e9eb 100%);
             color: #1d1d1f;
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
-        /* Bulle user - terracotta doux pour IT */
+        /* Bulle user - blanc épuré avec bordure subtile */
         .chat-message.user-message .message-text {
-            background: linear-gradient(135deg, #c85a40 0%, #b84e36 100%);
-            color: #ffffff;
+            background: #ffffff;
+            color: #1d1d1f;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.06),
+                0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         body.theme-gov .chat-message.user-message .message-text {
-            background: linear-gradient(135deg, #8b7355 0%, #75614a 100%);
+            background: #ffffff;
+            color: #1d1d1f;
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .message-time {
@@ -2485,21 +2494,22 @@
             font-weight: 400;
         }
 
-        /* Typing indicator iMessage style */
+        /* Typing indicator iOS style */
         .typing-indicator {
             display: flex;
             gap: 4px;
             padding: 14px 18px;
-            background: #e9e9eb;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e9e9eb 100%);
             border-radius: 20px;
             width: fit-content;
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
         .typing-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #8e8e93;
+            background: #007AFF;
             animation: typingBounce 1.4s infinite ease-in-out;
         }
 
@@ -2568,12 +2578,12 @@
             box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.08);
         }
 
-        /* Bouton envoyer terracotta doux */
+        /* Bouton envoyer iOS bleu moderne */
         .chat-send-btn {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #c85a40 0%, #b84e36 100%);
+            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
             border: none;
             color: #ffffff;
             font-size: 1.1rem;
@@ -2583,12 +2593,12 @@
             justify-content: center;
             transition: all 0.2s ease;
             flex-shrink: 0;
-            box-shadow: 0 2px 6px rgba(200, 90, 64, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
         }
 
         .chat-send-btn:hover:not(:disabled) {
             transform: scale(1.08);
-            box-shadow: 0 4px 12px rgba(200, 90, 64, 0.35);
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
         }
 
         .chat-send-btn:active:not(:disabled) {
@@ -2601,12 +2611,12 @@
         }
 
         body.theme-gov .chat-send-btn {
-            background: linear-gradient(135deg, #8b7355 0%, #75614a 100%);
-            box-shadow: 0 2px 6px rgba(139, 115, 85, 0.25);
+            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
         }
 
         body.theme-gov .chat-send-btn:hover:not(:disabled) {
-            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.35);
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
         }
 
         /* Responsive */
