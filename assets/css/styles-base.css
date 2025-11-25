@@ -2251,14 +2251,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(26, 15, 10, 0.75);
-            backdrop-filter: blur(30px) saturate(180%);
-            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
             z-index: 10000;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            animation: fadeInBackdrop 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInBackdrop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes fadeInBackdrop {
@@ -2276,27 +2276,27 @@
             display: flex;
         }
 
-        /* Container principal - Style iMessage */
+        /* Container principal - Style moderne épuré */
         .chat-container {
             width: 100%;
-            max-width: 650px;
-            height: 82vh;
-            max-height: 700px;
+            max-width: 600px;
+            height: 85vh;
+            max-height: 750px;
             background: #ffffff;
-            border-radius: 28px;
-            box-shadow: 
-                0 0 0 0.5px rgba(0, 0, 0, 0.04),
-                0 10px 25px rgba(0, 0, 0, 0.1),
-                0 40px 80px rgba(26, 15, 10, 0.15);
+            border-radius: 20px;
+            box-shadow:
+                0 0 0 1px rgba(0, 0, 0, 0.04),
+                0 20px 60px rgba(0, 0, 0, 0.15),
+                0 8px 24px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            animation: slideInChat 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: slideInChat 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body.theme-gov .chat-container {
-            background: #f5f5f7;
+            background: #ffffff;
         }
 
         @keyframes slideInChat {
@@ -2310,58 +2310,62 @@
             }
         }
 
-        /* Header style Apple */
+        /* Header style moderne épuré */
         .chat-header {
-            padding: 20px 24px;
-            background: rgba(255, 255, 255, 0.98);
-            border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+            padding: 24px 24px 20px;
+            background: #ffffff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             position: relative;
             z-index: 10;
         }
 
         body.theme-gov .chat-header {
-            background: rgba(245, 245, 247, 0.98);
+            background: #ffffff;
         }
 
         .chat-header-content h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
+            font-size: 1.25rem;
+            font-weight: 700;
             color: #1d1d1f;
-            margin-bottom: 2px;
-            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+            letter-spacing: -0.02em;
         }
 
         .chat-header-content p {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #86868b;
-            font-weight: 400;
+            font-weight: 500;
+            letter-spacing: -0.01em;
         }
 
-        /* Bouton fermer minimaliste */
+        /* Bouton fermer iOS style */
         .chat-close {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: rgba(120, 120, 128, 0.16);
+            background: #f2f2f7;
             border: none;
             color: #1d1d1f;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
-            font-weight: 300;
+            font-weight: 400;
+            line-height: 1;
         }
 
         .chat-close:hover {
-            background: rgba(120, 120, 128, 0.24);
-            transform: scale(1.05);
+            background: #e5e5ea;
+            transform: scale(1.06);
+        }
+
+        .chat-close:active {
+            transform: scale(0.94);
         }
 
         /* Zone de messages style iMessage */
@@ -2528,19 +2532,17 @@
             }
         }
 
-        /* Input area style iMessage */
+        /* Input area style moderne */
         .chat-input-area {
-            padding: 12px 16px 16px;
-            background: rgba(255, 255, 255, 0.98);
-            border-top: 0.5px solid rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            padding: 16px 20px 20px;
+            background: #ffffff;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
             position: relative;
             z-index: 10;
         }
 
         body.theme-gov .chat-input-area {
-            background: rgba(245, 245, 247, 0.98);
+            background: #ffffff;
         }
 
         .chat-input-container {
@@ -2549,13 +2551,13 @@
             align-items: center;
         }
 
-        /* Input iMessage */
+        /* Input moderne épuré */
         .chat-input {
             flex: 1;
-            padding: 10px 14px;
-            background: #f2f2f7;
-            border: 1px solid transparent;
-            border-radius: 20px;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 22px;
             color: #1d1d1f;
             font-size: 0.95rem;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -2564,18 +2566,18 @@
         }
 
         .chat-input::placeholder {
-            color: #8e8e93;
+            color: #86868b;
         }
 
         .chat-input:focus {
             background: #ffffff;
-            border-color: rgba(0, 122, 255, 0.3);
-            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.08);
+            border-color: #007AFF;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
         }
 
         body.theme-gov .chat-input:focus {
-            border-color: rgba(139, 115, 85, 0.3);
-            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.08);
+            border-color: #007AFF;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
         }
 
         /* Bouton envoyer iOS bleu moderne */
