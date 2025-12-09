@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=13">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=40">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=13">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=13">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=13">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=40">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=40">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=40">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -81,16 +81,8 @@
             </svg>
         </div>
 
-        <!-- Nous rejoindre -->
-        <div class="mini-sidebar-item" data-tooltip="Nous rejoindre & Partenariat" onclick="openSidebarSection('rejoindre')">
-            <svg viewBox="0 0 24 24">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-        </div>
-
         <!-- Contact -->
-        <div class="mini-sidebar-item" data-tooltip="Informations & Contacts" onclick="openSidebarSection('contact')">
+        <div class="mini-sidebar-item" data-tooltip="Contact" onclick="openSidebarSection('contact')">
             <svg viewBox="0 0 24 24">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -100,7 +92,7 @@
 
     <!-- Logo -->
     <button class="logo-btn" id="logoBtn" onclick="goHome()" style="background: transparent; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;">
-        <img src="assets/images/LOGOOFFremovebg.png" alt="Liwe" style="height: 880px; width: auto;">
+        <img src="assets/images/NewLogo sans Liwe.png" alt="Liwe" style="height: 80px; width: auto;">
     </button>
 
     <!-- Dynamic Island V15 -->
@@ -189,6 +181,7 @@
     <div class="main-container" id="landingIT">
         <!-- Hero section - Contenu principal centré -->
         <div class="landing-hero">
+            <div class="landing-brand-name" onclick="goHome()">Liwe</div>
             <h1 class="brand-title">Lab Technique</h1>
             <p class="intro-text">
                 Experts techniques pour vos projets<br>
@@ -369,6 +362,7 @@
     <div class="main-container" id="landingGov">
         <!-- Hero section - Contenu principal centré -->
         <div class="landing-hero">
+            <div class="landing-brand-name" onclick="goHome()">Liwe</div>
             <h1 class="brand-title">Hub Stratégique</h1>
             <p class="intro-text">
                 Experts stratégiques pour vos projets<br>
@@ -660,11 +654,8 @@
                 { id: 'pageHistoire', title: 'Notre Histoire', desc: 'Qui sommes-nous ?' },
                 { id: 'pageVeille', title: 'Veille & Actualités', desc: 'Innovation' }
             ],
-            rejoindre: [
-                { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
-                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Coopération' }
-            ],
             contact: [
+                { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
                 { id: 'pageReseaux', title: 'Nos Réseaux', desc: 'Spotify, WhatsApp, LinkedIn...' },
                 { id: 'pagePlaquette', title: 'Plaquette Commerciale', desc: 'Télécharger notre plaquette' }
             ]
@@ -684,11 +675,8 @@
                 { id: 'pageHistoire', title: 'Notre Histoire', desc: 'Qui sommes-nous ?' },
                 { id: 'pageVeille', title: 'Veille & Actualités', desc: 'Innovation' }
             ],
-            rejoindre: [
-                { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
-                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Coopération' }
-            ],
             contact: [
+                { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
                 { id: 'pageReseaux', title: 'Nos Réseaux', desc: 'Spotify, WhatsApp, LinkedIn...' },
                 { id: 'pagePlaquette', title: 'Plaquette Commerciale', desc: 'Télécharger notre plaquette' }
             ]
@@ -990,8 +978,8 @@
 
             // Observer pour les sections qui apparaissent au scroll
             const observerOptions = {
-                threshold: 0.05,
-                rootMargin: '50px 0px 0px 0px'
+                threshold: 0.1,
+                rootMargin: '100px 0px 0px 0px'
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -1009,10 +997,10 @@
 
             // Gestion de l'indicateur de scroll
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 100 && !hasScrolled) {
+                if (window.scrollY > 300 && !hasScrolled) {
                     hasScrolled = true;
                     scrollIndicator.classList.add('hidden-on-scroll');
-                } else if (window.scrollY <= 100 && hasScrolled) {
+                } else if (window.scrollY <= 300 && hasScrolled) {
                     hasScrolled = false;
                     scrollIndicator.classList.remove('hidden-on-scroll');
                 }
@@ -1203,9 +1191,9 @@
                     openChatInterface();
                     return;
                 } else {
-                    // Pour Découvrir et Rejoindre, afficher un message de sélection de track
+                    // Pour Découvrir, afficher un message de sélection de track
                     const content = document.getElementById('sidebarMenu');
-                    let sectionTitle = section === 'decouvrir' ? 'Découvrir' : 'Nous Rejoindre';
+                    let sectionTitle = 'Découvrir';
 
                     content.innerHTML = `
                         <div class="sidebar-section">
@@ -1305,14 +1293,8 @@
                     html += `<div class="sidebar-item" onclick="showPage('${item.id}')">${item.title}</div>`;
                 });
                 html += '</div>';
-            } else if (section === 'rejoindre') {
-                html += '<div class="sidebar-section"><h3>Nous Rejoindre & Partenariat</h3>';
-                menuData.rejoindre.forEach(item => {
-                    html += `<div class="sidebar-item" onclick="showPage('${item.id}')">${item.title}</div>`;
-                });
-                html += '</div>';
             } else if (section === 'contact') {
-                html += '<div class="sidebar-section"><h3>Informations & Contacts</h3>';
+                html += '<div class="sidebar-section"><h3>Contact</h3>';
                 menuData.contact.forEach(item => {
                     html += `<div class="sidebar-item" onclick="showPage('${item.id}')">${item.title}</div>`;
                 });

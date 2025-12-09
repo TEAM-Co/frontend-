@@ -410,10 +410,51 @@
         /* Logo VISIBLE partout, y compris sur welcome page */
         body.welcome-mode .logo-btn {
             display: flex !important; /* AFFICHER le logo sur welcome */
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            z-index: 9999;
         }
 
         .logo-btn:hover {
             transform: scale(1.1);
+        }
+
+        /* Nom de marque "Liwe" au-dessus des titres des landings (web uniquement) */
+        .landing-brand-name {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f5f5f7;
+            letter-spacing: -0.03em;
+            text-shadow: 0 4px 20px rgba(255, 127, 92, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+            z-index: 10;
+        }
+
+        @media (min-width: 769px) {
+            .landing-brand-name {
+                display: block;
+            }
+        }
+
+        .landing-brand-name:hover {
+            opacity: 0.9;
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        body.theme-gov .landing-brand-name {
+            color: #2a1810;
+            text-shadow: 0 4px 20px rgba(139, 111, 71, 0.3);
+        }
+
+        body.welcome-mode .landing-brand-name {
+            display: none !important;
         }
 
         .logo-btn svg {
@@ -452,6 +493,11 @@
 
         body.theme-gov .dynamic-island {
             background: linear-gradient(135deg, rgba(255, 127, 92, 0.08) 0%, rgba(245, 245, 247, 0.98) 100%);
+        }
+
+        /* Masquer Dynamic Island sur welcome */
+        body.welcome-mode .dynamic-island {
+            display: none !important;
         }
 
         .island-content {
@@ -507,8 +553,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 0 20px 0;
-            gap: 10px;
+            padding: 15px 0 20px 0;
+            gap: 8px;
             background: rgba(20, 20, 20, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -603,7 +649,7 @@
             width: 30px;
             height: 1px;
             background: rgba(255, 127, 92, 0.2);
-            margin: 10px 0;
+            margin: 5px 0;
         }
 
         /* Bouton switcher IT/GOUV circulaire en haut de sidebar - Style premium */
@@ -1253,6 +1299,20 @@
         /* Icône flèche sur les cartes */
         .bubble-icon {
             display: none;
+        }
+
+        /* Web uniquement : bulles côte à côte */
+        @media (min-width: 769px) {
+            .welcome-choices {
+                flex-direction: row;
+                max-width: 900px;
+                gap: 30px;
+            }
+
+            .choice-bubble {
+                flex: 1;
+                max-width: 450px;
+            }
         }
 
         /* Landing pages - EXACTE V15 */
@@ -1931,13 +1991,13 @@
             max-width: 1200px;
             padding: 80px 40px;
             margin: 0 auto;
-            margin-top: 200px; /* Espace pour que les sections ne soient pas visibles sans scroll */
+            margin-top: 80px; /* Espace pour que les sections ne soient pas visibles sans scroll */
         }
 
         .landing-section {
             margin-bottom: 100px;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(15px);
             transition: all 0.8s ease;
         }
 
