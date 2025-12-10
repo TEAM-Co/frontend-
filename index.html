@@ -58,6 +58,13 @@
 
     <!-- Mini Sidebar Permanente -->
     <div class="mini-sidebar" id="miniSidebar">
+        <!-- Logo en haut de la sidebar -->
+        <button class="mini-sidebar-logo" onclick="goHome()" style="background: transparent; border: none; cursor: pointer; padding: 10px 0; display: flex; align-items: center; justify-content: center; width: 100%;">
+            <img src="assets/images/NewLogo sans Liwe.png" alt="Liwe" style="height: 90px; width: auto;">
+        </button>
+
+        <div class="mini-sidebar-separator"></div>
+
         <!-- Bouton switcher IT/GOUV -->
         <div class="sidebar-switcher" id="sidebarSwitcher" onclick="toggleTheme()">
             <div class="sidebar-switcher-icon">💻</div>
@@ -78,6 +85,14 @@
             <svg viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"></circle>
                 <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+        </div>
+
+        <!-- Nous rejoindre -->
+        <div class="mini-sidebar-item" data-tooltip="Nous rejoindre & Partenariat" onclick="openSidebarSection('rejoindre')">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
             </svg>
         </div>
 
@@ -654,8 +669,11 @@
                 { id: 'pageHistoire', title: 'Notre Histoire', desc: 'Qui sommes-nous ?' },
                 { id: 'pageVeille', title: 'Veille & Actualités', desc: 'Innovation' }
             ],
-            contact: [
+            rejoindre: [
                 { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
+                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Coopération' }
+            ],
+            contact: [
                 { id: 'pageReseaux', title: 'Nos Réseaux', desc: 'Spotify, WhatsApp, LinkedIn...' },
                 { id: 'pagePlaquette', title: 'Plaquette Commerciale', desc: 'Télécharger notre plaquette' }
             ]
@@ -675,8 +693,11 @@
                 { id: 'pageHistoire', title: 'Notre Histoire', desc: 'Qui sommes-nous ?' },
                 { id: 'pageVeille', title: 'Veille & Actualités', desc: 'Innovation' }
             ],
-            contact: [
+            rejoindre: [
                 { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
+                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Coopération' }
+            ],
+            contact: [
                 { id: 'pageReseaux', title: 'Nos Réseaux', desc: 'Spotify, WhatsApp, LinkedIn...' },
                 { id: 'pagePlaquette', title: 'Plaquette Commerciale', desc: 'Télécharger notre plaquette' }
             ]
@@ -727,6 +748,27 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // ==================== GESTION DES LOGOS MOBILE ====================
+        function updateMobileLogos() {
+            const isMobile = window.innerWidth <= 768;
+            const isWelcomeMode = document.body.classList.contains('welcome-mode');
+
+            // Sélectionner tous les logos
+            const logoBtn = document.querySelector('.logo-btn img');
+            const sidebarLogo = document.querySelector('.mini-sidebar-logo img');
+
+            // Si mobile ET pas en welcome mode (donc sur landing IT/GOV)
+            if (isMobile && !isWelcomeMode) {
+                // Utiliser le logo avec "Design sans titre copie"
+                if (logoBtn) logoBtn.src = 'assets/images/Design sans titre copie.png';
+                if (sidebarLogo) sidebarLogo.src = 'assets/images/Design sans titre copie.png';
+            } else {
+                // Utiliser le logo sans "Liwe" par défaut
+                if (logoBtn) logoBtn.src = 'assets/images/NewLogo sans Liwe.png';
+                if (sidebarLogo) sidebarLogo.src = 'assets/images/NewLogo sans Liwe.png';
+            }
+        }
+
         // Init
         function init() {
             // Ajouter le mode welcome
@@ -737,6 +779,7 @@
                 createContentPages();
                 setupDropdowns();
                 setupScrollEffects();
+                updateMobileLogos(); // Initialiser les logos
             }, 3000);
         }
 
@@ -1443,8 +1486,9 @@
                 page.classList.add('active');
                 currentPage = pageId;
                 window.scrollTo(0, 0);
+                updateMobileLogos(); // Mettre à jour les logos
             }
-            
+
             // Cacher l'indicateur de scroll sur les pages internes
             document.getElementById('scrollIndicator').classList.remove('visible');
         }
@@ -2698,6 +2742,9 @@
 
         // Init
         init();
+
+        // Mettre à jour les logos lors du redimensionnement
+        window.addEventListener('resize', updateMobileLogos);
     </script>
 
     <!-- Modal de contact -->
