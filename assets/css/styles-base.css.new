@@ -706,26 +706,6 @@
             display: none !important;
         }
 
-        /* Cacher les landing pages en mode Welcome */
-        body.welcome-mode .main-container {
-            display: none !important;
-        }
-
-        body.welcome-mode .mini-sidebar {
-            display: none !important;
-        }
-
-        /* Cacher Dynamic Island sur welcome page */
-        body.welcome-mode .dynamic-island {
-            display: none !important;
-        }
-
-        /* Logo à gauche sur welcome page (web) */
-        body.welcome-mode .logo-btn {
-            left: 40px !important;
-            right: auto !important;
-        }
-
         /* ==================== HAMBURGER MENU MOBILE (DÉSACTIVÉ - Remplacé par sidebar permanente) ==================== */
         .hamburger-button {
             position: fixed;
@@ -1128,8 +1108,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px 80px;
+            justify-content: flex-start;
+            padding: 40px 20px 120px;
             opacity: 0;
             animation: fadeIn 1s ease 3s forwards;
             position: relative;
@@ -1140,58 +1120,78 @@
         }
 
         .welcome-content {
-            max-width: 1200px;
-            width: 100%;
+            max-width: 1100px;
             text-align: center;
             z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
         }
 
         .welcome-title {
-            font-size: 140px;
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
+            margin-bottom: 40px;
             color: #f5f5f7;
-            letter-spacing: -2px;
-            margin: 0;
+            letter-spacing: -0.02em;
         }
 
-        .welcome-question {
-            font-size: 20px;
+        .welcome-text {
+            font-size: clamp(1rem, 2vw, 1.3rem); /* Taille normale */
+            line-height: 1.6;
+            margin-bottom: 30px;
             color: rgba(245, 245, 247, 0.85);
-            margin: 0;
-            font-weight: 400;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* Desktop/Web : phrases sur 1 ligne */
+        @media (min-width: 769px) {
+            .welcome-text {
+                white-space: nowrap; /* 1 ligne sur desktop */
+            }
+        }
+
+        /* Phrase du bas peut aller sur plusieurs lignes (mobile) */
+        .welcome-text-bottom {
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            line-height: 1.5;
         }
 
         .welcome-choices {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             gap: 20px;
+            max-width: 600px;
             width: 100%;
-            max-width: 1100px;
-            justify-content: center;
+            margin: 0 auto;
         }
 
-        .choice-button {
-            flex: 1;
-            max-width: 540px;
-            padding: 40px 30px;
-            background: transparent;
-            border: 1px solid rgba(245, 245, 247, 0.2);
+        .choice-bubble {
+            width: 100%;
+            min-height: 120px;
             border-radius: 16px;
+            background: rgba(26, 20, 16, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 245, 247, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            padding: 30px 35px;
             text-align: center;
         }
 
-        .choice-button:hover {
-            transform: translateY(-4px);
+        .choice-bubble:hover {
+            transform: translateY(-2px);
         }
 
-        /* Hover IT - Terracota glow */
-        .choice-it:hover {
+        /* IT bubble (première) - Glow terracotta/orange */
+        .choice-bubble:nth-child(1):hover {
             border-color: rgba(255, 127, 92, 0.8);
             box-shadow:
                 0 0 30px rgba(255, 127, 92, 0.4),
@@ -1200,16 +1200,8 @@
             background: rgba(255, 127, 92, 0.05);
         }
 
-        .choice-it:hover .choice-title {
-            color: #FF7F5C;
-        }
-
-        .choice-it:hover .choice-desc {
-            color: rgba(255, 127, 92, 0.9);
-        }
-
-        /* Hover Gov - Ivoire glow */
-        .choice-gov:hover {
+        /* GOV bubble (deuxième) - Glow ivoire/blanc */
+        .choice-bubble:nth-child(2):hover {
             border-color: rgba(245, 245, 247, 0.8);
             box-shadow:
                 0 0 30px rgba(245, 245, 247, 0.3),
@@ -1218,34 +1210,49 @@
             background: rgba(245, 245, 247, 0.05);
         }
 
-        .choice-gov:hover .choice-title {
-            color: #FFFFFF;
+        .bubble-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
         }
 
-        .choice-gov:hover .choice-desc {
-            color: rgba(245, 245, 247, 0.95);
-        }
-
-        .choice-title {
-            font-size: 36px;
+        .bubble-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 700;
-            color: #f5f5f7;
-            margin-bottom: 12px;
+            color: rgba(245, 245, 247, 0.95);
+            margin-bottom: 8px;
+            line-height: 1.2;
             transition: color 0.3s ease;
         }
 
-        .choice-desc {
-            font-size: 16px;
+        /* IT bubble - Titre terracotta au hover */
+        .choice-bubble:nth-child(1):hover .bubble-title {
+            color: #FF7F5C;
+        }
+
+        /* GOV bubble - Titre ivoire brillant au hover */
+        .choice-bubble:nth-child(2):hover .bubble-title {
+            color: #FFFFFF;
+        }
+
+        .bubble-desc {
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
             color: rgba(245, 245, 247, 0.7);
             line-height: 1.5;
             transition: color 0.3s ease;
         }
 
-        .welcome-baseline {
-            font-size: 18px;
-            color: rgba(245, 245, 247, 0.7);
-            line-height: 1.6;
-            margin: 20px 0 0 0;
+        .choice-bubble:nth-child(1):hover .bubble-desc {
+            color: rgba(255, 127, 92, 0.9);
+        }
+
+        .choice-bubble:nth-child(2):hover .bubble-desc {
+            color: rgba(245, 245, 247, 0.95);
+        }
+
+        /* Icône flèche sur les cartes */
+        .bubble-icon {
+            display: none;
         }
 
         /* Landing pages - EXACTE V15 */

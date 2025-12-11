@@ -212,9 +212,16 @@
         object-fit: contain !important;
     }
 
-    /* Logo sur welcome page - aligné avec Dynamic Island */
+    /* Logo sur welcome page mobile - À DROITE */
     body.welcome-mode .logo-btn {
-        top: 20px !important; /* MÊME hauteur que Dynamic Island sur welcome */
+        top: 20px !important;
+        left: auto !important;
+        right: 20px !important;
+    }
+
+    /* Cacher menu hamburger sur welcome page mobile */
+    body.welcome-mode .hamburger-button {
+        display: none !important;
     }
 
     /* Dynamic Island - MASQUÉ SUR MOBILE */
