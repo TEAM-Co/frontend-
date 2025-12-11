@@ -245,11 +245,63 @@
             animation: pulse 5.4s ease-in-out infinite 2.9s;
         }
 
+        /* Animations gracieuses avec mouvements délicats */
         @keyframes pulse {
-            0%, 100% { opacity: 0.15; }
-            50% { opacity: 0.35; }
+            0% {
+                opacity: 0.12;
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                opacity: 0.18;
+                transform: translateY(-3px) translateX(2px);
+            }
+            50% {
+                opacity: 0.25;
+                transform: translateY(-5px) translateX(4px);
+            }
+            75% {
+                opacity: 0.18;
+                transform: translateY(-3px) translateX(2px);
+            }
+            100% {
+                opacity: 0.12;
+                transform: translateY(0) translateX(0);
+            }
         }
-        
+
+        /* Animation variante pour mouvements inversés */
+        @keyframes pulseReverse {
+            0% {
+                opacity: 0.12;
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                opacity: 0.18;
+                transform: translateY(3px) translateX(-2px);
+            }
+            50% {
+                opacity: 0.25;
+                transform: translateY(5px) translateX(-4px);
+            }
+            75% {
+                opacity: 0.18;
+                transform: translateY(3px) translateX(-2px);
+            }
+            100% {
+                opacity: 0.12;
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        /* Appliquer animations inversées à certains circuits pour variété */
+        .circuit-line:nth-child(2),
+        .circuit-line:nth-child(4),
+        .circuit-line:nth-child(7),
+        .circuit-line:nth-child(9),
+        .circuit-line:nth-child(11) {
+            animation-name: pulseReverse !important;
+        }
+
         body.welcome-mode .circuit-line {
             opacity: 0.35;
         }
@@ -268,18 +320,68 @@
         body.welcome-mode .circuit-line:nth-child(12) {
             background: linear-gradient(transparent, rgba(245, 245, 247, 0.8), transparent) !important;
         }
-        
+
         body.theme-gov .circuit-line {
             opacity: 0.28;
         }
-        
-        body.theme-gov .circuit-line {
-            animation: pulseGov 4.5s ease-in-out infinite;
-        }
-        
+
+        /* Animation Gov plus subtile */
         @keyframes pulseGov {
-            0%, 100% { opacity: 0.18; }
-            50% { opacity: 0.35; }
+            0% {
+                opacity: 0.15;
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                opacity: 0.20;
+                transform: translateY(-2px) translateX(1px);
+            }
+            50% {
+                opacity: 0.28;
+                transform: translateY(-4px) translateX(3px);
+            }
+            75% {
+                opacity: 0.20;
+                transform: translateY(-2px) translateX(1px);
+            }
+            100% {
+                opacity: 0.15;
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        @keyframes pulseGovReverse {
+            0% {
+                opacity: 0.15;
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                opacity: 0.20;
+                transform: translateY(2px) translateX(-1px);
+            }
+            50% {
+                opacity: 0.28;
+                transform: translateY(4px) translateX(-3px);
+            }
+            75% {
+                opacity: 0.20;
+                transform: translateY(2px) translateX(-1px);
+            }
+            100% {
+                opacity: 0.15;
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        body.theme-gov .circuit-line {
+            animation-name: pulseGov;
+        }
+
+        body.theme-gov .circuit-line:nth-child(2),
+        body.theme-gov .circuit-line:nth-child(4),
+        body.theme-gov .circuit-line:nth-child(7),
+        body.theme-gov .circuit-line:nth-child(9),
+        body.theme-gov .circuit-line:nth-child(11) {
+            animation-name: pulseGovReverse !important;
         }
 
         /* Animation intro avec logo Y */
