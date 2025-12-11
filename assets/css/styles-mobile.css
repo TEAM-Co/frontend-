@@ -219,6 +219,11 @@
         right: 20px !important;
     }
 
+    /* Logo mobile sur landing pages IT et Gov - Utiliser le cerf */
+    body:not(.welcome-mode) .logo-btn img {
+        content: url('../images/Design sans titre copie.png') !important;
+    }
+
     /* Cacher menu hamburger sur welcome page mobile */
     body.welcome-mode .hamburger-button {
         display: none !important;
