@@ -245,61 +245,54 @@
             animation: pulse 5.4s ease-in-out infinite 2.9s;
         }
 
-        /* Animations gracieuses avec mouvements délicats */
+        /* Effet étoile filante ultra slow motion */
         @keyframes pulse {
             0% {
-                opacity: 0.12;
-                transform: translateY(0) translateX(0);
+                opacity: 0;
+                background-position: 0% 0%;
             }
-            25% {
-                opacity: 0.18;
-                transform: translateY(-3px) translateX(2px);
+            5% {
+                opacity: 0.08;
             }
-            50% {
-                opacity: 0.25;
-                transform: translateY(-5px) translateX(4px);
-            }
-            75% {
-                opacity: 0.18;
-                transform: translateY(-3px) translateX(2px);
-            }
-            100% {
-                opacity: 0.12;
-                transform: translateY(0) translateX(0);
-            }
-        }
-
-        /* Animation variante pour mouvements inversés */
-        @keyframes pulseReverse {
-            0% {
-                opacity: 0.12;
-                transform: translateY(0) translateX(0);
-            }
-            25% {
-                opacity: 0.18;
-                transform: translateY(3px) translateX(-2px);
+            15% {
+                opacity: 0.15;
+                background-position: 15% 15%;
             }
             50% {
                 opacity: 0.25;
-                transform: translateY(5px) translateX(-4px);
+                background-position: 50% 50%;
             }
-            75% {
-                opacity: 0.18;
-                transform: translateY(3px) translateX(-2px);
+            85% {
+                opacity: 0.15;
+                background-position: 85% 85%;
+            }
+            95% {
+                opacity: 0.08;
             }
             100% {
-                opacity: 0.12;
-                transform: translateY(0) translateX(0);
+                opacity: 0;
+                background-position: 100% 100%;
             }
         }
 
-        /* Appliquer animations inversées à certains circuits pour variété */
+        /* Pour les circuits horizontaux - effet de gauche à droite */
+        .circuit-line:nth-child(1),
         .circuit-line:nth-child(2),
+        .circuit-line:nth-child(3),
         .circuit-line:nth-child(4),
+        .circuit-line:nth-child(5),
+        .circuit-line:nth-child(6) {
+            background-size: 200% 100%;
+        }
+
+        /* Pour les circuits verticaux - effet de haut en bas */
         .circuit-line:nth-child(7),
+        .circuit-line:nth-child(8),
         .circuit-line:nth-child(9),
-        .circuit-line:nth-child(11) {
-            animation-name: pulseReverse !important;
+        .circuit-line:nth-child(10),
+        .circuit-line:nth-child(11),
+        .circuit-line:nth-child(12) {
+            background-size: 100% 200%;
         }
 
         body.welcome-mode .circuit-line {
@@ -325,63 +318,38 @@
             opacity: 0.28;
         }
 
-        /* Animation Gov plus subtile */
+        /* Animation Gov - Effet étoile filante plus subtil */
         @keyframes pulseGov {
             0% {
-                opacity: 0.15;
-                transform: translateY(0) translateX(0);
+                opacity: 0;
+                background-position: 0% 0%;
             }
-            25% {
-                opacity: 0.20;
-                transform: translateY(-2px) translateX(1px);
+            5% {
+                opacity: 0.06;
             }
-            50% {
-                opacity: 0.28;
-                transform: translateY(-4px) translateX(3px);
-            }
-            75% {
-                opacity: 0.20;
-                transform: translateY(-2px) translateX(1px);
-            }
-            100% {
-                opacity: 0.15;
-                transform: translateY(0) translateX(0);
-            }
-        }
-
-        @keyframes pulseGovReverse {
-            0% {
-                opacity: 0.15;
-                transform: translateY(0) translateX(0);
-            }
-            25% {
-                opacity: 0.20;
-                transform: translateY(2px) translateX(-1px);
+            15% {
+                opacity: 0.12;
+                background-position: 15% 15%;
             }
             50% {
-                opacity: 0.28;
-                transform: translateY(4px) translateX(-3px);
-            }
-            75% {
                 opacity: 0.20;
-                transform: translateY(2px) translateX(-1px);
+                background-position: 50% 50%;
+            }
+            85% {
+                opacity: 0.12;
+                background-position: 85% 85%;
+            }
+            95% {
+                opacity: 0.06;
             }
             100% {
-                opacity: 0.15;
-                transform: translateY(0) translateX(0);
+                opacity: 0;
+                background-position: 100% 100%;
             }
         }
 
         body.theme-gov .circuit-line {
             animation-name: pulseGov;
-        }
-
-        body.theme-gov .circuit-line:nth-child(2),
-        body.theme-gov .circuit-line:nth-child(4),
-        body.theme-gov .circuit-line:nth-child(7),
-        body.theme-gov .circuit-line:nth-child(9),
-        body.theme-gov .circuit-line:nth-child(11) {
-            animation-name: pulseGovReverse !important;
         }
 
         /* Animation intro avec logo Y */
