@@ -85,104 +85,85 @@
     }
 
     /* ========================================
-       WELCOME SCREEN
+       WELCOME SCREEN MOBILE
        ======================================== */
 
     .welcome-screen {
         padding: 20px;
-        padding-top: 80px; /* Espace pour le logo en haut */
+        padding-top: 100px;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+    }
+
+    .welcome-content {
+        gap: 30px;
     }
 
     .welcome-title {
-        font-size: clamp(2rem, 7vw, 3.5rem); /* Fluidité comme web */
+        font-size: 60px;
         font-weight: 900;
-        letter-spacing: clamp(-1.5px, -0.3vw, -1px);
-        margin-bottom: 15px;
-        text-align: center;
+        letter-spacing: -1px;
+        margin-bottom: 0;
     }
 
-    /* FORCE override du style inline "Liwe" (140px) */
-    .welcome-screen div[style*="font-size: 140px"],
-    .welcome-screen div[style*="font-size:140px"] {
-        font-size: clamp(2rem, 8vw, 3.2rem) !important;
-        letter-spacing: clamp(-1.2px, -0.4vw, -0.8px) !important;
-        white-space: normal !important;
-        word-break: keep-all !important;
-        max-width: 100% !important;
-    }
-
-    .welcome-subtitle {
-        font-size: clamp(0.95rem, 2.5vw, 1.2rem); /* Fluidité */
-        margin-bottom: 40px;
-        text-align: center;
-        opacity: 0.8;
+    .welcome-question {
+        font-size: 16px;
+        line-height: 1.5;
         padding: 0 10px;
     }
 
-    .choice-bubbles {
-        display: flex;
+    .welcome-choices {
         flex-direction: column;
-        gap: 20px;
-        max-width: 100%;
-        margin: 0 auto;
+        gap: 15px;
+        margin-top: 10px;
     }
 
-    /* Bulles IT/Gov - CLIQUABLES avec padding fluide */
-    .choice-bubble {
-        padding: clamp(22px, 5vw, 30px) clamp(18px, 4vw, 25px); /* Fluide */
-        min-height: clamp(110px, 25vw, 140px); /* Fluide */
-        /* Garder le glassmorphism mais sans backdrop-filter */
-        background: rgba(26, 20, 16, 0.7);
-        border: 1px solid rgba(255, 127, 92, 0.3);
-        border-radius: 20px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        /* Zone touch minimum 44px */
-        min-height: 44px;
-        /* Forcer le clic */
+    .choice-button {
+        padding: 30px 20px;
+        max-width: 100%;
         -webkit-tap-highlight-color: rgba(255, 127, 92, 0.2);
         touch-action: manipulation;
     }
 
-    .choice-bubble:active {
+    .choice-button:active {
         transform: scale(0.98);
-        background: rgba(26, 20, 16, 0.85);
     }
 
-    /* Première bulle (IT) */
-    .choice-bubble:nth-child(1) {
-        border-color: rgba(255, 127, 92, 0.4);
-        box-shadow:
-            0 0 20px rgba(255, 127, 92, 0.15),
-            inset 0 0 30px rgba(255, 127, 92, 0.05);
+    .choice-title {
+        font-size: 28px;
+        margin-bottom: 8px;
     }
 
-    .choice-bubble:nth-child(1):active {
-        box-shadow:
-            0 0 30px rgba(255, 127, 92, 0.3),
-            0 0 60px rgba(255, 127, 92, 0.15),
-            inset 0 0 40px rgba(255, 127, 92, 0.1);
-        border-color: rgba(255, 127, 92, 0.6);
+    .choice-desc {
+        font-size: 14px;
     }
 
-    /* Deuxième bulle (Gov) */
-    .choice-bubble:nth-child(2) {
-        border-color: rgba(245, 245, 247, 0.25);
-        box-shadow:
-            0 0 20px rgba(245, 245, 247, 0.08),
-            inset 0 0 30px rgba(245, 245, 247, 0.03);
+    .welcome-baseline {
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 0 10px;
+        margin-top: 10px;
     }
 
-    .choice-bubble:nth-child(2):active {
-        box-shadow:
-            0 0 30px rgba(245, 245, 247, 0.15),
-            0 0 60px rgba(245, 245, 247, 0.08),
-            inset 0 0 40px rgba(245, 245, 247, 0.06);
-        border-color: rgba(245, 245, 247, 0.4);
+    .welcome-baseline br {
+        display: none;
+    }
+
+    .welcome-social {
+        margin-top: 30px;
+        gap: 15px;
+    }
+
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .social-icon svg {
+        width: 20px;
+        height: 20px;
     }
 
     .bubble-title {

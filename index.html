@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=13">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=14">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=13">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=13">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=13">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=14">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=14">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=14">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -34,7 +34,7 @@
     <!-- Animation intro -->
     <div class="intro-animation active" id="introAnimation">
         <div class="intro-logo" style="display: flex; align-items: center; justify-content: center;">
-            <img src="assets/images/LOGOOFFremovebg.png" alt="Liwe" style="height: 300px; width: auto;">
+            <img src="assets/images/NewLogo sans Liwe.png" alt="Liwe" style="height: 300px; width: auto;">
         </div>
     </div>
 
@@ -100,7 +100,7 @@
 
     <!-- Logo -->
     <button class="logo-btn" id="logoBtn" onclick="goHome()" style="background: transparent; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;">
-        <img src="assets/images/LOGOOFFremovebg.png" alt="Liwe" style="height: 880px; width: auto;">
+        <img src="assets/images/NewLogo sans Liwe.png" alt="Liwe" style="height: 80px; width: auto;">
     </button>
 
     <!-- Dynamic Island V15 -->
@@ -133,55 +133,51 @@
     <!-- Page d'accueil -->
     <div class="welcome-screen" id="welcomeScreen">
         <div class="welcome-content">
-            <!-- Logo LIWE -->
-            <div style="font-family: 'Inter', sans-serif; font-size: 140px; font-weight: 900; color: #f5f5f7; margin-bottom: 20px; letter-spacing: -2px; text-shadow: 0 4px 12px rgba(26, 15, 10, 0.15);">
-                LIWE
-            </div>
-            <p class="welcome-text" style="margin-bottom: 30px;">
-                Sur quel domaine souhaitez-vous être accompagné ?
-            </p>
+            <!-- Titre Liwe -->
+            <div class="welcome-title">Liwe</div>
+
+            <!-- Question -->
+            <p class="welcome-question">Sur quel domaine souhaitez-vous être accompagné ?</p>
+
+            <!-- Boutons de choix -->
             <div class="welcome-choices">
-                <div class="choice-bubble" onclick="selectSite('it')">
-                    <div class="bubble-content">
-                        <div class="bubble-icon">
-                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
-                                <path d="M8 12h48v36H8z" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <rect x="12" y="16" width="40" height="24" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <path d="M22 26l6 6-6 6M34 38h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                                <rect x="24" y="48" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <path d="M32 48V44M8 44h48" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="bubble-text">
-                            <div class="bubble-title">Expertise Technique IT</div>
-                            <div class="bubble-desc">Data & IA • Développement • Cybersécurité • Cloud</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="choice-bubble" onclick="selectSite('gov')">
-                    <div class="bubble-content">
-                        <div class="bubble-icon">
-                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width: 70px; height: 70px;">
-                                <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="32" cy="32" r="3" fill="currentColor"/>
-                                <path d="M32 32L45 19M32 32L19 45M32 32L45 45M32 32L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="45" cy="19" r="3" fill="currentColor"/>
-                                <circle cx="19" cy="45" r="3" fill="currentColor"/>
-                                <circle cx="45" cy="45" r="3" fill="currentColor"/>
-                                <circle cx="19" cy="19" r="3" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <div class="bubble-text">
-                            <div class="bubble-title">Gouvernance & Stratégie</div>
-                            <div class="bubble-desc">Product • Agilité • Transformation • Pilotage</div>
-                        </div>
-                    </div>
-                </div>
+                <button class="choice-button choice-it" onclick="selectSite('it')">
+                    <div class="choice-title">Lab Technique</div>
+                    <div class="choice-desc">Data & IA • Développement • Cybersécurité • Cloud</div>
+                </button>
+                <button class="choice-button choice-gov" onclick="selectSite('gov')">
+                    <div class="choice-title">Hub Stratégique</div>
+                    <div class="choice-desc">Product • Agilité • Transformation • Pilotage</div>
+                </button>
             </div>
-            <p class="welcome-text welcome-text-bottom" style="margin-top: 30px;">
+
+            <!-- Baseline -->
+            <p class="welcome-baseline">
                 Missions courtes ou longues, nous apportons l'expertise dont vous avez besoin,<br>
                 quand vous en avez besoin.
             </p>
+
+            <!-- Social icons -->
+            <div class="welcome-social">
+                <a href="https://open.spotify.com/playlist/45ngfo71ETCssYI9G30ycT?si=40853b23e0bb4a19" target="_blank" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 14.5c2.5-1 5-1 7.5 0M7.5 11c3-1.5 7-1.5 10 0M7 7.5c3.5-2 8-2 11 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/33603062710" target="_blank" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/audentis/" target="_blank" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 
