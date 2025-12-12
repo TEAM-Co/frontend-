@@ -536,16 +536,17 @@
             display: flex;
         }
 
-        /* Logo intégré en haut de la sidebar - AGRANDI */
+        /* Logo intégré en haut de la sidebar - VRAIMENT AGRANDI */
         .mini-sidebar-logo {
-            width: 65px;
-            height: 80px; /* Plus grand pour mieux voir le cerf */
+            width: 70px;
+            height: 110px; /* BEAUCOUP plus grand */
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
             margin-bottom: 15px;
+            padding: 5px;
         }
 
         .mini-sidebar-logo:hover {
@@ -555,7 +556,8 @@
         .mini-sidebar-logo img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: contain; /* Garde les proportions mais remplit l'espace */
+            min-height: 100px; /* Force une taille minimale */
         }
 
         .mini-sidebar-item {

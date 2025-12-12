@@ -222,10 +222,14 @@
     body.welcome-mode .logo-btn {
         left: 20px !important;
         right: auto !important;
+        background-image: url('../images/NewLogo sans Liwe.png') !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
     }
 
     body.welcome-mode .logo-btn img {
-        content: url('../images/NewLogo sans Liwe.png') !important;
+        opacity: 0 !important; /* Cacher l'img HTML, utiliser background */
     }
 
     /* Logo mobile sur landing pages IT et Gov - Design sans titre copie à DROITE, aligné avec burger */
@@ -233,10 +237,14 @@
         right: 20px !important;
         left: auto !important;
         top: 20px !important; /* Même hauteur que burger menu */
+        background-image: url('../images/Design sans titre copie.png') !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
     }
 
     body:not(.welcome-mode) .logo-btn img {
-        content: url('../images/Design sans titre copie.png') !important;
+        opacity: 0 !important; /* Cacher l'img HTML, utiliser background */
     }
 
     /* Cacher la mini-sidebar sur mobile */
