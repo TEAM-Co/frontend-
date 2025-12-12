@@ -475,14 +475,16 @@
        ======================================== */
 
     .landing-hero {
-        padding: 0 20px; /* Supprimé padding vertical pour centrage parfait */
-        min-height: 100vh; /* FORCE plein écran */
+        padding: 0 20px;
+        height: 100vh !important; /* EXACTEMENT 100vh - pas min-height */
+        max-height: 100vh !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: center !important; /* Centre PARFAITEMENT verticalement */
-        text-align: center !important; /* Centre TOUS les textes */
-        gap: 20px; /* Espacement entre éléments */
+        justify-content: center !important; /* Barre de recherche = centre absolu */
+        text-align: center !important;
+        gap: 20px;
+        overflow: hidden !important; /* Cache tout ce qui dépasse */
     }
 
     /* Centrage parfait du contenu landing mobile */
@@ -491,7 +493,7 @@
         margin-bottom: 10px !important;
         margin-top: 0 !important;
         text-align: center !important;
-        white-space: normal !important; /* Permet retour ligne si besoin */
+        white-space: normal !important;
     }
 
     .intro-text {
@@ -531,10 +533,12 @@
         border-radius: 25px;
     }
 
-    /* Sections de contenu - "Notre histoire" apparaît plus vite */
+    /* Sections de contenu - "Notre histoire" hors écran initial */
     .landing-sections {
         padding: 40px 20px;
-        margin-top: 30vh; /* RÉDUIT: 50vh → 30vh (apparaît plus vite au scroll) */
+        margin-top: 0 !important; /* Pas de margin - commence juste après hero */
+        position: relative;
+        z-index: 1;
     }
 
     .landing-section {
