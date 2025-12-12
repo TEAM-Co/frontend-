@@ -475,13 +475,31 @@
        ======================================== */
 
     .landing-hero {
-        padding: 50px 20px 30px; /* Réduit pour maximiser espace iPhone */
+        padding: 0 20px; /* Supprimé padding vertical pour centrage parfait */
         min-height: 100vh; /* FORCE plein écran */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; /* Centre search bar verticalement */
-        text-align: center; /* Centre TOUS les textes comme sur web */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important; /* Centre PARFAITEMENT verticalement */
+        text-align: center !important; /* Centre TOUS les textes */
+        gap: 20px; /* Espacement entre éléments */
+    }
+
+    /* Centrage parfait du contenu landing mobile */
+    .brand-title {
+        font-size: clamp(2.5rem, 10vw, 3.5rem) !important;
+        margin-bottom: 10px !important;
+        margin-top: 0 !important;
+        text-align: center !important;
+        white-space: normal !important; /* Permet retour ligne si besoin */
+    }
+
+    .intro-text {
+        font-size: clamp(1rem, 2.5vw, 1.2rem) !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+        max-width: 90% !important;
+        line-height: 1.6 !important;
     }
 
     .landing-title {
@@ -598,10 +616,22 @@
         min-width: 38px;
         min-height: 38px;
         transition: transform 0.2s ease, background 0.2s ease;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+
+    .search-submit-btn svg {
+        width: 18px !important;
+        height: 18px !important;
+        stroke: #ffffff !important;
+        fill: none !important;
+        display: block !important;
     }
 
     .search-submit-btn:active {
-        transform: scale(0.92);
+        transform: translateY(-50%) scale(0.92) !important;
     }
 
     /* ========================================
