@@ -599,7 +599,7 @@
 
     /* Placeholder adaptatif plus petit pour tenir sur 1 ligne */
     .search-input::placeholder {
-        font-size: clamp(0.75rem, 2vw, 0.9rem); /* Adaptatif selon device */
+        font-size: clamp(0.7rem, 1.8vw, 0.85rem); /* Réduit pour "Comment peut-on vous aider ?" */
         opacity: 0.7;
     }
 
