@@ -403,24 +403,20 @@
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* Logo en haut à droite */
+        /* Logo mobile uniquement - CACHÉ sur web */
         .logo-btn {
             position: fixed;
-            top: 30px;
-            right: 30px; /* À DROITE pour mobile */
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
             cursor: pointer;
             z-index: 1001;
             transition: all 0.3s ease;
-            display: none; /* Caché sur web, visible seulement sur mobile */
+            display: none !important; /* CACHÉ sur web */
             padding: 0;
             width: 80px;
             height: 80px;
-        }
-
-        .logo-btn.visible {
-            display: block;
         }
 
         /* Logo VISIBLE partout, y compris sur welcome page */
@@ -540,16 +536,16 @@
             display: flex;
         }
 
-        /* Logo intégré en haut de la sidebar */
+        /* Logo intégré en haut de la sidebar - AGRANDI */
         .mini-sidebar-logo {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 80px; /* Plus grand pour mieux voir le cerf */
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .mini-sidebar-logo:hover {
