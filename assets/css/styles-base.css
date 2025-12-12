@@ -407,15 +407,15 @@
         .logo-btn {
             position: fixed;
             top: 30px;
-            left: 30px; /* Déplacé à gauche au lieu de right: 30px */
+            right: 30px; /* À DROITE pour mobile */
             background: none;
             border: none;
             cursor: pointer;
             z-index: 1001;
             transition: all 0.3s ease;
-            display: none;
+            display: none; /* Caché sur web, visible seulement sur mobile */
             padding: 0;
-            width: 80px; /* Agrandi pour le cerf */
+            width: 80px;
             height: 80px;
         }
 
@@ -538,6 +538,28 @@
 
         .mini-sidebar.visible {
             display: flex;
+        }
+
+        /* Logo intégré en haut de la sidebar */
+        .mini-sidebar-logo {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .mini-sidebar-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .mini-sidebar-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .mini-sidebar-item {

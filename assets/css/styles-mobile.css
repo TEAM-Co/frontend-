@@ -212,16 +212,27 @@
         object-fit: contain !important;
     }
 
-    /* Logo sur welcome page mobile - À DROITE */
-    body.welcome-mode .logo-btn {
+    /* Logo mobile - TOUJOURS À DROITE */
+    .logo-btn {
+        display: flex !important; /* Visible sur mobile */
         top: 20px !important;
-        left: auto !important;
         right: 20px !important;
+        left: auto !important;
     }
 
-    /* Logo mobile sur landing pages IT et Gov - Utiliser le cerf */
+    /* Logo sur welcome page mobile - NewLogo sans Liwe.png */
+    body.welcome-mode .logo-btn img {
+        content: url('../images/NewLogo sans Liwe.png') !important;
+    }
+
+    /* Logo mobile sur landing pages IT et Gov - Design sans titre copie.png */
     body:not(.welcome-mode) .logo-btn img {
         content: url('../images/Design sans titre copie.png') !important;
+    }
+
+    /* Cacher la mini-sidebar sur mobile */
+    .mini-sidebar {
+        display: none !important;
     }
 
     /* Cacher menu hamburger sur welcome page mobile */
