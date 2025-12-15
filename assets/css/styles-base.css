@@ -2595,7 +2595,7 @@
             background: linear-gradient(135deg, #FF7F5C 0%, #d44728 100%);
             border: none;
             color: #ffffff;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -2603,6 +2603,7 @@
             transition: all 0.2s ease;
             flex-shrink: 0;
             box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
+            transform: rotate(-45deg);
         }
 
         .chat-send-btn:hover:not(:disabled) {
