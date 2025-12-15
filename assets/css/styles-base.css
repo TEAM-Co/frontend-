@@ -2045,10 +2045,9 @@
         }
 
         .landing-section-content li::before {
-            content: '→';
+            content: '✈️';
             position: absolute;
             left: 0;
-            color: #FF7F5C;
             font-weight: 700;
         }
 
