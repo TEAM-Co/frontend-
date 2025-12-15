@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=38">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=39">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=38">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=38">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=38">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=39">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=39">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=39">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -3479,6 +3479,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             } finally {
                 sendBtn.disabled = false;
                 input.disabled = false;
+                input.focus(); // Remettre automatiquement le focus dans le champ de saisie
             }
         }
 
@@ -3680,7 +3681,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                 errorMessage = 'Vous avez atteint votre limite de 10 conversations par jour. Pour que nos experts puissent vous répondre rapidement, veuillez remplir ce formulaire. Nous vous contacterons sous 24h.';
             } else if (reason === 'API_ERROR') {
                 errorTitle = 'Service temporairement indisponible';
-                errorMessage = 'Notre assistant IA est momentanément indisponible. Pour que nos experts puissent vous répondre rapidement, veuillez remplir ce formulaire. Nous vous contacterons sous 24h.';
+                errorMessage = 'Notre agent IA est sur les bancs du machine learning, bientôt de retour ! En attendant, nos experts humains sont là pour vous. Remplissez ce formulaire et nous vous contacterons sous 24h.';
             } else if (reason === 'RATE_LIMIT') {
                 errorTitle = 'Trop de requêtes';
                 errorMessage = 'Notre service reçoit actuellement un nombre élevé de demandes. Pour que nos experts puissent vous répondre rapidement, veuillez remplir ce formulaire. Nous vous contacterons sous 24h.';
