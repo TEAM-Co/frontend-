@@ -1088,8 +1088,8 @@
         animation: none !important; /* Grille statique */
     }
 
-    /* Cacher circuits pairs (garder 6/12) */
-    .circuit-line:nth-child(even) {
+    /* Cacher circuits 5-8 (garder seulement 4 circuits sur mobile) */
+    .circuit-line:nth-child(n+5) {
         display: none !important;
     }
 
