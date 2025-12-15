@@ -311,7 +311,7 @@
 
         body.theme-gov .circuit-line {
             opacity: 1;
-            filter: brightness(1.15);
+            filter: brightness(1.35) saturate(1.2);
         }
 
         /* Animation intro avec logo Y */
