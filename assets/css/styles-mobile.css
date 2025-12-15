@@ -1088,8 +1088,11 @@
         animation: none !important; /* Grille statique */
     }
 
-    /* Cacher circuits 5-8 (garder seulement 4 circuits sur mobile) */
-    .circuit-line:nth-child(n+5) {
+    /* Cacher circuits 3,4,7,8 (garder 1,2,5,6 = 2H + 2V sur mobile) */
+    .circuit-line:nth-child(3),
+    .circuit-line:nth-child(4),
+    .circuit-line:nth-child(7),
+    .circuit-line:nth-child(8) {
         display: none !important;
     }
 

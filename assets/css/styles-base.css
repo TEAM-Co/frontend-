@@ -206,7 +206,7 @@
 
         /* 4 Circuits HORIZONTAUX (mix gradients épais + traits fins) */
 
-        /* Circuit 1 : Gradient épais orange (passage lent droite) */
+        /* Circuit 1 : Gradient épais orange - Rapide 8.2s */
         .circuit-line:nth-child(1) {
             position: absolute;
             top: 15%;
@@ -214,11 +214,11 @@
             width: 200px;
             height: 2px;
             background: linear-gradient(90deg, transparent, #FF7F5C, transparent);
-            animation: shootHorizontal 10s ease-in-out infinite;
+            animation: shootHorizontal 8.2s ease-in infinite;
             animation-delay: 0s;
         }
 
-        /* Circuit 2 : Trait fin lumineux (passage lent gauche) */
+        /* Circuit 2 : Trait fin lumineux - Ultra lent 13.7s */
         .circuit-line:nth-child(2) {
             position: absolute;
             top: 45%;
@@ -226,11 +226,11 @@
             width: 150px;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255, 127, 92, 0.6), transparent);
-            animation: shootHorizontalReverse 11s ease-in-out infinite;
-            animation-delay: 3s;
+            animation: shootHorizontalReverse 13.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            animation-delay: 2.3s;
         }
 
-        /* Circuit 3 : Gradient épais orange (passage lent droite) */
+        /* Circuit 3 : Gradient épais orange - Moyen-rapide 9.8s */
         .circuit-line:nth-child(3) {
             position: absolute;
             top: 72%;
@@ -238,11 +238,11 @@
             width: 180px;
             height: 2px;
             background: linear-gradient(90deg, transparent, #FF7F5C, transparent);
-            animation: shootHorizontal 9.5s ease-in-out infinite;
-            animation-delay: 5.5s;
+            animation: shootHorizontal 9.8s ease-out infinite;
+            animation-delay: 6.1s;
         }
 
-        /* Circuit 4 : Trait fin lumineux (passage lent gauche) */
+        /* Circuit 4 : Trait fin lumineux - Moyen-lent 11.4s */
         .circuit-line:nth-child(4) {
             position: absolute;
             top: 88%;
@@ -250,13 +250,13 @@
             width: 160px;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255, 127, 92, 0.6), transparent);
-            animation: shootHorizontalReverse 10.5s ease-in-out infinite;
-            animation-delay: 7s;
+            animation: shootHorizontalReverse 11.4s ease-in-out infinite;
+            animation-delay: 8.9s;
         }
 
         /* 4 Circuits VERTICAUX (mix gradients épais + traits fins) */
 
-        /* Circuit 5 : Gradient épais orange (passage lent bas) */
+        /* Circuit 5 : Gradient épais orange - Ultra lent 14.3s */
         .circuit-line:nth-child(5) {
             position: absolute;
             top: 20%;
@@ -264,11 +264,11 @@
             width: 2px;
             height: 140px;
             background: linear-gradient(180deg, transparent, #FF7F5C, transparent);
-            animation: shootVertical 11.5s ease-in-out infinite;
-            animation-delay: 1.5s;
+            animation: shootVertical 14.3s ease-in infinite;
+            animation-delay: 1.7s;
         }
 
-        /* Circuit 6 : Trait fin lumineux (passage lent haut) */
+        /* Circuit 6 : Trait fin lumineux - Rapide 8.9s */
         .circuit-line:nth-child(6) {
             position: absolute;
             bottom: 25%;
@@ -276,11 +276,11 @@
             width: 1px;
             height: 120px;
             background: linear-gradient(180deg, transparent, rgba(255, 127, 92, 0.6), transparent);
-            animation: shootVerticalReverse 10s ease-in-out infinite;
-            animation-delay: 4s;
+            animation: shootVerticalReverse 8.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            animation-delay: 4.6s;
         }
 
-        /* Circuit 7 : Gradient épais orange (passage lent bas) */
+        /* Circuit 7 : Gradient épais orange - Moyen 10.2s */
         .circuit-line:nth-child(7) {
             position: absolute;
             top: 35%;
@@ -288,11 +288,11 @@
             width: 2px;
             height: 130px;
             background: linear-gradient(180deg, transparent, #FF7F5C, transparent);
-            animation: shootVertical 9s ease-in-out infinite;
-            animation-delay: 6.5s;
+            animation: shootVertical 10.2s ease-out infinite;
+            animation-delay: 7.3s;
         }
 
-        /* Circuit 8 : Trait fin lumineux (passage lent haut) */
+        /* Circuit 8 : Trait fin lumineux - Lent 12.6s */
         .circuit-line:nth-child(8) {
             position: absolute;
             bottom: 15%;
@@ -300,8 +300,8 @@
             width: 1px;
             height: 110px;
             background: linear-gradient(180deg, transparent, rgba(255, 127, 92, 0.6), transparent);
-            animation: shootVerticalReverse 12s ease-in-out infinite;
-            animation-delay: 8s;
+            animation: shootVerticalReverse 12.6s ease-in-out infinite;
+            animation-delay: 9.5s;
         }
 
         /* Variantes thèmes */
@@ -310,7 +310,8 @@
         }
 
         body.theme-gov .circuit-line {
-            opacity: 0.85;
+            opacity: 1;
+            filter: brightness(1.15);
         }
 
         /* Animation intro avec logo Y */
