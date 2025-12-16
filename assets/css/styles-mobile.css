@@ -679,7 +679,7 @@
        ======================================== */
 
     .story-container {
-        padding: 40px 20px 40px;  /* 80px → 40px top - titres en haut */
+        padding: 20px 20px 40px;  /* 40px → 20px top - titres juste sous header */
         max-width: 100%;
     }
 
@@ -713,11 +713,43 @@
     .story-text {
         font-size: 0.95rem;
         line-height: 1.7;
+        margin-bottom: 10px;       /* Ajout - 16px → 10px */
     }
 
     .section-header {
         font-size: 1.3rem;
         margin-bottom: 12px;       /* 20px → 12px */
+    }
+
+    /* ========================================
+       TEXTES INTERNES CARDS - COMPACTAGE
+       ======================================== */
+
+    /* Paragraphes dans cards plus serrés */
+    .story-card p {
+        margin-bottom: 10px;
+    }
+
+    /* Titres h3/h4 dans cards plus serrés */
+    .story-card h3,
+    .story-card h4 {
+        margin-bottom: 8px;
+        margin-top: 12px;
+    }
+
+    /* Listes dans cards plus serrées */
+    .story-card ul,
+    .story-card ol {
+        margin-bottom: 10px;
+    }
+
+    .story-card li {
+        margin-bottom: 5px;
+    }
+
+    /* Tous les enfants directs sauf le dernier */
+    .story-card > *:not(:last-child) {
+        margin-bottom: 12px;
     }
 
     .expertise-cases {
