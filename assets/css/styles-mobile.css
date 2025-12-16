@@ -80,7 +80,8 @@
     }
 
     body.has-mini-sidebar .main-container,
-    body.has-mini-sidebar .work-in-progress {
+    body.has-mini-sidebar .work-in-progress,
+    body.has-mini-sidebar .site-footer {
         margin-left: 0;
     }
 
