@@ -2331,4 +2331,85 @@
         overscroll-behavior: none;
         -webkit-overflow-scrolling: touch;
     }
+
+    /* ========================================
+       RESSERRAGE GOUV MOBILE
+       ======================================== */
+
+    /* Sections plus compactes */
+    body.theme-gov .story-section {
+        margin-bottom: 25px !important;  /* 40px → 25px */
+    }
+
+    /* Cards plus compactes */
+    body.theme-gov .story-card {
+        padding: 20px 15px !important;   /* 25px 20px → 20px 15px */
+        margin-bottom: 15px !important;  /* 22px → 15px */
+    }
+
+    /* Headers moins espacés */
+    body.theme-gov .section-header {
+        margin-bottom: 12px !important;  /* 20px → 12px */
+    }
+
+    /* Textes dans les cards plus serrés */
+    body.theme-gov .story-text {
+        margin-bottom: 15px !important;
+    }
+
+    /* Espacements internes réduits */
+    body.theme-gov .story-card > *:not(:last-child) {
+        margin-bottom: 15px !important;
+    }
+
+    /* ========================================
+       CTA FONT SIZE MOBILE (IT + GOUV)
+       ======================================== */
+
+    .cta-final h3,
+    .cta-section h3 {
+        font-size: 1.6rem !important;    /* 2.5rem → 1.6rem */
+        margin-bottom: 10px !important;
+        line-height: 1.3 !important;
+    }
+
+    .cta-final p,
+    .cta-section p {
+        font-size: 0.95rem !important;   /* 1.2rem → 0.95rem */
+        margin-bottom: 20px !important;
+    }
+
+    /* Spans internes héritent */
+    .cta-final h3 span,
+    .cta-section h3 span {
+        font-size: inherit !important;
+    }
+
+    /* ========================================
+       CADRES VISIBLES GOUV
+       ======================================== */
+
+    /* Cibler les divs avec inline styles dans Nos Valeurs */
+    body.theme-gov .story-card > div[style*="background: rgba(245, 245, 247, 0.03)"] {
+        background: rgba(245, 245, 247, 0.15) !important;
+        border: 2px solid rgba(203, 199, 190, 0.6) !important;
+        box-shadow: 0 4px 12px rgba(203, 199, 190, 0.2) !important;
+    }
+
+    /* Alternative: si les boxes sont dans une grid */
+    body.theme-gov .story-card [style*="display: grid"] > div {
+        background: rgba(245, 245, 247, 0.15) !important;
+        border: 2px solid rgba(203, 199, 190, 0.6) !important;
+        box-shadow: 0 4px 12px rgba(203, 199, 190, 0.2) !important;
+    }
+
+    /* Titres dans les value boxes */
+    body.theme-gov .story-card [style*="font-weight: 700"] {
+        margin-bottom: 8px !important;  /* 12px → 8px */
+    }
+
+    /* Grids de values plus serrées */
+    body.theme-gov [style*="grid-template-columns"] {
+        gap: 15px !important;  /* 25px → 15px */
+    }
 }
