@@ -2333,22 +2333,22 @@
     }
 
     /* ========================================
-       RESSERRAGE GOUV MOBILE - ULTRA COMPACT
+       RESSERRAGE GOUV MOBILE - MINIMAL (MATCH IT)
        ======================================== */
 
-    /* Story container top padding réduit - ULTRA COMPACT */
+    /* Story container top padding réduit - MINIMAL */
     body.theme-gov .story-container {
-        padding-top: 45px !important;  /* 60px → 45px */
+        padding-top: 40px !important;  /* 45px → 40px */
     }
 
-    /* Hero plus compact - ULTRA COMPACT */
+    /* Hero plus compact - MINIMAL */
     body.theme-gov .story-hero {
-        padding: 15px 0 !important;  /* 25px → 15px */
+        padding: 10px 0 !important;  /* 15px → 10px */
     }
 
-    /* Sections encore plus serrées - ULTRA COMPACT */
+    /* Sections encore plus serrées - MINIMAL */
     body.theme-gov .story-section {
-        margin-bottom: 12px !important;  /* 18px → 12px */
+        margin-bottom: 10px !important;  /* 12px → 10px */
     }
 
     /* Cards plus compactes */
@@ -2372,9 +2372,9 @@
         margin-bottom: 15px !important;
     }
 
-    /* CTA moins espacé du contenu - ULTRA COMPACT */
+    /* CTA moins espacé du contenu - MINIMAL */
     body.theme-gov .cta-final {
-        margin-top: 25px !important;  /* 35px → 25px */
+        margin-top: 20px !important;  /* 25px → 20px */
         margin-bottom: 30px !important;
     }
 
