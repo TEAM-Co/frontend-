@@ -84,14 +84,6 @@
             </svg>
         </div>
 
-        <!-- Nous rejoindre -->
-        <div class="mini-sidebar-item" data-tooltip="Nous rejoindre & Partenariat" onclick="openSidebarSection('rejoindre')">
-            <svg viewBox="0 0 24 24">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-        </div>
-
         <!-- Contact -->
         <div class="mini-sidebar-item" data-tooltip="Informations & Contacts" onclick="openSidebarSection('contact')">
             <svg viewBox="0 0 24 24">
@@ -634,11 +626,8 @@
                 { id: 'pageHistoire', title: 'Notre Histoire', desc: 'Qui sommes-nous ?' },
                 { id: 'pageVeille', title: 'Veille & Actualités', desc: 'Innovation' }
             ],
-            rejoindre: [
-                { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
-                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Coopération' }
-            ],
             contact: [
+                { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
                 { id: 'pageReseaux', title: 'Nos Réseaux', desc: 'Spotify, WhatsApp, LinkedIn...' },
                 { id: 'pagePlaquette', title: 'Plaquette Commerciale', desc: 'Télécharger notre plaquette' }
             ]
@@ -658,11 +647,8 @@
                 { id: 'pageHistoire', title: 'Notre Histoire', desc: 'Qui sommes-nous ?' },
                 { id: 'pageVeille', title: 'Veille & Actualités', desc: 'Innovation' }
             ],
-            rejoindre: [
-                { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
-                { id: 'pagePartenariat', title: 'Partenariat', desc: 'Coopération' }
-            ],
             contact: [
+                { id: 'pageRejoindre', title: 'Nous Rejoindre', desc: 'Carrières' },
                 { id: 'pageReseaux', title: 'Nos Réseaux', desc: 'Spotify, WhatsApp, LinkedIn...' },
                 { id: 'pagePlaquette', title: 'Plaquette Commerciale', desc: 'Télécharger notre plaquette' }
             ]
@@ -1279,12 +1265,6 @@
                     html += `<div class="sidebar-item" onclick="showPage('${item.id}')">${item.title}</div>`;
                 });
                 html += '</div>';
-            } else if (section === 'rejoindre') {
-                html += '<div class="sidebar-section"><h3>Nous Rejoindre & Partenariat</h3>';
-                menuData.rejoindre.forEach(item => {
-                    html += `<div class="sidebar-item" onclick="showPage('${item.id}')">${item.title}</div>`;
-                });
-                html += '</div>';
             } else if (section === 'contact') {
                 html += '<div class="sidebar-section"><h3>Informations & Contacts</h3>';
                 menuData.contact.forEach(item => {
@@ -1332,14 +1312,7 @@
                 html += `<div class="sidebar-item" onclick="showPage('${item.id}')">${item.title}</div>`;
             });
             html += '</div>';
-            
-            // Nous rejoindre
-            html += '<div class="sidebar-section"><h3>Nous Rejoindre & Partenariat</h3>';
-            menuData.rejoindre.forEach(item => {
-                html += `<div class="sidebar-item" onclick="showPage('${item.id}')">${item.title}</div>`;
-            });
-            html += '</div>';
-            
+
             // Contact
             html += '<div class="sidebar-section"><h3>Informations & Contacts</h3>';
             menuData.contact.forEach(item => {
@@ -2359,35 +2332,6 @@
                             <h3 class="cta-title">Prêt à <span class="cta-highlight">nous rejoindre</span> ?</h3>
                             <p class="cta-subtitle">Envoyez-nous votre CV et parlons de votre projet professionnel</p>
                             <button class="cta-button" onclick="openChatModal('Je souhaite rejoindre Liwe', 'recruitment')">Postuler <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-left: 6px;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PARTENARIAT (Simplifié) -->
-                <div class="work-in-progress" id="pagePartenariat">
-                    <div class="story-container">
-                        <div class="story-hero">
-                            <h1 class="story-title">Partenariat</h1>
-                            <p class="story-subtitle">NOS MODÈLES DE COLLABORATION</p>
-                        </div>
-
-                        <div class="story-section">
-                            <div class="story-card">
-                                <h3 class="section-header">Nos modèles de partenariat</h3>
-                                <div class="expertise-cases">
-                                    <div class="case-item"><div class="case-text"><span class="highlight">Partenariat technologique</span> : intégration de solutions, co-développement, mise à disposition d'expertise technique</div></div>
-                                    <div class="case-item"><div class="case-text"><span class="highlight">Partenariat commercial</span> : apporteurs d'affaires, revente de services, co-traitance sur grands projets</div></div>
-                                    <div class="case-item"><div class="case-text"><span class="highlight">Alliance stratégique</span> : co-construction d'offres, partage de compétences complémentaires</div></div>
-                                    <div class="case-item"><div class="case-text"><span class="highlight">Partenariat formation</span> : workshops, conférences, accompagnement sur-mesure de vos équipes</div></div>
-                                    <div class="case-item"><div class="case-text"><span class="highlight">Partenariat institutionnel</span> : accompagnement des acteurs publics dans leur transformation digitale</div></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cta-section">
-                            <h3 class="cta-title">Intéressé par un <span class="cta-highlight">partenariat</span> ?</h3>
-                            <p class="cta-subtitle">Discutons de nos synergies et opportunités de collaboration</p>
-                            <button class="cta-button" onclick="openChatInterface()">Contactez notre agent IA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-left: 6px;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
                         </div>
                     </div>
                 </div>
