@@ -2336,9 +2336,19 @@
        RESSERRAGE GOUV MOBILE
        ======================================== */
 
-    /* Sections plus compactes */
+    /* Story container top padding réduit */
+    body.theme-gov .story-container {
+        padding-top: 60px !important;  /* 80px → 60px */
+    }
+
+    /* Hero plus compact */
+    body.theme-gov .story-hero {
+        padding: 25px 0 !important;  /* 40px → 25px */
+    }
+
+    /* Sections encore plus serrées */
     body.theme-gov .story-section {
-        margin-bottom: 25px !important;  /* 40px → 25px */
+        margin-bottom: 18px !important;  /* 25px → 18px */
     }
 
     /* Cards plus compactes */
@@ -2360,6 +2370,12 @@
     /* Espacements internes réduits */
     body.theme-gov .story-card > *:not(:last-child) {
         margin-bottom: 15px !important;
+    }
+
+    /* CTA moins espacé du contenu */
+    body.theme-gov .cta-final {
+        margin-top: 35px !important;  /* 80px → 35px */
+        margin-bottom: 30px !important;
     }
 
     /* ========================================
