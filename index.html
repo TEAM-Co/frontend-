@@ -862,9 +862,9 @@
 
                 html += '<div class="menu-separator"></div>';
 
-                // NOUS REJOINDRE
-                html += '<div class="menu-section-title">Nous Rejoindre</div>';
-                menuData.rejoindre.forEach(item => {
+                // INFORMATIONS & CONTACTS
+                html += '<div class="menu-section-title">Informations & Contacts</div>';
+                menuData.contact.forEach(item => {
                     html += `
                         <div class="menu-item" data-page="${item.id}">
                             <div class="menu-item-title">${item.title}</div>
@@ -875,8 +875,8 @@
 
                 html += '<div class="menu-separator"></div>';
 
-                // CONTACT
-                html += '<div class="menu-action" data-action="contact">CONTACT</div>';
+                // CONTACT (bouton action pour ouvrir le chat)
+                html += '<div class="menu-action" data-action="contact">OUVRIR LE CHAT</div>';
 
                 fullscreenMenuContent.innerHTML = html;
 
