@@ -2344,6 +2344,17 @@
     /* Hero plus compact - MINIMAL */
     body.theme-gov .story-hero {
         padding: 10px 0 !important;  /* 15px → 10px */
+        margin-bottom: 15px !important;  /* 60px → 15px - GAP CACHÉ CORRIGÉ */
+    }
+
+    /* Titre moins espacé - MINIMAL */
+    body.theme-gov .story-title {
+        margin-bottom: 8px !important;  /* 15px → 8px */
+    }
+
+    /* Sous-titre moins espacé - MINIMAL */
+    body.theme-gov .story-subtitle {
+        margin-bottom: 15px !important;  /* 30px → 15px */
     }
 
     /* Sections encore plus serrées - MINIMAL */
