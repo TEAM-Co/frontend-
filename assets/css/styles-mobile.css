@@ -679,7 +679,7 @@
        ======================================== */
 
     .story-container {
-        padding: 20px 20px 40px;  /* 40px → 20px top - titres juste sous header */
+        padding: 10px 20px 40px;  /* 20px → 10px top - titres très hauts */
         max-width: 100%;
     }
 
