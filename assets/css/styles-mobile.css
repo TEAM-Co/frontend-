@@ -679,33 +679,35 @@
        ======================================== */
 
     .story-container {
-        padding: 80px 20px 40px;
+        padding: 40px 20px 40px;  /* 80px → 40px top - titres en haut */
         max-width: 100%;
     }
 
     .story-hero {
-        padding: 40px 0;
+        padding: 15px 0;           /* 40px → 15px */
+        margin-bottom: 20px;       /* Ajout explicite - override base.css 60px */
     }
 
     .story-title {
         font-size: 2rem;
-        margin-bottom: 15px;
+        margin-bottom: 8px;        /* 15px → 8px - espace minimal */
         line-height: 1.2;
         text-align: center; /* Centré */
     }
 
     .story-subtitle {
         font-size: 1rem;
-        margin-bottom: 30px;
+        margin-bottom: 15px;       /* 30px → 15px */
         text-align: center; /* Centré */
     }
 
     .story-section {
-        margin-bottom: 40px;
+        margin-bottom: 15px;       /* 40px → 15px - RÉDUCTION MAJEURE bulles serrées */
     }
 
     .story-card {
-        padding: 25px 20px;
+        padding: 20px 15px;        /* 25px 20px → 20px 15px */
+        margin-bottom: 15px;       /* Ajout explicite - espacement entre cards */
     }
 
     .story-text {
@@ -715,7 +717,7 @@
 
     .section-header {
         font-size: 1.3rem;
-        margin-bottom: 20px;
+        margin-bottom: 12px;       /* 20px → 12px */
     }
 
     .expertise-cases {
