@@ -678,21 +678,41 @@
        WORK IN PROGRESS PAGES
        ======================================== */
 
+    /* ========================================
+       RESET ESPACEMENTS VERTICAUX - MOBILE
+       ======================================== */
+
+    /* Éliminer tout espacement au-dessus du contenu */
+    .story-container,
+    .story-hero,
+    .story-title,
+    .story-subtitle {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* Container commence immédiatement après header */
     .story-container {
-        padding: 10px 20px 40px;  /* 20px → 10px top - titres très hauts */
+        padding: 0 20px 40px;     /* 10px → 0 - ÉLIMINATION TOTALE */
         max-width: 100%;
+        margin-top: 0;            /* Reset explicite */
+        position: relative;
+        top: 0;
     }
 
     .story-hero {
-        padding: 15px 0;           /* 40px → 15px */
-        margin-bottom: 20px;       /* Ajout explicite - override base.css 60px */
+        padding: 0;                /* 15px → 0 - ÉLIMINATION TOTALE */
+        margin-bottom: 0;          /* 20px → 0 - AUCUN ESPACE */
+        margin-top: 0;             /* Reset explicite */
     }
 
     .story-title {
         font-size: 2rem;
         margin-bottom: 8px;        /* 15px → 8px - espace minimal */
+        margin-top: 0;             /* Pas de marge héritée */
         line-height: 1.2;
         text-align: center; /* Centré */
+        padding-top: 0;            /* Pas de padding hérité */
     }
 
     .story-subtitle {
