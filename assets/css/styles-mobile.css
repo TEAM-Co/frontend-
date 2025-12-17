@@ -693,9 +693,9 @@
 
     /* Container commence immédiatement après header */
     .story-container {
-        padding: 0 20px 40px;     /* 10px → 0 - ÉLIMINATION TOTALE */
+        padding: 0 20px 40px !important;  /* 10px → 0 - OVERRIDE TOUTES MEDIA QUERIES */
         max-width: 100%;
-        margin-top: 0;            /* Reset explicite */
+        margin-top: 0 !important;         /* Reset explicite - FORCE */
         position: relative;
         top: 0;
     }
@@ -1278,7 +1278,7 @@
 
     /* Work in progress pages */
     .story-container {
-        padding: 70px 15px 35px;
+        padding: 0 15px 35px !important;  /* 70px → 0 - Titre juste après header */
     }
 
     .story-title {
@@ -1610,7 +1610,7 @@
 
     /* Story pages */
     .story-container {
-        padding: 100px 30px 50px;
+        padding: 0 30px 50px !important;  /* 100px → 0 - Titre juste après header */
     }
 
     .story-title {
@@ -2171,7 +2171,7 @@
 
     /* Story pages - Lisibilité optimale */
     .story-container {
-        padding-top: max(80px, env(safe-area-inset-top) + 80px) !important;
+        padding-top: 0 !important;  /* OVERRIDE - Titre juste après header */
     }
 
     /* Sidebar items - Touch feedback */
@@ -2396,13 +2396,13 @@
 
     /* Story container top padding réduit - MINIMAL */
     body.theme-gov .story-container {
-        padding-top: 40px !important;  /* 45px → 40px */
+        padding-top: 0 !important;  /* 40px → 0 - ÉLIMINATION TOTALE */
     }
 
     /* Hero plus compact - MINIMAL */
     body.theme-gov .story-hero {
-        padding: 10px 0 !important;  /* 15px → 10px */
-        margin-bottom: 15px !important;  /* 60px → 15px - GAP CACHÉ CORRIGÉ */
+        padding: 0 !important;  /* 10px → 0 - ÉLIMINATION TOTALE */
+        margin-bottom: 0 !important;  /* 15px → 0 - AUCUN ESPACE */
     }
 
     /* Titre moins espacé - MINIMAL */
