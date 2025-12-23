@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=61">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=62">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=61">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=61">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=61">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=62">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=62">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=62">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -830,53 +830,84 @@
                 .trim();
         }
 
+        // Stemming basique pour gérer singulier/pluriel
+        function stem(word) {
+            // Retirer "s" final pour matcher singulier/pluriel
+            // "experts" → "expert", "données" → "donnée"
+            if (word.length > 3 && word.endsWith('s')) {
+                return word.slice(0, -1);
+            }
+            return word;
+        }
+
+        // Découpe un texte en mots individuels normalisés et stemmés
+        function extractWords(text) {
+            return normalizeSearchTerm(text)
+                .split(/[\s\-_\/,\.]+/)  // Split par espaces, tirets, underscores, slashes, virgules, points
+                .filter(word => word.length >= 2)  // Garder mots de 2+ caractères (IT, IA, ML)
+                .map(word => stem(word));  // Appliquer stemming (expert/experts → expert)
+        }
+
         // Extraire les mots-clés d'une recherche
         function extractKeywords(query) {
             return normalizeSearchTerm(query)
                 .split(/\s+/)
-                .filter(word => word.length > 2);
+                .filter(word => word.length >= 2)  // 2+ caractères pour IT, IA, ML
+                .map(word => stem(word));  // Appliquer stemming
         }
 
-        // Fonction de recherche intelligente avec scoring
+        // Fonction de recherche stricte avec matching par mots entiers
         function searchPages(query) {
             if (!query || query.trim().length < 2) {
                 return [];
             }
 
             const normalizedQuery = normalizeSearchTerm(query);
-            const queryWords = extractKeywords(query);
+            const queryWords = extractKeywords(query);  // Mots de 2+ caractères avec stemming
             const results = [];
 
             for (const [pageId, pageData] of Object.entries(searchIndex)) {
                 let score = 0;
+                let hasExactMatch = false;  // Flag pour match strict
                 let matchedTerms = [];
 
-                // Match exact sur le titre
+                // Découper le titre en mots
+                const titleWords = extractWords(pageData.title);
+
+                // LAYER 1: Exact title match
                 if (normalizeSearchTerm(pageData.title).includes(normalizedQuery)) {
                     score += 100 * pageData.weight;
+                    hasExactMatch = true;
                     matchedTerms.push(pageData.title);
                 }
 
-                // Match sur les mots du titre
+                // LAYER 2: Word-by-word title match (STRICT avec stemming)
                 queryWords.forEach(word => {
-                    if (normalizeSearchTerm(pageData.title).includes(word)) {
+                    if (titleWords.includes(word)) {  // Match exact de mot stemmé
                         score += 50 * pageData.weight;
+                        hasExactMatch = true;
                     }
                 });
 
-                // Match sur les keywords
+                // LAYER 3: Keyword matching (STRICT avec stemming)
                 if (pageData.keywords) {
                     pageData.keywords.forEach(keyword => {
                         const normalizedKeyword = normalizeSearchTerm(keyword);
 
+                        // Exact keyword match (query entière = keyword entier)
                         if (normalizedKeyword === normalizedQuery) {
                             score += 80 * pageData.weight;
+                            hasExactMatch = true;
                             matchedTerms.push(keyword);
+                            return;  // Pas besoin de check word-by-word
                         }
 
+                        // Word-by-word keyword matching STRICT
+                        const keywordWords = extractWords(keyword);
                         queryWords.forEach(word => {
-                            if (normalizedKeyword.includes(word)) {
+                            if (keywordWords.includes(word)) {  // Match exact de mot stemmé
                                 score += 30 * pageData.weight;
+                                hasExactMatch = true;
                                 if (!matchedTerms.includes(keyword)) {
                                     matchedTerms.push(keyword);
                                 }
@@ -885,21 +916,14 @@
                     });
                 }
 
-                // Match sur le contenu
-                if (pageData.content) {
-                    queryWords.forEach(word => {
-                        if (normalizeSearchTerm(pageData.content).includes(word)) {
-                            score += 10 * pageData.weight;
-                        }
-                    });
-                }
-
-                // Bonus pour le track correspondant
-                if (currentSite && (pageData.track === currentSite || pageData.track === 'both')) {
+                // LAYER 4: Track bonus (appliqué seulement si match trouvé)
+                if (hasExactMatch && currentSite &&
+                    (pageData.track === currentSite || pageData.track === 'both')) {
                     score += 20;
                 }
 
-                if (score > 0) {
+                // N'ajouter que si au moins un match exact trouvé
+                if (hasExactMatch && score > 0) {
                     results.push({
                         ...pageData,
                         score,
@@ -908,6 +932,7 @@
                 }
             }
 
+            // Retourner top 5 résultats triés par score
             results.sort((a, b) => b.score - a.score);
             return results.slice(0, 5);
         }
