@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=58">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=59">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=58">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=58">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=58">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=59">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=59">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=59">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -92,6 +92,14 @@
             </svg>
         </div>
     </div>
+
+    <!-- Icône Recherche (Desktop uniquement) -->
+    <button class="search-icon-btn" id="searchIconBtn" onclick="toggleSearchSidebar()" aria-label="Rechercher">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+        </svg>
+    </button>
 
     <!-- Logo Mobile (séparé de la sidebar) -->
     <button class="logo-btn" id="logoBtn" onclick="goHome()" style="background: transparent; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;">
@@ -668,6 +676,391 @@
             ]
         };
 
+        // ========================================
+        // SEARCH SYSTEM - INDEX & FUNCTIONS
+        // ========================================
+
+        // Index de recherche - Pages principales du site
+        const searchIndex = {
+            // Landing Pages
+            landingIT: {
+                id: 'landingIT',
+                type: 'landing',
+                track: 'it',
+                title: 'Lab Technique',
+                keywords: ['lab', 'technique', 'experts', 'IT', 'projets', 'technical', 'team'],
+                content: 'Experts techniques pour vos projets IT complexes',
+                weight: 10
+            },
+            landingGov: {
+                id: 'landingGov',
+                type: 'landing',
+                track: 'gov',
+                title: 'Hub Stratégique',
+                keywords: ['hub', 'stratégique', 'gouvernance', 'strategic', 'transformation', 'product'],
+                content: 'Stratèges IT pour transformer vos ambitions en succès',
+                weight: 10
+            },
+
+            // Expertises IT
+            pageDataIA: {
+                id: 'pageDataIA',
+                type: 'expertise',
+                track: 'it',
+                title: 'Data & IA',
+                subtitle: 'EXPLOITEZ LA PUISSANCE DE VOS DONNÉES',
+                keywords: ['data', 'ia', 'intelligence artificielle', 'machine learning', 'ML', 'ETL', 'data warehouse', 'data lake', 'lakehouse', 'NLP', 'pipeline', 'modèle', 'prédiction', 'predictive', 'generative', 'causal', 'aiops', 'sre', 'catalogue', 'gouvernance', 'rgpd', 'powerbi', 'tableau', 'qlik', 'dashboard', 'dataops'],
+                content: 'Transformation données en leviers stratégiques. ETL, ML, NLP, dashboards.',
+                weight: 8
+            },
+            pageDigital: {
+                id: 'pageDigital',
+                type: 'expertise',
+                track: 'it',
+                title: 'Développement',
+                subtitle: 'SOLUTIONS DIGITALES ROBUSTES ET ERGONOMIQUES',
+                keywords: ['développement', 'dev', 'web', 'mobile', 'application', 'fullstack', 'frontend', 'backend', 'api', 'microservices', 'ux', 'ui', 'design', 'interface', 'ecommerce', 'react', 'angular', 'vue', 'nodejs', 'python', 'java', 'symfony', 'dotnet'],
+                content: 'Applications web et mobiles innovantes sur mesure',
+                weight: 8
+            },
+            pageInfrastructure: {
+                id: 'pageInfrastructure',
+                type: 'expertise',
+                track: 'it',
+                title: 'Infrastructure Cloud & DevOps',
+                subtitle: 'ARCHITECTURES SCALABLES ET SÉCURISÉES',
+                keywords: ['cloud', 'infrastructure', 'devops', 'aws', 'azure', 'gcp', 'kubernetes', 'k8s', 'docker', 'container', 'orchestration', 'terraform', 'ansible', 'cicd', 'pipeline', 'jenkins', 'gitlab', 'scalabilité', 'haute disponibilité', 'monitoring', 'observabilité'],
+                content: 'Architectures cloud modernes scalables et sécurisées',
+                weight: 8
+            },
+            pageCybersecurity: {
+                id: 'pageCybersecurity',
+                type: 'expertise',
+                track: 'it',
+                title: 'Cybersécurité',
+                subtitle: 'PROTECTION ET CONFORMITÉ',
+                keywords: ['cybersécurité', 'cyber', 'sécurité', 'pentest', 'audit', 'red team', 'blue team', 'vulnérabilités', 'failles', 'iso 27001', 'rgpd', 'conformité', 'compliance', 'soc', 'siem', 'firewall', 'intrusion', 'malware'],
+                content: 'Audits sécurité pentests protection conformité RGPD ISO',
+                weight: 8
+            },
+            pageGouvernance: {
+                id: 'pageGouvernance',
+                type: 'expertise',
+                track: 'both',
+                title: 'Gouvernance Opérationnelle & Stratégique',
+                subtitle: 'PILOTAGE & TRANSFORMATION',
+                keywords: ['gouvernance', 'itil', 'cobit', 'framework', 'processus', 'organisation', 'stratégie', 'alignement', 'business', 'roi', 'kpi', 'pmo', 'pilotage', 'transformation'],
+                content: 'ITIL processus IT PMO pilotage transformation',
+                weight: 8
+            },
+
+            // Expertises Gov
+            pageDataIAGov: {
+                id: 'pageDataIAGov',
+                type: 'expertise',
+                track: 'gov',
+                title: 'Data & IA - Vision Produit',
+                keywords: ['data', 'ia', 'vision', 'produit', 'product', 'management', 'stratégie', 'roadmap', 'priorisation'],
+                content: 'Vision produit et stratégie data',
+                weight: 8
+            },
+            pageDigitalGov: {
+                id: 'pageDigitalGov',
+                type: 'expertise',
+                track: 'gov',
+                title: 'Product Management',
+                keywords: ['product', 'product owner', 'po', 'scrum', 'agile', 'backlog', 'user stories', 'sprint', 'product manager'],
+                content: 'Product management agile scrum PO',
+                weight: 8
+            },
+
+            // Pages Info
+            pageHistoire: {
+                id: 'pageHistoire',
+                type: 'info',
+                track: 'both',
+                title: 'Notre Histoire',
+                subtitle: 'L\'ALLIANCE DE L\'EXPERTISE TECHNIQUE, PRODUIT & STRATÉGIQUE',
+                keywords: ['histoire', 'liwe', 'qui sommes-nous', 'mission', 'valeurs', 'expertise', 'vision', 'ambition', 'équipe'],
+                content: 'Expertise technique vision stratégique enjeux complexes alliance',
+                weight: 6
+            },
+            pageExperts: {
+                id: 'pageExperts',
+                type: 'info',
+                track: 'both',
+                title: 'Experts & Stratèges',
+                subtitle: 'DES PROFILS D\'EXCEPTION AU SERVICE DE VOS AMBITIONS',
+                keywords: ['experts', 'équipe', 'profils', 'céline', 'quentin', 'karim', 'adrien', 'caroline', 'compétences', 'directrice', 'cybersécurité', 'architecte', 'développeur', 'coach', 'transformation'],
+                content: 'Céline Quentin Karim Adrien Caroline expertise profils équipe',
+                weight: 7
+            },
+            pageRejoindre: {
+                id: 'pageRejoindre',
+                type: 'info',
+                track: 'both',
+                title: 'Nous Rejoindre',
+                keywords: ['rejoindre', 'carrières', 'recrutement', 'postuler', 'emploi', 'opportunités', 'talents', 'cv'],
+                content: 'Carrières recrutement emploi opportunités postuler',
+                weight: 6
+            },
+            pageVeille: {
+                id: 'pageVeille',
+                type: 'info',
+                track: 'both',
+                title: 'Veille & Actualités',
+                subtitle: 'ANALYSES & PERSPECTIVES TECH PAR NOS EXPERTS',
+                keywords: ['veille', 'actualités', 'blog', 'articles', 'innovation', 'tendances', 'tech', 'analyses'],
+                content: 'Veille actualités innovation tendances tech analyses',
+                weight: 6
+            }
+        };
+
+        // Variables pour la recherche
+        let searchDebounceTimer = null;
+
+        // Normaliser une chaîne pour la recherche (lowercase, sans accents)
+        function normalizeSearchTerm(str) {
+            return str.toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .trim();
+        }
+
+        // Extraire les mots-clés d'une recherche
+        function extractKeywords(query) {
+            return normalizeSearchTerm(query)
+                .split(/\s+/)
+                .filter(word => word.length > 2);
+        }
+
+        // Fonction de recherche intelligente avec scoring
+        function searchPages(query) {
+            if (!query || query.trim().length < 2) {
+                return [];
+            }
+
+            const normalizedQuery = normalizeSearchTerm(query);
+            const queryWords = extractKeywords(query);
+            const results = [];
+
+            for (const [pageId, pageData] of Object.entries(searchIndex)) {
+                let score = 0;
+                let matchedTerms = [];
+
+                // Match exact sur le titre
+                if (normalizeSearchTerm(pageData.title).includes(normalizedQuery)) {
+                    score += 100 * pageData.weight;
+                    matchedTerms.push(pageData.title);
+                }
+
+                // Match sur les mots du titre
+                queryWords.forEach(word => {
+                    if (normalizeSearchTerm(pageData.title).includes(word)) {
+                        score += 50 * pageData.weight;
+                    }
+                });
+
+                // Match sur les keywords
+                if (pageData.keywords) {
+                    pageData.keywords.forEach(keyword => {
+                        const normalizedKeyword = normalizeSearchTerm(keyword);
+
+                        if (normalizedKeyword === normalizedQuery) {
+                            score += 80 * pageData.weight;
+                            matchedTerms.push(keyword);
+                        }
+
+                        queryWords.forEach(word => {
+                            if (normalizedKeyword.includes(word)) {
+                                score += 30 * pageData.weight;
+                                if (!matchedTerms.includes(keyword)) {
+                                    matchedTerms.push(keyword);
+                                }
+                            }
+                        });
+                    });
+                }
+
+                // Match sur le contenu
+                if (pageData.content) {
+                    queryWords.forEach(word => {
+                        if (normalizeSearchTerm(pageData.content).includes(word)) {
+                            score += 10 * pageData.weight;
+                        }
+                    });
+                }
+
+                // Bonus pour le track correspondant
+                if (currentSite && (pageData.track === currentSite || pageData.track === 'both')) {
+                    score += 20;
+                }
+
+                if (score > 0) {
+                    results.push({
+                        ...pageData,
+                        score,
+                        matchedTerms: matchedTerms.slice(0, 3)
+                    });
+                }
+            }
+
+            results.sort((a, b) => b.score - a.score);
+            return results.slice(0, 5);
+        }
+
+        // Gestion de l'input de recherche avec debounce
+        function handleSearchInput(inputValue) {
+            if (searchDebounceTimer) {
+                clearTimeout(searchDebounceTimer);
+            }
+
+            searchDebounceTimer = setTimeout(() => {
+                const results = searchPages(inputValue);
+                displaySearchResults(results, inputValue);
+            }, 300);
+        }
+
+        // Affichage des résultats de recherche
+        function displaySearchResults(results, query) {
+            const suggestions = document.getElementById('searchSuggestions');
+            const resultsList = document.getElementById('searchResultsList');
+            const noResults = document.getElementById('searchNoResults');
+            const clearBtn = document.getElementById('searchClearBtn');
+
+            if (!suggestions || !resultsList || !noResults) return;
+
+            clearBtn.style.display = query.length > 0 ? 'flex' : 'none';
+
+            if (query.trim().length < 2) {
+                suggestions.style.display = 'block';
+                resultsList.style.display = 'none';
+                noResults.style.display = 'none';
+                return;
+            }
+
+            suggestions.style.display = 'none';
+
+            if (results.length === 0) {
+                resultsList.style.display = 'none';
+                noResults.style.display = 'flex';
+                return;
+            }
+
+            resultsList.style.display = 'block';
+            noResults.style.display = 'none';
+
+            resultsList.innerHTML = results.map(result => {
+                const badgeText = result.type === 'landing' ? 'Accueil' :
+                                 result.type === 'expertise' ? 'Expertise' : 'Info';
+                const subtitle = result.subtitle || '';
+                const keywords = result.matchedTerms || [];
+
+                return `
+                    <div class="search-result-item" onclick="navigateToPage('${result.id}')">
+                        <div class="search-result-badge">${badgeText}</div>
+                        <div class="search-result-title">${result.title}</div>
+                        ${subtitle ? `<div class="search-result-subtitle">${subtitle}</div>` : ''}
+                        ${keywords.length > 0 ? `
+                            <div class="search-result-keywords">
+                                ${keywords.map(kw => `<span class="search-result-keyword">${kw}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Toggle sidebar de recherche
+        function toggleSearchSidebar() {
+            const sidebar = document.getElementById('searchSidebar');
+            const overlay = document.getElementById('searchSidebarOverlay');
+            const input = document.getElementById('searchSidebarInput');
+
+            if (!sidebar || !overlay) return;
+
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                sidebar.classList.add('open');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                setTimeout(() => {
+                    if (input) input.focus();
+                }, 350);
+            }
+        }
+
+        // Recherche rapide via suggestions
+        function quickSearch(term) {
+            const input = document.getElementById('searchSidebarInput');
+            if (input) {
+                input.value = term;
+                handleSearchInput(term);
+            }
+        }
+
+        // Clear recherche
+        function clearSearch() {
+            const input = document.getElementById('searchSidebarInput');
+            const clearBtn = document.getElementById('searchClearBtn');
+            const suggestions = document.getElementById('searchSuggestions');
+            const resultsList = document.getElementById('searchResultsList');
+            const noResults = document.getElementById('searchNoResults');
+
+            if (input) input.value = '';
+            if (clearBtn) clearBtn.style.display = 'none';
+            if (suggestions) suggestions.style.display = 'block';
+            if (resultsList) resultsList.style.display = 'none';
+            if (noResults) noResults.style.display = 'none';
+            if (input) input.focus();
+        }
+
+        // Navigation vers une page
+        function navigateToPage(pageId) {
+            toggleSearchSidebar();
+
+            if (pageId === 'landingIT' || pageId === 'landingGov') {
+                const targetSite = pageId === 'landingIT' ? 'it' : 'gov';
+                if (currentSite === targetSite) {
+                    goHome();
+                } else {
+                    toggleTheme();
+                }
+                return;
+            }
+
+            const page = document.getElementById(pageId);
+            if (page) {
+                showPage(pageId);
+            }
+        }
+
+        // Update visibilité icône recherche
+        function updateSearchIconVisibility() {
+            const searchIcon = document.getElementById('searchIconBtn');
+            if (!searchIcon) return;
+
+            if (currentPage === 'welcome' || document.body.classList.contains('welcome-mode')) {
+                searchIcon.style.display = 'none';
+            } else {
+                searchIcon.style.display = 'flex';
+            }
+        }
+
+        // Event listener pour Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const sidebar = document.getElementById('searchSidebar');
+                if (sidebar && sidebar.classList.contains('open')) {
+                    toggleSearchSidebar();
+                }
+            }
+        });
+
         // Fonction pour basculer entre les thèmes IT et GOV
         function toggleTheme() {
             const body = document.body;
@@ -711,6 +1104,7 @@
 
             // Scroll en haut
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateSearchIconVisibility(); // Gérer visibilité icône recherche
         }
 
         // Init
@@ -1038,8 +1432,9 @@
             document.getElementById('siteSwitcher').classList.add('visible');
             updateMenu();
             updateScrollIndicator();
+            updateSearchIconVisibility(); // Afficher icône recherche
             currentPage = 'landing';
-            
+
             // Ouvrir le Dynamic Island automatiquement après 5 sec
             setTimeout(() => {
                 if (currentPage === 'landing') {
@@ -1111,8 +1506,9 @@
                 } else {
                     document.getElementById('landingGov').classList.add('active');
                 }
-                
+
                 updateScrollIndicator();
+                updateSearchIconVisibility(); // Afficher icône recherche
                 currentPage = 'landing';
                 window.scrollTo(0, 0);
                 return;
@@ -1146,6 +1542,7 @@
                 document.body.classList.remove('theme-it', 'theme-gov', 'has-mini-sidebar');
                 document.body.classList.add('welcome-mode');
 
+                updateSearchIconVisibility(); // Cacher icône recherche sur welcome
                 currentSite = null;
                 currentPage = 'welcome';
                 window.scrollTo(0, 0);
@@ -1427,9 +1824,10 @@
                 currentPage = pageId;
                 window.scrollTo(0, 0);
             }
-            
+
             // Cacher l'indicateur de scroll sur les pages internes
             document.getElementById('scrollIndicator').classList.remove('visible');
+            updateSearchIconVisibility(); // Gérer visibilité icône recherche
         }
 
         // Show experts in Dynamic Island - EXACTE V15
@@ -4038,5 +4436,104 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             </div>
         </div>
     </footer>
+
+    <!-- Sidebar Recherche (Desktop uniquement) -->
+    <!-- Overlay -->
+    <div class="search-sidebar-overlay" id="searchSidebarOverlay" onclick="toggleSearchSidebar()"></div>
+
+    <!-- Sidebar Container -->
+    <div class="search-sidebar" id="searchSidebar">
+        <!-- Header -->
+        <div class="search-sidebar-header">
+            <h2 class="search-sidebar-title">Recherche</h2>
+            <button class="search-sidebar-close" onclick="toggleSearchSidebar()" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="search-sidebar-input-wrapper">
+            <svg class="search-sidebar-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input
+                type="text"
+                class="search-sidebar-input"
+                id="searchSidebarInput"
+                placeholder="Rechercher des expertises, pages..."
+                oninput="handleSearchInput(this.value)"
+                autocomplete="off"
+            >
+            <button class="search-sidebar-clear" id="searchClearBtn" onclick="clearSearch()" style="display: none;" aria-label="Effacer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Results Container -->
+        <div class="search-sidebar-results" id="searchSidebarResults">
+            <!-- Suggestions initiales (affichées par défaut) -->
+            <div class="search-suggestions" id="searchSuggestions">
+                <p class="search-suggestions-label">Suggestions populaires</p>
+                <div class="search-suggestion-item" onclick="quickSearch('Data IA')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4M12 8h.01"></path>
+                    </svg>
+                    <span>Data & IA</span>
+                </div>
+                <div class="search-suggestion-item" onclick="quickSearch('Cybersécurité')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Cybersécurité</span>
+                </div>
+                <div class="search-suggestion-item" onclick="quickSearch('Cloud Infrastructure')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                    </svg>
+                    <span>Cloud & Infrastructure</span>
+                </div>
+                <div class="search-suggestion-item" onclick="quickSearch('Experts')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>Nos Experts</span>
+                </div>
+                <div class="search-suggestion-item" onclick="quickSearch('Gouvernance IT')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                    <span>Gouvernance IT</span>
+                </div>
+            </div>
+
+            <!-- Liste des résultats (générée dynamiquement par JavaScript) -->
+            <div class="search-results-list" id="searchResultsList" style="display: none;">
+                <!-- Résultats injectés par displaySearchResults() -->
+            </div>
+
+            <!-- Message aucun résultat -->
+            <div class="search-no-results" id="searchNoResults" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <p class="search-no-results-title">Aucun résultat</p>
+                <p class="search-no-results-hint">Essayez avec d'autres mots-clés comme "cloud", "data", "experts"...</p>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

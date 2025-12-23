@@ -775,6 +775,410 @@
             right: auto !important;
         }
 
+        /* ==================== SYSTÈME DE RECHERCHE (Desktop uniquement) ==================== */
+
+        /* Icône Recherche - Fixed top-right */
+        .search-icon-btn {
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(26, 15, 10, 0.85);
+            border: 2px solid rgba(255, 127, 92, 0.4);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .search-icon-btn svg {
+            width: 22px;
+            height: 22px;
+            color: #FF7F5C;
+            transition: all 0.3s ease;
+        }
+
+        .search-icon-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 127, 92, 0.25);
+            border-color: rgba(255, 127, 92, 0.6);
+        }
+
+        .search-icon-btn:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* Theme Gov - Icône */
+        body.theme-gov .search-icon-btn {
+            background: rgba(203, 199, 190, 0.85);
+            border-color: rgba(255, 127, 92, 0.4);
+        }
+
+        body.theme-gov .search-icon-btn:hover {
+            box-shadow: 0 8px 24px rgba(255, 127, 92, 0.2);
+        }
+
+        /* Cacher icône sur welcome screen */
+        body.welcome-mode .search-icon-btn {
+            display: none !important;
+        }
+
+        /* Overlay de la sidebar */
+        .search-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .search-sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Sidebar Container */
+        .search-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 450px;
+            height: 100vh;
+            background: rgba(26, 15, 10, 0.98);
+            border-left: 1px solid rgba(255, 127, 92, 0.3);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .search-sidebar.open {
+            transform: translateX(0);
+        }
+
+        /* Theme Gov - Sidebar */
+        body.theme-gov .search-sidebar {
+            background: rgba(203, 199, 190, 0.98);
+            border-left-color: rgba(255, 127, 92, 0.3);
+        }
+
+        /* Header de la sidebar */
+        .search-sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            border-bottom: 1px solid rgba(255, 127, 92, 0.2);
+        }
+
+        .search-sidebar-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin: 0;
+        }
+
+        body.theme-gov .search-sidebar-title {
+            color: #2a1810;
+        }
+
+        .search-sidebar-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid rgba(255, 127, 92, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-sidebar-close svg {
+            width: 20px;
+            height: 20px;
+            color: #f5f5f7;
+        }
+
+        body.theme-gov .search-sidebar-close svg {
+            color: #2a1810;
+        }
+
+        .search-sidebar-close:hover {
+            background: rgba(255, 127, 92, 0.2);
+            border-color: rgba(255, 127, 92, 0.5);
+            transform: rotate(90deg);
+        }
+
+        /* Input de recherche */
+        .search-sidebar-input-wrapper {
+            position: relative;
+            padding: 20px 30px;
+        }
+
+        .search-sidebar-input-icon {
+            position: absolute;
+            left: 45px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            color: rgba(255, 127, 92, 0.6);
+            pointer-events: none;
+        }
+
+        .search-sidebar-input {
+            width: 100%;
+            padding: 15px 50px 15px 50px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 127, 92, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            color: #f5f5f7;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        body.theme-gov .search-sidebar-input {
+            background: rgba(255, 255, 255, 0.4);
+            color: #2a1810;
+        }
+
+        .search-sidebar-input::placeholder {
+            color: rgba(245, 245, 247, 0.5);
+        }
+
+        body.theme-gov .search-sidebar-input::placeholder {
+            color: rgba(42, 24, 16, 0.5);
+        }
+
+        .search-sidebar-input:focus {
+            border-color: rgba(255, 127, 92, 0.6);
+            box-shadow: 0 0 15px rgba(255, 127, 92, 0.2);
+        }
+
+        .search-sidebar-clear {
+            position: absolute;
+            right: 45px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-sidebar-clear svg {
+            width: 16px;
+            height: 16px;
+            color: rgba(255, 127, 92, 0.6);
+        }
+
+        .search-sidebar-clear:hover {
+            background: rgba(255, 127, 92, 0.2);
+        }
+
+        .search-sidebar-clear:hover svg {
+            color: #FF7F5C;
+        }
+
+        /* Container des résultats */
+        .search-sidebar-results {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px 30px 30px 30px;
+        }
+
+        .search-sidebar-results::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .search-sidebar-results::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .search-sidebar-results::-webkit-scrollbar-thumb {
+            background: rgba(255, 127, 92, 0.3);
+            border-radius: 3px;
+        }
+
+        .search-sidebar-results::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 127, 92, 0.5);
+        }
+
+        /* Suggestions initiales */
+        .search-suggestions-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: rgba(255, 127, 92, 0.8);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        body.theme-gov .search-suggestions-label {
+            color: rgba(255, 127, 92, 0.9);
+        }
+
+        .search-suggestion-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 127, 92, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        body.theme-gov .search-suggestion-item {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .search-suggestion-item svg {
+            width: 20px;
+            height: 20px;
+            color: #FF7F5C;
+            flex-shrink: 0;
+        }
+
+        .search-suggestion-item span {
+            color: #f5f5f7;
+            font-size: 0.95rem;
+        }
+
+        body.theme-gov .search-suggestion-item span {
+            color: #2a1810;
+        }
+
+        .search-suggestion-item:hover {
+            background: rgba(255, 127, 92, 0.15);
+            border-color: rgba(255, 127, 92, 0.4);
+            transform: translateX(-3px);
+        }
+
+        /* Liste des résultats */
+        .search-result-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 18px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 127, 92, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        body.theme-gov .search-result-item {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .search-result-item:hover {
+            background: rgba(255, 127, 92, 0.15);
+            border-color: rgba(255, 127, 92, 0.4);
+            transform: translateX(-3px);
+        }
+
+        .search-result-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FF7F5C;
+            margin: 0;
+        }
+
+        .search-result-type {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(255, 127, 92, 0.2);
+            color: #FF7F5C;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .search-result-content {
+            font-size: 0.9rem;
+            color: rgba(245, 245, 247, 0.7);
+            line-height: 1.5;
+        }
+
+        body.theme-gov .search-result-content {
+            color: rgba(42, 24, 16, 0.7);
+        }
+
+        .search-result-highlight {
+            background: rgba(255, 127, 92, 0.3);
+            color: #FF7F5C;
+            font-weight: 600;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        /* Aucun résultat */
+        .search-no-results {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .search-no-results svg {
+            width: 60px;
+            height: 60px;
+            color: rgba(255, 127, 92, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .search-no-results-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin-bottom: 10px;
+        }
+
+        body.theme-gov .search-no-results-title {
+            color: #2a1810;
+        }
+
+        .search-no-results-hint {
+            font-size: 0.95rem;
+            color: rgba(245, 245, 247, 0.6);
+            max-width: 300px;
+        }
+
+        body.theme-gov .search-no-results-hint {
+            color: rgba(42, 24, 16, 0.6);
+        }
+
         /* ==================== HAMBURGER MENU MOBILE (DÉSACTIVÉ - Remplacé par sidebar permanente) ==================== */
         .hamburger-button {
             position: fixed;

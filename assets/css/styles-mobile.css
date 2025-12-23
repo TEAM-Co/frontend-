@@ -86,6 +86,16 @@
     }
 
     /* ========================================
+       MASQUER RECHERCHE SUR MOBILE
+       ======================================== */
+
+    .search-icon-btn,
+    .search-sidebar,
+    .search-sidebar-overlay {
+        display: none !important;
+    }
+
+    /* ========================================
        WELCOME SCREEN MOBILE
        ======================================== */
 
