@@ -1179,6 +1179,29 @@
             color: rgba(42, 24, 16, 0.6);
         }
 
+        /* Highlight temporaire des mots recherchés */
+        mark.search-highlight-temp {
+            background: rgba(255, 127, 92, 0.35);
+            color: inherit;
+            font-weight: 600;
+            padding: 2px 4px;
+            border-radius: 3px;
+            animation: highlightFadeIn 0.3s ease-out;
+        }
+
+        @keyframes highlightFadeIn {
+            from {
+                background: rgba(255, 127, 92, 0.7);
+            }
+            to {
+                background: rgba(255, 127, 92, 0.35);
+            }
+        }
+
+        body.theme-gov mark.search-highlight-temp {
+            background: rgba(255, 127, 92, 0.25);
+        }
+
         /* ==================== HAMBURGER MENU MOBILE (DÉSACTIVÉ - Remplacé par sidebar permanente) ==================== */
         .hamburger-button {
             position: fixed;

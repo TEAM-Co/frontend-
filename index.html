@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=59">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=60">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=59">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=59">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=59">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=60">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=60">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=60">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -606,6 +606,9 @@
         let islandAnimating = false;
         let islandTimeout = null;
 
+        // Variable pour stocker le terme de recherche (pour highlight)
+        window.lastSearchTerm = '';
+
         // Experts pour la Dynamic Island
         const expertsIT = [
             { name: 'Julien', role: 'Dev Backend' },
@@ -911,6 +914,9 @@
 
         // Gestion de l'input de recherche avec debounce
         function handleSearchInput(inputValue) {
+            // Stocker le terme de recherche pour le highlight
+            window.lastSearchTerm = inputValue;
+
             if (searchDebounceTimer) {
                 clearTimeout(searchDebounceTimer);
             }
@@ -1019,10 +1025,152 @@
             if (input) input.focus();
         }
 
+        // Highlight temporaire des mots recherchés dans la page
+        function highlightSearchTerms(pageId, searchTerm) {
+            if (!searchTerm || searchTerm.length < 2) return;
+
+            const page = document.getElementById(pageId);
+            if (!page) return;
+
+            // Sélecteurs des conteneurs texte
+            const textSelectors = [
+                '.story-text',
+                '.case-text',
+                '.story-title',
+                '.section-header',
+                '.cta-title',
+                '.cta-subtitle'
+            ];
+
+            // Normaliser le terme de recherche
+            const normalizedTerm = normalizeSearchTerm(searchTerm);
+            const searchWords = normalizedTerm.split(/\s+/).filter(w => w.length > 2);
+
+            // Parcourir tous les éléments texte
+            textSelectors.forEach(selector => {
+                const elements = page.querySelectorAll(selector);
+                elements.forEach(element => {
+                    highlightInElement(element, searchWords);
+                });
+            });
+
+            // Auto-clear après 6 secondes
+            setTimeout(() => {
+                clearHighlights(pageId);
+            }, 6000);
+        }
+
+        function highlightInElement(element, searchWords) {
+            // Utiliser TreeWalker pour parcourir uniquement les nœuds texte
+            const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                {
+                    acceptNode: function(node) {
+                        // Ignorer les nœuds déjà dans un highlight
+                        if (node.parentElement && node.parentElement.classList.contains('search-highlight-temp')) {
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                        return NodeFilter.FILTER_ACCEPT;
+                    }
+                }
+            );
+
+            const nodesToProcess = [];
+            let node;
+            while (node = walker.nextNode()) {
+                nodesToProcess.push(node);
+            }
+
+            nodesToProcess.forEach(textNode => {
+                let text = textNode.textContent;
+                const normalizedText = normalizeSearchTerm(text);
+                let hasMatch = false;
+
+                // Vérifier si au moins un mot de recherche est présent
+                searchWords.forEach(word => {
+                    if (normalizedText.includes(word)) {
+                        hasMatch = true;
+                    }
+                });
+
+                if (!hasMatch) return;
+
+                // Créer le HTML avec highlights
+                const fragment = document.createDocumentFragment();
+                let lastIndex = 0;
+
+                // Créer une regex pour tous les mots de recherche
+                const pattern = searchWords.map(w => {
+                    // Échapper les caractères spéciaux regex
+                    return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                }).join('|');
+
+                const regex = new RegExp(`(${pattern})`, 'gi');
+                const matches = [];
+
+                // Trouver toutes les positions de match
+                let match;
+                while ((match = regex.exec(normalizedText)) !== null) {
+                    matches.push({
+                        index: match.index,
+                        length: match[0].length,
+                        text: text.substr(match.index, match[0].length)
+                    });
+                }
+
+                if (matches.length === 0) return;
+
+                // Construire le nouveau contenu avec highlights
+                matches.forEach(m => {
+                    // Texte avant le match
+                    if (m.index > lastIndex) {
+                        fragment.appendChild(document.createTextNode(
+                            text.substring(lastIndex, m.index)
+                        ));
+                    }
+
+                    // Span highlight
+                    const mark = document.createElement('mark');
+                    mark.className = 'search-highlight-temp';
+                    mark.textContent = m.text;
+                    fragment.appendChild(mark);
+
+                    lastIndex = m.index + m.length;
+                });
+
+                // Texte après le dernier match
+                if (lastIndex < text.length) {
+                    fragment.appendChild(document.createTextNode(
+                        text.substring(lastIndex)
+                    ));
+                }
+
+                // Remplacer le nœud texte par le fragment
+                textNode.parentNode.replaceChild(fragment, textNode);
+            });
+        }
+
+        function clearHighlights(pageId) {
+            const page = document.getElementById(pageId);
+            if (!page) return;
+
+            const highlights = page.querySelectorAll('.search-highlight-temp');
+            highlights.forEach(mark => {
+                const parent = mark.parentNode;
+                if (parent) {
+                    parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                    // Normaliser les nœuds texte adjacents
+                    parent.normalize();
+                }
+            });
+        }
+
         // Navigation vers une page
         function navigateToPage(pageId) {
             toggleSearchSidebar();
 
+            // Cas spécial: landings
             if (pageId === 'landingIT' || pageId === 'landingGov') {
                 const targetSite = pageId === 'landingIT' ? 'it' : 'gov';
                 if (currentSite === targetSite) {
@@ -1033,9 +1181,32 @@
                 return;
             }
 
+            // Vérifier le track de la page cible
+            const pageData = searchIndex[pageId];
+            if (pageData) {
+                // Si la page est sur un autre track (et pas 'both'), basculer d'abord
+                if (pageData.track !== 'both' && pageData.track !== currentSite) {
+                    toggleTheme();
+                    // Attendre le basculement avant d'afficher la page
+                    setTimeout(() => {
+                        showPage(pageId);
+                        // Highlight des mots recherchés
+                        if (window.lastSearchTerm) {
+                            highlightSearchTerms(pageId, window.lastSearchTerm);
+                        }
+                    }, 400);
+                    return;
+                }
+            }
+
+            // Affichage normal (même track ou track='both')
             const page = document.getElementById(pageId);
             if (page) {
                 showPage(pageId);
+                // Highlight des mots recherchés
+                if (window.lastSearchTerm) {
+                    highlightSearchTerms(pageId, window.lastSearchTerm);
+                }
             }
         }
 
@@ -1117,6 +1288,7 @@
                 createContentPages();
                 setupDropdowns();
                 setupScrollEffects();
+                updateSearchIconVisibility(); // Initialiser l'état de l'icône recherche
             }, 3000);
         }
 
@@ -4500,13 +4672,12 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                     </svg>
                     <span>Cloud & Infrastructure</span>
                 </div>
-                <div class="search-suggestion-item" onclick="quickSearch('Experts')">
+                <div class="search-suggestion-item" onclick="quickSearch('Histoire')">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                     </svg>
-                    <span>Nos Experts</span>
+                    <span>Notre Histoire</span>
                 </div>
                 <div class="search-suggestion-item" onclick="quickSearch('Gouvernance IT')">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
