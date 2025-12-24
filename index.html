@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=63">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=64">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=63">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=63">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=63">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=64">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=64">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=64">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -1002,6 +1002,84 @@
             }).join('');
         }
 
+        // Mobile search handler - displays results inline in menu
+        function handleMobileSearch(query) {
+            const resultsContainer = document.getElementById('mobileSearchResults');
+            if (!resultsContainer) return;
+
+            // Clear if query too short
+            if (!query || query.trim().length < 2) {
+                resultsContainer.style.display = 'none';
+                resultsContainer.innerHTML = '';
+                return;
+            }
+
+            // Use existing searchPages function
+            const results = searchPages(query);
+
+            // Display results
+            if (results.length === 0) {
+                resultsContainer.style.display = 'block';
+                resultsContainer.innerHTML = `
+                    <div class="menu-search-no-results">
+                        Aucun résultat pour "${query}"
+                    </div>
+                `;
+                return;
+            }
+
+            // Build results HTML
+            resultsContainer.style.display = 'block';
+            resultsContainer.innerHTML = results.map(result => {
+                const badgeText = result.type === 'landing' ? 'Accueil' :
+                                 result.type === 'expertise' ? 'Expertise' : 'Info';
+                return `
+                    <div class="menu-search-result-item" onclick="handleMobileSearchClick('${result.id}')">
+                        <div class="menu-search-result-badge">${badgeText}</div>
+                        <div class="menu-search-result-title">${result.title}</div>
+                        ${result.subtitle ? `<div class="menu-search-result-subtitle">${result.subtitle}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Navigate from mobile search results
+        function handleMobileSearchClick(pageId) {
+            const hamburgerButton = document.getElementById('hamburgerButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            // Close menu
+            if (hamburgerButton) hamburgerButton.classList.remove('active');
+            if (mobileMenu) mobileMenu.classList.remove('open');
+
+            // Store search term for highlighting
+            const searchInput = document.getElementById('mobileSearchInput');
+            if (searchInput && searchInput.value) {
+                window.lastSearchTerm = searchInput.value;
+            }
+
+            // Navigate (reuse existing cross-track logic)
+            setTimeout(() => {
+                const pageData = searchIndex[pageId];
+                if (pageData) {
+                    if (pageData.track !== 'both' && pageData.track !== currentSite) {
+                        toggleTheme();
+                        setTimeout(() => {
+                            showPage(pageId);
+                            if (window.lastSearchTerm) {
+                                highlightSearchTerms(pageId, window.lastSearchTerm);
+                            }
+                        }, 400);
+                        return;
+                    }
+                }
+                showPage(pageId);
+                if (window.lastSearchTerm) {
+                    highlightSearchTerms(pageId, window.lastSearchTerm);
+                }
+            }, 100);
+        }
+
         // Toggle sidebar de recherche
         function toggleSearchSidebar() {
             const sidebar = document.getElementById('searchSidebar');
@@ -1436,7 +1514,29 @@
 
                 let html = '';
 
-                // SWITCHER EN HAUT (priorité)
+                // SEARCH INPUT EN HAUT (nouvelle priorité #1)
+                html += `
+                    <div class="menu-search-container">
+                        <input
+                            type="text"
+                            class="menu-search-input"
+                            id="mobileSearchInput"
+                            placeholder="Rechercher..."
+                            autocomplete="off"
+                        />
+                    </div>
+                `;
+
+                // RÉSULTATS DE RECHERCHE (affichés dynamiquement)
+                html += `
+                    <div class="menu-search-results" id="mobileSearchResults" style="display: none;">
+                        <!-- Results injected here -->
+                    </div>
+                `;
+
+                html += '<div class="menu-separator"></div>';
+
+                // SWITCHER (maintenant en 2ème position)
                 const switchText = site === 'it' ? 'Hub Stratégique' : 'Lab Technique';
                 html += `<div class="menu-action menu-action-primary" data-action="switch">${switchText}</div>`;
                 html += '<div class="menu-separator"></div>';
@@ -1484,6 +1584,14 @@
                 html += '<div class="menu-action" data-action="contact">OUVRIR LE CHAT</div>';
 
                 fullscreenMenuContent.innerHTML = html;
+
+                // Attach search listener
+                const mobileSearchInput = document.getElementById('mobileSearchInput');
+                if (mobileSearchInput) {
+                    mobileSearchInput.addEventListener('input', function(e) {
+                        handleMobileSearch(e.target.value);
+                    });
+                }
 
                 // Add click handlers
                 fullscreenMenuContent.querySelectorAll('.menu-item').forEach(item => {
