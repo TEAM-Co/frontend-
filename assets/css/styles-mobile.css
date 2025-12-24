@@ -230,7 +230,7 @@
     /* Logo mobile - Visible - MOVED UP to avoid menu overlap */
     .logo-btn {
         display: flex !important;
-        top: 10px !important;
+        top: 0px !important;
     }
 
     /* Logo sur welcome page mobile - NewLogo à DROITE */
