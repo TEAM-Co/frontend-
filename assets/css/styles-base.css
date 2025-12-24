@@ -2400,7 +2400,6 @@
             max-width: 1200px;
             padding: 80px 40px;
             margin: 0 auto;
-            margin-top: 200px; /* Espace pour que les sections ne soient pas visibles sans scroll */
         }
 
         .landing-section {
