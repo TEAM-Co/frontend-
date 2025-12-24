@@ -1770,7 +1770,7 @@
             font-size: clamp(0.95rem, 1.8vw, 1.15rem);
             line-height: 1.8;
             max-width: 850px;
-            margin-bottom: 60px;
+            margin-bottom: 32px;
             text-align: center;
         }
 
