@@ -1004,6 +1004,18 @@
         font-size: 24px;
     }
 
+    /* Croix chat Gov mobile - Contraste renforcé */
+    body.theme-gov .chat-close {
+        background: rgba(255, 127, 92, 0.12); /* Orange très clair */
+        color: #2a1810;                       /* Marron foncé */
+        border: 1px solid rgba(255, 127, 92, 0.25); /* Bordure orange subtile */
+    }
+
+    body.theme-gov .chat-close:hover {
+        background: rgba(255, 127, 92, 0.2);
+        border-color: rgba(255, 127, 92, 0.4);
+    }
+
     .chat-messages {
         flex: 1;
         padding: 20px 15px;
