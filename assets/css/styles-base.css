@@ -823,6 +823,14 @@
             box-shadow: 0 8px 24px rgba(255, 127, 92, 0.2);
         }
 
+        body.theme-gov .search-icon-btn svg {
+            color: #2a1810;
+        }
+
+        body.theme-gov .search-icon-btn:hover svg {
+            color: #1a0f0a;
+        }
+
         /* Cacher icône sur welcome screen */
         body.welcome-mode .search-icon-btn {
             display: none !important;
@@ -2352,7 +2360,7 @@
         }
 
         body.theme-gov .scroll-indicator-icon {
-            border-color: rgba(255, 127, 92, 0.6);
+            border-color: rgba(42, 24, 16, 0.5);
         }
 
         .scroll-indicator-icon::before {
@@ -2366,6 +2374,10 @@
             background: #FF7F5C;
             border-radius: 2px;
             animation: scrollDot 2s infinite;
+        }
+
+        body.theme-gov .scroll-indicator-icon::before {
+            background: #2a1810;
         }
 
         @keyframes bounce {
