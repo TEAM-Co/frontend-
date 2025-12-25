@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=80">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=81">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=80">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=80">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=80">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=81">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=81">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=81">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -1659,13 +1659,15 @@
 
         // Retour home avec animation
         function goHome() {
-            // Si on est sur une page de contenu (pas sur landing), retourner au landing IT/Gov
-            const isOnLanding = currentPage === 'landing';
-            
-            if (!isOnLanding && currentSite) {
-                // Retour au landing du site actuel
+            // Vérifier si une page d'expertise est ouverte
+            const expertisePage = document.querySelector('.work-in-progress.active');
+            const isOnLanding = !expertisePage && currentPage === 'landing';
+
+            if (expertisePage || (!isOnLanding && currentSite)) {
+                // Fermer toutes les pages d'expertise
                 document.querySelectorAll('.work-in-progress').forEach(p => p.classList.remove('active'));
-                
+
+                // Retour au landing du site actuel
                 if (currentSite === 'it') {
                     document.getElementById('landingIT').classList.add('active');
                 } else {

@@ -2819,6 +2819,7 @@
         /* Header style moderne épuré */
         .chat-header {
             padding: 24px 24px 20px;
+            min-height: 80px;
             background: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             display: flex;
