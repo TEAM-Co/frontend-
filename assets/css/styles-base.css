@@ -2112,23 +2112,6 @@
             font-weight: 700;
         }
 
-        /* Bulles Veille & Actualités - Textes adaptés par thème */
-        .stat-title {
-            color: rgba(245, 245, 247, 0.85); /* IT: Blanc */
-        }
-
-        body.theme-gov .stat-title {
-            color: rgba(26, 26, 26, 0.75); /* Gov: Noir avec 75% opacité */
-        }
-
-        .stat-subtitle {
-            color: rgba(245, 245, 247, 0.75); /* IT: Blanc */
-        }
-
-        body.theme-gov .stat-subtitle {
-            color: rgba(26, 26, 26, 0.6); /* Gov: Noir avec 60% opacité */
-        }
-
         /* Cartes réseau sociaux - adaptées au thème GOV */
         .network-card {
             padding: 25px;
@@ -2872,18 +2855,6 @@
 
         .chat-close:active {
             transform: scale(0.94);
-        }
-
-        /* Bouton fermeture chat Gov - Contraste renforcé */
-        body.theme-gov .chat-close {
-            background: rgba(255, 127, 92, 0.12); /* Orange très clair */
-            color: #2a1810;                       /* Marron foncé */
-            border: 1px solid rgba(255, 127, 92, 0.25); /* Bordure orange subtile */
-        }
-
-        body.theme-gov .chat-close:hover {
-            background: rgba(255, 127, 92, 0.2);
-            border-color: rgba(255, 127, 92, 0.4);
         }
 
         /* Zone de messages style iMessage */

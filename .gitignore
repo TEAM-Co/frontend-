@@ -5,6 +5,3 @@ node_modules/
 
 # Bloquer uniquement le gros PDF (103 MB) s'il réapparaît
 assets/PlaquetteCoLiwe.pdf
-
-# Debug screenshots
-assets/images/debug/
