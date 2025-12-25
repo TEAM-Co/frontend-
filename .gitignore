@@ -3,5 +3,5 @@ node_modules/
 *.log
 .env
 
-# Documents volumineux (PDFs, etc.)
-assets/documents/*.pdf
+# Bloquer uniquement le gros PDF (103 MB) s'il réapparaît
+assets/PlaquetteCoLiwe.pdf
