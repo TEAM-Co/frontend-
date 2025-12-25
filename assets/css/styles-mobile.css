@@ -665,13 +665,13 @@
        ======================================== */
 
     .landing-hero {
-        padding: 0 20px;
+        padding: calc(15vh + env(safe-area-inset-top, 0px)) 20px calc(20px + env(safe-area-inset-bottom, 0px));
         height: 100vh !important; /* EXACTEMENT 100vh - pas min-height */
         max-height: 100vh !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: center !important; /* Barre de recherche = centre absolu */
+        justify-content: flex-start !important; /* Commence en haut au lieu de centrer */
         text-align: center !important;
         gap: 20px;
         overflow: hidden !important; /* Cache tout ce qui dépasse */
