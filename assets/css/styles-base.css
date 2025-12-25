@@ -2093,6 +2093,15 @@
             color: rgba(26, 26, 26, 0.95); /* Augmenté de 0.85 à 0.95 - Texte plus foncé */
         }
 
+        /* Descriptions des valeurs - Couleur par thème */
+        .value-description {
+            color: rgba(245, 245, 247, 0.85); /* Blanc par défaut (IT) */
+        }
+
+        body.theme-gov .value-description {
+            color: rgba(26, 26, 26, 0.85); /* Noir pour Gov */
+        }
+
         .highlight {
             color: #FF7F5C;
             font-weight: 600;
