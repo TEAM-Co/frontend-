@@ -2197,29 +2197,6 @@
         box-shadow: 0 0 0 3px rgba(255, 127, 92, 0.15) !important;
     }
 
-    /* Bouton fermer - Touch friendly */
-    #fallbackModal button[onclick*="closeFallbackForm"] {
-        position: absolute !important;
-        top: 15px !important;
-        right: 15px !important;
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 24px !important;
-        padding: 0 !important;
-        background: rgba(255, 127, 92, 0.15) !important;
-        border: 1px solid rgba(255, 127, 92, 0.3) !important;
-    }
-
-    #fallbackModal button[onclick*="closeFallbackForm"]:active {
-        transform: scale(0.94) !important;
-        background: rgba(255, 127, 92, 0.25) !important;
-    }
 }
 
 /* ========================================
