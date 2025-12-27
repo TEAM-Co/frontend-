@@ -1097,8 +1097,10 @@
        ======================================== */
 
     .expertise-modal-content {
+        position: relative;
         margin: 40px 15px;
         padding: 30px 20px;
+        padding-top: 60px;
         max-width: calc(100% - 30px);
         max-height: calc(100vh - 80px);
         overflow-y: auto;
@@ -1108,7 +1110,7 @@
     .expertise-modal-close {
         position: absolute !important;
         top: 10px !important;
-        right: calc(15px + 10px) !important;
+        right: 10px !important;
         width: 36px;
         height: 36px;
         font-size: 24px;
