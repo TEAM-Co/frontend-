@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=84">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=85">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=84">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=84">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=84">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=85">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=85">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=85">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -1236,6 +1236,9 @@
                 if (miniSidebar) miniSidebar.classList.add('visible');
             }
 
+            // Mettre à jour le menu de la sidebar
+            updateMenu();
+
             // Scroll en haut
             window.scrollTo({ top: 0, behavior: 'smooth' });
             updateSearchIconVisibility(); // Gérer visibilité icône recherche
@@ -1657,18 +1660,20 @@
             }
         }
 
-        // Retour home avec animation
+        // Retour home avec animation - Système 3 clics progressifs
         function goHome() {
-            // Vérifier si une page d'expertise est ouverte (DEUX systèmes)
-            const expertisePage = document.querySelector('.work-in-progress.active');
             const expertiseModal = document.querySelector('.expertise-modal.active');
-            const isOnLanding = !expertisePage && !expertiseModal && currentPage === 'landing';
 
-            if (expertisePage || expertiseModal || (!isOnLanding && currentSite)) {
-                // Fermer la modal si elle existe
-                if (expertiseModal) closeExpertiseModal();
+            // CLIC 1: Expertise modal ouverte → fermer et rester sur page actuelle
+            if (expertiseModal) {
+                closeExpertiseModal();
+                // Ne pas changer currentPage, on reste sur "Notre Histoire" ou autre page
+                return;
+            }
 
-                // Fermer toutes les pages d'expertise
+            // CLIC 2: Sur une page de contenu (pas landing, pas welcome) → retour landing
+            if (currentPage !== 'landing' && currentPage !== 'welcome') {
+                // Fermer toutes les pages d'expertise directes
                 document.querySelectorAll('.work-in-progress').forEach(p => p.classList.remove('active'));
 
                 // Retour au landing du site actuel
@@ -1684,40 +1689,44 @@
                 window.scrollTo(0, 0);
                 return;
             }
-            
-            // Si on est déjà sur landing, retour au welcome screen avec animation
 
-            // 1. CACHER IMMÉDIATEMENT les landing pages (pas d'attente)
-            document.querySelectorAll('.work-in-progress, .main-container').forEach(p => p.classList.remove('active'));
+            // CLIC 3: Sur landing → retour au welcome screen avec animation
+            if (currentPage === 'landing') {
+                // 1. CACHER IMMÉDIATEMENT les landing pages (pas d'attente)
+                document.querySelectorAll('.work-in-progress, .main-container').forEach(p => p.classList.remove('active'));
 
-            const sidebar = document.getElementById('sidebar');
-            const backdrop = document.getElementById('sidebarBackdrop');
-            sidebar.classList.remove('open');
-            backdrop.classList.remove('active');
+                const sidebar = document.getElementById('sidebar');
+                const backdrop = document.getElementById('sidebarBackdrop');
+                sidebar.classList.remove('open');
+                backdrop.classList.remove('active');
 
-            document.getElementById('logoBtn').classList.remove('visible');
-            document.getElementById('miniSidebar').classList.remove('visible');
-            document.getElementById('dynamicIsland').classList.remove('visible');
-            document.getElementById('siteSwitcher').classList.remove('visible');
-            document.getElementById('scrollIndicator').classList.remove('visible');
+                document.getElementById('logoBtn').classList.remove('visible');
+                document.getElementById('miniSidebar').classList.remove('visible');
+                document.getElementById('dynamicIsland').classList.remove('visible');
+                document.getElementById('siteSwitcher').classList.remove('visible');
+                document.getElementById('scrollIndicator').classList.remove('visible');
 
-            // 2. Lancer l'animation du logo
-            const introAnimation = document.getElementById('introAnimation');
-            introAnimation.classList.remove('active');
-            void introAnimation.offsetWidth;
-            introAnimation.classList.add('active');
+                // 2. Lancer l'animation du logo
+                const introAnimation = document.getElementById('introAnimation');
+                introAnimation.classList.remove('active');
+                void introAnimation.offsetWidth;
+                introAnimation.classList.add('active');
 
-            // 3. Afficher la welcome page pendant l'animation (plus fluide)
-            setTimeout(() => {
-                document.getElementById('welcomeScreen').classList.remove('hidden');
-                document.body.classList.remove('theme-it', 'theme-gov', 'has-mini-sidebar');
-                document.body.classList.add('welcome-mode');
+                // 3. Afficher la welcome page pendant l'animation (plus fluide)
+                setTimeout(() => {
+                    document.getElementById('welcomeScreen').classList.remove('hidden');
+                    document.body.classList.remove('theme-it', 'theme-gov', 'has-mini-sidebar');
+                    document.body.classList.add('welcome-mode');
 
-                updateSearchIconVisibility(); // Cacher icône recherche sur welcome
-                currentSite = null;
-                currentPage = 'welcome';
-                window.scrollTo(0, 0);
-            }, 100);
+                    updateSearchIconVisibility(); // Cacher icône recherche sur welcome
+                    currentSite = null;
+                    currentPage = 'welcome';
+                    window.scrollTo(0, 0);
+                }, 100);
+                return;
+            }
+
+            // CLIC 4: Déjà sur welcome → ne rien faire (no-op)
         }
 
         // Toggle sidebar
