@@ -1113,6 +1113,23 @@
         font-size: 28px;
     }
 
+    /* Expertise Modal - Full screen sur mobile */
+    .expertise-modal {
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    .expertise-modal::before,
+    .expertise-modal::after {
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Masquer animations decoratives pour performance */
+    .expertise-modal .circuit-lines {
+        display: none;
+    }
+
     /* ========================================
        ANIMATIONS & INTRO
        ======================================== */
