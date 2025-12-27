@@ -3211,15 +3211,23 @@
             const modal = document.getElementById('expertiseModal');
             const modalContent = document.getElementById('expertiseModalContent');
             const expertisePage = document.getElementById(expertiseId);
-            
+
             if (modal && modalContent && expertisePage) {
                 // Cloner le contenu de la page d'expertise
                 const clonedContent = expertisePage.cloneNode(true);
                 clonedContent.style.display = 'block';
                 clonedContent.style.opacity = '1';
-                
-                // Vider le contenu précédent et injecter le nouveau
+
+                // Vider le contenu précédent
                 modalContent.innerHTML = '';
+
+                // Créer et injecter la croix de fermeture
+                const closeButton = document.createElement('div');
+                closeButton.className = 'expertise-modal-close';
+                closeButton.onclick = closeExpertiseModal;
+
+                // Ajouter la croix puis le contenu
+                modalContent.appendChild(closeButton);
                 modalContent.appendChild(clonedContent);
 
                 // Reset scroll position à 0 APRÈS le reflow du DOM
@@ -3318,8 +3326,7 @@
         </div>
 
         <div class="expertise-modal-content" id="expertiseModalContent">
-            <div class="expertise-modal-close" onclick="closeExpertiseModal()"></div>
-            <!-- Le contenu sera injecté ici par JavaScript -->
+            <!-- La croix et le contenu seront injectés par JavaScript -->
         </div>
     </div>
 
