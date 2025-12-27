@@ -1107,11 +1107,11 @@
 
     .expertise-modal-close {
         position: absolute !important;
-        top: 15px !important;
-        right: 15px !important;
-        width: 44px;
-        height: 44px;
-        font-size: 28px;
+        top: 10px !important;
+        right: 10px !important;
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
         z-index: 10002 !important;
     }
 
