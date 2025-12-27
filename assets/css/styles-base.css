@@ -2681,6 +2681,8 @@
             border: 1px solid rgba(255, 127, 92, 0.3);
             box-shadow: 0 20px 60px rgba(26, 15, 10, 0.55);
             z-index: 1;
+            overflow-y: auto;
+            max-height: calc(100vh - 120px);
         }
 
         body.theme-gov .expertise-modal-content {
