@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=82">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=83">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=82">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=82">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=82">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=83">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=83">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=83">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -1659,11 +1659,15 @@
 
         // Retour home avec animation
         function goHome() {
-            // Vérifier si une page d'expertise est ouverte
+            // Vérifier si une page d'expertise est ouverte (DEUX systèmes)
             const expertisePage = document.querySelector('.work-in-progress.active');
-            const isOnLanding = !expertisePage && currentPage === 'landing';
+            const expertiseModal = document.querySelector('.expertise-modal.active');
+            const isOnLanding = !expertisePage && !expertiseModal && currentPage === 'landing';
 
-            if (expertisePage || (!isOnLanding && currentSite)) {
+            if (expertisePage || expertiseModal || (!isOnLanding && currentSite)) {
+                // Fermer la modal si elle existe
+                if (expertiseModal) closeExpertiseModal();
+
                 // Fermer toutes les pages d'expertise
                 document.querySelectorAll('.work-in-progress').forEach(p => p.classList.remove('active'));
 
