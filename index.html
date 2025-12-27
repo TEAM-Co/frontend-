@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=86">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=87">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=86">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=86">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=86">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=87">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=87">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=87">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -3221,7 +3221,10 @@
                 // Vider le contenu précédent et injecter le nouveau
                 modalContent.innerHTML = '';
                 modalContent.appendChild(clonedContent);
-                
+
+                // Reset scroll position à 0
+                modalContent.scrollTop = 0;
+
                 // Afficher la modal
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';

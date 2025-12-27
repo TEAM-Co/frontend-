@@ -2246,6 +2246,9 @@
             font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 12px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
         }
 
         body.theme-it .cta-title {

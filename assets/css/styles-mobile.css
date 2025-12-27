@@ -1106,8 +1106,9 @@
     }
 
     .expertise-modal-close {
-        top: 15px;
-        right: 15px;
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
         width: 44px;
         height: 44px;
         font-size: 28px;
@@ -2616,6 +2617,9 @@
         font-size: 1.6rem !important;    /* 2.5rem → 1.6rem */
         margin-bottom: 10px !important;
         line-height: 1.3 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
     }
 
     .cta-final p,
