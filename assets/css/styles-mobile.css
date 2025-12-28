@@ -2690,4 +2690,20 @@
         color: #ffffff !important;
         font-weight: 600;
     }
+
+    /* ========================================
+       IMAGES EXPERTISES - MOBILE
+       ======================================== */
+
+    /* Override hauteur images expertise sur mobile */
+    .story-card[style*="padding: 0; overflow: hidden;"] img {
+        height: 250px !important;      /* Plus grand que auto, homogène */
+        max-width: 100% !important;    /* Full width sur mobile */
+        margin: 0 !important;          /* Pas de margin auto sur mobile */
+    }
+
+    /* Espacement symétrique autour des images */
+    .story-section[style*="margin-top: 40px"] {
+        margin-bottom: 30px !important;   /* Harmonisé avec margin-top */
+    }
 }
