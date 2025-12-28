@@ -62,7 +62,7 @@
                 { id: 'pageInfrastructureGov', title: 'Infrastructure Cloud & DevOps', desc: 'Transformation' },
                 { id: 'pageCybersecurityGov', title: 'Cybersécurité', desc: 'SMSI, Conformité' },
                 { id: 'pageGouvernance', title: 'Gouvernance Opérationnelle', desc: 'Agilité, PMO' },
-                { id: 'pageRHTech', title: 'Transformation RH Tech', desc: 'Recrutement IT' },
+                { id: 'pageRHTech', title: 'Transformation RH', desc: 'Recrutement IT' },
                 { id: 'pageWorkshopsGov', title: 'Workshops & Conférences', desc: 'Formations stratégiques' }
             ],
             decouvrir: [

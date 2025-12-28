@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=98">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=99">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=98">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=98">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=98">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=99">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=99">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=99">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -367,7 +367,7 @@
                                     <div style="font-size: 1.2rem; font-weight: 700; color: #2a1810;">Transformation des Organisations</div>
                                 </div>
                                 <div style="padding: 25px; background: rgba(245, 245, 247, 0.15); border: 2px solid rgba(203, 199, 190, 0.6); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(203, 199, 190, 0.2);" onmouseover="this.style.background='rgba(245, 245, 247, 0.3)'; this.style.borderColor='rgba(203, 199, 190, 0.9)'; this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(203, 199, 190, 0.35)'" onmouseout="this.style.background='rgba(245, 245, 247, 0.15)'; this.style.borderColor='rgba(203, 199, 190, 0.6)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(203, 199, 190, 0.2)'" onclick="openExpertiseModal('pageRHTech')">
-                                    <div style="font-size: 1.2rem; font-weight: 700; color: #2a1810;">Transformation RH Tech</div>
+                                    <div style="font-size: 1.2rem; font-weight: 700; color: #2a1810;">Transformation RH</div>
                                 </div>
                                 <div style="padding: 25px; background: rgba(245, 245, 247, 0.15); border: 2px solid rgba(203, 199, 190, 0.6); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(203, 199, 190, 0.2);" onmouseover="this.style.background='rgba(245, 245, 247, 0.3)'; this.style.borderColor='rgba(203, 199, 190, 0.9)'; this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(203, 199, 190, 0.35)'" onmouseout="this.style.background='rgba(245, 245, 247, 0.15)'; this.style.borderColor='rgba(203, 199, 190, 0.6)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(203, 199, 190, 0.2)'" onclick="openExpertiseModal('pageWorkshopsGov')">
                                     <div style="font-size: 1.2rem; font-weight: 700; color: #2a1810;">Workshops & Conférences</div>
@@ -500,7 +500,7 @@
             expertises: [
                 { id: 'pageDataIA', title: 'Data & IA', desc: 'Analytics, ML, IA Générative' },
                 { id: 'pageDigital', title: 'Développement', desc: 'Web, Mobile, APIs' },
-                { id: 'pageInfrastructure', title: 'Infrastructure Cloud & DevOps', desc: 'AWS, Azure, GCP' },
+                { id: 'pageInfrastructure', title: 'Infrastructure, Cloud & DevOps', desc: 'AWS, Azure, GCP' },
                 { id: 'pageCybersecurity', title: 'Cybersécurité', desc: 'Audits, Pentests' },
                 { id: 'pageWorkshops', title: 'Workshops & Conférences', desc: 'Formations' }
             ],
@@ -520,7 +520,7 @@
                 { id: 'pageGouvernance', title: 'Gouvernance Opérationnelle et Stratégique', desc: 'Agilité, PMO, Strategy' },
                 { id: 'pageVisionProduit', title: 'Vision Produit', desc: 'Product Management, PO, Scrum' },
                 { id: 'pageTransfoOrga', title: 'Transformation des Organisations', desc: 'Coaching, Change Management' },
-                { id: 'pageRHTech', title: 'Transformation RH Tech', desc: 'Recrutement IT' },
+                { id: 'pageRHTech', title: 'Transformation RH', desc: 'Recrutement IT' },
                 { id: 'pageWorkshopsGov', title: 'Workshops & Conférences', desc: 'Formations stratégiques' }
             ],
             decouvrir: [
@@ -585,7 +585,7 @@
                 id: 'pageInfrastructure',
                 type: 'expertise',
                 track: 'it',
-                title: 'Infrastructure Cloud & DevOps',
+                title: 'Infrastructure, Cloud & DevOps',
                 subtitle: 'ARCHITECTURES SCALABLES ET SÉCURISÉES',
                 keywords: ['cloud', 'infrastructure', 'devops', 'aws', 'azure', 'gcp', 'kubernetes', 'k8s', 'docker', 'container', 'orchestration', 'terraform', 'ansible', 'cicd', 'pipeline', 'jenkins', 'gitlab', 'scalabilité', 'haute disponibilité', 'monitoring', 'observabilité'],
                 content: 'Architectures cloud modernes scalables et sécurisées',
@@ -1627,7 +1627,12 @@
                 if (mobileSwitcher) mobileSwitcher.textContent = 'Gouvernance';
             }
 
-            updateMenu();
+            // Ne PAS recréer le menu si le sidebar est ouvert
+            const sidebar = document.getElementById('sidebar');
+            const isSidebarOpen = sidebar.classList.contains('open');
+            if (!isSidebarOpen) {
+                updateMenu();
+            }
             updateScrollIndicator();
             currentPage = 'landing';
             window.scrollTo(0, 0);
@@ -2188,7 +2193,7 @@
                 <div class="work-in-progress" id="pageInfrastructure">
                     <div class="story-container">
                         <div class="story-hero">
-                            <h1 class="story-title">Infrastructure Cloud & DevOps</h1>
+                            <h1 class="story-title">Infrastructure, Cloud & DevOps</h1>
                             <p class="story-subtitle">MODERNISEZ ET OPTIMISEZ VOS INFRASTRUCTURES</p>
                         </div>
 
@@ -2895,7 +2900,7 @@
                         <div class="story-section" style="margin-top: 40px;">
                             <div class="story-card" style="padding: 0; overflow: hidden;">
                                 <img src="assets/images/photosite/Gouv/RH.png"
-                                     alt="Transformation RH Tech"
+                                     alt="Transformation RH"
                                      style="width: 100%;
                                             height: 400px;
                                             max-width: 900px;
