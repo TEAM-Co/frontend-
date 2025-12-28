@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=100">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=101">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=100">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=100">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=100">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=101">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=101">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=101">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -146,7 +146,7 @@
             <div class="welcome-choices">
                 <button class="choice-button choice-it" onclick="selectSite('it')">
                     <div class="choice-title">Lab Technique</div>
-                    <div class="choice-desc">Data & IA • Développement • Cybersécurité • Cloud</div>
+                    <div class="choice-desc">Data & IA • Développement • Infrastructure • Cybersécurité • Cloud</div>
                 </button>
                 <button class="choice-button choice-gov" onclick="selectSite('gov')">
                     <div class="choice-title">Hub Stratégique</div>
@@ -1402,7 +1402,6 @@
                     html += `
                         <div class="menu-item" data-page="${item.id}">
                             <div class="menu-item-title">${item.title}</div>
-                            <div class="menu-item-desc">${item.desc}</div>
                         </div>
                     `;
                 });
@@ -1415,7 +1414,6 @@
                     html += `
                         <div class="menu-item" data-page="${item.id}">
                             <div class="menu-item-title">${item.title}</div>
-                            <div class="menu-item-desc">${item.desc}</div>
                         </div>
                     `;
                 });
@@ -1428,7 +1426,6 @@
                     html += `
                         <div class="menu-item" data-page="${item.id}">
                             <div class="menu-item-title">${item.title}</div>
-                            <div class="menu-item-desc">${item.desc}</div>
                         </div>
                     `;
                 });
@@ -1668,6 +1665,26 @@
 
         // Retour home avec animation - Système 3 clics progressifs
         function goHome() {
+            // Vérifier si menu mobile est ouvert
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu && mobileMenu.classList.contains('open')) {
+                // Fermer le menu
+                closeMobileMenu();
+
+                // Si pas déjà sur landing, y aller
+                if (currentPage !== 'landing') {
+                    document.querySelectorAll('.work-in-progress').forEach(p => p.classList.remove('active'));
+                    if (currentSite === 'it') {
+                        document.getElementById('landingIT').classList.add('active');
+                    } else {
+                        document.getElementById('landingGov').classList.add('active');
+                    }
+                    currentPage = 'landing';
+                    window.scrollTo(0, 0);
+                }
+                return;  // STOP - ne pas exécuter le reste de la fonction
+            }
+
             const expertiseModal = document.querySelector('.expertise-modal.active');
 
             // CLIC 1: Expertise modal ouverte → fermer et rester sur page actuelle
