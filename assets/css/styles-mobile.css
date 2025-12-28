@@ -209,6 +209,7 @@
         font-size: 24px;
         font-weight: 900;
         z-index: 1001;
+        pointer-events: auto !important; /* Force le logo à recevoir les clics même avec overlay pointer-events: all */
         /* Zone touch minimum */
         min-width: 60px; /* Augmenté pour plus de clicabilité */
         min-height: 60px;
