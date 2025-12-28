@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=106">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=107">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=106">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=106">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=106">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=107">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=107">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=107">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -1627,10 +1627,12 @@
                 if (mobileSwitcher) mobileSwitcher.textContent = 'Gouvernance';
             }
 
-            // Fermer le menu mobile si ouvert
+            // Fermer le menu mobile si ouvert (inline pour éviter problème de scope)
             const mobileMenu = document.getElementById('mobileMenu');
             if (mobileMenu && mobileMenu.classList.contains('open')) {
-                closeMobileMenu();
+                const hamburgerButton = document.getElementById('hamburgerButton');
+                if (hamburgerButton) hamburgerButton.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('open');
             }
 
             // Ne PAS recréer le menu si le sidebar est ouvert
@@ -1673,8 +1675,10 @@
             // Vérifier si menu mobile est ouvert
             const mobileMenu = document.getElementById('mobileMenu');
             if (mobileMenu && mobileMenu.classList.contains('open')) {
-                // Fermer le menu
-                closeMobileMenu();
+                // Fermer le menu (inline pour éviter problème de scope)
+                const hamburgerButton = document.getElementById('hamburgerButton');
+                if (hamburgerButton) hamburgerButton.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('open');
 
                 // Si pas déjà sur landing, y aller
                 if (currentPage !== 'landing') {
