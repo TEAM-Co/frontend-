@@ -2,7 +2,7 @@
         const CHAT_CONFIG = {
             // 🔒 SÉCURITÉ: Le backend sécurisé gère l'API Claude (clé protégée dans .env)
             // USE_DIRECT_API: false, // DEPRECATED
-            BACKEND_URL: 'http://localhost:3000/api/chat',
+            BACKEND_URL: 'https://audentis-backend.vercel.app/api/chat',
 
             // EmailJS configuration - Fonctionne correctement ✅
             EMAILJS_PUBLIC_KEY: 'pebJgpQP_xvUZim-M',
