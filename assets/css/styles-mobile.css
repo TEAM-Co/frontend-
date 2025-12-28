@@ -208,7 +208,7 @@
         right: 20px;
         font-size: 24px;
         font-weight: 900;
-        z-index: 1000;
+        z-index: 1001;
         /* Zone touch minimum */
         min-width: 60px; /* Augmenté pour plus de clicabilité */
         min-height: 60px;
