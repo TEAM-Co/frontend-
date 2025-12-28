@@ -208,7 +208,7 @@
         right: 20px;
         font-size: 24px;
         font-weight: 900;
-        z-index: 1001;
+        z-index: 10001 !important; /* AU-DESSUS de mobile-menu-overlay (z-index: 10000 dans styles-base.css) */
         pointer-events: auto !important; /* Force le logo à recevoir les clics même avec overlay pointer-events: all */
         /* Zone touch minimum */
         min-width: 60px; /* Augmenté pour plus de clicabilité */
