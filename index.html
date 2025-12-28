@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=99">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=100">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=99">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=99">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=99">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=100">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=100">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=100">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -1477,17 +1477,20 @@
                             } else if (actionType === 'switch') {
                                 if (typeof switchSite === 'function') {
                                     switchSite();
+                                    // Menu will be closed by switchSite(), no need to rebuild
                                 }
-                                // Rebuild menu with new site data
-                                setTimeout(() => {
-                                    if (mobileMenu.classList.contains('open')) {
-                                        buildFullscreenMenu();
-                                    }
-                                }, 300);
                             }
                         }, 100);
                     });
                 });
+            }
+
+            // Function to close mobile menu
+            function closeMobileMenu() {
+                const hamburgerButton = document.getElementById('hamburgerButton');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (hamburgerButton) hamburgerButton.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('open');
             }
 
             // Toggle menu
@@ -1625,6 +1628,12 @@
                 // Update mobile switcher text
                 const mobileSwitcher = document.getElementById('mobileSwitcherText');
                 if (mobileSwitcher) mobileSwitcher.textContent = 'Gouvernance';
+            }
+
+            // Fermer le menu mobile si ouvert
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu && mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
             }
 
             // Ne PAS recréer le menu si le sidebar est ouvert
