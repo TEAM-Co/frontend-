@@ -2033,6 +2033,172 @@
             text-transform: uppercase;
         }
 
+        /* ========================================
+           HERO AVEC IMAGES - DESKTOP
+           ======================================== */
+
+        .story-hero-with-image {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+            overflow: hidden;
+            border-radius: 24px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Overlay gradient pour lisibilité */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                rgba(26, 15, 10, 0.85) 0%,
+                rgba(26, 15, 10, 0.75) 30%,
+                rgba(26, 15, 10, 0.6) 60%,
+                rgba(26, 15, 10, 0.85) 100%
+            );
+            z-index: 1;
+        }
+
+        body.theme-gov .hero-overlay {
+            background: linear-gradient(135deg,
+                rgba(203, 199, 190, 0.92) 0%,
+                rgba(203, 199, 190, 0.85) 30%,
+                rgba(203, 199, 190, 0.75) 60%,
+                rgba(203, 199, 190, 0.92) 100%
+            );
+        }
+
+        /* Contenu hero par-dessus l'image */
+        .story-hero-with-image .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 60px 40px;
+            max-width: 800px;
+        }
+
+        /* Glassmorphism autour du contenu */
+        .story-hero-with-image .hero-content::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% + 80px);
+            height: calc(100% + 40px);
+            background: rgba(255, 127, 92, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 127, 92, 0.2);
+            z-index: -1;
+        }
+
+        body.theme-gov .story-hero-with-image .hero-content::before {
+            background: rgba(245, 245, 247, 0.12);
+            border-color: rgba(203, 199, 190, 0.3);
+        }
+
+        /* ========================================
+           BACKGROUNDS PAR EXPERTISE - IT
+           ======================================== */
+
+        .story-hero-with-image[data-image="data-ia"] {
+            background-image: url('../images/photosite/IT/Data.jpg');
+        }
+
+        .story-hero-with-image[data-image="developpement"] {
+            background-image: url('../images/photosite/IT/Développement.jpg');
+        }
+
+        .story-hero-with-image[data-image="infrastructure"] {
+            background-image: url('../images/photosite/IT/Infra.jpg');
+        }
+
+        .story-hero-with-image[data-image="cybersecurite"] {
+            background-image: url('../images/photosite/IT/Cyber.jpg');
+        }
+
+        .story-hero-with-image[data-image="workshops-it"] {
+            background-image: url('../images/photosite/IT/Conference copie.png');
+        }
+
+        /* ========================================
+           BACKGROUNDS PAR EXPERTISE - GOV
+           ======================================== */
+
+        .story-hero-with-image[data-image="gouvernance"] {
+            background-image: url('../images/photosite/Gouv/Gouvernance Op et Strat.png');
+        }
+
+        .story-hero-with-image[data-image="vision-produit"] {
+            background-image: url('../images/photosite/Gouv/Vision Product.png');
+        }
+
+        .story-hero-with-image[data-image="transfo-orga"] {
+            background-image: url('../images/photosite/Gouv/transfo orga.png');
+        }
+
+        .story-hero-with-image[data-image="rh-tech"] {
+            background-image: url('../images/photosite/Gouv/RH.png');
+        }
+
+        .story-hero-with-image[data-image="workshops-gov"] {
+            background-image: url('../images/photosite/Gouv/Conference.png');
+        }
+
+        /* ========================================
+           BACKGROUNDS PAGES COMMUNES
+           ======================================== */
+
+        .story-hero-with-image[data-image="veille"] {
+            background-image: url('../images/photosite/ResteMenu/veille et actu.png');
+        }
+
+        .story-hero-with-image[data-image="rejoindre"] {
+            background-image: url('../images/photosite/ResteMenu/Nous rejoindre.png');
+        }
+
+        /* ========================================
+           RESPONSIVE - TABLET (768-1024px)
+           ======================================== */
+
+        @media (max-width: 1024px) {
+            .story-hero-with-image {
+                min-height: 50vh;
+                border-radius: 20px;
+            }
+
+            /* Gradient plus opaque sur tablet */
+            .hero-overlay {
+                background: linear-gradient(135deg,
+                    rgba(26, 15, 10, 0.9) 0%,
+                    rgba(26, 15, 10, 0.8) 50%,
+                    rgba(26, 15, 10, 0.9) 100%
+                );
+            }
+
+            body.theme-gov .hero-overlay {
+                background: linear-gradient(135deg,
+                    rgba(203, 199, 190, 0.95) 0%,
+                    rgba(203, 199, 190, 0.88) 50%,
+                    rgba(203, 199, 190, 0.95) 100%
+                );
+            }
+
+            .story-hero-with-image .hero-content {
+                padding: 50px 30px;
+            }
+        }
+
         .story-section {
             margin-bottom: 45px;
         }

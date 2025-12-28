@@ -878,6 +878,101 @@
         text-align: center; /* Centré */
     }
 
+    /* ========================================
+       HERO AVEC IMAGES - MOBILE
+       ======================================== */
+
+    .story-hero-with-image {
+        min-height: 40vh !important;
+        border-radius: 16px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Image légèrement floutée pour meilleure lisibilité */
+    .story-hero-with-image::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(2px);
+        z-index: 0;
+    }
+
+    /* Copier l'image dans le ::after pour le blur */
+    .story-hero-with-image[data-image="data-ia"]::after {
+        background-image: url('../images/photosite/IT/Data.jpg');
+    }
+
+    .story-hero-with-image[data-image="developpement"]::after {
+        background-image: url('../images/photosite/IT/Développement.jpg');
+    }
+
+    .story-hero-with-image[data-image="infrastructure"]::after {
+        background-image: url('../images/photosite/IT/Infra.jpg');
+    }
+
+    .story-hero-with-image[data-image="cybersecurite"]::after {
+        background-image: url('../images/photosite/IT/Cyber.jpg');
+    }
+
+    .story-hero-with-image[data-image="workshops-it"]::after {
+        background-image: url('../images/photosite/IT/Conference copie.png');
+    }
+
+    .story-hero-with-image[data-image="gouvernance"]::after {
+        background-image: url('../images/photosite/Gouv/Gouvernance Op et Strat.png');
+    }
+
+    .story-hero-with-image[data-image="vision-produit"]::after {
+        background-image: url('../images/photosite/Gouv/Vision Product.png');
+    }
+
+    .story-hero-with-image[data-image="transfo-orga"]::after {
+        background-image: url('../images/photosite/Gouv/transfo orga.png');
+    }
+
+    .story-hero-with-image[data-image="rh-tech"]::after {
+        background-image: url('../images/photosite/Gouv/RH.png');
+    }
+
+    .story-hero-with-image[data-image="workshops-gov"]::after {
+        background-image: url('../images/photosite/Gouv/Conference.png');
+    }
+
+    .story-hero-with-image[data-image="veille"]::after {
+        background-image: url('../images/photosite/ResteMenu/veille et actu.png');
+    }
+
+    .story-hero-with-image[data-image="rejoindre"]::after {
+        background-image: url('../images/photosite/ResteMenu/Nous rejoindre.png');
+    }
+
+    /* Overlay très opaque sur mobile */
+    .hero-overlay {
+        background: linear-gradient(to bottom,
+            rgba(160, 82, 45, 0.95) 0%,
+            rgba(160, 82, 45, 0.9) 100%
+        ) !important;
+    }
+
+    body.theme-gov .hero-overlay {
+        background: linear-gradient(to bottom,
+            rgba(245, 245, 247, 0.95) 0%,
+            rgba(245, 245, 247, 0.9) 100%
+        ) !important;
+    }
+
+    /* Pas de glassmorphism sur mobile (performance) */
+    .story-hero-with-image .hero-content::before {
+        display: none !important;
+    }
+
+    .story-hero-with-image .hero-content {
+        padding: 40px 20px !important;
+    }
+
     .story-section {
         margin-bottom: 15px;       /* 40px → 15px - RÉDUCTION MAJEURE bulles serrées */
     }
