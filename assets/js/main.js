@@ -1534,7 +1534,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="network-card" onclick="window.open('https://www.linkedin.com/company/audentis/', '_blank')">
+                                    <div class="network-card" onclick="window.open('https://www.linkedin.com/company/liwe-services/about/', '_blank')">
                                         <div style="display: flex; align-items: center; gap: 20px;">
                                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF7F5C" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
