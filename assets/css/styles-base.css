@@ -1274,7 +1274,7 @@
             width: 100vw;
             height: 100vh;
             background: rgba(20, 20, 20, 0.98);
-            z-index: 10000; /* Passe devant TOUT */
+            z-index: 10003; /* Au-dessus modal expertise (10001) et close button (10002) */
             display: none;
             overflow-y: auto;
             transition: opacity 0.3s ease;
