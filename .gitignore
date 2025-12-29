@@ -3,5 +3,6 @@ node_modules/
 *.log
 .env
 
-# Bloquer uniquement le gros PDF (103 MB) s'il réapparaît
-assets/PlaquetteCoLiwe.pdf
+# Bloquer le PDF (trop volumineux pour Git)
+assets/documents/PlaquetteLIWE.pdf
+**/.DS_Store

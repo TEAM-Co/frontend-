@@ -4,9 +4,9 @@ Ce dossier contient les documents téléchargeables du site.
 
 ## Fichiers
 
-- `PlaquetteCoLiwe.pdf` (61 MB) - Plaquette commerciale de Liwe
+- `PlaquetteLIWE.pdf` (58 MB) - Plaquette commerciale de Liwe
   - Page: Plaquette Commerciale
-  - Lien: `/assets/documents/PlaquetteCoLiwe.pdf`
+  - Lien: `/assets/documents/PlaquetteLIWE.pdf`
 
 ## Note Git
 

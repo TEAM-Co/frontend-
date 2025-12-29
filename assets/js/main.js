@@ -1591,7 +1591,7 @@
                         <div class="cta-section">
                             <h3 class="cta-title">Télécharger notre <span class="cta-highlight">plaquette</span></h3>
                             <p class="cta-subtitle">Format PDF - Découvrez toutes nos expertises</p>
-                            <a href="computer:///mnt/user-data/outputs/Liwe-Plaquette.pdf" download="Liwe-Plaquette.pdf" class="cta-button" style="text-decoration: none; display: inline-block;">📥 Télécharger la plaquette</a>
+                            <a href="assets/documents/PlaquetteLIWE.pdf" download="Liwe-Plaquette-Commerciale.pdf" class="cta-button" style="text-decoration: none; display: inline-block;" target="_blank">📥 Télécharger la plaquette</a>
                         </div>
                     </div>
                 </div>
