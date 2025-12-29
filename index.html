@@ -10,11 +10,11 @@
     <title>Liwe - Experts IT & Stratégiques</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=109">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=110">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=109">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=109">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=109">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=110">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=110">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=110">
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile only) -->
@@ -1189,6 +1189,11 @@
 
         // Fonction pour basculer entre les thèmes IT et GOV
         function toggleTheme() {
+            // Close expertise modal if open
+            if (typeof closeExpertiseModal === 'function') {
+                closeExpertiseModal();
+            }
+
             const body = document.body;
             const landingIT = document.getElementById('landingIT');
             const landingGov = document.getElementById('landingGov');
