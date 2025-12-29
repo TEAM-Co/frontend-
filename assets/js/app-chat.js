@@ -737,7 +737,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             conversationFormatted += '═══════════════════════════════════════════════════════\n';
 
             const emailData = {
-                to_email: 'contact@audentis.fr',
+                to_email: 'contact@liwe-services.com',
                 site: siteLabel,
                 prenom: chatState.leadData.prenom,
                 nom: chatState.leadData.nom,
@@ -770,7 +770,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             
             // Données simplifiées pour éviter les erreurs
             const emailData = {
-                to_email: 'contact@audentis.fr',
+                to_email: 'contact@liwe-services.com',
                 site: siteLabel,
                 question_initiale: chatState.initialQuestion,
                 timestamp: new Date().toLocaleString('fr-FR'),
@@ -846,7 +846,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             conversationFormatted += '═══════════════════════════════════════════════════════\n';
 
             const emailData = {
-                to_email: 'contact@audentis.fr',
+                to_email: 'contact@liwe-services.com',
                 site: siteLabel,
                 prenom: chatState.leadData.prenom || 'Non collecté',
                 nom: chatState.leadData.nom || 'Non collecté',
@@ -1009,7 +1009,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
 ═══════════════════════════════════════════════════════`;
 
             const emailData = {
-                to_email: 'contact@audentis.fr',
+                to_email: 'contact@liwe-services.com',
                 site: siteLabel,
                 prenom: data.prenom,
                 nom: data.nom,
@@ -1045,7 +1045,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                 },
                 function(error) {
                     console.error('❌ Erreur envoi email:', error);
-                    alert('Une erreur est survenue. Veuillez nous contacter directement à contact@audentis.fr');
+                    alert('Une erreur est survenue. Veuillez nous contacter directement à contact@liwe-services.com');
                 }
             );
         }

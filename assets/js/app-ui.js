@@ -1549,7 +1549,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="network-card" onclick="window.location.href='mailto:contact@audentis.fr'">
+                                    <div class="network-card" onclick="window.location.href='mailto:contact@liwe-services.com'">
                                         <div style="display: flex; align-items: center; gap: 20px;">
                                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF7F5C" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -1557,7 +1557,7 @@
                                             </svg>
                                             <div>
                                                 <div class="network-card-title">Email</div>
-                                                <div class="network-card-desc">contact@audentis.fr</div>
+                                                <div class="network-card-desc">contact@liwe-services.com</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2056,7 +2056,7 @@
                 `Question:\n${data.question}`
             );
             
-            window.location.href = `mailto:contact@audentis.fr?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:contact@liwe-services.com?subject=${subject}&body=${body}`;
             
             setTimeout(() => {
                 closeContactModal();
