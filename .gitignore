@@ -3,6 +3,4 @@ node_modules/
 *.log
 .env
 
-# Bloquer le PDF (trop volumineux pour Git)
-assets/documents/PlaquetteLIWE.pdf
 **/.DS_Store
