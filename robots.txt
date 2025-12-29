@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.liwe.fr/sitemap.xml
+
+# Protect sensitive directories
+Disallow: /assets/js/
+Disallow: /.git/
