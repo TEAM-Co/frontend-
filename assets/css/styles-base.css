@@ -2333,6 +2333,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-block;
+            text-decoration: none; /* Pour les liens <a> */
         }
 
         body.theme-gov .cta-button {
