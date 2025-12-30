@@ -647,6 +647,51 @@
             opacity: 1;
         }
 
+        /* ========================================
+           BOUTON BURGER DESKTOP - MENU COMPLET
+           ======================================== */
+
+        /* Style de base (hérite de .mini-sidebar-item) */
+        .mini-sidebar-item.burger-desktop {
+            /* Tous les styles de base hérités automatiquement */
+            position: relative;
+        }
+
+        /* SVG du burger - couleur par défaut */
+        .mini-sidebar-item.burger-desktop svg {
+            width: 20px;
+            height: 20px;
+            stroke: rgba(245, 245, 247, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        /* Hover - éclat orange comme les autres boutons */
+        .mini-sidebar-item.burger-desktop:hover svg {
+            stroke: #FF7F5C;
+            transform: scale(1.1);
+        }
+
+        /* Thème Gov - couleur adaptée */
+        body.theme-gov .mini-sidebar-item.burger-desktop svg {
+            stroke: rgba(26, 26, 26, 0.7);
+        }
+
+        body.theme-gov .mini-sidebar-item.burger-desktop:hover svg {
+            stroke: #8B6F47;
+        }
+
+        /* Animation au clic (feedback visuel) */
+        .mini-sidebar-item.burger-desktop:active {
+            transform: scale(0.95);
+        }
+
+        /* Masquer sur mobile (burger mobile existe déjà) */
+        @media (max-width: 768px) {
+            .mini-sidebar-item.burger-desktop {
+                display: none !important;
+            }
+        }
+
         /* Séparateur dans mini sidebar */
         .mini-sidebar-separator {
             width: 30px;

@@ -67,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=135">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=136">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=135">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=135">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=135">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=136">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=136">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=136">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -342,6 +342,17 @@
         <div class="sidebar-switcher" id="sidebarSwitcher" onclick="toggleTheme()">
             <div class="sidebar-switcher-icon">💻</div>
             <div class="sidebar-switcher-text">Gouv</div>
+        </div>
+
+        <div class="mini-sidebar-separator"></div>
+
+        <!-- Burger Menu Desktop - Ouvre menu complet -->
+        <div class="mini-sidebar-item burger-desktop" data-tooltip="Menu complet" onclick="openFullMenu()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
         </div>
 
         <div class="mini-sidebar-separator"></div>
