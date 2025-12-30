@@ -1498,10 +1498,10 @@
 
         .sidebar-brand h2::after {
             content: "■";
-            color: #FF7F5C;
-            margin-left: 10px;
-            font-size: 0.6em;
-            vertical-align: middle;
+            color: #FF6B3D;
+            margin-left: 3px;
+            font-size: 0.28em;
+            vertical-align: baseline;
         }
 
         .sidebar-brand p {
@@ -1652,10 +1652,10 @@
 
         .welcome-title::after {
             content: "■";
-            color: #FF7F5C;
-            margin-left: 12px;
-            font-size: 0.5em;
-            vertical-align: middle;
+            color: #FF6B3D;
+            margin-left: 4px;
+            font-size: 0.25em;
+            vertical-align: baseline;
         }
 
         .welcome-question {
