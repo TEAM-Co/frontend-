@@ -67,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=137">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=139">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=137">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=137">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=137">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=139">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=139">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=139">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -1779,11 +1779,6 @@
                     `;
                 });
 
-                html += '<div class="menu-separator"></div>';
-
-                // CONTACT (bouton action pour ouvrir le chat)
-                html += '<div class="menu-action" data-action="contact">OUVRIR LE CHAT</div>';
-
                 fullscreenMenuContent.innerHTML = html;
 
                 // Attach search listener
@@ -1816,11 +1811,7 @@
                         mobileMenu.classList.remove('open');
 
                         setTimeout(() => {
-                            if (actionType === 'contact') {
-                                if (typeof openChatInterface === 'function') {
-                                    openChatInterface();
-                                }
-                            } else if (actionType === 'switch') {
+                            if (actionType === 'switch') {
                                 if (typeof switchSite === 'function') {
                                     switchSite();
                                     // Menu will be closed by switchSite(), no need to rebuild

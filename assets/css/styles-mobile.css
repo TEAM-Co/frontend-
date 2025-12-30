@@ -2715,6 +2715,13 @@
        LOGO - CACHER SUR MOBILE QUAND MODAL/MENU OUVERT
        ======================================== */
 
+    /* État normal du logo - Visible avec transition smooth */
+    .logo-btn {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transition: opacity 0.3s ease;
+    }
+
     /* Cacher le logo sur mobile quand menu ou modal ouvert */
     body.menu-open #logoBtn,
     body.modal-open #logoBtn,

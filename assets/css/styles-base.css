@@ -1457,16 +1457,16 @@
         }
 
         body.theme-gov .menu-action-primary {
-            background: rgba(160, 82, 45, 0.25);
-            border-color: rgba(160, 82, 45, 0.5);
-            color: #FF7F5C;
-            box-shadow: 0 4px 12px rgba(160, 82, 45, 0.2);
+            background: rgba(26, 26, 26, 0.08);
+            border-color: rgba(26, 26, 26, 0.2);
+            color: rgba(26, 26, 26, 0.9);
+            box-shadow: 0 2px 8px rgba(26, 26, 26, 0.1);
         }
 
         body.theme-gov .menu-action-primary:hover {
-            background: rgba(160, 82, 45, 0.35);
-            border-color: #FF7F5C;
-            box-shadow: 0 6px 20px rgba(160, 82, 45, 0.3);
+            background: rgba(160, 82, 45, 0.2);
+            border-color: rgba(160, 82, 45, 0.5);
+            box-shadow: 0 4px 16px rgba(160, 82, 45, 0.25);
         }
 
         .menu-separator {
@@ -1688,7 +1688,7 @@
         }
 
         .welcome-title {
-            font-size: 140px;
+            font-size: 160px;
             font-weight: 900;
             color: #f5f5f7;
             letter-spacing: -2px;
@@ -1722,7 +1722,12 @@
         .choice-button {
             flex: 1;
             max-width: 540px;
+            min-height: 240px;
             padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             background: transparent;
             border: 1px solid rgba(245, 245, 247, 0.2);
             border-radius: 16px;
