@@ -7,10 +7,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="format-detection" content="telephone=no">
     <!-- CSP désactivée pour développement local -->
-    <title>Liwe - Experts IT & Stratégiques</title>
+    <title>Notre Histoire - Hub Stratégique | Liwe</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Liwe - Experts techniques et stratégiques en IT. Data & IA, Développement, Cloud, Cybersécurité, Gouvernance. Missions courtes ou longues pour vos projets IT.">
+    <meta name="description" content="Découvrez l'histoire de Liwe Hub Stratégique : expertise en Gouvernance IT, Product Management, Transformation Organisationnelle. Accompagnement stratégique sur-mesure.">
     <meta name="keywords" content="expertise IT, data IA, développement, cloud, cybersécurité, gouvernance IT, product management, transformation digitale, conseil IT, missions IT">
 
     <!-- Google Search Console Verification -->
@@ -48,21 +48,21 @@
     </script>
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.liwe-services.com/">
+    <link rel="canonical" href="https://www.liwe-services.com/histoire-gov.html">
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.liwe-services.com/">
-    <meta property="og:title" content="Liwe - Experts IT & Stratégiques">
-    <meta property="og:description" content="Expertise technique et stratégique en Data & IA, Développement, Cloud, Cybersécurité et Gouvernance. Missions courtes ou longues pour accompagner vos projets IT.">
+    <meta property="og:url" content="https://www.liwe-services.com/histoire-gov.html">
+    <meta property="og:title" content="Notre Histoire - Hub Stratégique | Liwe">
+    <meta property="og:description" content="Découvrez l'histoire de Liwe Hub Stratégique : expertise en Gouvernance IT, Product Management, Transformation Organisationnelle. Accompagnement stratégique sur-mesure.">
     <meta property="og:image" content="https://www.liwe-services.com/assets/images/og-image.jpg">
     <meta property="og:locale" content="fr_FR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.liwe-services.com/">
-    <meta name="twitter:title" content="Liwe - Experts IT & Stratégiques">
-    <meta name="twitter:description" content="Expertise technique et stratégique en Data & IA, Développement, Cloud, Cybersécurité et Gouvernance.">
+    <meta name="twitter:url" content="https://www.liwe-services.com/histoire-gov.html">
+    <meta name="twitter:title" content="Notre Histoire - Hub Stratégique | Liwe">
+    <meta name="twitter:description" content="Découvrez l'histoire de Liwe Hub Stratégique : expertise en Gouvernance IT, Product Management, Transformation Organisationnelle.">
     <meta name="twitter:image" content="https://www.liwe-services.com/assets/images/og-image.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -107,7 +107,7 @@
     }
     </script>
 </head>
-<body>
+<body class="theme-gov has-mini-sidebar">
     <!-- Bandeau Cookies RGPD -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-banner-content">
@@ -309,7 +309,7 @@
     </div>
 
     <!-- Animation intro -->
-    <div class="intro-animation active" id="introAnimation">
+    <div class="intro-animation" id="introAnimation" style="display: none;">
         <div class="intro-logo" style="display: flex; align-items: center; justify-content: center;">
             <img src="assets/images/NewLogo sans Liwe.png" alt="Liwe" style="height: 300px; width: auto;">
         </div>
@@ -408,10 +408,10 @@
     <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
     <!-- Bouton Switch -->
-    <button class="site-switcher" id="siteSwitcher" onclick="switchSite()"></button>
+    <button class="site-switcher" id="siteSwitcher" onclick="switchSite()">Expertise IT</button>
 
     <!-- Page d'accueil -->
-    <div class="welcome-screen" id="welcomeScreen">
+    <div class="welcome-screen" id="welcomeScreen" style="display: none;">
         <div class="welcome-content">
             <!-- Titre Liwe -->
             <div class="welcome-title">LIWE</div>
@@ -735,8 +735,8 @@
     </div>
 
     <script>
-        let currentSite = null;
-        let currentPage = 'welcome';
+        let currentSite = 'gov';
+        let currentPage = 'pageHistoire';
         let islandAnimating = false;
         let islandTimeout = null;
 
@@ -1520,16 +1520,12 @@
 
         // Init
         function init() {
-            // Ajouter le mode welcome
-            document.body.classList.add('welcome-mode');
-            
-            // Attendre la fin de l'animation d'intro
-            setTimeout(() => {
-                createContentPages();
-                setupDropdowns();
-                setupScrollEffects();
-                updateSearchIconVisibility(); // Initialiser l'état de l'icône recherche
-            }, 3000);
+            // Initialisation directe (pas de welcome screen)
+            createContentPages();
+            setupDropdowns();
+            setupScrollEffects();
+            updateMenu(); // Initialiser le menu pour le thème Gov
+            updateSearchIconVisibility(); // Initialiser l'état de l'icône recherche
         }
 
         // Gérer les dropdowns de questions
@@ -3397,7 +3393,7 @@
                 </div>
 
                 <!-- NOTRE HISTOIRE -->
-                <div class="work-in-progress" id="pageHistoire">
+                <div class="work-in-progress active" id="pageHistoire">
                     <div class="story-container">
                         <div class="story-hero">
                             <h1 class="story-title">Notre Histoire</h1>
