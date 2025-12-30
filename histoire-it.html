@@ -67,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=128">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=129">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=128">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=128">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=128">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=129">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=129">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=129">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -739,6 +739,10 @@
         let currentPage = 'pageHistoire';
         let islandAnimating = false;
         let islandTimeout = null;
+
+        // History API - Navigation avec flèches back/forward
+        let navigationHistory = [];
+        let currentHistoryIndex = -1;
 
         // Variable pour stocker le terme de recherche (pour highlight)
         window.lastSearchTerm = '';
@@ -1526,7 +1530,51 @@
             setupScrollEffects();
             updateMenu(); // Initialiser le menu pour le thème IT
             updateSearchIconVisibility(); // Initialiser l'état de l'icône recherche
+
+            // Initialiser l'historique avec l'état de départ
+            pushToHistory(currentPage, currentSite);
+
+            // Vérifier si hash dans URL (pour deep linking)
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                // Afficher la page correspondante au hash
+                showPage(hash, false);
+            }
         }
+
+        // History API - Ajouter à l'historique de navigation
+        function pushToHistory(page, site) {
+            // Ajouter à notre tableau d'historique
+            navigationHistory.push({ page, site });
+            currentHistoryIndex = navigationHistory.length - 1;
+
+            // Mettre à jour l'URL avec hash
+            const hash = page === 'landing' ? '' : page;
+            if (hash) {
+                history.pushState({ page, site }, '', `#${hash}`);
+            } else {
+                history.pushState({ page, site }, '', window.location.pathname);
+            }
+        }
+
+        // History API - Listener pour les flèches back/forward
+        window.addEventListener('popstate', (event) => {
+            if (event.state) {
+                // Restaurer l'état depuis l'historique
+                const { page, site } = event.state;
+
+                // Changer de thème si nécessaire
+                if (site !== currentSite) {
+                    switchToSite(site, false); // false = pas de pushState
+                }
+
+                // Afficher la page correspondante
+                showPage(page, false); // false = pas de pushState
+            } else {
+                // Retour à l'état initial (première visite de la page)
+                // Sur pages SEO : rester sur la page actuelle (ne rien faire)
+            }
+        });
 
         // Gérer les dropdowns de questions
         function setupDropdowns() {
@@ -1882,7 +1930,12 @@
         }
 
         // Switch site
-        function switchSite() {
+        function switchSite(pushHistory = true) {
+            const newSite = currentSite === 'it' ? 'gov' : 'it';
+            switchToSite(newSite, pushHistory);
+        }
+
+        function switchToSite(site, pushHistory = true) {
             // Close expertise modal if open
             if (typeof closeExpertiseModal === 'function') {
                 closeExpertiseModal();
@@ -1890,7 +1943,7 @@
 
             document.querySelectorAll('.work-in-progress, .main-container').forEach(p => p.classList.remove('active'));
 
-            if (currentSite === 'it') {
+            if (site === 'gov') {
                 currentSite = 'gov';
                 document.body.classList.remove('theme-it');
                 document.body.classList.add('theme-gov');
@@ -1927,6 +1980,11 @@
             updateScrollIndicator();
             currentPage = 'landing';
             window.scrollTo(0, 0);
+
+            // Ajouter à l'historique si demandé
+            if (pushHistory) {
+                pushToHistory(currentPage, currentSite);
+            }
 
             // Ouvrir le Dynamic Island automatiquement après 5 sec
             setTimeout(() => {
@@ -2219,7 +2277,7 @@
         }
 
         // Show page
-        function showPage(pageId) {
+        function showPage(pageId, pushHistory = true) {
             // Close expertise modal if open
             if (typeof closeExpertiseModal === 'function') {
                 closeExpertiseModal();
@@ -2232,7 +2290,7 @@
             }
 
             document.querySelectorAll('.main-container, .work-in-progress').forEach(p => p.classList.remove('active'));
-            
+
             const page = document.getElementById(pageId);
             if (page) {
                 page.classList.add('active');
@@ -2243,6 +2301,11 @@
             // Cacher l'indicateur de scroll sur les pages internes
             document.getElementById('scrollIndicator').classList.remove('visible');
             updateSearchIconVisibility(); // Gérer visibilité icône recherche
+
+            // Ajouter à l'historique si demandé
+            if (pushHistory) {
+                pushToHistory(pageId, currentSite);
+            }
         }
 
         // Show experts in Dynamic Island - EXACTE V15
