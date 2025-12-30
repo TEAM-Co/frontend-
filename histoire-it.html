@@ -67,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=129">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=130">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=129">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=129">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=129">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=130">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=130">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=130">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -1824,6 +1824,11 @@
 
                     if (mobileMenu.classList.contains('open')) {
                         buildFullscreenMenu();
+                        document.body.style.overflow = 'hidden';
+                        document.body.classList.add('menu-open');
+                    } else {
+                        document.body.style.overflow = '';
+                        document.body.classList.remove('menu-open');
                     }
                 });
 
@@ -1832,6 +1837,8 @@
                     if (e.target === mobileMenu) {
                         hamburgerButton.classList.remove('active');
                         mobileMenu.classList.remove('open');
+                        document.body.style.overflow = '';
+                        document.body.classList.remove('menu-open');
                     }
                 });
             }
@@ -4490,6 +4497,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             modal.classList.add('active');
             chatState.isOpen = true;
             document.body.style.overflow = 'hidden';
+            document.body.classList.add('modal-open');
 
             // Réinitialiser
             chatState.conversationHistory = [];
@@ -4520,6 +4528,7 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             modal.classList.remove('active');
             chatState.isOpen = false;
             document.body.style.overflow = 'auto';
+            document.body.classList.remove('modal-open');
         }
 
         function addUserMessage(text) {
@@ -5338,12 +5347,14 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Bloquer scroll du body
+            document.body.classList.add('modal-open');
         }
 
         function closeLegalModal() {
             const modal = document.getElementById('legalModal');
             modal.classList.remove('active');
             document.body.style.overflow = ''; // Restaurer scroll
+            document.body.classList.remove('modal-open');
         }
 
         // Fermer avec Escape

@@ -2872,6 +2872,7 @@
             transition: all 0.2s ease;
             font-weight: 400;
             line-height: 1;
+            z-index: 10002; /* Au-dessus du logo (10001) */
         }
 
         .chat-close:hover {
@@ -3619,6 +3620,7 @@
             color: #f5f5f7;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 10002; /* Au-dessus du logo (10001) */
         }
 
         .legal-modal-close:hover {
