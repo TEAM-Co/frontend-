@@ -574,6 +574,14 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             }
         }
 
+        // Remplacer les placeholders dans le prompt avec les données collectées
+        function replacePlaceholders(text, leadData) {
+            return text
+                .replace(/\[Prénom\]/g, leadData.prenom || '')
+                .replace(/\[Nom\]/g, leadData.nom || '')
+                .replace(/\[Société\]/g, leadData.societe || '');
+        }
+
         async function sendToClaudeAPI(userMessage) {
             console.log('🚀 Envoi du message à Claude API...', userMessage);
 
@@ -615,6 +623,9 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
             } else if (chatState.currentSite === 'recruitment') {
                 systemPrompt = PROMPT_RECRUITMENT;
             }
+
+            // Remplacer les placeholders avec les données réelles
+            systemPrompt = replacePlaceholders(systemPrompt, chatState.leadData);
 
             // ⚡ COMPTEUR DE QUESTIONS : Compter combien de messages assistant ont déjà été envoyés
             const assistantMessageCount = chatState.conversationHistory.filter(msg => msg.role === 'assistant').length;

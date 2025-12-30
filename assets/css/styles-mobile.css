@@ -468,7 +468,7 @@
     .mobile-menu-overlay.open {
         display: flex !important; /* Seulement quand explicitement ouvert */
         opacity: 1;
-        pointer-events: none; /* Laisse passer les clics au logo */
+        pointer-events: auto; /* Permet scroll dans le menu */
     }
 
     body.theme-gov .mobile-menu-overlay {
