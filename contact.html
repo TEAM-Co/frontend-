@@ -7,10 +7,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="format-detection" content="telephone=no">
     <!-- CSP désactivée pour développement local -->
-    <title>Notre Histoire - Lab Technique | Liwe</title>
+    <title>Contact & Réseaux - Liwe</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Découvrez l'histoire de Liwe Lab Technique : expertise en Data & IA, Développement, Cloud, Cybersécurité. Missions courtes ou longues pour vos projets IT.">
+    <meta name="description" content="Contactez Liwe : LinkedIn, Spotify, et toutes nos coordonnées. Expertise IT et stratégique pour vos projets.">
     <meta name="keywords" content="expertise IT, data IA, développement, cloud, cybersécurité, gouvernance IT, product management, transformation digitale, conseil IT, missions IT">
 
     <!-- Google Search Console Verification -->
@@ -48,21 +48,21 @@
     </script>
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.liwe-services.com/histoire-it.html">
+    <link rel="canonical" href="https://www.liwe-services.com/contact.html">
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.liwe-services.com/histoire-it.html">
-    <meta property="og:title" content="Notre Histoire - Lab Technique | Liwe">
-    <meta property="og:description" content="Découvrez l'histoire de Liwe Lab Technique : expertise en Data & IA, Développement, Cloud, Cybersécurité. Missions courtes ou longues pour vos projets IT.">
+    <meta property="og:url" content="https://www.liwe-services.com/contact.html">
+    <meta property="og:title" content="Contact & Réseaux - Liwe">
+    <meta property="og:description" content="Contactez Liwe : LinkedIn, Spotify, et toutes nos coordonnées. Expertise IT et stratégique pour vos projets.">
     <meta property="og:image" content="https://www.liwe-services.com/assets/images/og-image.jpg">
     <meta property="og:locale" content="fr_FR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.liwe-services.com/histoire-it.html">
-    <meta name="twitter:title" content="Notre Histoire - Lab Technique | Liwe">
-    <meta name="twitter:description" content="Découvrez l'histoire de Liwe Lab Technique : expertise en Data & IA, Développement, Cloud, Cybersécurité.">
+    <meta property="og:url" content="https://www.liwe-services.com/contact.html">
+    <meta name="twitter:title" content="Contact & Réseaux - Liwe">
+    <meta name="twitter:description" content="Contactez Liwe : LinkedIn, Spotify, et toutes nos coordonnées.">
     <meta name="twitter:image" content="https://www.liwe-services.com/assets/images/og-image.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -107,7 +107,7 @@
     }
     </script>
 </head>
-<body class="theme-it has-mini-sidebar">
+<body class="theme-gov has-mini-sidebar">
     <!-- Bandeau Cookies RGPD -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-banner-content">
@@ -408,7 +408,7 @@
     <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
     <!-- Bouton Switch -->
-    <button class="site-switcher" id="siteSwitcher" onclick="switchSite()">Stratégie Gouvernance</button>
+    <button class="site-switcher" id="siteSwitcher" onclick="switchSite()">Expertise IT</button>
 
     <!-- Page d'accueil -->
     <div class="welcome-screen" id="welcomeScreen" style="display: none;">
@@ -735,8 +735,8 @@
     </div>
 
     <script>
-        let currentSite = 'it';
-        let currentPage = 'pageHistoire';
+        let currentSite = 'gov';
+        let currentPage = 'pageReseaux';
         let islandAnimating = false;
         let islandTimeout = null;
 
@@ -1524,8 +1524,8 @@
             createContentPages();
             setupDropdowns();
             setupScrollEffects();
-            updateMenu(); // Initialiser le menu pour le thème IT
-            updateSearchIconVisibility(); // Initialiser l'état de l'icône recherche
+            updateMenu(); // Initialiser le menu pour le thème Gov
+            updateSearchIconVisibility();
         }
 
         // Gérer les dropdowns de questions
@@ -3271,7 +3271,7 @@
                 </div>
 
                 <!-- NOS RÉSEAUX -->
-                <div class="work-in-progress" id="pageReseaux">
+                <div class="work-in-progress active" id="pageReseaux">
                     <div class="story-container">
                         <div class="story-hero">
                             <h1 class="story-title">Nos Réseaux</h1>
@@ -3393,7 +3393,7 @@
                 </div>
 
                 <!-- NOTRE HISTOIRE -->
-                <div class="work-in-progress active" id="pageHistoire">
+                <div class="work-in-progress" id="pageHistoire">
                     <div class="story-container">
                         <div class="story-hero">
                             <h1 class="story-title">Notre Histoire</h1>
