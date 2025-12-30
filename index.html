@@ -16,6 +16,37 @@
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="gf-YeGAxwJqDhodbnHzmrwMhzXTwwaDV9Nu2CUiSTZo" />
 
+    <!-- Google Analytics 4 (chargé uniquement avec consentement) -->
+    <script>
+        // Vérifier le consentement cookies avant de charger GA
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (consent === 'accepted') {
+                loadGoogleAnalytics();
+            }
+        }
+
+        function loadGoogleAnalytics() {
+            // Charger gtag.js
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-NN119V675L';
+            document.head.appendChild(script);
+
+            // Initialiser GA4
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NN119V675L', {
+                'anonymize_ip': true,
+                'cookie_flags': 'SameSite=None;Secure'
+            });
+        }
+
+        // Vérifier au chargement de la page
+        checkCookieConsent();
+    </script>
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.liwe-services.com/">
 
@@ -36,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=125">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=126">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=125">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=125">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=125">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=126">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=126">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=126">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -77,6 +108,192 @@
     </script>
 </head>
 <body>
+    <!-- Bandeau Cookies RGPD -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner-content">
+            <div class="cookie-icon">🍪</div>
+            <div class="cookie-text">
+                <h3>Cookies et confidentialité</h3>
+                <p>Nous utilisons Google Analytics pour mesurer l'audience et améliorer votre expérience. Vos données sont anonymisées. Vous pouvez accepter ou refuser.</p>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">✓ Accepter</button>
+                <button class="cookie-btn cookie-btn-refuse" onclick="refuseCookies()">✗ Refuser</button>
+                <button class="cookie-btn cookie-btn-info" onclick="openLegalModal('mentions')">ⓘ En savoir plus</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Bandeau Cookies */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            z-index: 99999;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+
+        .cookie-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-text h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cookie-btn-accept {
+            background: #10b981;
+            color: white;
+        }
+
+        .cookie-btn-accept:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .cookie-btn-refuse {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cookie-btn-refuse:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .cookie-btn-info {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: underline;
+        }
+
+        .cookie-btn-info:hover {
+            color: white;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .cookie-banner-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .cookie-icon {
+                font-size: 24px;
+            }
+
+            .cookie-text {
+                min-width: auto;
+            }
+
+            .cookie-text h3 {
+                font-size: 16px;
+            }
+
+            .cookie-text p {
+                font-size: 13px;
+            }
+
+            .cookie-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .cookie-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script>
+        // Gestion du bandeau cookies
+        function showCookieBanner() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    document.getElementById('cookieBanner').classList.add('show');
+                }, 1000); // Apparaît après 1 seconde
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.remove('show');
+
+            // Charger Google Analytics
+            loadGoogleAnalytics();
+
+            // Message de confirmation (optionnel)
+            console.log('✅ Cookies acceptés - Google Analytics activé');
+        }
+
+        function refuseCookies() {
+            localStorage.setItem('cookieConsent', 'refused');
+            document.getElementById('cookieBanner').classList.remove('show');
+
+            console.log('❌ Cookies refusés - Google Analytics désactivé');
+        }
+
+        // Afficher le bandeau au chargement
+        window.addEventListener('load', showCookieBanner);
+    </script>
+
     <!-- Hamburger Menu Button (Mobile only) -->
     <div class="hamburger-button" id="hamburgerButton">
         <span></span>
@@ -5052,8 +5269,47 @@ IMPORTANT : Quand tu collectes les coordonnées, commence TOUJOURS ta réponse p
                     <h2>5. Données personnelles</h2>
                     <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant. Pour exercer ces droits, contactez-nous à : contact@liwe-services.com</p>
 
-                    <h2>6. Cookies</h2>
-                    <p>Ce site n'utilise pas de cookies de tracking tiers. Seuls des cookies techniques nécessaires au bon fonctionnement du site peuvent être utilisés.</p>
+                    <h2>6. Cookies et traceurs</h2>
+
+                    <h3>6.1 Qu'est-ce qu'un cookie ?</h3>
+                    <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, smartphone, tablette) lors de la visite d'un site web. Il permet de collecter des informations relatives à votre navigation.</p>
+
+                    <h3>6.2 Cookies utilisés sur ce site</h3>
+                    <p><strong>Cookies de mesure d'audience (Google Analytics)</strong></p>
+                    <p>Nous utilisons Google Analytics 4 pour mesurer l'audience de notre site et améliorer votre expérience utilisateur. Ces cookies nous permettent de :</p>
+                    <ul>
+                        <li>Comprendre comment les visiteurs utilisent notre site</li>
+                        <li>Améliorer la navigation et les contenus</li>
+                        <li>Mesurer l'efficacité de nos actions de communication</li>
+                    </ul>
+                    <p><strong>Données collectées :</strong> Pages visitées, durée de visite, provenance du trafic, type d'appareil, localisation approximative (ville/pays). Vos données sont anonymisées et votre adresse IP est tronquée.</p>
+                    <p><strong>Durée de conservation :</strong> 26 mois maximum (conformément aux recommandations CNIL)</p>
+                    <p><strong>Éditeur du cookie :</strong> Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, États-Unis</p>
+
+                    <p><strong>Cookies techniques (fonctionnement du site)</strong></p>
+                    <p>Notre site utilise également un cookie technique pour mémoriser votre choix concernant les cookies (acceptation ou refus). Ce cookie ne nécessite pas votre consentement car il est strictement nécessaire au fonctionnement du site.</p>
+                    <p><strong>Nom :</strong> cookieConsent | <strong>Durée :</strong> 365 jours | <strong>Finalité :</strong> Mémoriser votre choix</p>
+
+                    <h3>6.3 Votre consentement</h3>
+                    <p>Conformément au RGPD et à la réglementation française, nous recueillons votre consentement avant de déposer des cookies de mesure d'audience (Google Analytics). Vous pouvez :</p>
+                    <ul>
+                        <li><strong>Accepter</strong> les cookies : Google Analytics sera activé</li>
+                        <li><strong>Refuser</strong> les cookies : Aucun cookie de mesure ne sera déposé</li>
+                        <li><strong>Modifier votre choix</strong> : Supprimez le cookie "cookieConsent" dans les paramètres de votre navigateur, puis rechargez la page</li>
+                    </ul>
+
+                    <h3>6.4 Gestion des cookies dans votre navigateur</h3>
+                    <p>Vous pouvez à tout moment gérer les cookies via les paramètres de votre navigateur :</p>
+                    <ul>
+                        <li><strong>Chrome :</strong> Paramètres > Confidentialité et sécurité > Cookies</li>
+                        <li><strong>Firefox :</strong> Paramètres > Vie privée et sécurité > Cookies</li>
+                        <li><strong>Safari :</strong> Préférences > Confidentialité > Cookies</li>
+                        <li><strong>Edge :</strong> Paramètres > Cookies et autorisations de site</li>
+                    </ul>
+                    <p>Pour plus d'informations sur les cookies : <a href="https://www.cnil.fr/fr/cookies-et-autres-traceurs" target="_blank" rel="noopener">www.cnil.fr/fr/cookies-et-autres-traceurs</a></p>
+
+                    <h3>6.5 Opposition au tracking Google Analytics</h3>
+                    <p>Vous pouvez également installer l'extension de navigateur de désactivation de Google Analytics : <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a></p>
                 `;
             } else if (type === 'cgv') {
                 modalBody.innerHTML = `
