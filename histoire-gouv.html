@@ -67,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=136">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=137">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=136">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=136">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=136">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=137">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=137">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=137">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -341,13 +341,13 @@
         <!-- Bouton switcher IT/GOUV -->
         <div class="sidebar-switcher" id="sidebarSwitcher" onclick="toggleTheme()">
             <div class="sidebar-switcher-icon">💻</div>
-            <div class="sidebar-switcher-text">Gouv</div>
+            <div class="sidebar-switcher-text">Strat</div>
         </div>
 
         <div class="mini-sidebar-separator"></div>
 
         <!-- Burger Menu Desktop - Ouvre menu complet -->
-        <div class="mini-sidebar-item burger-desktop" data-tooltip="Menu complet" onclick="openFullMenu()">
+        <div class="mini-sidebar-item burger-desktop" data-tooltip="Menu" onclick="openFullMenu()">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -1503,8 +1503,8 @@
                 if (landingIT) landingIT.classList.add('active');
                 if (landingGov) landingGov.classList.remove('active');
 
-                // Changer le texte du bouton: afficher "Gouv" (car on est maintenant sur IT)
-                if (switcherText) switcherText.textContent = 'Gouv';
+                // Changer le texte du bouton: afficher "Strat" (car on est maintenant sur Tech)
+                if (switcherText) switcherText.textContent = 'Strat';
 
                 // Mettre à jour la sidebar
                 if (miniSidebar) miniSidebar.classList.add('visible');
@@ -1518,8 +1518,8 @@
                 if (landingGov) landingGov.classList.add('active');
                 if (landingIT) landingIT.classList.remove('active');
 
-                // Changer le texte du bouton: afficher "IT" (car on est maintenant sur GOV)
-                if (switcherText) switcherText.textContent = 'IT';
+                // Changer le texte du bouton: afficher "Tech" (car on est maintenant sur Strat)
+                if (switcherText) switcherText.textContent = 'Tech';
 
                 // Mettre à jour la sidebar
                 if (miniSidebar) miniSidebar.classList.add('visible');
@@ -1922,15 +1922,15 @@
                 document.body.classList.remove('theme-gov');
                 document.getElementById('landingIT').classList.add('active');
                 document.getElementById('siteSwitcher').textContent = 'Stratégie Gouvernance';
-                // Mettre à jour le bouton sidebar: sur IT, afficher "Gouv"
-                if (switcherText) switcherText.textContent = 'Gouv';
+                // Mettre à jour le bouton sidebar: sur Tech, afficher "Strat"
+                if (switcherText) switcherText.textContent = 'Strat';
             } else {
                 document.body.classList.add('theme-gov');
                 document.body.classList.remove('theme-it');
                 document.getElementById('landingGov').classList.add('active');
                 document.getElementById('siteSwitcher').textContent = 'Expertise IT';
-                // Mettre à jour le bouton sidebar: sur GOV, afficher "IT"
-                if (switcherText) switcherText.textContent = 'IT';
+                // Mettre à jour le bouton sidebar: sur Strat, afficher "Tech"
+                if (switcherText) switcherText.textContent = 'Tech';
             }
 
             document.getElementById('siteSwitcher').classList.add('visible');

@@ -673,7 +673,7 @@
 
         /* Thème Gov - couleur adaptée */
         body.theme-gov .mini-sidebar-item.burger-desktop svg {
-            stroke: rgba(26, 26, 26, 0.7);
+            stroke: rgba(245, 245, 247, 0.7);
         }
 
         body.theme-gov .mini-sidebar-item.burger-desktop:hover svg {
@@ -700,7 +700,7 @@
             margin: 10px 0;
         }
 
-        /* Bouton switcher IT/GOUV circulaire en haut de sidebar - Style premium */
+        /* Bouton switcher Tech/Strat circulaire en haut de sidebar - Style premium */
         .sidebar-switcher {
             width: 55px;
             height: 55px;
@@ -780,12 +780,12 @@
             letter-spacing: 0.5px;
         }
 
-        /* Sur thème IT: afficher "Gouv" en ivoire */
+        /* Sur thème Tech: afficher "Strat" en ivoire */
         body.theme-it .sidebar-switcher-text {
             color: #f5f5f7;
         }
 
-        /* Sur thème GOV: afficher "IT" en terracotta premium */
+        /* Sur thème Strat: afficher "Tech" en terracotta premium */
         body.theme-gov .sidebar-switcher-text {
             color: #FF7F5C; /* Match landing IT */
         }
