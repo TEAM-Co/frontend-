@@ -67,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=141">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=142">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=141">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=141">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=141">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=142">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=142">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=142">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -1997,6 +1997,8 @@
                 const hamburgerButton = document.getElementById('hamburgerButton');
                 if (hamburgerButton) hamburgerButton.classList.remove('active');
                 if (mobileMenu) mobileMenu.classList.remove('open');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
             }
 
             // Ne PAS recréer le menu si le sidebar est ouvert
