@@ -440,6 +440,11 @@
             display: flex !important; /* AFFICHER le logo sur welcome */
         }
 
+        /* Logo visible avec classe .visible - Pour landing pages */
+        .logo-btn.visible {
+            display: flex !important;
+        }
+
         .logo-btn:hover {
             transform: scale(1.1);
         }
@@ -1722,7 +1727,9 @@
         .choice-button {
             flex: 1;
             max-width: 540px;
-            height: 240px;
+            min-height: 220px;
+            height: auto;
+            max-height: 240px;
             padding: 40px 30px;
             display: flex;
             flex-direction: column;

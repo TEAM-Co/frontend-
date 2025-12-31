@@ -134,7 +134,9 @@
     .choice-button {
         padding: 30px 20px;
         max-width: 100%;
-        height: 220px;
+        min-height: 200px;
+        height: auto;
+        max-height: 200px;
         -webkit-tap-highlight-color: rgba(255, 127, 92, 0.2);
         touch-action: manipulation;
         display: flex;
@@ -162,6 +164,7 @@
         line-height: 1.5;
         padding: 0 10px;
         margin-top: 10px;
+        margin-bottom: 80px;
     }
 
     .welcome-baseline br {
@@ -1095,7 +1098,7 @@
        ======================================== */
 
     .social-buttons {
-        bottom: 20px;
+        bottom: 40px;
         left: 50%;
         transform: translateX(-50%);
         padding: 10px 15px;
