@@ -67,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=143">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=144">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=143">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=143">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=143">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=144">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=144">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=144">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -405,7 +405,7 @@
             <button class="sidebar-close" onclick="toggleSidebar()">×</button>
             
             <div class="sidebar-brand">
-                <h2>Liwe</h2>
+                <h2>LIWE</h2>
                 <p>Services. Solutions. Sans limites.</p>
             </div>
 
@@ -1999,6 +1999,14 @@
                 if (mobileMenu) mobileMenu.classList.remove('open');
                 document.body.classList.remove('menu-open');
                 document.body.style.overflow = '';
+            }
+
+            // Restaurer le logo explicitement après switch de thème
+            const logoBtn = document.getElementById('logoBtn');
+            if (logoBtn) {
+                logoBtn.classList.add('visible');
+                logoBtn.style.opacity = '1';
+                logoBtn.style.pointerEvents = 'auto';
             }
 
             // Ne PAS recréer le menu si le sidebar est ouvert
