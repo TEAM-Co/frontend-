@@ -134,9 +134,9 @@
     .choice-button {
         padding: 30px 20px;
         max-width: 100%;
-        min-height: 200px;
+        min-height: 160px;
         height: auto;
-        max-height: 200px;
+        max-height: 170px;
         -webkit-tap-highlight-color: rgba(255, 127, 92, 0.2);
         touch-action: manipulation;
         display: flex;
@@ -164,7 +164,7 @@
         line-height: 1.5;
         padding: 0 10px;
         margin-top: 10px;
-        margin-bottom: 80px;
+        margin-bottom: 60px;
     }
 
     .welcome-baseline br {
@@ -1240,7 +1240,7 @@
     }
 
     .social-buttons {
-        bottom: calc(25px + env(safe-area-inset-bottom));
+        bottom: calc(40px + env(safe-area-inset-bottom));
     }
 
     /* Performances - will-change pour éléments animés */
@@ -1382,7 +1382,7 @@
 
     /* Social buttons safety */
     .social-buttons {
-        bottom: 25px; /* Au lieu de 20px */
+        bottom: 40px; /* Au lieu de 20px */
     }
 
     /* Expertise modal confort */
@@ -2745,10 +2745,10 @@
     }
 
     /* Cacher le logo sur mobile quand menu ou modal ouvert */
-    body.menu-open #logoBtn,
-    body.modal-open #logoBtn,
-    body.menu-open .logo-btn,
-    body.modal-open .logo-btn {
+    body.menu-open:not(.welcome-mode) #logoBtn:not(.visible),
+    body.modal-open:not(.welcome-mode) #logoBtn:not(.visible),
+    body.menu-open:not(.welcome-mode) .logo-btn:not(.visible),
+    body.modal-open:not(.welcome-mode) .logo-btn:not(.visible) {
         opacity: 0 !important;
         pointer-events: none !important;
         transition: opacity 0.3s ease;
