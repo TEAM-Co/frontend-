@@ -631,6 +631,25 @@
         color: rgba(26, 26, 26, 0.6);
     }
 
+    /* ========================================
+       SWITCHER MOBILE - ACTION PRIMARY GOV
+       ======================================== */
+
+    /* Switcher Gov sur mobile - Couleurs subtiles comme autres items */
+    body.theme-gov .menu-action-primary {
+        background: rgba(26, 26, 26, 0.08) !important;
+        border-color: rgba(26, 26, 26, 0.2) !important;
+        color: rgba(26, 26, 26, 0.9) !important;
+        box-shadow: 0 2px 8px rgba(26, 26, 26, 0.1) !important;
+    }
+
+    body.theme-gov .menu-action-primary:hover,
+    body.theme-gov .menu-action-primary:active {
+        background: rgba(160, 82, 45, 0.2) !important;
+        border-color: rgba(160, 82, 45, 0.5) !important;
+        box-shadow: 0 4px 16px rgba(160, 82, 45, 0.25) !important;
+    }
+
     .sidebar-section {
         margin-bottom: 30px;
     }
