@@ -3694,6 +3694,14 @@
             transform: rotate(90deg);
         }
 
+        body.theme-gov .legal-modal-close {
+            color: rgba(26, 26, 26, 0.9);
+        }
+
+        body.theme-gov .legal-modal-close:hover {
+            color: #FF7F5C;
+        }
+
         .legal-modal-body {
             color: rgba(245, 245, 247, 0.9);
             line-height: 1.8;

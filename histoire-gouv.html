@@ -67,11 +67,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Styles de base -->
-    <link rel="stylesheet" href="assets/css/styles-base.css?v=140">
+    <link rel="stylesheet" href="assets/css/styles-base.css?v=141">
     <!-- Styles responsives par device -->
-    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=140">
-    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=140">
-    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=140">
+    <link rel="stylesheet" href="assets/css/styles-mobile.css?v=141">
+    <link rel="stylesheet" href="assets/css/styles-tablet.css?v=141">
+    <link rel="stylesheet" href="assets/css/styles-desktop.css?v=141">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -1675,6 +1675,13 @@
         
         // Event listeners pour la touche Entrée
         document.addEventListener('DOMContentLoaded', function() {
+            // Empêcher le navigateur de restaurer la position de scroll après refresh
+            if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+            }
+            // Forcer le scroll en haut au chargement
+            window.scrollTo(0, 0);
+
             const questionInputIT = document.getElementById('questionInput');
             const questionInputGov = document.getElementById('questionInputGov');
             
